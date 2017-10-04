@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0528CD29E51FB9F4E643AE3D /* Pods_PrecioScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21711979D3BFC5050CB3B4E5 /* Pods_PrecioScan.framework */; };
 		30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6211F85977E001CE3B8 /* AppDelegate.swift */; };
 		30FFE6241F85977E001CE3B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6231F85977E001CE3B8 /* ViewController.swift */; };
 		30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6251F85977E001CE3B8 /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */; };
 		30FFE6371F85977E001CE3B8 /* PrecioScanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6361F85977E001CE3B8 /* PrecioScanTests.swift */; };
 		30FFE6421F85977E001CE3B8 /* PrecioScanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6411F85977E001CE3B8 /* PrecioScanUITests.swift */; };
+		666561EDA52DB1BAAEBA3B3A /* Pods_PrecioScanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5EB06121EA012ADC4D6797 /* Pods_PrecioScanUITests.framework */; };
+		F6E47D820B37E3A83C07FB74 /* Pods_PrecioScanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE9B266A0EFB06CF317C4466 /* Pods_PrecioScanTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0AAAD7346DF821F431583F23 /* Pods-PrecioScanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScanTests/Pods-PrecioScanTests.release.xcconfig"; sourceTree = "<group>"; };
+		21711979D3BFC5050CB3B4E5 /* Pods_PrecioScan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F655A3BDDA6A82F5F6981B2 /* Pods-PrecioScanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScanUITests/Pods-PrecioScanUITests.release.xcconfig"; sourceTree = "<group>"; };
 		30FFE61E1F85977E001CE3B8 /* PrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FFE6211F85977E001CE3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30FFE6231F85977E001CE3B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,12 @@
 		30FFE63D1F85977E001CE3B8 /* PrecioScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrecioScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FFE6411F85977E001CE3B8 /* PrecioScanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecioScanUITests.swift; sourceTree = "<group>"; };
 		30FFE6431F85977E001CE3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4156FBB940111A35BD279D0D /* Pods-PrecioScanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScanTests/Pods-PrecioScanTests.debug.xcconfig"; sourceTree = "<group>"; };
+		42CACF8C67CE87D680AF42D8 /* Pods-PrecioScan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScan/Pods-PrecioScan.debug.xcconfig"; sourceTree = "<group>"; };
+		9B5EB06121EA012ADC4D6797 /* Pods_PrecioScanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE9B266A0EFB06CF317C4466 /* Pods_PrecioScanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB7E8D53036E3E9AE05BB878 /* Pods-PrecioScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScan.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScan/Pods-PrecioScan.release.xcconfig"; sourceTree = "<group>"; };
+		F780BF0F7F1734FBBBC13754 /* Pods-PrecioScanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScanUITests/Pods-PrecioScanUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0528CD29E51FB9F4E643AE3D /* Pods_PrecioScan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E47D820B37E3A83C07FB74 /* Pods_PrecioScanTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				666561EDA52DB1BAAEBA3B3A /* Pods_PrecioScanUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,8 @@
 				30FFE6351F85977E001CE3B8 /* PrecioScanTests */,
 				30FFE6401F85977E001CE3B8 /* PrecioScanUITests */,
 				30FFE61F1F85977E001CE3B8 /* Products */,
+				440E08B9AFB5E1578FA15A06 /* Pods */,
+				44EB93D0A13394B089405FEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +142,29 @@
 			path = PrecioScanUITests;
 			sourceTree = "<group>";
 		};
+		440E08B9AFB5E1578FA15A06 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42CACF8C67CE87D680AF42D8 /* Pods-PrecioScan.debug.xcconfig */,
+				EB7E8D53036E3E9AE05BB878 /* Pods-PrecioScan.release.xcconfig */,
+				4156FBB940111A35BD279D0D /* Pods-PrecioScanTests.debug.xcconfig */,
+				0AAAD7346DF821F431583F23 /* Pods-PrecioScanTests.release.xcconfig */,
+				F780BF0F7F1734FBBBC13754 /* Pods-PrecioScanUITests.debug.xcconfig */,
+				2F655A3BDDA6A82F5F6981B2 /* Pods-PrecioScanUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		44EB93D0A13394B089405FEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				21711979D3BFC5050CB3B4E5 /* Pods_PrecioScan.framework */,
+				DE9B266A0EFB06CF317C4466 /* Pods_PrecioScanTests.framework */,
+				9B5EB06121EA012ADC4D6797 /* Pods_PrecioScanUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30FFE6461F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScan" */;
 			buildPhases = (
+				703B52D5F9A45E706CE47142 /* [CP] Check Pods Manifest.lock */,
 				30FFE61A1F85977E001CE3B8 /* Sources */,
 				30FFE61B1F85977E001CE3B8 /* Frameworks */,
 				30FFE61C1F85977E001CE3B8 /* Resources */,
+				98CBEB341EF89119CBB7E9BB /* [CP] Embed Pods Frameworks */,
+				FC91120FFA8403ABF2132FC3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30FFE6491F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScanTests" */;
 			buildPhases = (
+				BDE35EE5D816E7811757C1C9 /* [CP] Check Pods Manifest.lock */,
 				30FFE62E1F85977E001CE3B8 /* Sources */,
 				30FFE62F1F85977E001CE3B8 /* Frameworks */,
 				30FFE6301F85977E001CE3B8 /* Resources */,
+				C09B700C0B3B48D79D23A578 /* [CP] Embed Pods Frameworks */,
+				A9143923ECC716B366614211 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +213,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30FFE64C1F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScanUITests" */;
 			buildPhases = (
+				22DC8226379B2C4AAF8B3663 /* [CP] Check Pods Manifest.lock */,
 				30FFE6391F85977E001CE3B8 /* Sources */,
 				30FFE63A1F85977E001CE3B8 /* Frameworks */,
 				30FFE63B1F85977E001CE3B8 /* Resources */,
+				03DDB2E312F38B78F3D9635A /* [CP] Embed Pods Frameworks */,
+				C3D90DFA5033CBE31EA9D5C7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +302,168 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03DDB2E312F38B78F3D9635A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrecioScanUITests/Pods-PrecioScanUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22DC8226379B2C4AAF8B3663 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PrecioScanUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		703B52D5F9A45E706CE47142 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PrecioScan-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98CBEB341EF89119CBB7E9BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PrecioScan/Pods-PrecioScan-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlecrimCoreData/AlecrimCoreData.framework",
+				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlecrimCoreData.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrecioScan/Pods-PrecioScan-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9143923ECC716B366614211 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrecioScanTests/Pods-PrecioScanTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDE35EE5D816E7811757C1C9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PrecioScanTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C09B700C0B3B48D79D23A578 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrecioScanTests/Pods-PrecioScanTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3D90DFA5033CBE31EA9D5C7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrecioScanUITests/Pods-PrecioScanUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC91120FFA8403ABF2132FC3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PrecioScan/Pods-PrecioScan-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		30FFE61A1F85977E001CE3B8 /* Sources */ = {
@@ -424,6 +635,7 @@
 		};
 		30FFE6471F85977E001CE3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42CACF8C67CE87D680AF42D8 /* Pods-PrecioScan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -440,6 +652,7 @@
 		};
 		30FFE6481F85977E001CE3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB7E8D53036E3E9AE05BB878 /* Pods-PrecioScan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -456,6 +669,7 @@
 		};
 		30FFE64A1F85977E001CE3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4156FBB940111A35BD279D0D /* Pods-PrecioScanTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +687,7 @@
 		};
 		30FFE64B1F85977E001CE3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AAAD7346DF821F431583F23 /* Pods-PrecioScanTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +705,7 @@
 		};
 		30FFE64D1F85977E001CE3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F780BF0F7F1734FBBBC13754 /* Pods-PrecioScanUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -506,6 +722,7 @@
 		};
 		30FFE64E1F85977E001CE3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F655A3BDDA6A82F5F6981B2 /* Pods-PrecioScanUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

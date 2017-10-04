@@ -1,0 +1,43 @@
+PODS:
+  - Alamofire (4.5.1)
+  - AlamofireImage (3.3.0):
+    - Alamofire (~> 4.5)
+  - AlecrimCoreData (5.0)
+  - AsyncSwift (2.0.1)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
+  - IQKeyboardManagerSwift (5.0.2)
+  - PopupDialog (0.5.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5)
+  - AlamofireImage (~> 3.3)
+  - AlecrimCoreData (~> 5.0)
+  - AsyncSwift
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
+  - IQKeyboardManagerSwift
+  - PopupDialog (~> 0.5)
+
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :branch: wip/swift4
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  AlecrimCoreData: f1251de3630f4d4d3a212e405298084c229cef29
+  AsyncSwift: 632138e42ead868b53c745fcde9bf733ce1527ad
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  IQKeyboardManagerSwift: e580da046d804d2836ee84668cc17e43a850a35d
+  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
+
+PODFILE CHECKSUM: 637b40eee3a9f69339e64bfbc01e9478ca1cb0b0
+
+COCOAPODS: 1.3.1
