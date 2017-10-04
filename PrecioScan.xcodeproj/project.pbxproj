@@ -1,0 +1,563 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6211F85977E001CE3B8 /* AppDelegate.swift */; };
+		30FFE6241F85977E001CE3B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6231F85977E001CE3B8 /* ViewController.swift */; };
+		30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6251F85977E001CE3B8 /* Main.storyboard */; };
+		30FFE6291F85977E001CE3B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6281F85977E001CE3B8 /* Assets.xcassets */; };
+		30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */; };
+		30FFE6371F85977E001CE3B8 /* PrecioScanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6361F85977E001CE3B8 /* PrecioScanTests.swift */; };
+		30FFE6421F85977E001CE3B8 /* PrecioScanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6411F85977E001CE3B8 /* PrecioScanUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		30FFE6331F85977E001CE3B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30FFE6161F85977E001CE3B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30FFE61D1F85977E001CE3B8;
+			remoteInfo = PrecioScan;
+		};
+		30FFE63E1F85977E001CE3B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30FFE6161F85977E001CE3B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 30FFE61D1F85977E001CE3B8;
+			remoteInfo = PrecioScan;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		30FFE61E1F85977E001CE3B8 /* PrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FFE6211F85977E001CE3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		30FFE6231F85977E001CE3B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		30FFE6261F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		30FFE6281F85977E001CE3B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30FFE62B1F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30FFE62D1F85977E001CE3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30FFE6321F85977E001CE3B8 /* PrecioScanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrecioScanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FFE6361F85977E001CE3B8 /* PrecioScanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecioScanTests.swift; sourceTree = "<group>"; };
+		30FFE6381F85977E001CE3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30FFE63D1F85977E001CE3B8 /* PrecioScanUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PrecioScanUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FFE6411F85977E001CE3B8 /* PrecioScanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecioScanUITests.swift; sourceTree = "<group>"; };
+		30FFE6431F85977E001CE3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30FFE61B1F85977E001CE3B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FFE62F1F85977E001CE3B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FFE63A1F85977E001CE3B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30FFE6151F85977E001CE3B8 = {
+			isa = PBXGroup;
+			children = (
+				30FFE6201F85977E001CE3B8 /* PrecioScan */,
+				30FFE6351F85977E001CE3B8 /* PrecioScanTests */,
+				30FFE6401F85977E001CE3B8 /* PrecioScanUITests */,
+				30FFE61F1F85977E001CE3B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30FFE61F1F85977E001CE3B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30FFE61E1F85977E001CE3B8 /* PrecioScan.app */,
+				30FFE6321F85977E001CE3B8 /* PrecioScanTests.xctest */,
+				30FFE63D1F85977E001CE3B8 /* PrecioScanUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30FFE6201F85977E001CE3B8 /* PrecioScan */ = {
+			isa = PBXGroup;
+			children = (
+				30FFE6211F85977E001CE3B8 /* AppDelegate.swift */,
+				30FFE6231F85977E001CE3B8 /* ViewController.swift */,
+				30FFE6251F85977E001CE3B8 /* Main.storyboard */,
+				30FFE6281F85977E001CE3B8 /* Assets.xcassets */,
+				30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */,
+				30FFE62D1F85977E001CE3B8 /* Info.plist */,
+			);
+			path = PrecioScan;
+			sourceTree = "<group>";
+		};
+		30FFE6351F85977E001CE3B8 /* PrecioScanTests */ = {
+			isa = PBXGroup;
+			children = (
+				30FFE6361F85977E001CE3B8 /* PrecioScanTests.swift */,
+				30FFE6381F85977E001CE3B8 /* Info.plist */,
+			);
+			path = PrecioScanTests;
+			sourceTree = "<group>";
+		};
+		30FFE6401F85977E001CE3B8 /* PrecioScanUITests */ = {
+			isa = PBXGroup;
+			children = (
+				30FFE6411F85977E001CE3B8 /* PrecioScanUITests.swift */,
+				30FFE6431F85977E001CE3B8 /* Info.plist */,
+			);
+			path = PrecioScanUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30FFE61D1F85977E001CE3B8 /* PrecioScan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30FFE6461F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScan" */;
+			buildPhases = (
+				30FFE61A1F85977E001CE3B8 /* Sources */,
+				30FFE61B1F85977E001CE3B8 /* Frameworks */,
+				30FFE61C1F85977E001CE3B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PrecioScan;
+			productName = PrecioScan;
+			productReference = 30FFE61E1F85977E001CE3B8 /* PrecioScan.app */;
+			productType = "com.apple.product-type.application";
+		};
+		30FFE6311F85977E001CE3B8 /* PrecioScanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30FFE6491F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScanTests" */;
+			buildPhases = (
+				30FFE62E1F85977E001CE3B8 /* Sources */,
+				30FFE62F1F85977E001CE3B8 /* Frameworks */,
+				30FFE6301F85977E001CE3B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30FFE6341F85977E001CE3B8 /* PBXTargetDependency */,
+			);
+			name = PrecioScanTests;
+			productName = PrecioScanTests;
+			productReference = 30FFE6321F85977E001CE3B8 /* PrecioScanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		30FFE63C1F85977E001CE3B8 /* PrecioScanUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30FFE64C1F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScanUITests" */;
+			buildPhases = (
+				30FFE6391F85977E001CE3B8 /* Sources */,
+				30FFE63A1F85977E001CE3B8 /* Frameworks */,
+				30FFE63B1F85977E001CE3B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30FFE63F1F85977E001CE3B8 /* PBXTargetDependency */,
+			);
+			name = PrecioScanUITests;
+			productName = PrecioScanUITests;
+			productReference = 30FFE63D1F85977E001CE3B8 /* PrecioScanUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30FFE6161F85977E001CE3B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Felix Olivares";
+				TargetAttributes = {
+					30FFE61D1F85977E001CE3B8 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					30FFE6311F85977E001CE3B8 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 30FFE61D1F85977E001CE3B8;
+					};
+					30FFE63C1F85977E001CE3B8 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 30FFE61D1F85977E001CE3B8;
+					};
+				};
+			};
+			buildConfigurationList = 30FFE6191F85977E001CE3B8 /* Build configuration list for PBXProject "PrecioScan" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30FFE6151F85977E001CE3B8;
+			productRefGroup = 30FFE61F1F85977E001CE3B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30FFE61D1F85977E001CE3B8 /* PrecioScan */,
+				30FFE6311F85977E001CE3B8 /* PrecioScanTests */,
+				30FFE63C1F85977E001CE3B8 /* PrecioScanUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30FFE61C1F85977E001CE3B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */,
+				30FFE6291F85977E001CE3B8 /* Assets.xcassets in Resources */,
+				30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FFE6301F85977E001CE3B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FFE63B1F85977E001CE3B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30FFE61A1F85977E001CE3B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30FFE6241F85977E001CE3B8 /* ViewController.swift in Sources */,
+				30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FFE62E1F85977E001CE3B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30FFE6371F85977E001CE3B8 /* PrecioScanTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		30FFE6391F85977E001CE3B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30FFE6421F85977E001CE3B8 /* PrecioScanUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30FFE6341F85977E001CE3B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30FFE61D1F85977E001CE3B8 /* PrecioScan */;
+			targetProxy = 30FFE6331F85977E001CE3B8 /* PBXContainerItemProxy */;
+		};
+		30FFE63F1F85977E001CE3B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 30FFE61D1F85977E001CE3B8 /* PrecioScan */;
+			targetProxy = 30FFE63E1F85977E001CE3B8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		30FFE6251F85977E001CE3B8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30FFE6261F85977E001CE3B8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30FFE62B1F85977E001CE3B8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30FFE6441F85977E001CE3B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30FFE6451F85977E001CE3B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30FFE6471F85977E001CE3B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = PrecioScan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30FFE6481F85977E001CE3B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = PrecioScan/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		30FFE64A1F85977E001CE3B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = PrecioScanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrecioScan.app/PrecioScan";
+			};
+			name = Debug;
+		};
+		30FFE64B1F85977E001CE3B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = PrecioScanTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrecioScan.app/PrecioScan";
+			};
+			name = Release;
+		};
+		30FFE64D1F85977E001CE3B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = PrecioScanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PrecioScan;
+			};
+			name = Debug;
+		};
+		30FFE64E1F85977E001CE3B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = PrecioScanUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PrecioScan;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30FFE6191F85977E001CE3B8 /* Build configuration list for PBXProject "PrecioScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30FFE6441F85977E001CE3B8 /* Debug */,
+				30FFE6451F85977E001CE3B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30FFE6461F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30FFE6471F85977E001CE3B8 /* Debug */,
+				30FFE6481F85977E001CE3B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30FFE6491F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30FFE64A1F85977E001CE3B8 /* Debug */,
+				30FFE64B1F85977E001CE3B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30FFE64C1F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScanUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30FFE64D1F85977E001CE3B8 /* Debug */,
+				30FFE64E1F85977E001CE3B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30FFE6161F85977E001CE3B8 /* Project object */;
+}
