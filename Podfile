@@ -6,13 +6,10 @@ target 'PrecioScan' do
   use_frameworks!
 
   # Pods for PrecioScan
-  pod 'AlecrimCoreData', '~> 5.0'
   pod 'IQKeyboardManagerSwift'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4'
-  pod 'AsyncSwift'
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireImage', '~> 3.3'
-  pod 'PopupDialog', '~> 0.5'
 
   target 'PrecioScanTests' do
     inherit! :search_paths
