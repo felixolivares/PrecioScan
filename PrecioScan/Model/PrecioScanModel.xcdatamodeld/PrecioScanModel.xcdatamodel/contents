@@ -1,30 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Article" representedClassName="Article" parentEntity="Entity" syncable="YES" codeGenerationType="class">
+    <entity name="Article" representedClassName=".Article" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="itemList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemList" inverseName="article" inverseEntity="ItemList" syncable="YES"/>
     </entity>
-    <entity name="Entity" representedClassName="Entity" isAbstract="YES" syncable="YES" codeGenerationType="class">
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <entity name="ItemList" representedClassName="ItemList" parentEntity="Entity" syncable="YES" codeGenerationType="class">
+    <entity name="ItemList" representedClassName=".ItemList" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="photoName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="totalPrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="unitaryPrice" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="totalPrice" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="unitaryPrice" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="article" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Article" inverseName="itemList" inverseEntity="Article" syncable="YES"/>
         <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="itemList" inverseEntity="List" syncable="YES"/>
         <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="itemList" inverseEntity="Store" syncable="YES"/>
     </entity>
-    <entity name="List" representedClassName="List" parentEntity="Entity" syncable="YES" codeGenerationType="class">
+    <entity name="List" representedClassName=".List" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="itemList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemList" inverseName="list" inverseEntity="ItemList" syncable="YES"/>
         <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="list" inverseEntity="Store" syncable="YES"/>
     </entity>
-    <entity name="Store" representedClassName="Store" parentEntity="Entity" syncable="YES" codeGenerationType="class">
+    <entity name="Store" representedClassName=".Store" syncable="YES">
         <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -33,9 +30,8 @@
     </entity>
     <elements>
         <element name="Article" positionX="-450" positionY="-81" width="128" height="88"/>
-        <element name="Store" positionX="-522" positionY="99" width="128" height="118"/>
         <element name="ItemList" positionX="-162" positionY="-64" width="128" height="163"/>
         <element name="List" positionX="70" positionY="122" width="128" height="103"/>
-        <element name="Entity" positionX="-126" positionY="-207" width="128" height="58"/>
+        <element name="Store" positionX="-522" positionY="99" width="128" height="118"/>
     </elements>
 </model>

@@ -10,7 +10,8 @@ target 'PrecioScan' do
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4'
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireImage', '~> 3.3'
-
+  pod 'JSQCoreDataKit'
+  
   target 'PrecioScanTests' do
     inherit! :search_paths
     # Pods for testing

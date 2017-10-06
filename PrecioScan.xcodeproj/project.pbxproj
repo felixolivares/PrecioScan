@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3050A49B1F86F35300AD60D7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A49A1F86F35300AD60D7 /* Store.swift */; };
+		3050A49D1F86F38C00AD60D7 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A49C1F86F38C00AD60D7 /* Article.swift */; };
+		3050A49F1F86F3C200AD60D7 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A49E1F86F3C200AD60D7 /* ItemList.swift */; };
+		3050A4A51F86FFF700AD60D7 /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4A41F86FFF700AD60D7 /* ListsViewController.swift */; };
+		3050A4AB1F8701FD00AD60D7 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4A91F8701FD00AD60D7 /* ListTableViewCell.swift */; };
+		3050A4AC1F8701FD00AD60D7 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3050A4AA1F8701FD00AD60D7 /* ListTableViewCell.xib */; };
+		3050A4AF1F870A8D00AD60D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4AE1F870A8D00AD60D7 /* Model.swift */; };
+		3050A4B21F870D3D00AD60D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4B11F870D3D00AD60D7 /* Constants.swift */; };
+		3050A4B41F8713C300AD60D7 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */; };
+		309228501F86ED6100D6AA6A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092284F1F86ED6100D6AA6A /* List.swift */; };
 		30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6211F85977E001CE3B8 /* AppDelegate.swift */; };
-		30FFE6241F85977E001CE3B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6231F85977E001CE3B8 /* ViewController.swift */; };
 		30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6251F85977E001CE3B8 /* Main.storyboard */; };
 		30FFE6291F85977E001CE3B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6281F85977E001CE3B8 /* Assets.xcassets */; };
 		30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */; };
@@ -39,9 +48,18 @@
 
 /* Begin PBXFileReference section */
 		1DF3F025C91EB7794508F0A8 /* Pods_PrecioScanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3050A49A1F86F35300AD60D7 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		3050A49C1F86F38C00AD60D7 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		3050A49E1F86F3C200AD60D7 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
+		3050A4A41F86FFF700AD60D7 /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
+		3050A4A91F8701FD00AD60D7 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		3050A4AA1F8701FD00AD60D7 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		3050A4AE1F870A8D00AD60D7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3050A4B11F870D3D00AD60D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
+		3092284F1F86ED6100D6AA6A /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		30FFE61E1F85977E001CE3B8 /* PrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FFE6211F85977E001CE3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30FFE6231F85977E001CE3B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		30FFE6261F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		30FFE6281F85977E001CE3B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30FFE62B1F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -91,10 +109,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3050A4A01F86FE5A00AD60D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3050A4A61F8701D100AD60D7 /* Cells */,
+				30FFE6251F85977E001CE3B8 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3050A4A11F86FE6500AD60D7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3050A4AD1F87020600AD60D7 /* Cells */,
+				3050A4A41F86FFF700AD60D7 /* ListsViewController.swift */,
+				3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3050A4A61F8701D100AD60D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3050A4AA1F8701FD00AD60D7 /* ListTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3050A4AD1F87020600AD60D7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3050A4A91F8701FD00AD60D7 /* ListTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3050A4B01F870D2D00AD60D7 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3050A4B11F870D3D00AD60D7 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		30FFE6151F85977E001CE3B8 = {
 			isa = PBXGroup;
 			children = (
-				30FFE6551F85B25F001CE3B8 /* Model */,
 				30FFE6201F85977E001CE3B8 /* PrecioScan */,
 				30FFE6351F85977E001CE3B8 /* PrecioScanTests */,
 				30FFE6401F85977E001CE3B8 /* PrecioScanUITests */,
@@ -117,9 +177,11 @@
 		30FFE6201F85977E001CE3B8 /* PrecioScan */ = {
 			isa = PBXGroup;
 			children = (
+				3050A4B01F870D2D00AD60D7 /* Utilities */,
+				30FFE6551F85B25F001CE3B8 /* Model */,
+				3050A4A11F86FE6500AD60D7 /* Controllers */,
+				3050A4A01F86FE5A00AD60D7 /* Views */,
 				30FFE6211F85977E001CE3B8 /* AppDelegate.swift */,
-				30FFE6231F85977E001CE3B8 /* ViewController.swift */,
-				30FFE6251F85977E001CE3B8 /* Main.storyboard */,
 				30FFE6281F85977E001CE3B8 /* Assets.xcassets */,
 				30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */,
 				30FFE62D1F85977E001CE3B8 /* Info.plist */,
@@ -149,6 +211,11 @@
 			isa = PBXGroup;
 			children = (
 				30FFE6561F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld */,
+				3092284F1F86ED6100D6AA6A /* List.swift */,
+				3050A49A1F86F35300AD60D7 /* Store.swift */,
+				3050A49C1F86F38C00AD60D7 /* Article.swift */,
+				3050A49E1F86F3C200AD60D7 /* ItemList.swift */,
+				3050A4AE1F870A8D00AD60D7 /* Model.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */,
+				3050A4AC1F8701FD00AD60D7 /* ListTableViewCell.xib in Resources */,
 				30FFE6291F85977E001CE3B8 /* Assets.xcassets in Resources */,
 				30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */,
 			);
@@ -374,6 +442,7 @@
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQCoreDataKit/JSQCoreDataKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -381,6 +450,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQCoreDataKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -475,7 +545,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30FFE6241F85977E001CE3B8 /* ViewController.swift in Sources */,
+				3050A4AF1F870A8D00AD60D7 /* Model.swift in Sources */,
+				3050A4A51F86FFF700AD60D7 /* ListsViewController.swift in Sources */,
+				3050A4AB1F8701FD00AD60D7 /* ListTableViewCell.swift in Sources */,
+				3050A49B1F86F35300AD60D7 /* Store.swift in Sources */,
+				3050A49D1F86F38C00AD60D7 /* Article.swift in Sources */,
+				3050A4B21F870D3D00AD60D7 /* Constants.swift in Sources */,
+				3050A49F1F86F3C200AD60D7 /* ItemList.swift in Sources */,
+				3050A4B41F8713C300AD60D7 /* CreateListViewController.swift in Sources */,
+				309228501F86ED6100D6AA6A /* List.swift in Sources */,
 				30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */,
 				30FFE6581F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld in Sources */,
 			);
