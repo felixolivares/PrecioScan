@@ -35,6 +35,16 @@ public final class ItemList: NSManagedObject, CoreDataEntityProtocol{
         self.store = store
     }
     
+    public class func create(_ context: NSManagedObjectContext, date: Date, photoName: String?, quantity: Int32, unitaryPrice: Decimal, article: Article, list: List, store: Store) -> ItemList{
+        let totalPrice = Decimal(quantity) * (unitaryPrice as Decimal)
+        return ItemList(context: context, date: date as NSDate, photoName: photoName, quantity: quantity, totalPrice: totalPrice as NSDecimalNumber, unitaryPrice: unitaryPrice as NSDecimalNumber, article: article, list: list, store: store)
+    }
+    
+    public func debug(){
+        let debugString = "------ Item List -------\nArticle Name: \(self.article.name)\nDate: \(self.date)\nQuantity: \(self.quantity)\nUnitary Price: \(self.unitaryPrice)\nTotal Price: \(self.totalPrice)\nList Name: \(self.list.name)\nStore Name: \(self.store.name)\n"
+        print(debugString)
+    }
+    
     @objc
     private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)

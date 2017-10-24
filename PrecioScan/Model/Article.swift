@@ -18,11 +18,14 @@ public final class Article: NSManagedObject, CoreDataEntityProtocol{
     @NSManaged public var name: String
     @NSManaged public var itemList: NSSet
     
-    public init (context: NSManagedObjectContext, code: String, name: String, itemList: NSSet){
+    public init (context: NSManagedObjectContext, code: String, name: String){
         super.init(entity: Article.entity(context: context), insertInto: context)
         self.name = name
         self.code = code
-        self.itemList = itemList
+    }
+    
+    public class func create(_ context: NSManagedObjectContext, name: String, code: String) -> Article {
+        return Article(context: context, code: code, name: name)
     }
     
     @objc

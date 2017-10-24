@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30083B631F8839F8006274C9 /* Ubuntu-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30083B621F8839F8006274C9 /* Ubuntu-Regular.otf */; };
+		30083B651F883A77006274C9 /* Ubuntu-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30083B641F883A76006274C9 /* Ubuntu-MediumItalic.otf */; };
+		30083B681F883B40006274C9 /* Ubuntu-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30083B661F883B3F006274C9 /* Ubuntu-Bold.otf */; };
+		30083B691F883B40006274C9 /* Ubuntu-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30083B671F883B3F006274C9 /* Ubuntu-Medium.otf */; };
+		30083B721F88A6F1006274C9 /* HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30083B711F88A6F1006274C9 /* HexColors.swift */; };
+		30083B741F88A744006274C9 /* DefineColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30083B731F88A744006274C9 /* DefineColors.swift */; };
+		30083B761F89793E006274C9 /* AnimatedInputControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30083B751F89793E006274C9 /* AnimatedInputControl.swift */; };
+		301C9FE51F956FFB00BC43FE /* BarcodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */; };
+		302B0C541F981F1A001DE5C7 /* DateOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C531F981F1A001DE5C7 /* DateOperations.swift */; };
+		302B0C561F98513F001DE5C7 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C551F98513F001DE5C7 /* Structures.swift */; };
+		302B0C5C1F998EFD001DE5C7 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C5A1F998EFD001DE5C7 /* ItemListTableViewCell.swift */; };
+		302B0C5D1F998EFD001DE5C7 /* ItemListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 302B0C5B1F998EFD001DE5C7 /* ItemListTableViewCell.xib */; };
+		304487201F8D8EF400C5297D /* CreateStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */; };
+		304487261F8DDD4300C5297D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304487251F8DDD4300C5297D /* CoreDataManager.swift */; };
 		3050A49B1F86F35300AD60D7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A49A1F86F35300AD60D7 /* Store.swift */; };
 		3050A49D1F86F38C00AD60D7 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A49C1F86F38C00AD60D7 /* Article.swift */; };
 		3050A49F1F86F3C200AD60D7 /* ItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A49E1F86F3C200AD60D7 /* ItemList.swift */; };
@@ -17,6 +31,12 @@
 		3050A4B21F870D3D00AD60D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4B11F870D3D00AD60D7 /* Constants.swift */; };
 		3050A4B41F8713C300AD60D7 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */; };
 		309228501F86ED6100D6AA6A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092284F1F86ED6100D6AA6A /* List.swift */; };
+		30A7D2EB1F96E74D00F6D1AA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7D2EA1F96E74D00F6D1AA /* Extensions.swift */; };
+		30AF238C1F8C496E00523870 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AF238B1F8C496E00523870 /* Button.swift */; };
+		30AF238E1F8C501100523870 /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AF238D1F8C501100523870 /* AddArticleViewController.swift */; };
+		30BD65A01F8FDB17002DCD90 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD659F1F8FDB17002DCD90 /* Errors.swift */; };
+		30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A11F9005EE002DCD90 /* Popup.swift */; };
+		30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A51F90740C002DCD90 /* BarcodeLine.swift */; };
 		30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6211F85977E001CE3B8 /* AppDelegate.swift */; };
 		30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6251F85977E001CE3B8 /* Main.storyboard */; };
 		30FFE6291F85977E001CE3B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6281F85977E001CE3B8 /* Assets.xcassets */; };
@@ -48,6 +68,20 @@
 
 /* Begin PBXFileReference section */
 		1DF3F025C91EB7794508F0A8 /* Pods_PrecioScanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30083B621F8839F8006274C9 /* Ubuntu-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.otf"; sourceTree = "<group>"; };
+		30083B641F883A76006274C9 /* Ubuntu-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.otf"; sourceTree = "<group>"; };
+		30083B661F883B3F006274C9 /* Ubuntu-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.otf"; sourceTree = "<group>"; };
+		30083B671F883B3F006274C9 /* Ubuntu-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.otf"; sourceTree = "<group>"; };
+		30083B711F88A6F1006274C9 /* HexColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColors.swift; sourceTree = "<group>"; };
+		30083B731F88A744006274C9 /* DefineColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefineColors.swift; sourceTree = "<group>"; };
+		30083B751F89793E006274C9 /* AnimatedInputControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedInputControl.swift; sourceTree = "<group>"; };
+		301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReader.swift; sourceTree = "<group>"; };
+		302B0C531F981F1A001DE5C7 /* DateOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOperations.swift; sourceTree = "<group>"; };
+		302B0C551F98513F001DE5C7 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
+		302B0C5A1F998EFD001DE5C7 /* ItemListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemListTableViewCell.swift; sourceTree = "<group>"; };
+		302B0C5B1F998EFD001DE5C7 /* ItemListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ItemListTableViewCell.xib; sourceTree = "<group>"; };
+		3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoreViewController.swift; sourceTree = "<group>"; };
+		304487251F8DDD4300C5297D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3050A49A1F86F35300AD60D7 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		3050A49C1F86F38C00AD60D7 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		3050A49E1F86F3C200AD60D7 /* ItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemList.swift; sourceTree = "<group>"; };
@@ -58,6 +92,12 @@
 		3050A4B11F870D3D00AD60D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
 		3092284F1F86ED6100D6AA6A /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		30A7D2EA1F96E74D00F6D1AA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		30AF238B1F8C496E00523870 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		30AF238D1F8C501100523870 /* AddArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArticleViewController.swift; sourceTree = "<group>"; };
+		30BD659F1F8FDB17002DCD90 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		30BD65A11F9005EE002DCD90 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		30BD65A51F90740C002DCD90 /* BarcodeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeLine.swift; sourceTree = "<group>"; };
 		30FFE61E1F85977E001CE3B8 /* PrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FFE6211F85977E001CE3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30FFE6261F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -109,11 +149,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30083B6A1F88A0F5006274C9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				304487251F8DDD4300C5297D /* CoreDataManager.swift */,
+				30083B751F89793E006274C9 /* AnimatedInputControl.swift */,
+				30AF238B1F8C496E00523870 /* Button.swift */,
+				30BD659F1F8FDB17002DCD90 /* Errors.swift */,
+				30BD65A11F9005EE002DCD90 /* Popup.swift */,
+				301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */,
+				302B0C531F981F1A001DE5C7 /* DateOperations.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3010B7461F88360300F5C1D9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				30083B661F883B3F006274C9 /* Ubuntu-Bold.otf */,
+				30083B671F883B3F006274C9 /* Ubuntu-Medium.otf */,
+				30083B641F883A76006274C9 /* Ubuntu-MediumItalic.otf */,
+				30083B621F8839F8006274C9 /* Ubuntu-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		3050A4A01F86FE5A00AD60D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				3050A4A61F8701D100AD60D7 /* Cells */,
 				30FFE6251F85977E001CE3B8 /* Main.storyboard */,
+				30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -121,9 +187,11 @@
 		3050A4A11F86FE6500AD60D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3050A4AD1F87020600AD60D7 /* Cells */,
 				3050A4A41F86FFF700AD60D7 /* ListsViewController.swift */,
 				3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */,
+				30AF238D1F8C501100523870 /* AddArticleViewController.swift */,
+				3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */,
+				3050A4AD1F87020600AD60D7 /* Cells */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -132,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				3050A4AA1F8701FD00AD60D7 /* ListTableViewCell.xib */,
+				302B0C5B1F998EFD001DE5C7 /* ItemListTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -140,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				3050A4A91F8701FD00AD60D7 /* ListTableViewCell.swift */,
+				302B0C5A1F998EFD001DE5C7 /* ItemListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -147,7 +217,13 @@
 		3050A4B01F870D2D00AD60D7 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				30BD65A51F90740C002DCD90 /* BarcodeLine.swift */,
+				30083B711F88A6F1006274C9 /* HexColors.swift */,
 				3050A4B11F870D3D00AD60D7 /* Constants.swift */,
+				30083B731F88A744006274C9 /* DefineColors.swift */,
+				30A7D2EA1F96E74D00F6D1AA /* Extensions.swift */,
+				302B0C551F98513F001DE5C7 /* Structures.swift */,
+				3010B7461F88360300F5C1D9 /* Fonts */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -177,13 +253,13 @@
 		30FFE6201F85977E001CE3B8 /* PrecioScan */ = {
 			isa = PBXGroup;
 			children = (
+				30083B6A1F88A0F5006274C9 /* Helpers */,
 				3050A4B01F870D2D00AD60D7 /* Utilities */,
 				30FFE6551F85B25F001CE3B8 /* Model */,
 				3050A4A11F86FE6500AD60D7 /* Controllers */,
 				3050A4A01F86FE5A00AD60D7 /* Views */,
 				30FFE6211F85977E001CE3B8 /* AppDelegate.swift */,
 				30FFE6281F85977E001CE3B8 /* Assets.xcassets */,
-				30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */,
 				30FFE62D1F85977E001CE3B8 /* Info.plist */,
 			);
 			path = PrecioScan;
@@ -359,10 +435,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				302B0C5D1F998EFD001DE5C7 /* ItemListTableViewCell.xib in Resources */,
 				30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */,
+				30083B691F883B40006274C9 /* Ubuntu-Medium.otf in Resources */,
 				3050A4AC1F8701FD00AD60D7 /* ListTableViewCell.xib in Resources */,
 				30FFE6291F85977E001CE3B8 /* Assets.xcassets in Resources */,
+				30083B631F8839F8006274C9 /* Ubuntu-Regular.otf in Resources */,
 				30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */,
+				30083B651F883A77006274C9 /* Ubuntu-MediumItalic.otf in Resources */,
+				30083B681F883B40006274C9 /* Ubuntu-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,16 +522,28 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQCoreDataKit/JSQCoreDataKit.framework",
+				"${BUILT_PRODUCTS_DIR}/MKDropdownMenu/MKDropdownMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GMStepper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InteractiveSideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQCoreDataKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MKDropdownMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -545,15 +638,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30A7D2EB1F96E74D00F6D1AA /* Extensions.swift in Sources */,
 				3050A4AF1F870A8D00AD60D7 /* Model.swift in Sources */,
 				3050A4A51F86FFF700AD60D7 /* ListsViewController.swift in Sources */,
+				30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */,
+				30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */,
+				302B0C561F98513F001DE5C7 /* Structures.swift in Sources */,
+				304487201F8D8EF400C5297D /* CreateStoreViewController.swift in Sources */,
 				3050A4AB1F8701FD00AD60D7 /* ListTableViewCell.swift in Sources */,
 				3050A49B1F86F35300AD60D7 /* Store.swift in Sources */,
 				3050A49D1F86F38C00AD60D7 /* Article.swift in Sources */,
+				302B0C5C1F998EFD001DE5C7 /* ItemListTableViewCell.swift in Sources */,
+				304487261F8DDD4300C5297D /* CoreDataManager.swift in Sources */,
+				30BD65A01F8FDB17002DCD90 /* Errors.swift in Sources */,
+				30AF238E1F8C501100523870 /* AddArticleViewController.swift in Sources */,
 				3050A4B21F870D3D00AD60D7 /* Constants.swift in Sources */,
 				3050A49F1F86F3C200AD60D7 /* ItemList.swift in Sources */,
+				30083B761F89793E006274C9 /* AnimatedInputControl.swift in Sources */,
 				3050A4B41F8713C300AD60D7 /* CreateListViewController.swift in Sources */,
 				309228501F86ED6100D6AA6A /* List.swift in Sources */,
+				302B0C541F981F1A001DE5C7 /* DateOperations.swift in Sources */,
+				30AF238C1F8C496E00523870 /* Button.swift in Sources */,
+				30083B721F88A6F1006274C9 /* HexColors.swift in Sources */,
+				30083B741F88A744006274C9 /* DefineColors.swift in Sources */,
+				301C9FE51F956FFB00BC43FE /* BarcodeReader.swift in Sources */,
 				30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */,
 				30FFE6581F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld in Sources */,
 			);

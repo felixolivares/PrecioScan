@@ -11,6 +11,13 @@ target 'PrecioScan' do
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireImage', '~> 3.3'
   pod 'JSQCoreDataKit'
+  pod 'MKDropdownMenu'
+  pod 'PopupDialog', '~> 0.6'
+  pod 'PMSuperButton'
+  pod "PromiseKit", "~> 4.4"
+  pod "GMStepper", :git => 'https://github.com/gmertk/GMStepper.git', :branch => 'swift4'
+  pod 'IQKeyboardManagerSwift'
+  pod 'InteractiveSideMenu'
   
   target 'PrecioScanTests' do
     inherit! :search_paths
