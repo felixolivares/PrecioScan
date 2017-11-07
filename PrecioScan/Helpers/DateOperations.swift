@@ -29,6 +29,11 @@ class DateOperations{
     
     func dateForList(date: Date) -> String{
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        return dateFormatter.string(from:date)
+        return dateFormatter.string(from: date)
+    }
+    
+    func dateToString(date: Date) -> String{
+        dateFormatter.dateFormat = "d MMMM yyyy"
+        return dateFormatter.string(from: date)
     }
 }

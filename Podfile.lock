@@ -5,11 +5,32 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
+  - DynamicButton (5.0.0)
+  - Firebase/Core (4.3.0):
+    - FirebaseAnalytics (= 4.0.4)
+    - FirebaseCore (= 4.0.8)
+  - FirebaseAnalytics (4.0.4):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseCore (4.0.8):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseInstanceID (2.0.4)
   - GMStepper (2.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/NSData+zlib (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
   - InteractiveSideMenu (2.0)
   - IQKeyboardManagerSwift (5.0.2)
   - JSQCoreDataKit (7.0.0)
   - MKDropdownMenu (1.4)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - PMSuperButton (2.0.0)
   - PopupDialog (0.6.0)
   - PromiseKit (4.4.0):
@@ -23,11 +44,16 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.4.0):
     - PromiseKit/CorePromise
+  - PWSwitch (1.1.0)
+  - SwipeCellKit (2.0.0)
+  - TableViewReloadAnimation (0.0.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - AlamofireImage (~> 3.3)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
+  - DynamicButton (~> 5.0.0)
+  - Firebase/Core
   - GMStepper (from `https://github.com/gmertk/GMStepper.git`, branch `swift4`)
   - InteractiveSideMenu
   - IQKeyboardManagerSwift
@@ -36,6 +62,9 @@ DEPENDENCIES:
   - PMSuperButton
   - PopupDialog (~> 0.6)
   - PromiseKit (~> 4.4)
+  - PWSwitch
+  - SwipeCellKit (from `https://github.com/SwipeCellKit/SwipeCellKit.git`, branch `develop`)
+  - TableViewReloadAnimation (~> 0.0.5)
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -44,6 +73,9 @@ EXTERNAL SOURCES:
   GMStepper:
     :branch: swift4
     :git: https://github.com/gmertk/GMStepper.git
+  SwipeCellKit:
+    :branch: develop
+    :git: https://github.com/SwipeCellKit/SwipeCellKit.git
 
 CHECKOUT OPTIONS:
   ChameleonFramework:
@@ -52,20 +84,33 @@ CHECKOUT OPTIONS:
   GMStepper:
     :commit: c2748bb7765ca836a4a6a479584edeb19607d4da
     :git: https://github.com/gmertk/GMStepper.git
+  SwipeCellKit:
+    :commit: 11d86e3864329a970925d985f5273d76b5d74afc
+    :git: https://github.com/SwipeCellKit/SwipeCellKit.git
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  DynamicButton: 4c2fef968e4aa0a8a6ed7ca6b8a58c8e21a36cdc
+  Firebase: 83283761a1ef6dc9846e03d08059f51421afbd65
+  FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
+  FirebaseCore: 69b1a5ac5f857ba6d5fd9d5fe794f4786dd5e579
+  FirebaseInstanceID: 70c2b877e9338971b2429ea5a4293df6961aa44e
   GMStepper: f3258bbe25a90462e99bbeea0f48074932bfa32a
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   InteractiveSideMenu: 337f6d95a3f6543c517a888893531430e18553b3
   IQKeyboardManagerSwift: e580da046d804d2836ee84668cc17e43a850a35d
   JSQCoreDataKit: bc6f37205d36c379a70c56e829fcbc7e921900c2
   MKDropdownMenu: 269df4a41d21a1db684ce8bc709befe419fc5bae
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PMSuperButton: 2269b1cd625ce2d2aa8029d79c6dae3544024817
   PopupDialog: 687af43af0f7b89948cd411ac701865f931bd6dc
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
+  PWSwitch: e5a45cb84ff794a4d651812cce1f061764629ed3
+  SwipeCellKit: 7db3ff3595609793108b0e7dbc8c6ca7d9dafa8a
+  TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
 
-PODFILE CHECKSUM: 576c6e4807a449a55448c710812dd2d1e0e6765e
+PODFILE CHECKSUM: abb0c997dfb88a59ae0009e0251cb02313c57970
 
 COCOAPODS: 1.3.1

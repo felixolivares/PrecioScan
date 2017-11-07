@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13532" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Article" representedClassName=".Article" syncable="YES">
         <attribute name="code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,15 +18,15 @@
     <entity name="List" representedClassName=".List" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="itemList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemList" inverseName="list" inverseEntity="ItemList" syncable="YES"/>
+        <relationship name="itemList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemList" inverseName="list" inverseEntity="ItemList" syncable="YES"/>
         <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="list" inverseEntity="Store" syncable="YES"/>
     </entity>
     <entity name="Store" representedClassName=".Store" syncable="YES">
         <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="itemList" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ItemList" inverseName="store" inverseEntity="ItemList" syncable="YES"/>
-        <relationship name="list" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="List" inverseName="store" inverseEntity="List" syncable="YES"/>
+        <relationship name="itemList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemList" inverseName="store" inverseEntity="ItemList" syncable="YES"/>
+        <relationship name="list" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="List" inverseName="store" inverseEntity="List" syncable="YES"/>
     </entity>
     <elements>
         <element name="Article" positionX="-450" positionY="-81" width="128" height="88"/>

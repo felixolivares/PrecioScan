@@ -28,6 +28,10 @@ public final class Article: NSManagedObject, CoreDataEntityProtocol{
         return Article(context: context, code: code, name: name)
     }
     
+    func update(name: String) -> Article {
+        self.name = name
+        return self
+    }
     @objc
     private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)

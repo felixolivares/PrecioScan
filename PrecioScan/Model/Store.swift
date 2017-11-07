@@ -32,6 +32,18 @@ public final class Store: NSManagedObject, CoreDataEntityProtocol, NSFetchedResu
         return Store(context: context, name: name, information: information, location: location)
     }
     
+    public func delete(_ context: NSManagedObjectContext, completionHandler: @escaping(Bool, Error?) -> Void){
+        context.delete(self)
+        saveContext(context){ result in
+            switch result{
+            case .success:
+                completionHandler(true, nil)
+            case .failure:
+                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+            }
+        }
+    }
+    
     @objc
     private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)

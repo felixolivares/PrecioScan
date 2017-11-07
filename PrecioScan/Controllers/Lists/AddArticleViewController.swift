@@ -9,6 +9,7 @@
 import UIKit
 import GMStepper
 import AVFoundation
+import PMSuperButton
 
 class AddArticleViewController: UIViewController {
 
@@ -20,6 +21,10 @@ class AddArticleViewController: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var codeTextField: UITextField!
     @IBOutlet weak var stepper: GMStepper!
+    @IBOutlet weak var compareButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var messageCenterYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var compareButton: PMSuperButton!
+    @IBOutlet weak var messageAndButtonContainerView: UIView!
     
     var articles: [Article] = []
     var articleFound: Article!
@@ -28,6 +33,7 @@ class AddArticleViewController: UIViewController {
     var barcodeIsRead: Bool = false
     var articleIsFound: Bool = false
     var barcodeBeepPlayer: AVAudioPlayer?
+    var itemListFound: ItemList!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +44,24 @@ class AddArticleViewController: UIViewController {
         super.viewDidAppear(animated)
         barcodeLineScanner.startAnimation()
         barcodeReader.setupReader(codeAnimatedControl: codeAnimatedControl)
+        if itemListFound != nil{
+            populateWithItemListFound()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    //MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.toCompareFromArticle {
+            let vc = segue.destination as! CompareViewController
+            guard articleFound != nil else {return}
+            vc.articleCode = articleFound.code
+            vc.store = store
+            vc.todayPrice = self.priceAnimatedControl.valueTextField.text
+        }
     }
     
     //MARK: - Buttons
@@ -53,8 +73,8 @@ class AddArticleViewController: UIViewController {
         if articleIsFound{
             self.saveItemList()
         }else{
-            if let code = codeTextField.text, let name = nameAnimatedControl.valueTextField.text{
-                CoreDataManager.shared.saveArticle(code: code, name: name){ article, error in
+            if codeTextField.text != "", nameAnimatedControl.valueTextField.text != "", priceAnimatedControl.valueTextField.text != ""{
+                CoreDataManager.shared.saveArticle(code: codeTextField.text!, name: nameAnimatedControl.valueTextField.text!){ article, error in
                     if article != nil {
                         self.articleFound = article
                         self.saveItemList()
@@ -62,9 +82,19 @@ class AddArticleViewController: UIViewController {
                         print("An error ocurred: \(String(describing: error?.localizedDescription))")
                     }
                 }
+            }else{
+                Popup.show(withOK: Warning.AddArticle.completeAllFieldsText, vc: self)
             }
         }
         self.displayAddMoreArticlesPopup()
+    }
+    
+    @IBAction func compareButtonPressed(_ sender: Any) {
+        if codeTextField.text != "", nameAnimatedControl.valueTextField.text != "", priceAnimatedControl.valueTextField.text != ""{
+            performSegue(withIdentifier: Segues.toCompareFromArticle, sender: nil)
+        }else{
+            Popup.show(withOK: Warning.AddArticle.completeFieldsBeforeCompare, vc: self)
+        }
     }
     
     //MARK: - Configure
@@ -72,13 +102,15 @@ class AddArticleViewController: UIViewController {
         nameAnimatedControl.setDelegate()
         priceAnimatedControl.setDelegate()
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotificationBarcodeFound(notification:)), name: Notification.Name(Identifiers.notificationIdArticleFound), object: nil)
-
+        compareButton.alpha = 0
     }
     
     //MARK: - Core Data
     func fetchArticles(withCode code: String?){
         guard barcodeIsRead == false else {return}
-        self.playBarcodeSound()
+        if ConfigurationManager.soundEnabled! {
+            self.playBarcodeSound()
+        }
         codeAnimatedControl.setText(text: code, animated: true)
         CoreDataManager.shared.articles(findWithCode: code){ stack, articles, error in
             if let articles = articles{
@@ -92,7 +124,21 @@ class AddArticleViewController: UIViewController {
                     self.messageLabel.text = Constants.AddArticle.articleNotFoundText
                     self.resetItemList()
                 }
-                self.messageLabel.bounce()
+                self.messageLabel.bounce(){ finished in
+                    guard self.articleFound != nil else {return}
+                    CompareOperations().verifyMultipleItemListSaved(withObject: self.articleFound){ isFound in
+                        if isFound{
+                            self.messageCenterYConstraint.constant = -20
+                            UIView.animate(withDuration: 0.3, animations: {
+                                self.messageAndButtonContainerView.layoutIfNeeded()
+                            }, completion: { _ in
+                                UIView.animate(withDuration: 0.3, animations: {
+                                    self.compareButton.alpha = 1.0
+                                })
+                            })
+                        }
+                    }
+                }
             }
             self.barcodeIsRead = true
         }
@@ -101,6 +147,20 @@ class AddArticleViewController: UIViewController {
     func saveItemList(){
         let quantity = Int32(stepper.value)
         let unitaryPrice = Decimal(round(100*Double(priceAnimatedControl.valueTextField.text!)!)/100)
+        guard itemListFound == nil else {
+            CoreDataManager.shared.updateItemList(object: self.itemListFound, date: DateOperations().getCurrentLocalDate(),
+                                                photoName: nil,
+                                                quantity: quantity,
+                                                unitariPrice: unitaryPrice,
+                                                article: articleFound,
+                                                list: list,
+                                                store: store){ isSaved, error in
+                                                    if isSaved {
+                                                        print("Updated")
+                                                    }
+            }
+            return
+        }
         CoreDataManager.shared.saveItemList(date: DateOperations().getCurrentLocalDate(),
                                             photoName: nil,
                                             quantity: quantity,
@@ -116,6 +176,13 @@ class AddArticleViewController: UIViewController {
     
     func populateWithArticleFound(){
         nameAnimatedControl.setText(text: articleFound.name, animated: true)
+    }
+    
+    func populateWithItemListFound(){
+        nameAnimatedControl.setText(text: itemListFound.article.name, animated: true)
+        codeAnimatedControl.setText(text: itemListFound.article.code, animated: true)
+        priceAnimatedControl.setText(text: String(describing: itemListFound.unitaryPrice), animated: true)
+        stepper.value = Double(itemListFound.quantity)
     }
     
     func resetAll(){
@@ -142,6 +209,7 @@ class AddArticleViewController: UIViewController {
         }
     }
     
+    //MARK: - Popup
     func displayAddMoreArticlesPopup(){
         Popup.showConfirmationNewArticle(title: Constants.AddArticle.Popup.articleSavedTitle,
                                          message: Constants.AddArticle.Popup.addMoreArticlesMessage,

@@ -11,6 +11,7 @@ import MKDropdownMenu
 import CoreData
 import JSQCoreDataKit
 import PMSuperButton
+import SwipeCellKit
 
 class CreateListViewController: UIViewController, CreateStoreViewControllerDelegate {
 
@@ -21,6 +22,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var underlineStore: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
     
     var componentTitles: [Store] = []
     let paragraphStyle = NSMutableParagraphStyle.init()
@@ -57,14 +59,19 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         self.view.endEditing(true)
     }
     
+    //MARK: - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.toArticleFromList{
             let vc = segue.destination as! AddArticleViewController
             vc.store = selectedStore
             vc.list = list
+            if sender != nil{
+                vc.itemListFound = sender as! ItemList
+            }
         } else if segue.identifier == Segues.toStoresFromCreateList{
             let vc = segue.destination as! CreateStoreViewController
             vc.delegate = self
+            vc.isComingFromList = true
         }
         
     }
@@ -123,6 +130,11 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
                 guard error == nil else {Popup.show(withError: error!, vc: self); return}
                 guard itemLists != nil else {self.itemLists = []; return}
                 self.itemLists = itemLists!
+                var grandTotal = Double()
+                for eachItem in itemLists!{
+                    grandTotal += eachItem.totalPrice as! Double
+                }
+                self.totalLabel.text = "$ " + String(grandTotal)
             }
         }
         tableView.reloadData()
@@ -180,8 +192,49 @@ extension CreateListViewController: UITableViewDelegate, UITableViewDataSource{
         cell.nameLabel.text = itemList.article.name
         cell.unitaryPriceLabel.text = "$" + String(describing: itemList.unitaryPrice)
         cell.totalPrice.text = "$" + String(describing: itemList.totalPrice)
-        
+        cell.delegate = self
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 59.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: Segues.toArticleFromList, sender: itemLists[indexPath.row])
+    }
+}
+
+//MARK: - Swipe Cell Delegate Methods
+extension CreateListViewController: SwipeTableViewCellDelegate{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
+            CoreDataManager.shared.delete(object: self.itemLists[indexPath.row]){ success, error in
+                if success{
+                    self.itemLists.remove(at: indexPath.row)
+                }else{
+                    Popup.show(withError: error! as NSError, vc: self)
+                }
+            }
+        }
+        let cell = tableView.cellForRow(at: indexPath) as! ItemListTableViewCell
+        cell.hideSwipe(animated: true)
+        
+        // customize the action appearance
+        deleteAction.title = "Borrar"
+//        deleteAction.image = UIImage(named: "trash-circle")
+//        deleteAction.backgroundColor = UIColor.white
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = .destructiveAfterFill
+        options.transitionStyle = SwipeTableOptions().transitionStyle
+        options.backgroundColor = UIColor.white
+        return options
     }
 }
 

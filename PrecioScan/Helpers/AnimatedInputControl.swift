@@ -21,7 +21,7 @@ class AnimatedInputControl: UIView {
 
     func animateFocus(){
         self.layoutIfNeeded()
-        nameLabelTopConstraint.constant = 10
+        nameLabelTopConstraint.constant = 0
         UIView.animate(withDuration: 0.15) {
             self.layoutIfNeeded()
             self.underline.backgroundColor = UIColor(spadeGreen)
@@ -30,7 +30,7 @@ class AnimatedInputControl: UIView {
     
     func animateFocus(withCompletion handler: @escaping(Bool) -> Void){
         self.layoutIfNeeded()
-        nameLabelTopConstraint.constant = 10
+        nameLabelTopConstraint.constant = 0
         UIView.animate(withDuration: 0.15, animations: {
             self.layoutIfNeeded()
             self.underline.backgroundColor = UIColor(spadeGreen)
@@ -40,7 +40,7 @@ class AnimatedInputControl: UIView {
     }
     
     func animateFocusOut(){
-        nameLabelTopConstraint.constant = 38
+        nameLabelTopConstraint.constant = 24
         UIView.animate(withDuration: 0.15) {
             self.layoutIfNeeded()
             self.underline.backgroundColor = UIColor(softGreen)
@@ -79,6 +79,33 @@ extension AnimatedInputControl: UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.text?.count == 0{
             (textField.superview as! AnimatedInputControl).animateFocusOut()
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField.tag == 101 {
+            let newCharacters = NSCharacterSet.init(charactersIn: string)
+            let boolIsNumber = NSCharacterSet.decimalDigits.isSuperset(of: newCharacters as CharacterSet)
+            if boolIsNumber == true {
+                return true
+            } else {
+                if string == "." {
+                    let countdots = textField.text!.components(separatedBy: ".").count - 1
+                    if countdots == 0 {
+                        return true
+                    } else {
+                        if countdots > 0 && string == "." {
+                            return false
+                        } else {
+                            return true
+                        }
+                    }
+                } else {
+                    return false
+                }
+            }
+        }else{
+            return true
         }
     }
 }

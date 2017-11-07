@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import DynamicButton
+import InteractiveSideMenu
+import TableViewReloadAnimation
 
 class ListsViewController: UIViewController {
 
+    
+    @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var tableView: UITableView!
     var lists:[List] = []
     
@@ -27,6 +32,12 @@ class ListsViewController: UIViewController {
                 self.fetchLists()
             }
         }
+        configureComponents()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        hamburgerButton.setStyle(.hamburger, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -51,13 +62,19 @@ class ListsViewController: UIViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
     }
     
+    func configureComponents(){
+        hamburgerButton.setStyle(.hamburger, animated: false)
+    }
+    
     func fetchLists(){
         CoreDataManager.shared.lists{ _, lists, error in
-            guard error == nil else {return}
+            guard error == nil else {Popup.show(withError: error! as NSError, vc: self);return}
             self.lists = lists!
             if self.lists.count > 0{
-                print("Done!")
-                self.tableView.reloadData()
+                print("Lists Fetched!")
+                self.tableView.reloadData(
+                    with: .simple(duration: 0.45, direction: .rotation3D(type: .ironMan),
+                                  constantDelay: 0))
             }
         }
     }
@@ -65,9 +82,15 @@ class ListsViewController: UIViewController {
     func deselectCell(){
         if let index = self.tableView.indexPathForSelectedRow{
             let cell = self.tableView.cellForRow(at: index) as! ListTableViewCell
-            cell.borderView.backgroundColor = UIColor.clear
+            cell.borderView.layer.borderColor = UIColor(softGray)?.cgColor
         }
     }
+    
+    @IBAction func hamburgerButtonPressed(_ sender: Any) {
+        hamburgerButton.setStyle(.close, animated: true)
+        (self.navigationController as! NavigationListViewController).showSideMenu()
+    }
+    
 }
 
 extension ListsViewController: UITableViewDataSource, UITableViewDelegate{
@@ -98,7 +121,7 @@ extension ListsViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ListTableViewCell
 //        cell.contentView.backgroundColor = UIColor.clear
-        cell.borderView.backgroundColor = UIColor(softGray)
+        cell.borderView.layer.borderColor = UIColor(oliveGreen)?.cgColor
         cell.sendSubview(toBack: cell.borderView)
         self.performSegue(withIdentifier: Segues.toListDetailFromLists, sender: lists[indexPath.row])
     }

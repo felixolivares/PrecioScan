@@ -12,7 +12,7 @@ import JSQCoreDataKit
 
 public final class ItemList: NSManagedObject, CoreDataEntityProtocol{
     
-    public static let defaultSortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
+    public static let defaultSortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
     
     @NSManaged public var date: NSDate
     @NSManaged public var photoName: String?
@@ -38,6 +38,19 @@ public final class ItemList: NSManagedObject, CoreDataEntityProtocol{
     public class func create(_ context: NSManagedObjectContext, date: Date, photoName: String?, quantity: Int32, unitaryPrice: Decimal, article: Article, list: List, store: Store) -> ItemList{
         let totalPrice = Decimal(quantity) * (unitaryPrice as Decimal)
         return ItemList(context: context, date: date as NSDate, photoName: photoName, quantity: quantity, totalPrice: totalPrice as NSDecimalNumber, unitaryPrice: unitaryPrice as NSDecimalNumber, article: article, list: list, store: store)
+    }
+    
+    func update(_ date: Date, photoName: String?, quantity: Int32, unitaryPrice: Decimal, article: Article, list: List, store: Store) -> ItemList{
+        let totalPrice = Decimal(quantity) * (unitaryPrice as Decimal)
+        self.date = date as NSDate
+        self.photoName = photoName
+        self.quantity = quantity
+        self.totalPrice = totalPrice as NSDecimalNumber
+        self.unitaryPrice = unitaryPrice as NSDecimalNumber
+        self.article = article
+        self.list = list
+        self.store = store
+        return self
     }
     
     public func debug(){

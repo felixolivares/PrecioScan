@@ -135,6 +135,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    public func updateArticle(object: Article, name: String, completionHandler: @escaping(Bool, Error?) -> Void) {
+        stack.mainContext.performAndWait {
+            let _ = object.update(name: name)
+            saveContext(stack.mainContext){ result in
+                switch result{
+                case .success:
+                    completionHandler(true, nil)
+                case .failure:
+                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+                }
+            }
+        }
+    }
+    
     //MARK: - ItemList
     public func saveItemList(date: Date, photoName: String?, quantity: Int32, unitariPrice: Decimal, article: Article, list: List, store: Store, completionHandler: @escaping(ItemList?, Error?) -> Void){
         stack.mainContext.performAndWait {
@@ -145,6 +159,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
                     completionHandler(itemList, nil)
                 case .failure:
                     completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
+                }
+            }
+        }
+    }
+    
+    public func updateItemList(object: ItemList, date: Date, photoName: String?, quantity: Int32, unitariPrice: Decimal, article: Article, list: List, store: Store, completionHandler: @escaping(Bool, Error?) -> Void){
+        stack.mainContext.performAndWait {
+            let _ = object.update(date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store)
+            saveContext(stack.mainContext){ result in
+                switch result{
+                case .success:
+                    completionHandler(true, nil)
+                case .failure:
+                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
                 }
             }
         }
@@ -172,6 +200,27 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         } catch {
             assertionFailure("Failed to fetch: \(error)")
             completionHandler(nil, nil, error as NSError)
+        }
+    }
+    
+    public func itemLists(byArticleCode articleCode: String, completionHandler: @escaping([ItemList]?, NSError?) -> Void){
+        let fetchRequest: NSFetchRequest<ItemList>
+        fetchRequest = ItemList.fetchRequest 
+        fetchRequest.predicate = NSPredicate(format: "article.code == %@", articleCode)
+        var fetchResultController: NSFetchedResultsController<ItemList>!
+        guard self.stack != nil else { completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData)); return }
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                           managedObjectContext: stack!.mainContext,
+                                                           sectionNameKeyPath: nil,
+                                                           cacheName: nil)
+        fetchResultController.delegate = self
+        do {
+            try fetchResultController.performFetch()
+            print("Item List objects count \(String(describing: fetchResultController.fetchedObjects?.count))")
+            completionHandler(fetchResultController.fetchedObjects, nil)
+        } catch {
+            assertionFailure("Failed to fetch: \(error)")
+            completionHandler(nil, error as NSError)
         }
     }
     
@@ -205,6 +254,30 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         } catch {
             assertionFailure("Failed to fetch: \(error)")
             completionHandler(nil, nil, error)
+        }
+    }
+    
+    //MARK: - Delete object
+    
+    public func deleteStore(object: Store, comlpetionHandler: @escaping(Bool, Error?) -> Void){
+        object.delete(self.stack!.mainContext){ success, error in
+            if success{
+                comlpetionHandler(true, nil)
+            }else{
+                comlpetionHandler(false, error)
+            }
+        }
+    }
+    
+    public func delete(object: NSManagedObject, completionHandler: @escaping(Bool, Error?) -> Void){
+        self.stack!.mainContext.delete(object)
+        saveContext(self.stack!.mainContext){ result in
+            switch result{
+            case .success:
+                completionHandler(true, nil)
+            case .failure:
+                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+            }
         }
     }
 }

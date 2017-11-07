@@ -18,6 +18,11 @@ target 'PrecioScan' do
   pod "GMStepper", :git => 'https://github.com/gmertk/GMStepper.git', :branch => 'swift4'
   pod 'IQKeyboardManagerSwift'
   pod 'InteractiveSideMenu'
+  pod 'DynamicButton', '~> 5.0.0'
+  pod "PWSwitch"
+  pod 'TableViewReloadAnimation', '~> 0.0.5'
+  pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'develop'
+  pod 'Firebase/Core'
   
   target 'PrecioScanTests' do
     inherit! :search_paths

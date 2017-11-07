@@ -18,3 +18,4 @@ public let tundoraBlack = "4D4845" //585351
 public let solitudeGray = "efefef"
 public let spadeGreen = "8E8D69"
 public let softGreen = "CBCA96"
+public let switchPurple = "745788"
