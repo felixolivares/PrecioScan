@@ -9,6 +9,7 @@
 import UIKit
 
 class CompareOperations: NSObject {
+    
     public func getItemLists(byArticleCode code: String, completionHandler: @escaping([String], [[ItemList]]) -> Void){
         CoreDataManager.shared.itemLists(byArticleCode: code){ itemListsRetrieved, error in
             if let items = itemListsRetrieved{

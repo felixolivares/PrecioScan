@@ -8,6 +8,7 @@
 
 import UIKit
 import InteractiveSideMenu
+import TransitionButton
 
 class HostViewController: MenuContainerViewController {
 

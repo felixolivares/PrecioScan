@@ -74,6 +74,7 @@ class ArticlesViewController: UIViewController {
     }
     
     func configureComponents(){
+        UserManager.shared.verifyUserIsLogged(vc: self)
         hamburgerButton.setStyle(.hamburger, animated: false)
     }
     

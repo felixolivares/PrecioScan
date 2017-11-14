@@ -24,6 +24,14 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     
     func configure(){
         createStack()
+        let model = CoreDataModel(name: modelName, bundle: modelBundle)
+        if model.needsMigration {
+            do {
+                try model.migrate()
+            } catch {
+                print("Failed to migrate model: \(error)")
+            }
+        }
     }
     
     public func getFactory() -> CoreDataStackFactory{
@@ -94,7 +102,6 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    
     //MARK: - Articles
     public func articles(findWithCode code: String?, completionHandler: @escaping(CoreDataStack?, [Article]?, Error?) -> Void){
         var fetchRequest: NSFetchRequest<Article>!
@@ -122,6 +129,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     }
     
     public func saveArticle(code: String, name: String, completionHandler: @escaping(Article?, Error?) -> Void){
+        FirebaseOperations().addArticle(barcode: code, name: name)
         stack.mainContext.performAndWait {
             let article = Article.create(stack.mainContext, name: name, code: code)
             saveContext(stack.mainContext){ result in
@@ -257,8 +265,62 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    //MARK: - Delete object
+    //MARK: - User
+    public func saveUser(email: String, password: String?, name: String, photoName: String?, isLogged: Bool,  completionHandler: @escaping(User?, Error?) -> Void){
+        stack.mainContext.performAndWait {
+            let user = User(context: stack.mainContext, email: email, password: password, name: name, photoName: photoName, isLogged: isLogged)
+            saveContext(stack.mainContext){ result in
+                switch result{
+                case .success:
+                    completionHandler(user, nil)
+                case .failure:
+                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
+                }
+            }
+        }
+    }
     
+    public func user(withEmail email: String?, completionHandler: @escaping([User]?, NSError?) -> Void) {
+        var fetchRequest: NSFetchRequest<User>
+        
+        if let email = email{
+            fetchRequest = User.fetchRequest
+            fetchRequest.predicate = NSPredicate(format: "email == %@", email)
+        }else{
+            fetchRequest = User.fetchRequest
+        }
+        var fetchResultController: NSFetchedResultsController<User>!
+        guard self.stack != nil else { completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData)); return }
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                           managedObjectContext: stack!.mainContext,
+                                                           sectionNameKeyPath: nil,
+                                                           cacheName: nil)
+        fetchResultController.delegate = self
+        do {
+            try fetchResultController.performFetch()
+            print("User objects count \(String(describing: fetchResultController.fetchedObjects?.count))")
+            completionHandler(fetchResultController.fetchedObjects, nil)
+        } catch {
+            assertionFailure("Failed to fetch: \(error)")
+            completionHandler(nil, error as NSError)
+        }
+    }
+    
+    public func updateUser(object: User, email: String, password: String?, name: String, photoName: String?, isLogged: Bool, completionHandler: @escaping(Bool, Error?) -> Void){
+        stack.mainContext.performAndWait {
+            let _ = object.update(name, email: email, password: password, photoName: photoName, isLogged: isLogged)
+            saveContext(stack.mainContext){ result in
+                switch result{
+                case .success:
+                    completionHandler(true, nil)
+                case .failure:
+                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+                }
+            }
+        }
+    }
+    
+    //MARK: - Delete object
     public func deleteStore(object: Store, comlpetionHandler: @escaping(Bool, Error?) -> Void){
         object.delete(self.stack!.mainContext){ success, error in
             if success{

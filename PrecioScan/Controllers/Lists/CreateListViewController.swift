@@ -153,7 +153,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     }
     
     @IBAction func addArticleButtonPressed(_ sender: Any) {
-        guard selectedStore != nil, nameListAnimatedControl.valueTextField.text != "" else {Popup.show(withOK: Warning.CreateLlist.selectNameAndStoreText, vc: self); return}
+        guard selectedStore != nil, nameListAnimatedControl.valueTextField.text != "" else {Popup.show(withOK: Warning.CreateLlist.selectNameAndStoreText, title: Constants.Popup.Titles.attention, vc: self); return}
         if list != nil{
             print("List already created")
             list.debug()

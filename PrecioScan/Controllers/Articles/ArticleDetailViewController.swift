@@ -42,7 +42,7 @@ class ArticleDetailViewController: UIViewController {
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        guard articleNameAnimatedControl.valueTextField.text != "" else{Popup.show(withOK: Warning.ArticleDetail.addName, vc: self); return}
+        guard articleNameAnimatedControl.valueTextField.text != "" else{Popup.show(withOK: Warning.ArticleDetail.addName, title: nil, vc: self); return}
         CoreDataManager.shared.updateArticle(object: articleSelected, name: articleNameAnimatedControl.valueTextField.text!){ success, error in
             if success{
                 Popup.show(withCompletionMessage: Constants.ArticleDetail.Poppup.articleUpdated, vc: self){ _ in}

@@ -43,6 +43,30 @@ struct Warning {
     struct ArticleDetail{
         public static let addName = "Debes ingresar un nombre para el articulo"
     }
+    
+    struct Login {
+        public static let completeFields = "Debes completar los campos para continuar"
+        public static let wrongPassword = "Password incorrecto"
+        public static let invalidEmail = "Email invalido"
+        public static let userNotFound = "Usuario no encontrado, por favor verifica que la direccion de correo sea correcta"
+    }
+    
+    struct CreateAccount{
+        public static let passwordsNeedToMatch = "Las contraseñas deben de coinicidir"
+        public static let allFieldsCompleted = "Todos los campos deben de estar llenos"
+        public static let passwordGreaterLength = "La contraseña debe ser mayor a 8 caracteres"
+        public static let usersaved = "Cuenta de usuario creada.\nRevisa tu correo electronico que porporcionaste, te hemos enviado un correo para que verifiques tu cuenta."
+        public static let verificationEmailError = "Hubo un problema al enviarte el correo de verificación"
+    }
+    
+    struct RecoverPassword {
+        public static let emailMissing = "Debes introducir un correo electronico"
+        public static let recoveryEmailSent = "Se ha enviado un correo de recuperacion de contraseña a la dirección de correo electronico que especificaste"
+    }
+    struct Generic{
+        public static let genericError = "Ocurrion un problema, intentalo de nuevo"
+        public static let networkError = "Ocurrio un problema con la red, verifica tu conexión y vuelve a intentarlo"
+    }
 }
 
 struct Constants {
@@ -87,6 +111,10 @@ struct Constants {
         public static let yesAnswer = "Si"
         public static let noAnswer = "No"
         public static let continueAnswer = "Continue"
+        struct Titles {
+            public static let ready = "Listo!"
+            public static let attention = "Atención"
+        }
     }
     
     struct Storyboard{
@@ -102,10 +130,24 @@ struct Constants {
         public static let storeItem = "Tiendas"
         public static let articleItem = "Articulos"
         public static let configurationItem = "Configuracion"
+        public static let logoutItem = "Cerrar Sesión"
     }
     
     struct Configuration{
         public static let soundEnable = "sharedPrefSoundEnabled"
+    }
+    
+    struct User{
+        struct Keys {
+            public static let isLoggedIn = "userIsLoggedIn"
+        }
+    }
+    
+    struct RecoverPassword{
+        struct Messages{
+            public static let emailFieldCompleted = "Debe ingresar el correo electronico"
+            public static let wrongEmail = "El correo electronico no existe"
+        }
     }
 }
 
@@ -146,4 +188,20 @@ struct ImageNames{
     public static let configurationIcon = "gearIconWhite"
     public static let storeIcon = "storeIconWhite"
     public static let articleIcon = "articleIconWhite"
+    public static let logoutIcon = "logoutIconWhite"
 }
+
+//Firebase
+struct FRTable {
+    public static let user = "user"
+    public static let article = "article"
+    
+}
+
+struct FRAttribute {
+    public static let username = "username"
+    public static let email = "email"
+    public static let code = "code"
+    public static let name = "name"
+}
+

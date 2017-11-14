@@ -289,13 +289,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articulos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwY-t1-7kf">
-                                <rect key="frame" x="276.5" y="126" width="50.5" height="14"/>
+                                <rect key="frame" x="284" y="126" width="50.5" height="14"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="12"/>
                                 <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="716-xt-lGl">
-                                <rect key="frame" x="335" y="125" width="15" height="15"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="716-xt-lGl">
+                                <rect key="frame" x="342.5" y="125" width="7.5" height="15"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1867,6 +1867,139 @@ introduce el codigo del articulo</string>
             </objects>
             <point key="canvasLocation" x="2557.5999999999999" y="384.55772113943033"/>
         </scene>
+        <!--Recover Password View Controller-->
+        <scene sceneID="z9M-jr-H2f">
+            <objects>
+                <viewController id="XcS-UG-oNr" customClass="RecoverPasswordViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uto-n2-JFN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBackgroundGreen" translatesAutoresizingMaskIntoConstraints="NO" id="OV6-Jw-aR5">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zvn-0b-qqx" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="145" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xhg-ST-46A" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
+                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="fjX-6U-Dnf"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo Electronico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHb-Qi-zPc" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="24" width="117" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZqX-mj-bhI">
+                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lq0-8m-a3i"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="uMP-ge-9hG"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xhg-ST-46A" secondAttribute="bottom" constant="3" id="FjT-XO-hqD"/>
+                                    <constraint firstAttribute="height" constant="50" id="Hau-AP-xLq"/>
+                                    <constraint firstAttribute="trailing" secondItem="xhg-ST-46A" secondAttribute="trailing" constant="25" id="NYZ-HJ-QfO"/>
+                                    <constraint firstItem="xhg-ST-46A" firstAttribute="leading" secondItem="bHb-Qi-zPc" secondAttribute="leading" id="R3k-dK-udT"/>
+                                    <constraint firstItem="xhg-ST-46A" firstAttribute="top" secondItem="ZqX-mj-bhI" secondAttribute="bottom" id="UjM-Jz-Ya1"/>
+                                    <constraint firstItem="xhg-ST-46A" firstAttribute="leading" secondItem="Zvn-0b-qqx" secondAttribute="leading" constant="25" id="fdH-TX-PLh"/>
+                                    <constraint firstItem="xhg-ST-46A" firstAttribute="leading" secondItem="ZqX-mj-bhI" secondAttribute="leading" id="qI2-Gw-5iA"/>
+                                    <constraint firstItem="xhg-ST-46A" firstAttribute="trailing" secondItem="ZqX-mj-bhI" secondAttribute="trailing" id="vJy-Fv-rZd"/>
+                                    <constraint firstItem="bHb-Qi-zPc" firstAttribute="top" secondItem="Zvn-0b-qqx" secondAttribute="top" constant="24" id="zli-Tm-pR6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="bHb-Qi-zPc" id="BJi-B5-P1U"/>
+                                    <outlet property="nameLabelTopConstraint" destination="zli-Tm-pR6" id="3q1-TX-n0D"/>
+                                    <outlet property="underline" destination="xhg-ST-46A" id="wed-Xv-2tB"/>
+                                    <outlet property="valueTextField" destination="ZqX-mj-bhI" id="Ka0-ou-cVV"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recuperar Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbf-yB-SQe">
+                                <rect key="frame" x="25" y="92" width="242.5" height="28"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-iB-ONB">
+                                <rect key="frame" x="25" y="37" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="4lY-vq-PZl"/>
+                                    <constraint firstAttribute="height" constant="25" id="tPN-V0-VWO"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="backArrowWhite"/>
+                                <connections>
+                                    <action selector="goBackButtonPressed:" destination="XcS-UG-oNr" eventType="touchUpInside" id="6fw-5D-dEv"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrecioScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfW-Gv-1nN">
+                                <rect key="frame" x="116" y="30" width="143.5" height="33"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u64-X5-JKW" customClass="TransitionButton" customModule="TransitionButton">
+                                <rect key="frame" x="87.5" y="255" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.66274509800000003" green="0.65490196079999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Cpr-PS-Xow"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="lT0-E8-vmL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="RECUPERAR">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="recoverButtonPressed:" destination="XcS-UG-oNr" eventType="touchUpInside" id="IGO-6y-yVh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="u64-X5-JKW" firstAttribute="centerX" secondItem="Uto-n2-JFN" secondAttribute="centerX" id="4Ye-yK-R8I"/>
+                            <constraint firstItem="YfW-Gv-1nN" firstAttribute="centerX" secondItem="Uto-n2-JFN" secondAttribute="centerX" id="Eg2-1E-vih"/>
+                            <constraint firstItem="OV6-Jw-aR5" firstAttribute="trailing" secondItem="1NK-ac-b2Y" secondAttribute="trailing" id="IZb-6H-f8C"/>
+                            <constraint firstItem="YfW-Gv-1nN" firstAttribute="top" secondItem="1NK-ac-b2Y" secondAttribute="top" constant="10" id="JrI-4y-NjJ"/>
+                            <constraint firstItem="Zvn-0b-qqx" firstAttribute="top" secondItem="fbf-yB-SQe" secondAttribute="bottom" constant="25" id="P7f-Tn-dtt"/>
+                            <constraint firstItem="fbf-yB-SQe" firstAttribute="top" secondItem="GMd-iB-ONB" secondAttribute="bottom" constant="30" id="PLB-Ve-Evu"/>
+                            <constraint firstItem="Zvn-0b-qqx" firstAttribute="trailing" secondItem="1NK-ac-b2Y" secondAttribute="trailing" id="a2L-Fa-CXe"/>
+                            <constraint firstItem="GMd-iB-ONB" firstAttribute="top" secondItem="1NK-ac-b2Y" secondAttribute="top" constant="17" id="dqE-UD-Oqi"/>
+                            <constraint firstItem="OV6-Jw-aR5" firstAttribute="leading" secondItem="1NK-ac-b2Y" secondAttribute="leading" id="gcA-ki-dcL"/>
+                            <constraint firstItem="fbf-yB-SQe" firstAttribute="leading" secondItem="1NK-ac-b2Y" secondAttribute="leading" constant="25" id="gwu-Tx-MwX"/>
+                            <constraint firstItem="GMd-iB-ONB" firstAttribute="leading" secondItem="1NK-ac-b2Y" secondAttribute="leading" constant="25" id="h09-s0-bCt"/>
+                            <constraint firstItem="Zvn-0b-qqx" firstAttribute="leading" secondItem="1NK-ac-b2Y" secondAttribute="leading" id="iSg-N3-CAL"/>
+                            <constraint firstItem="OV6-Jw-aR5" firstAttribute="top" secondItem="Uto-n2-JFN" secondAttribute="top" id="pkF-PU-XCk"/>
+                            <constraint firstItem="u64-X5-JKW" firstAttribute="top" secondItem="Zvn-0b-qqx" secondAttribute="bottom" constant="60" id="scs-Z2-UYK"/>
+                            <constraint firstItem="OV6-Jw-aR5" firstAttribute="bottom" secondItem="1NK-ac-b2Y" secondAttribute="bottom" id="y6A-tg-wtc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1NK-ac-b2Y"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailAnimatedControl" destination="Zvn-0b-qqx" id="rps-cl-hyy"/>
+                        <outlet property="recoverButton" destination="u64-X5-JKW" id="Bw1-36-K6J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C5O-rL-dh6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1676" y="-675"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="v04-1G-Vfo">
             <objects>
@@ -1885,43 +2018,27 @@ introduce el codigo del articulo</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbV-ja-mHC">
-                                <rect key="frame" x="0.0" y="193.5" width="375" height="280"/>
+                                <rect key="frame" x="0.0" y="178.5" width="375" height="310"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXJ-lq-8Ja" customClass="PMSuperButton" customModule="PMSuperButton">
-                                        <rect key="frame" x="112" y="135.5" width="150" height="40"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXJ-lq-8Ja" customClass="TransitionButton" customModule="TransitionButton">
+                                        <rect key="frame" x="87.5" y="150" width="200" height="40"/>
+                                        <color key="backgroundColor" red="0.66274509803921566" green="0.65490196078431373" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="1NE-TL-1ac"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="1NE-TL-1ac"/>
                                             <constraint firstAttribute="height" constant="40" id="ros-qu-JqY"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="INGRESAR">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" red="0.28235294119999998" green="0.80392156859999997" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
-                                                <color key="value" red="0.66274509800000003" green="0.65490196079999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
-                                                <color key="value" red="0.70980392160000005" green="0.73333333329999995" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="ripple" value="YES"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="gradientEnabled" value="NO"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="1"/>
-                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="compareButtonPressed:" destination="Xo6-d6-ev1" eventType="touchUpInside" id="fTa-wc-wJn"/>
-                                            <action selector="loginButtonPressed:" destination="KQJ-uo-6wS" eventType="touchUpInside" id="0Ii-eE-NBA"/>
+                                            <action selector="loginButtonPressed:" destination="KQJ-uo-6wS" eventType="touchUpInside" id="MWw-yG-EWn"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Qx-Ew-6lf" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
@@ -1947,7 +2064,7 @@ introduce el codigo del articulo</string>
                                                 </constraints>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="Ccu-bP-Iec" id="S3f-oI-VqB"/>
                                                 </connections>
@@ -1973,7 +2090,7 @@ introduce el codigo del articulo</string>
                                         </connections>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KLf-1V-GDM" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="65" width="375" height="50"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jER-SB-8UO" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
                                                 <rect key="frame" x="25" y="45" width="325" height="2"/>
@@ -1995,7 +2112,7 @@ introduce el codigo del articulo</string>
                                                 </constraints>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="Ccu-bP-Iec" id="9eB-Gg-hJo"/>
                                                 </connections>
@@ -2021,17 +2138,18 @@ introduce el codigo del articulo</string>
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeY-Hi-9gP">
-                                        <rect key="frame" x="97.5" y="210.5" width="180" height="29"/>
+                                        <rect key="frame" x="97.5" y="235" width="180" height="29"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                         <state key="normal" title="Olvidaste tu contraseña?">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="forgotPasswordButtonPressed:" destination="KQJ-uo-6wS" eventType="touchUpInside" id="FYg-OJ-QOw"/>
+                                            <segue destination="XcS-UG-oNr" kind="show" id="s7l-Vc-5tF"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3H-L0-E2D">
-                                        <rect key="frame" x="97.5" y="245" width="180" height="29"/>
+                                        <rect key="frame" x="97.5" y="274" width="180" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="mPK-mS-fBP"/>
                                         </constraints>
@@ -2041,6 +2159,7 @@ introduce el codigo del articulo</string>
                                         </state>
                                         <connections>
                                             <action selector="createAccountButtonPressed:" destination="KQJ-uo-6wS" eventType="touchUpInside" id="Fgs-Vf-vGe"/>
+                                            <segue destination="buf-We-PXd" kind="presentation" id="nbX-Q6-Ibi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2050,15 +2169,15 @@ introduce el codigo del articulo</string>
                                     <constraint firstItem="QXJ-lq-8Ja" firstAttribute="centerX" secondItem="fbV-ja-mHC" secondAttribute="centerX" id="4jz-9d-1Wt"/>
                                     <constraint firstItem="L3H-L0-E2D" firstAttribute="trailing" secondItem="MeY-Hi-9gP" secondAttribute="trailing" id="Iij-G8-e2g"/>
                                     <constraint firstItem="MeY-Hi-9gP" firstAttribute="centerX" secondItem="fbV-ja-mHC" secondAttribute="centerX" id="SJx-vt-74c"/>
-                                    <constraint firstAttribute="height" constant="280" id="Shp-vQ-zUn"/>
-                                    <constraint firstItem="MeY-Hi-9gP" firstAttribute="top" secondItem="QXJ-lq-8Ja" secondAttribute="bottom" constant="35" id="U5C-7P-Mgj"/>
+                                    <constraint firstAttribute="height" constant="310" id="Shp-vQ-zUn"/>
+                                    <constraint firstItem="MeY-Hi-9gP" firstAttribute="top" secondItem="QXJ-lq-8Ja" secondAttribute="bottom" constant="45" id="U5C-7P-Mgj"/>
                                     <constraint firstItem="L3H-L0-E2D" firstAttribute="leading" secondItem="MeY-Hi-9gP" secondAttribute="leading" id="Zyb-jj-VHg"/>
                                     <constraint firstItem="KLf-1V-GDM" firstAttribute="leading" secondItem="fbV-ja-mHC" secondAttribute="leading" id="cS9-ci-xFL"/>
                                     <constraint firstItem="QXJ-lq-8Ja" firstAttribute="top" secondItem="KLf-1V-GDM" secondAttribute="bottom" constant="35" id="gp5-eF-xT7"/>
                                     <constraint firstAttribute="trailing" secondItem="4Qx-Ew-6lf" secondAttribute="trailing" id="iT3-HK-t7e"/>
-                                    <constraint firstItem="L3H-L0-E2D" firstAttribute="top" secondItem="MeY-Hi-9gP" secondAttribute="bottom" constant="5" id="pUZ-SI-5Uu"/>
+                                    <constraint firstItem="L3H-L0-E2D" firstAttribute="top" secondItem="MeY-Hi-9gP" secondAttribute="bottom" constant="10" id="pUZ-SI-5Uu"/>
                                     <constraint firstItem="4Qx-Ew-6lf" firstAttribute="leading" secondItem="fbV-ja-mHC" secondAttribute="leading" id="upf-nC-bjP"/>
-                                    <constraint firstItem="KLf-1V-GDM" firstAttribute="top" secondItem="4Qx-Ew-6lf" secondAttribute="bottom" id="vRm-Uu-JRa"/>
+                                    <constraint firstItem="KLf-1V-GDM" firstAttribute="top" secondItem="4Qx-Ew-6lf" secondAttribute="bottom" constant="15" id="vRm-Uu-JRa"/>
                                     <constraint firstItem="L3H-L0-E2D" firstAttribute="centerX" secondItem="fbV-ja-mHC" secondAttribute="centerX" id="w4I-ao-DnA"/>
                                     <constraint firstAttribute="trailing" secondItem="KLf-1V-GDM" secondAttribute="trailing" id="x6O-8I-Glc"/>
                                 </constraints>
@@ -2068,8 +2187,8 @@ introduce el codigo del articulo</string>
                         <constraints>
                             <constraint firstItem="XZk-z1-S2b" firstAttribute="trailing" secondItem="hJA-VV-3RI" secondAttribute="trailing" id="PwJ-9D-Zwt"/>
                             <constraint firstItem="XZk-z1-S2b" firstAttribute="bottom" secondItem="hJA-VV-3RI" secondAttribute="bottom" id="XO7-GT-Z02"/>
-                            <constraint firstItem="XZk-z1-S2b" firstAttribute="top" secondItem="A5k-Py-EDs" secondAttribute="top" id="ayH-6N-UZh"/>
                             <constraint firstItem="fbV-ja-mHC" firstAttribute="centerY" secondItem="A5k-Py-EDs" secondAttribute="centerY" id="bdC-yE-ihk"/>
+                            <constraint firstItem="XZk-z1-S2b" firstAttribute="top" secondItem="A5k-Py-EDs" secondAttribute="top" id="cLr-nl-ehF"/>
                             <constraint firstItem="KkT-Nv-Dw8" firstAttribute="centerX" secondItem="A5k-Py-EDs" secondAttribute="centerX" id="haJ-xF-Hu2"/>
                             <constraint firstItem="fbV-ja-mHC" firstAttribute="leading" secondItem="hJA-VV-3RI" secondAttribute="leading" id="i0E-Rz-JOi"/>
                             <constraint firstItem="fbV-ja-mHC" firstAttribute="trailing" secondItem="hJA-VV-3RI" secondAttribute="trailing" id="lF2-G0-cpc"/>
@@ -2080,6 +2199,7 @@ introduce el codigo del articulo</string>
                     </view>
                     <connections>
                         <outlet property="emailAnimatedControl" destination="4Qx-Ew-6lf" id="abr-7c-Kab"/>
+                        <outlet property="loginButton" destination="QXJ-lq-8Ja" id="CzW-Eh-a71"/>
                         <outlet property="passwordAnimatedControl" destination="KLf-1V-GDM" id="x0h-zk-waO"/>
                     </connections>
                 </viewController>
@@ -2098,102 +2218,6 @@ introduce el codigo del articulo</string>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBackgroundGreen" translatesAutoresizingMaskIntoConstraints="NO" id="IC6-PO-JEf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VC2-FD-LZo" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="203" width="375" height="50"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4B-0K-Bfi" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
-                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="vfI-va-cwj"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUy-jo-rSl" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="72.5" height="16"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
-                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzf-qW-2t8">
-                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="YJp-GJ-RmI"/>
-                                        </constraints>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="VuS-VX-HLj"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="OUy-jo-rSl" firstAttribute="top" secondItem="VC2-FD-LZo" secondAttribute="top" constant="24" id="0NH-EN-e95"/>
-                                    <constraint firstAttribute="height" constant="50" id="BwV-FO-vwz"/>
-                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="trailing" secondItem="uzf-qW-2t8" secondAttribute="trailing" id="I32-TV-aX0"/>
-                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="top" secondItem="uzf-qW-2t8" secondAttribute="bottom" id="JPg-KY-BSH"/>
-                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="leading" secondItem="uzf-qW-2t8" secondAttribute="leading" id="PTv-17-FTa"/>
-                                    <constraint firstAttribute="bottom" secondItem="t4B-0K-Bfi" secondAttribute="bottom" constant="3" id="T2F-RQ-rEf"/>
-                                    <constraint firstAttribute="trailing" secondItem="t4B-0K-Bfi" secondAttribute="trailing" constant="25" id="ck3-7T-PhB"/>
-                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="leading" secondItem="OUy-jo-rSl" secondAttribute="leading" id="kW3-7Z-HjM"/>
-                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="leading" secondItem="VC2-FD-LZo" secondAttribute="leading" constant="25" id="par-EY-Mgy"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="nameLabel" destination="OUy-jo-rSl" id="Qx3-HD-5LX"/>
-                                    <outlet property="nameLabelTopConstraint" destination="0NH-EN-e95" id="ubz-Ms-o6L"/>
-                                    <outlet property="underline" destination="t4B-0K-Bfi" id="clV-hE-Dom"/>
-                                    <outlet property="valueTextField" destination="uzf-qW-2t8" id="4Vc-Kl-5yH"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0W-Fp-k81" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="261" width="375" height="50"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udZ-YH-fph" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
-                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="r6N-vH-kiD"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verifica la contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-iz-WoY" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="134" height="16"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
-                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DiH-dD-kSj">
-                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="FPs-xt-Q3d"/>
-                                        </constraints>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="eeZ-RV-ZYP"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="udZ-YH-fph" firstAttribute="leading" secondItem="DiH-dD-kSj" secondAttribute="leading" id="8PI-Ah-9rO"/>
-                                    <constraint firstItem="udZ-YH-fph" firstAttribute="top" secondItem="DiH-dD-kSj" secondAttribute="bottom" id="Hxf-5M-zXC"/>
-                                    <constraint firstItem="udZ-YH-fph" firstAttribute="leading" secondItem="wT8-iz-WoY" secondAttribute="leading" id="Nim-9J-uyX"/>
-                                    <constraint firstAttribute="trailing" secondItem="udZ-YH-fph" secondAttribute="trailing" constant="25" id="Oao-hc-mgL"/>
-                                    <constraint firstAttribute="height" constant="50" id="ZDc-3u-6Et"/>
-                                    <constraint firstAttribute="bottom" secondItem="udZ-YH-fph" secondAttribute="bottom" constant="3" id="mSf-Xk-Q9n"/>
-                                    <constraint firstItem="wT8-iz-WoY" firstAttribute="top" secondItem="e0W-Fp-k81" secondAttribute="top" constant="24" id="ntd-Zs-vYW"/>
-                                    <constraint firstItem="udZ-YH-fph" firstAttribute="leading" secondItem="e0W-Fp-k81" secondAttribute="leading" constant="25" id="qO0-pS-AXv"/>
-                                    <constraint firstItem="udZ-YH-fph" firstAttribute="trailing" secondItem="DiH-dD-kSj" secondAttribute="trailing" id="uP4-Hi-7Uc"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="nameLabel" destination="wT8-iz-WoY" id="iks-DN-Tcw"/>
-                                    <outlet property="nameLabelTopConstraint" destination="ntd-Zs-vYW" id="8h2-oj-6FE"/>
-                                    <outlet property="underline" destination="udZ-YH-fph" id="Ug8-x5-g3p"/>
-                                    <outlet property="valueTextField" destination="DiH-dD-kSj" id="ehx-hP-vf2"/>
-                                </connections>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYe-fB-ard" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="145" width="375" height="50"/>
                                 <subviews>
@@ -2217,7 +2241,7 @@ introduce el codigo del articulo</string>
                                         </constraints>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
                                         <connections>
                                             <outlet property="delegate" destination="Ccu-bP-Iec" id="ik8-pQ-ZEy"/>
                                         </connections>
@@ -2242,6 +2266,150 @@ introduce el codigo del articulo</string>
                                     <outlet property="valueTextField" destination="2Y5-M0-Dcc" id="VhA-u4-EGA"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VC2-FD-LZo" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="261" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4B-0K-Bfi" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
+                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="vfI-va-cwj"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUy-jo-rSl" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="24" width="72.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uzf-qW-2t8">
+                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="YJp-GJ-RmI"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="VuS-VX-HLj"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="OUy-jo-rSl" firstAttribute="top" secondItem="VC2-FD-LZo" secondAttribute="top" constant="24" id="0NH-EN-e95"/>
+                                    <constraint firstAttribute="height" constant="50" id="BwV-FO-vwz"/>
+                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="trailing" secondItem="uzf-qW-2t8" secondAttribute="trailing" id="I32-TV-aX0"/>
+                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="top" secondItem="uzf-qW-2t8" secondAttribute="bottom" id="JPg-KY-BSH"/>
+                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="leading" secondItem="uzf-qW-2t8" secondAttribute="leading" id="PTv-17-FTa"/>
+                                    <constraint firstAttribute="bottom" secondItem="t4B-0K-Bfi" secondAttribute="bottom" constant="3" id="T2F-RQ-rEf"/>
+                                    <constraint firstAttribute="trailing" secondItem="t4B-0K-Bfi" secondAttribute="trailing" constant="25" id="ck3-7T-PhB"/>
+                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="leading" secondItem="OUy-jo-rSl" secondAttribute="leading" id="kW3-7Z-HjM"/>
+                                    <constraint firstItem="t4B-0K-Bfi" firstAttribute="leading" secondItem="VC2-FD-LZo" secondAttribute="leading" constant="25" id="par-EY-Mgy"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="OUy-jo-rSl" id="Qx3-HD-5LX"/>
+                                    <outlet property="nameLabelTopConstraint" destination="0NH-EN-e95" id="ubz-Ms-o6L"/>
+                                    <outlet property="underline" destination="t4B-0K-Bfi" id="clV-hE-Dom"/>
+                                    <outlet property="valueTextField" destination="uzf-qW-2t8" id="4Vc-Kl-5yH"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnZ-MI-udM" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="203" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZa-ra-ovQ" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
+                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="Fdf-Zo-JWJ"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de Usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtC-oo-eAi" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="24" width="122.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5W-nD-hpo">
+                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3GV-9E-MRz"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="hVq-QF-s05"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="EtC-oo-eAi" secondAttribute="leading" id="0wG-5n-gAq"/>
+                                    <constraint firstAttribute="bottom" secondItem="HZa-ra-ovQ" secondAttribute="bottom" constant="3" id="11f-4b-PMy"/>
+                                    <constraint firstAttribute="trailing" secondItem="HZa-ra-ovQ" secondAttribute="trailing" constant="25" id="PDV-XP-NOd"/>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="h5W-nD-hpo" secondAttribute="leading" id="QlE-gN-Jap"/>
+                                    <constraint firstItem="EtC-oo-eAi" firstAttribute="top" secondItem="vnZ-MI-udM" secondAttribute="top" constant="24" id="Tfv-5R-pqO"/>
+                                    <constraint firstAttribute="height" constant="50" id="TsN-wl-xqn"/>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="trailing" secondItem="h5W-nD-hpo" secondAttribute="trailing" id="UVm-06-DhL"/>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="top" secondItem="h5W-nD-hpo" secondAttribute="bottom" id="oeU-ni-HNL"/>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="vnZ-MI-udM" secondAttribute="leading" constant="25" id="rqq-P3-skf"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="EtC-oo-eAi" id="zxr-dk-EJ4"/>
+                                    <outlet property="nameLabelTopConstraint" destination="Tfv-5R-pqO" id="qGV-4Q-VFh"/>
+                                    <outlet property="underline" destination="HZa-ra-ovQ" id="lNm-zd-vOg"/>
+                                    <outlet property="valueTextField" destination="h5W-nD-hpo" id="iRq-df-dTI"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0W-Fp-k81" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="319" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udZ-YH-fph" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
+                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="r6N-vH-kiD"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verifica la contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT8-iz-WoY" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="24" width="134" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DiH-dD-kSj">
+                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="FPs-xt-Q3d"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="eeZ-RV-ZYP"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="udZ-YH-fph" firstAttribute="leading" secondItem="DiH-dD-kSj" secondAttribute="leading" id="8PI-Ah-9rO"/>
+                                    <constraint firstItem="udZ-YH-fph" firstAttribute="top" secondItem="DiH-dD-kSj" secondAttribute="bottom" id="Hxf-5M-zXC"/>
+                                    <constraint firstItem="udZ-YH-fph" firstAttribute="leading" secondItem="wT8-iz-WoY" secondAttribute="leading" id="Nim-9J-uyX"/>
+                                    <constraint firstAttribute="trailing" secondItem="udZ-YH-fph" secondAttribute="trailing" constant="25" id="Oao-hc-mgL"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZDc-3u-6Et"/>
+                                    <constraint firstAttribute="bottom" secondItem="udZ-YH-fph" secondAttribute="bottom" constant="3" id="mSf-Xk-Q9n"/>
+                                    <constraint firstItem="wT8-iz-WoY" firstAttribute="top" secondItem="e0W-Fp-k81" secondAttribute="top" constant="24" id="ntd-Zs-vYW"/>
+                                    <constraint firstItem="udZ-YH-fph" firstAttribute="leading" secondItem="e0W-Fp-k81" secondAttribute="leading" constant="25" id="qO0-pS-AXv"/>
+                                    <constraint firstItem="udZ-YH-fph" firstAttribute="trailing" secondItem="DiH-dD-kSj" secondAttribute="trailing" id="uP4-Hi-7Uc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="wT8-iz-WoY" id="iks-DN-Tcw"/>
+                                    <outlet property="nameLabelTopConstraint" destination="ntd-Zs-vYW" id="8h2-oj-6FE"/>
+                                    <outlet property="underline" destination="udZ-YH-fph" id="Ug8-x5-g3p"/>
+                                    <outlet property="valueTextField" destination="DiH-dD-kSj" id="ehx-hP-vf2"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KYG-xl-8U1">
                                 <rect key="frame" x="25" y="37" width="25" height="25"/>
                                 <constraints>
@@ -2250,7 +2418,7 @@ introduce el codigo del articulo</string>
                                 </constraints>
                                 <state key="normal" title="Button" image="backArrowWhite"/>
                                 <connections>
-                                    <action selector="backButtonPressed:" destination="dB9-Ud-wGz" eventType="touchUpInside" id="DMI-Na-Wd1"/>
+                                    <action selector="goBackButtonPressed:" destination="buf-We-PXd" eventType="touchUpInside" id="4ne-iK-OAE"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear cuenta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IX1-h2-Bt9">
@@ -2265,53 +2433,38 @@ introduce el codigo del articulo</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOZ-qE-4sx" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="112" y="371" width="150" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-Ud-K8a" customClass="TransitionButton" customModule="TransitionButton">
+                                <rect key="frame" x="87" y="429" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.66274509800000003" green="0.65490196079999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="TbH-ZT-U9S"/>
-                                    <constraint firstAttribute="height" constant="40" id="oyr-aW-Xm4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="IGz-R7-uKQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="tsY-Rl-t1h"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="CREAR CUENTA">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                        <color key="value" red="0.28235294119999998" green="0.80392156859999997" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientStartColor">
-                                        <color key="value" red="0.66274509800000003" green="0.65490196079999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="gradientEndColor">
-                                        <color key="value" red="0.70980392160000005" green="0.73333333329999995" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="ripple" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="gradientEnabled" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="compareButtonPressed:" destination="Xo6-d6-ev1" eventType="touchUpInside" id="tI9-NH-FlN"/>
+                                    <action selector="createAccountBtnPressed:" destination="buf-We-PXd" eventType="touchUpInside" id="I80-Xy-4y0"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="hOZ-qE-4sx" firstAttribute="top" secondItem="e0W-Fp-k81" secondAttribute="bottom" constant="60" id="0gZ-lz-MwC"/>
                             <constraint firstItem="IC6-PO-JEf" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="2ci-hy-qii"/>
                             <constraint firstItem="1nf-KQ-Bel" firstAttribute="top" secondItem="xON-fh-gov" secondAttribute="top" constant="10" id="AU5-Xe-RE1"/>
-                            <constraint firstItem="hOZ-qE-4sx" firstAttribute="centerX" secondItem="y52-0V-QXh" secondAttribute="centerX" id="EEt-OX-JPT"/>
+                            <constraint firstItem="vnZ-MI-udM" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="Bfy-UJ-b3l"/>
                             <constraint firstItem="IX1-h2-Bt9" firstAttribute="top" secondItem="KYG-xl-8U1" secondAttribute="bottom" constant="30" id="EOK-Rm-aht"/>
                             <constraint firstItem="1nf-KQ-Bel" firstAttribute="centerX" secondItem="y52-0V-QXh" secondAttribute="centerX" id="GaJ-Cv-q4P"/>
                             <constraint firstItem="e0W-Fp-k81" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="H8o-K4-lBh"/>
                             <constraint firstItem="VC2-FD-LZo" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="JfN-wf-NsK"/>
+                            <constraint firstItem="vnZ-MI-udM" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="K2F-C7-Ytk"/>
                             <constraint firstItem="IC6-PO-JEf" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="Lod-sx-jy8"/>
                             <constraint firstItem="VC2-FD-LZo" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="Onc-HT-1SV"/>
                             <constraint firstItem="IX1-h2-Bt9" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" constant="25" id="PNG-7U-wKA"/>
@@ -2319,15 +2472,25 @@ introduce el codigo del articulo</string>
                             <constraint firstItem="BYe-fB-ard" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="SbT-Cd-2do"/>
                             <constraint firstItem="e0W-Fp-k81" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="ZtV-AB-kAa"/>
                             <constraint firstItem="KYG-xl-8U1" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" constant="25" id="gUN-s3-ygk"/>
+                            <constraint firstItem="vnZ-MI-udM" firstAttribute="top" secondItem="BYe-fB-ard" secondAttribute="bottom" constant="8" id="ihe-Lu-BxZ"/>
                             <constraint firstItem="IC6-PO-JEf" firstAttribute="bottom" secondItem="xON-fh-gov" secondAttribute="bottom" id="kTe-wv-fuv"/>
+                            <constraint firstItem="IPN-Ud-K8a" firstAttribute="top" secondItem="e0W-Fp-k81" secondAttribute="bottom" constant="60" id="meb-0e-Oax"/>
                             <constraint firstItem="e0W-Fp-k81" firstAttribute="top" secondItem="VC2-FD-LZo" secondAttribute="bottom" constant="8" id="ndx-Vn-6Pb"/>
                             <constraint firstItem="BYe-fB-ard" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="ulv-pe-8dO"/>
+                            <constraint firstItem="VC2-FD-LZo" firstAttribute="top" secondItem="vnZ-MI-udM" secondAttribute="bottom" constant="8" id="vQs-VP-9VX"/>
                             <constraint firstItem="IC6-PO-JEf" firstAttribute="top" secondItem="y52-0V-QXh" secondAttribute="top" id="w73-pF-6XU"/>
+                            <constraint firstItem="IPN-Ud-K8a" firstAttribute="centerX" secondItem="y52-0V-QXh" secondAttribute="centerX" id="w8U-US-fpa"/>
                             <constraint firstItem="BYe-fB-ard" firstAttribute="top" secondItem="IX1-h2-Bt9" secondAttribute="bottom" constant="25" id="yUY-nV-lt8"/>
-                            <constraint firstItem="VC2-FD-LZo" firstAttribute="top" secondItem="BYe-fB-ard" secondAttribute="bottom" constant="8" id="ztL-lX-5ED"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xON-fh-gov"/>
                     </view>
+                    <connections>
+                        <outlet property="createAccountButton" destination="IPN-Ud-K8a" id="uMV-LQ-oOe"/>
+                        <outlet property="emailAnimatedControl" destination="BYe-fB-ard" id="wft-Vy-day"/>
+                        <outlet property="passwordAnimatedControl" destination="VC2-FD-LZo" id="2NA-Fg-CHQ"/>
+                        <outlet property="usernameAnimatedControl" destination="vnZ-MI-udM" id="0GA-iN-Krt"/>
+                        <outlet property="verifyPasswordAnimatedControl" destination="e0W-Fp-k81" id="Urr-CE-3mw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOJ-oF-tMN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

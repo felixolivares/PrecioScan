@@ -18,10 +18,13 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureComponents()
         restoreConfigurationValues()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureComponents()
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         hamburgerButton.setStyle(.hamburger, animated: true)
@@ -50,6 +53,7 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
         sender.trackOnFillColor = UIColor(oliveGreen)
     }
     func configureComponents(){
+        UserManager.shared.verifyUserIsLogged(vc: self)
         hamburgerButton.setStyle(.hamburger, animated: false)
     }
     

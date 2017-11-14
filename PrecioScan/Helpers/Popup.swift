@@ -19,22 +19,28 @@ class Popup{
         cancelButtonAppearance.separatorColor   = UIColor(nicePurple)?.withAlphaComponent(0.5)
         
         let defaultButtonAppereance = DefaultButton.appearance()
-        defaultButtonAppereance.titleFont       = UIFont(name: "Ubuntu-Medium", size: 14)!
+        defaultButtonAppereance.titleFont       = Fonts().ubuntuMedium(size: 14)
         defaultButtonAppereance.titleColor      = UIColor.white
-        defaultButtonAppereance.buttonColor     = UIColor(nicePurple)
-        defaultButtonAppereance.separatorColor  = UIColor(nicePurple)?.withAlphaComponent(0.5)
+        defaultButtonAppereance.buttonColor     = UIColor(oliveGreen)
+        defaultButtonAppereance.separatorColor  = UIColor(oliveGreen)?.withAlphaComponent(0.5)
         
         let destructiveButtonAppereance = DestructiveButton.appearance()
         destructiveButtonAppereance.separatorColor = UIColor(oliveGreen)?.withAlphaComponent(0.5)
         
         let dialogAppearance = PopupDialogDefaultView.appearance()
         dialogAppearance.backgroundColor        = UIColor.white
-        dialogAppearance.titleFont              = UIFont(name: "Ubuntu-Bold", size: 18)!
-        dialogAppearance.messageFont            = UIFont(name: "Ubuntu-Regular", size: 16)!
+        dialogAppearance.titleFont              = Fonts().ubuntuBold(size: 18)
+        dialogAppearance.messageFont            = Fonts().ubuntuRegular(size: 16)
     }
     
-    public static func show(withOK message:String?, vc: UIViewController){
-        let popup = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+    public static func show(withOK message:String?, title: String?, vc: UIViewController){
+        let finalTitle: String!
+        if title != nil{
+            finalTitle = title!
+        }else{
+            finalTitle = ""
+        }
+        let popup = PopupDialog(title: finalTitle, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
         let buttonOne = DefaultButton(title: "OK") {}
         popup.addButton(buttonOne)
         vc.present(popup, animated: true, completion: nil)
@@ -47,6 +53,22 @@ class Popup{
         DispatchQueue.main.asyncAfter(deadline: when) {
             popup.dismiss()
         }
+    }
+    
+    public static func show(OKWithCompletionAndMessage message: String?, title: String?, vc: UIViewController, completionHandler: @escaping (String) -> Void) {
+        let finalTitle: String!
+        if title != nil{
+            finalTitle = title!
+        }else{
+            finalTitle = ""
+        }
+        let popup = PopupDialog(title: finalTitle, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let buttonOne = DefaultButton(title: "OK") {
+            popup.dismiss()
+            completionHandler(Constants.Popup.continueAnswer)
+        }
+        popup.addButton(buttonOne)
+        vc.present(popup, animated: true, completion: nil)
     }
     
     public static func show(withCompletionMessage message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){

@@ -13,8 +13,8 @@ class NavigationMenuViewController: MenuViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.configurationItem]
-    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.configurationIcon]
+    let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.logoutItem]
+    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.configurationIcon, ImageNames.logoutIcon]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,17 @@ extension NavigationMenuViewController: UITableViewDataSource, UITableViewDelega
         guard let menuContainerViewController = self.menuContainerViewController else {
             return
         }
-        menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[indexPath.row])
-        menuContainerViewController.hideSideMenu()
+        if indexPath.row == menuContainerViewController.contentViewControllers.count{
+            FirebaseOperations().signOut(vc: self){ success, error in
+                if success{
+                    menuContainerViewController.hideSideMenu()
+                }else{
+                    Popup.show(withError: error!, vc: self)
+                }
+            }
+        } else {
+            menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[indexPath.row])
+            menuContainerViewController.hideSideMenu()
+        }
     }
 }

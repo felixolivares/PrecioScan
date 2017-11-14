@@ -23,6 +23,9 @@ target 'PrecioScan' do
   pod 'TableViewReloadAnimation', '~> 0.0.5'
   pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'develop'
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'TransitionButton'
   
   target 'PrecioScanTests' do
     inherit! :search_paths

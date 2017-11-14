@@ -62,7 +62,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        guard storeNameAnimatedControl.valueTextField.text != "", locationNameAnimatedControl.valueTextField.text != "" else{Popup.show(withOK: Warning.CreateStore.completeAllFieldsText, vc: self); return}
+        guard storeNameAnimatedControl.valueTextField.text != "", locationNameAnimatedControl.valueTextField.text != "" else{Popup.show(withOK: Warning.CreateStore.completeAllFieldsText, title: Constants.Popup.Titles.attention, vc: self); return}
         CoreDataManager.shared.saveStore(name: storeNameAnimatedControl.valueTextField.text!, location: locationNameAnimatedControl.valueTextField.text!, information: nil){ storeSaved, error in
             if let store = storeSaved {
                 self.tableView.reloadData()
@@ -93,6 +93,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     }
     
     func configureComponents(){
+        UserManager.shared.verifyUserIsLogged(vc: self)
         hamburgerButton.setStyle(.hamburger, animated: false)
     }
     

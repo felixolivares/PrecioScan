@@ -10,8 +10,10 @@ import UIKit
 import DynamicButton
 import InteractiveSideMenu
 import TableViewReloadAnimation
+import Firebase
+import TransitionButton
 
-class ListsViewController: UIViewController {
+class ListsViewController: CustomTransitionViewController {
 
     
     @IBOutlet weak var hamburgerButton: DynamicButton!
@@ -25,6 +27,7 @@ class ListsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        UserManager.shared.verifyUserIsLogged(vc: self)
         deselectCell()
         guard CoreDataManager.shared.getStack() == nil else {fetchLists(); return}
         CoreDataManager.shared.createStack{ finished in

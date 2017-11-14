@@ -83,7 +83,7 @@ class AddArticleViewController: UIViewController {
                     }
                 }
             }else{
-                Popup.show(withOK: Warning.AddArticle.completeAllFieldsText, vc: self)
+                Popup.show(withOK: Warning.AddArticle.completeAllFieldsText, title: Constants.Popup.Titles.attention, vc: self)
             }
         }
         self.displayAddMoreArticlesPopup()
@@ -93,7 +93,7 @@ class AddArticleViewController: UIViewController {
         if codeTextField.text != "", nameAnimatedControl.valueTextField.text != "", priceAnimatedControl.valueTextField.text != ""{
             performSegue(withIdentifier: Segues.toCompareFromArticle, sender: nil)
         }else{
-            Popup.show(withOK: Warning.AddArticle.completeFieldsBeforeCompare, vc: self)
+            Popup.show(withOK: Warning.AddArticle.completeFieldsBeforeCompare, title: Constants.Popup.Titles.attention, vc: self)
         }
     }
     
@@ -128,20 +128,24 @@ class AddArticleViewController: UIViewController {
                     guard self.articleFound != nil else {return}
                     CompareOperations().verifyMultipleItemListSaved(withObject: self.articleFound){ isFound in
                         if isFound{
-                            self.messageCenterYConstraint.constant = -20
-                            UIView.animate(withDuration: 0.3, animations: {
-                                self.messageAndButtonContainerView.layoutIfNeeded()
-                            }, completion: { _ in
-                                UIView.animate(withDuration: 0.3, animations: {
-                                    self.compareButton.alpha = 1.0
-                                })
-                            })
+                            self.showCompareButton()
                         }
                     }
                 }
             }
             self.barcodeIsRead = true
         }
+    }
+    
+    func showCompareButton(){
+        self.messageCenterYConstraint.constant = -20
+        UIView.animate(withDuration: 0.3, animations: {
+            self.messageAndButtonContainerView.layoutIfNeeded()
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.3, animations: {
+                self.compareButton.alpha = 1.0
+            })
+        })
     }
     
     func saveItemList(){
@@ -183,6 +187,7 @@ class AddArticleViewController: UIViewController {
         codeAnimatedControl.setText(text: itemListFound.article.code, animated: true)
         priceAnimatedControl.setText(text: String(describing: itemListFound.unitaryPrice), animated: true)
         stepper.value = Double(itemListFound.quantity)
+        fetchArticles(withCode: itemListFound.article.code)
     }
     
     func resetAll(){

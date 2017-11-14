@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import TransitionButton
 
 extension UILabel{
     func bounce(completionHandler: @escaping(Bool) -> Void){
@@ -27,5 +28,14 @@ extension UILabel{
 extension Float{
     func formatDecimals() -> String {
         return String(format: "%.2f", self)
+    }
+}
+
+extension TransitionButton{
+    func setLoading(){
+        self.layer.borderColor = UIColor.clear.cgColor
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 10
+        self.disabledBackgroundColor = UIColor.white
     }
 }

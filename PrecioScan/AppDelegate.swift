@@ -19,10 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         _ = CoreDataManager.shared
         _ = ConfigurationManager.shared
-        Popup.setupPopup()
         FirebaseApp.configure()
+        _ = UserManager.shared
+        Popup.setupPopup()
 
         IQKeyboardManager.sharedManager().enable = true
+        
+        
+//        if !UserManager.isLoggedIn! {
+//            let loginController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login") as! LoginViewController
+//            self.window?.rootViewController = loginController
+//        }
+        
         return true
     }
 
