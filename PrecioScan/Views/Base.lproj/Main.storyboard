@@ -49,13 +49,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrecioScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAD-ew-6PE">
-                                        <rect key="frame" x="116.5" y="32" width="143.5" height="33"/>
+                                        <rect key="frame" x="116" y="32" width="143.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV2-bL-OS8">
-                                        <rect key="frame" x="320" y="34" width="30" height="30"/>
+                                        <rect key="frame" x="320" y="34.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="08T-xQ-Mjl"/>
                                             <constraint firstAttribute="height" constant="30" id="crR-PM-ysF"/>
@@ -69,9 +69,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWg-Le-bYH" customClass="DynamicButton" customModule="DynamicButton">
-                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="1WN-qi-KrF"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="1WN-qi-KrF"/>
                                             <constraint firstAttribute="height" constant="30" id="CtK-0B-PNn"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -267,10 +267,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDS-IJ-ZxB" customClass="DynamicButton" customModule="DynamicButton">
-                                        <rect key="frame" x="25" y="36.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="36" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="6KF-Sl-gbA"/>
-                                            <constraint firstAttribute="width" constant="30" id="Sz8-6a-lqV"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="Sz8-6a-lqV"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <userDefinedRuntimeAttributes>
@@ -309,7 +309,10 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articulos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwY-t1-7kf">
-                                <rect key="frame" x="284" y="126" width="50.5" height="14"/>
+                                <rect key="frame" x="281" y="126" width="53.5" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="53.5" id="VIw-oF-eED"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="12"/>
                                 <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -387,16 +390,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6P-b0-y8c">
-                                        <rect key="frame" x="140.5" y="32.5" width="95.5" height="33"/>
+                                        <rect key="frame" x="140" y="32.5" width="95.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7U-ja-Rmt">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="35" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="fuP-mZ-beZ"/>
-                                            <constraint firstAttribute="width" constant="30" id="npN-zL-pOD"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="npN-zL-pOD"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backArrowWhite"/>
                                         <connections>
@@ -526,7 +529,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-CJ-vSQ" customClass="PMSuperButton" customModule="PMSuperButton">
                                 <rect key="frame" x="97" y="607" width="180" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="BwH-xd-7b3"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="BwH-xd-7b3"/>
                                     <constraint firstAttribute="height" constant="40" id="zTd-LU-LU8"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="15"/>
@@ -650,9 +653,9 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cev-Ep-ywE" customClass="DynamicButton" customModule="DynamicButton">
-                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="cSl-gK-2QO"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="cSl-gK-2QO"/>
                                             <constraint firstAttribute="height" constant="30" id="rf4-ne-g3E"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -669,7 +672,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configuracion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCi-GL-c0h">
-                                        <rect key="frame" x="100.5" y="32" width="175.5" height="33"/>
+                                        <rect key="frame" x="100" y="32" width="175.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -682,6 +685,7 @@
                                     <constraint firstItem="Lkd-pw-1hB" firstAttribute="top" secondItem="7fY-Jg-sVp" secondAttribute="top" id="M0C-Qn-N9Z"/>
                                     <constraint firstAttribute="bottom" secondItem="Lkd-pw-1hB" secondAttribute="bottom" id="W4c-ih-AJo"/>
                                     <constraint firstItem="cev-Ep-ywE" firstAttribute="leading" secondItem="7fY-Jg-sVp" secondAttribute="leading" constant="25" id="Y3A-xY-xar"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cev-Ep-ywE" secondAttribute="trailing" constant="20" symbolic="YES" id="lm8-Ap-We3"/>
                                     <constraint firstItem="hCi-GL-c0h" firstAttribute="centerY" secondItem="cev-Ep-ywE" secondAttribute="centerY" id="nAi-q1-Lw6"/>
                                     <constraint firstItem="Lkd-pw-1hB" firstAttribute="leading" secondItem="7fY-Jg-sVp" secondAttribute="leading" id="qdL-mK-bXD"/>
                                     <constraint firstItem="hCi-GL-c0h" firstAttribute="centerX" secondItem="7fY-Jg-sVp" secondAttribute="centerX" id="s70-Gn-hlv"/>
@@ -752,6 +756,7 @@
                             <constraint firstItem="7fY-Jg-sVp" firstAttribute="top" secondItem="g9V-ju-M5V" secondAttribute="top" id="NIb-eg-TIc"/>
                             <constraint firstItem="X9g-jy-NTg" firstAttribute="leading" secondItem="nyD-vO-XPC" secondAttribute="trailing" constant="10" id="NXk-MY-pjV"/>
                             <constraint firstItem="nyD-vO-XPC" firstAttribute="top" secondItem="ZlU-Xc-mal" secondAttribute="bottom" constant="10" id="Rnp-Bc-sqn"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XGv-gM-uGg" secondAttribute="trailing" constant="20" symbolic="YES" id="bWw-wu-QfG"/>
                             <constraint firstItem="XGv-gM-uGg" firstAttribute="centerY" secondItem="ZlU-Xc-mal" secondAttribute="centerY" id="fbH-0f-oDf"/>
                             <constraint firstItem="7fY-Jg-sVp" firstAttribute="leading" secondItem="nzQ-MV-hPW" secondAttribute="leading" id="mki-b8-Bud"/>
                             <constraint firstItem="7fY-Jg-sVp" firstAttribute="trailing" secondItem="nzQ-MV-hPW" secondAttribute="trailing" id="nOj-tU-k5m"/>
@@ -794,10 +799,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ta0-lP-OxX">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="MPq-YS-SMP"/>
-                                            <constraint firstAttribute="width" constant="30" id="hEF-rs-vW7"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="hEF-rs-vW7"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backArrowWhite"/>
                                         <connections>
@@ -1005,7 +1010,7 @@
                                 <rect key="frame" x="97.5" y="615" width="180" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4mq-o9-NFM"/>
-                                    <constraint firstAttribute="width" constant="180" id="9f5-8b-l7v"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="9f5-8b-l7v"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="15"/>
                                 <state key="normal" title="Guardar">
@@ -1063,6 +1068,9 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wi-sN-eeW">
                                 <rect key="frame" x="78" y="543" width="9" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="15" id="RVu-R3-CSn"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1155,10 +1163,10 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8e-ek-pIk" customClass="DynamicButton" customModule="DynamicButton">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="I8f-GC-JMB"/>
-                                            <constraint firstAttribute="width" constant="30" id="sFg-MN-PLa"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="sFg-MN-PLa"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <userDefinedRuntimeAttributes>
@@ -1180,9 +1188,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feZ-lJ-59h">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="TyO-US-TEY"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="TyO-US-TEY"/>
                                             <constraint firstAttribute="height" constant="30" id="YlH-z1-zNl"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backArrowWhite"/>
@@ -1299,7 +1307,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsd-Tq-myP" customClass="PMSuperButton" customModule="PMSuperButton">
                                 <rect key="frame" x="112" y="253" width="150" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="PjJ-jJ-zn9"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="PjJ-jJ-zn9"/>
                                     <constraint firstAttribute="height" constant="40" id="mQr-BZ-HYA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="13"/>
@@ -1392,15 +1400,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij0-gN-lok">
-                                        <rect key="frame" x="140.5" y="32" width="95.5" height="33"/>
+                                        <rect key="frame" x="140" y="32" width="95.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbV-Vc-i3M">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="BXS-Zm-b1v"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="BXS-Zm-b1v"/>
                                             <constraint firstAttribute="height" constant="30" id="gDn-59-afb"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backArrowWhite"/>
@@ -1409,7 +1417,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYp-z5-VuP">
-                                        <rect key="frame" x="320" y="38.5" width="30" height="23"/>
+                                        <rect key="frame" x="320" y="38" width="30" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="MHa-4h-isT"/>
                                             <constraint firstAttribute="width" constant="30" id="mr3-0F-D41"/>
@@ -1420,10 +1428,10 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWI-j1-VXt" customClass="BadgeSwift" customModule="BadgeSwift">
-                                        <rect key="frame" x="340" y="30.5" width="18" height="18"/>
+                                        <rect key="frame" x="340" y="30" width="18" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="9Pz-VV-Duk"/>
-                                            <constraint firstAttribute="width" constant="18" id="zal-A8-ssT"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="zal-A8-ssT"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="9"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1507,7 +1515,7 @@
                                         <rect key="frame" x="98" y="41" width="180" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Xq5-bb-Ir5"/>
-                                            <constraint firstAttribute="width" constant="180" id="nMJ-h7-ZVt"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="nMJ-h7-ZVt"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="13"/>
                                         <state key="normal" title="COMPARAR">
@@ -1556,7 +1564,7 @@ introduce el codigo del articulo</string>
                                     <constraint firstItem="rGd-ai-Dhx" firstAttribute="centerY" secondItem="wc9-ef-3hB" secondAttribute="centerY" id="FM2-Fj-hem"/>
                                     <constraint firstItem="wc9-ef-3hB" firstAttribute="centerX" secondItem="gTu-nF-dw7" secondAttribute="centerX" id="GBv-6d-bFc"/>
                                     <constraint firstAttribute="bottom" secondItem="wc9-ef-3hB" secondAttribute="bottom" constant="10" id="Hdn-KN-fY8"/>
-                                    <constraint firstItem="gc8-QW-GMR" firstAttribute="leading" secondItem="gTu-nF-dw7" secondAttribute="leading" constant="40" id="T08-R6-XeS"/>
+                                    <constraint firstItem="gc8-QW-GMR" firstAttribute="leading" relation="lessThanOrEqual" secondItem="gTu-nF-dw7" secondAttribute="leading" constant="40" id="T08-R6-XeS"/>
                                     <constraint firstItem="gc8-QW-GMR" firstAttribute="centerY" secondItem="gTu-nF-dw7" secondAttribute="centerY" constant="10" id="bZA-7g-7I8"/>
                                     <constraint firstAttribute="trailing" secondItem="gc8-QW-GMR" secondAttribute="trailing" constant="40" id="h4c-tR-1Xs"/>
                                     <constraint firstAttribute="height" constant="91" id="qVe-9T-mg3"/>
@@ -1735,7 +1743,7 @@ introduce el codigo del articulo</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbZ-Bd-pvh" customClass="PMSuperButton" customModule="PMSuperButton">
                                 <rect key="frame" x="98" y="615" width="180" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="25p-Lt-I2R"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="25p-Lt-I2R"/>
                                     <constraint firstAttribute="height" constant="40" id="ue1-vd-WmM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="15"/>
@@ -1857,9 +1865,9 @@ introduce el codigo del articulo</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDw-oh-i0u">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="35" width="30" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="AF9-3t-crI"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="AF9-3t-crI"/>
                                             <constraint firstAttribute="height" constant="30" id="IZl-hl-tXO"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backArrowWhite"/>
@@ -2017,7 +2025,7 @@ introduce el codigo del articulo</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMd-iB-ONB">
                                 <rect key="frame" x="25" y="37" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="4lY-vq-PZl"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="25" id="4lY-vq-PZl"/>
                                     <constraint firstAttribute="height" constant="25" id="tPN-V0-VWO"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="backArrowWhite"/>
@@ -2026,7 +2034,7 @@ introduce el codigo del articulo</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrecioScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YfW-Gv-1nN">
-                                <rect key="frame" x="116.5" y="30" width="143.5" height="33"/>
+                                <rect key="frame" x="116" y="30" width="143.5" height="33"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2094,7 +2102,7 @@ introduce el codigo del articulo</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrecioScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KkT-Nv-Dw8">
-                                <rect key="frame" x="116.5" y="30" width="143.5" height="33"/>
+                                <rect key="frame" x="116" y="30" width="143.5" height="33"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2233,7 +2241,7 @@ introduce el codigo del articulo</string>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3H-L0-E2D">
                                         <rect key="frame" x="97.5" y="274" width="180" height="29"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="180" id="mPK-mS-fBP"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="mPK-mS-fBP"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                         <state key="normal" title="Crear cuenta">
@@ -2496,7 +2504,7 @@ introduce el codigo del articulo</string>
                                 <rect key="frame" x="25" y="37" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="OW6-Cy-XEU"/>
-                                    <constraint firstAttribute="width" constant="25" id="fUz-ms-f2b"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="25" id="fUz-ms-f2b"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="backArrowWhite"/>
                                 <connections>
@@ -2510,7 +2518,7 @@ introduce el codigo del articulo</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrecioScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nf-KQ-Bel">
-                                <rect key="frame" x="116.5" y="30" width="143.5" height="33"/>
+                                <rect key="frame" x="116" y="30" width="143.5" height="33"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

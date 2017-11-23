@@ -141,6 +141,13 @@ class FirebaseOperations: NSObject {
         return articleRef.key
     }
     
+    public func addStore(name: String, location: String, information: String?) -> String{
+        let values: [String: String?] = [FRAttribute.name: name, FRAttribute.location: location, FRAttribute.information: information]
+        let storeRef = self.ref.child(FRTable.store).childByAutoId()
+        storeRef.setValue(values)
+        return storeRef.key
+    }
+    
     private func networkActiviyIndicator(value: Bool){
         UIApplication.shared.isNetworkActivityIndicatorVisible = value
     }

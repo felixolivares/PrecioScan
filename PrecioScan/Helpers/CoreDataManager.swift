@@ -93,7 +93,8 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     
     public func saveStore(name: String, location: String, information: String?, completionHandler: @escaping(Store?, Error?) -> Void) {
         stack.mainContext.performAndWait {
-            let storeSaved = Store.create(stack.mainContext, name: name, location: location, information: information)
+            let storeID = FirebaseOperations().addStore(name: name, location: location, information: information)
+            let storeSaved = Store.create(stack.mainContext, name: name, location: location, information: information, uid: storeID)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
@@ -164,7 +165,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     //MARK: - ItemList
     public func saveItemList(date: Date, photoName: String?, quantity: Int32, unitariPrice: Decimal, article: Article, list: List, store: Store, completionHandler: @escaping(ItemList?, Error?) -> Void){
         stack.mainContext.performAndWait {
-            let itemList = ItemList.create(stack.mainContext, date: date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store)
+            let itemList = ItemList.create(stack.mainContext, date: date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store, user: UserManager.currentUser)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
@@ -176,9 +177,9 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func updateItemList(object: ItemList, date: Date?, photoName: String?, quantity: Int32?, unitariPrice: Decimal?, article: Article?, list: List?, store: Store?, completionHandler: @escaping(Bool, Error?) -> Void){
+    public func updateItemList(object: ItemList, date: Date?, photoName: String?, quantity: Int32?, unitariPrice: Decimal?, article: Article?, list: List?, store: Store?, user: User?, completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
-            let _ = object.update(date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store)
+            let _ = object.update(date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store, user: user)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:

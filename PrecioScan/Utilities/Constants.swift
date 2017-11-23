@@ -207,6 +207,7 @@ struct ImageNames{
 struct FRTable {
     public static let user = "user"
     public static let article = "article"
+    public static let store = "store"
     
 }
 
@@ -215,5 +216,7 @@ struct FRAttribute {
     public static let email = "email"
     public static let code = "code"
     public static let name = "name"
+    public static let location = "location"
+    public static let information = "information"
 }
 

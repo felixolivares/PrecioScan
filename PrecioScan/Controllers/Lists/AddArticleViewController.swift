@@ -196,7 +196,8 @@ class AddArticleViewController: UIViewController {
                                                 unitariPrice: unitaryPrice,
                                                 article: articleFound,
                                                 list: list,
-                                                store: store){ isSaved, error in
+                                                store: store,
+                                                user: UserManager.currentUser){ isSaved, error in
                                                     if isSaved {
                                                         print("Updated")
                                                     }
@@ -357,7 +358,8 @@ class AddArticleViewController: UIViewController {
                                                       unitariPrice: nil,
                                                       article: nil,
                                                       list: nil,
-                                                      store: nil){ isSaved, error in
+                                                      store: nil,
+                                                      user: nil){ isSaved, error in
                                                         if isSaved {
                                                             print("Updated")
                                                         }
