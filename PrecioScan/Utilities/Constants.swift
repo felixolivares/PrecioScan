@@ -84,6 +84,8 @@ struct Constants {
         struct Popup {
             public static let addMoreArticlesMessage = "Deseas seguir agregando mas articulos?"
             public static let articleSavedTitle = "Articulo Guardado!"
+            public static let photoAlreadySavedTitle = "Foto Guardada"
+            public static let photoAlreadySavedMessage = "Ya hay una foto guardada para este articulo. Te gustaria verla o tomar una nueva?"
         }
     }
     
@@ -108,9 +110,13 @@ struct Constants {
     }
     
     struct Popup {
-        public static let yesAnswer = "Si"
-        public static let noAnswer = "No"
-        public static let continueAnswer = "Continue"
+        struct Buttons {
+            public static let yesAnswer = "Si"
+            public static let noAnswer = "No"
+            public static let continueAnswer = "Continue"
+            public static let showPhoto = "Ver"
+            public static let takePhoto = "Tomar"
+        }
         struct Titles {
             public static let ready = "Listo!"
             public static let attention = "Atención"
@@ -126,7 +132,7 @@ struct Constants {
     }
     
     struct NavigationMenu{
-        public static let listItem = "Listas"
+        public static let listItem = "Inicio"
         public static let storeItem = "Tiendas"
         public static let articleItem = "Articulos"
         public static let configurationItem = "Configuracion"
@@ -143,6 +149,10 @@ struct Constants {
         }
     }
     
+    struct Files {
+        public static let photosFolder = "photos"
+    }
+    
     struct RecoverPassword{
         struct Messages{
             public static let emailFieldCompleted = "Debe ingresar el correo electronico"
@@ -156,6 +166,8 @@ struct PopupResponse {
     public static let Accept = "PopupAccept"
     public static let Decline = "PopupDecline"
     public static let Continue = "PopupContinue"
+    public static let Show = "ShowPhoto"
+    public static let Take = "TakePhoto"
 }
 
 //Identifiers

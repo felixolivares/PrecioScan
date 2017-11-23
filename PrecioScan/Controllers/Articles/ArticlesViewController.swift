@@ -42,6 +42,7 @@ class ArticlesViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        searchController.searchBar.resignFirstResponder()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

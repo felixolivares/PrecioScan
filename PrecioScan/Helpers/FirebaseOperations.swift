@@ -15,7 +15,7 @@ class FirebaseOperations: NSObject {
 
     var ref: DatabaseReference = Database.database().reference()
     
-    //Login
+    //MARK: - Login
     public func signIn(email: String, password: String, button: TransitionButton, vc: UIViewController){
         networkActiviyIndicator(value: true)
         Auth.auth().signIn(withEmail: email, password: password){ user, error in
@@ -34,6 +34,22 @@ class FirebaseOperations: NSObject {
         }
     }
     
+    //Mark: - Logout
+    public func signOut(vc: UIViewController, completionHandler: @escaping(Bool, NSError?) -> Void){
+        self.networkActiviyIndicator(value: true)
+        UserManager.shared.logOut()
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            completionHandler(true, nil)
+            self.networkActiviyIndicator(value: false)
+        } catch let signOutError as NSError {
+            completionHandler(false, signOutError)
+            self.networkActiviyIndicator(value: false)
+        }
+    }
+    
+    //MARK: - Create user
     public func createUser(email: String, password: String, username: String, button: TransitionButton, vc: UIViewController){
         self.networkActiviyIndicator(value: true)
         Auth.auth().createUser(withEmail: email, password: password){ user, error in
@@ -61,6 +77,7 @@ class FirebaseOperations: NSObject {
         }
     }
     
+    //MARK: - Send password reset
     public func sendPasswordReset(email: String, button: TransitionButton, vc: UIViewController){
         self.networkActiviyIndicator(value: true)
         Auth.auth().sendPasswordReset(withEmail: email){ error in
@@ -84,20 +101,7 @@ class FirebaseOperations: NSObject {
         }
     }
     
-    public func signOut(vc: UIViewController, completionHandler: @escaping(Bool, NSError?) -> Void){
-        self.networkActiviyIndicator(value: true)
-        UserManager.shared.logOut()
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            completionHandler(true, nil)
-            self.networkActiviyIndicator(value: false)
-        } catch let signOutError as NSError {
-            completionHandler(false, signOutError)
-            self.networkActiviyIndicator(value: false)
-        }
-    }
-    
+    //MARK: - Update current user
     public func updateCurrentUser(displayName: String?, photoURL: String?){
         self.networkActiviyIndicator(value: true)
         let user = Auth.auth().currentUser
@@ -123,21 +127,22 @@ class FirebaseOperations: NSObject {
         }
     }
     
-    private func networkActiviyIndicator(value: Bool){
-        UIApplication.shared.isNetworkActivityIndicatorVisible = value
-    }
-    
-    //Save
-    
+    //MARK: - Save
     public func addUser(){
         let user = Auth.auth().currentUser
         let values: [String: String?] = [FRAttribute.username: user?.displayName, FRAttribute.email: user?.email]
         self.ref.child(FRTable.user).child((user?.uid)!).setValue(values)
     }
     
-    public func addArticle(barcode: String, name: String){
-        let values: [String: String?] = [FRAttribute.name: name]
-        self.ref.child(FRTable.article).child(barcode).setValue(values)
+    public func addArticle(barcode: String, name: String) -> String{
+        let values: [String: String?] = [FRAttribute.code: barcode, FRAttribute.name: name]
+        let articleRef = self.ref.child(FRTable.article).childByAutoId()
+        articleRef.setValue(values)
+        return articleRef.key
+    }
+    
+    private func networkActiviyIndicator(value: Bool){
+        UIApplication.shared.isNetworkActivityIndicatorVisible = value
     }
     
     private func parseError(error: NSError) -> NSError{

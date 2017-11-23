@@ -10,6 +10,9 @@ import UIKit
 import GMStepper
 import AVFoundation
 import PMSuperButton
+import ALCameraViewController
+import AXPhotoViewer
+import BadgeSwift
 
 class AddArticleViewController: UIViewController {
 
@@ -25,6 +28,8 @@ class AddArticleViewController: UIViewController {
     @IBOutlet weak var messageCenterYConstraint: NSLayoutConstraint!
     @IBOutlet weak var compareButton: PMSuperButton!
     @IBOutlet weak var messageAndButtonContainerView: UIView!
+    @IBOutlet weak var coinsIcon: UIImageView!
+    @IBOutlet weak var photoBadge: BadgeSwift!
     
     var articles: [Article] = []
     var articleFound: Article!
@@ -34,12 +39,19 @@ class AddArticleViewController: UIViewController {
     var articleIsFound: Bool = false
     var barcodeBeepPlayer: AVAudioPlayer?
     var itemListFound: ItemList!
+    var photoExists: Bool = false
+    var photosDataSource: [Photo] = []
+    var photosViewController: PhotosViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         barcodeLineScanner.startAnimation()
@@ -97,12 +109,23 @@ class AddArticleViewController: UIViewController {
         }
     }
     
+    @IBAction func photoButtonPressed(_ sender: Any) {
+        if photoExists{
+            displayShowPhotoPopup()
+        } else {
+            takePhoto()
+        }
+    }
+    
     //MARK: - Configure
     func configure(){
         nameAnimatedControl.setDelegate()
         priceAnimatedControl.setDelegate()
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotificationBarcodeFound(notification:)), name: Notification.Name(Identifiers.notificationIdArticleFound), object: nil)
         compareButton.alpha = 0
+        coinsIcon.alpha = 0
+        photoBadge.alpha = 0
+        createPhotoDataSource()
     }
     
     //MARK: - Core Data
@@ -121,16 +144,18 @@ class AddArticleViewController: UIViewController {
                     self.populateWithArticleFound()
                 }else{
                     self.articleIsFound = false
+                    self.articleFound = nil
                     self.messageLabel.text = Constants.AddArticle.articleNotFoundText
                     self.resetItemList()
                 }
                 self.messageLabel.bounce(){ finished in
-                    guard self.articleFound != nil else {return}
+                    guard self.articleFound != nil else {self.hideCompareButton();return}
                     CompareOperations().verifyMultipleItemListSaved(withObject: self.articleFound){ isFound in
                         if isFound{
                             self.showCompareButton()
                         }
                     }
+                    self.setBadge()
                 }
             }
             self.barcodeIsRead = true
@@ -144,6 +169,19 @@ class AddArticleViewController: UIViewController {
         }, completion: { _ in
             UIView.animate(withDuration: 0.3, animations: {
                 self.compareButton.alpha = 1.0
+                self.coinsIcon.alpha = 1.0
+            })
+        })
+    }
+    
+    func hideCompareButton(){
+        UIView.animate(withDuration: 0.3, animations: {
+            self.compareButton.alpha = 0
+            self.coinsIcon.alpha = 0
+        }, completion: { _ in
+            self.messageCenterYConstraint.constant = 10
+            UIView.animate(withDuration: 0.3, animations: {
+                self.messageAndButtonContainerView.layoutIfNeeded()
             })
         })
     }
@@ -230,6 +268,21 @@ class AddArticleViewController: UIViewController {
         }
     }
     
+    func displayShowPhotoPopup(){
+        Popup.showPhoto(title: Constants.AddArticle.Popup.photoAlreadySavedTitle,
+                                         message: Constants.AddArticle.Popup.photoAlreadySavedMessage,
+                                         vc: self){ response in
+                                            switch(response){
+                                            case PopupResponse.Show:
+                                                self.showPhoto()
+                                            case PopupResponse.Take:
+                                                self.takePhoto()
+                                            default:
+                                                print("Nothing")
+                                            }
+        }
+    }
+    
     func playBarcodeSound(){
         DispatchQueue.global(qos: .background).async {
             if let sound = NSDataAsset(name: "BarcodeSound"){
@@ -240,6 +293,88 @@ class AddArticleViewController: UIViewController {
                     // couldn't load file :(
                 }
             }
+        }
+    }
+    
+    //MARK: - Photo
+    func showPhoto(){
+        let dataSource = PhotosDataSource(photos: self.photosDataSource)
+        photosViewController = PhotosViewController(dataSource: dataSource)
+        
+        let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let bottomView = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 320, height: 44)))
+        let customView = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 80, height: 20)))
+        customView.text = "\(photosViewController.currentPhotoIndex + 1)"
+        customView.textColor = .white
+        customView.sizeToFit()
+        bottomView.items = [
+            flex,
+            UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(AddArticleViewController.deletePhoto)),
+        ]
+        bottomView.backgroundColor = .clear
+        bottomView.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
+        photosViewController.overlayView.bottomStackContainer.insertSubview(bottomView, at: 0)
+        self.present(photosViewController, animated: true)
+    }
+    
+    @objc func deletePhoto(){
+        if FilesManager.shared.deleteImage(imageName: itemListFound.photoName!){
+            print("Photo deleted")
+            photosViewController.dismiss(animated: true)
+            
+        } else {
+            print("Photo not deleted")
+        }
+    }
+    
+    func createPhotoDataSource(){
+        guard itemListFound != nil else {return}
+        if let photoName = itemListFound.photoName{
+            if let image = FilesManager.shared.verifyPhotoExists(name: photoName){
+                print("Photo exists: \(String(describing: itemListFound.photoName!)).png")
+                self.photoExists = true
+                photosDataSource.append(Photo(attributedTitle: NSAttributedString(string: itemListFound.article.name),
+                                              attributedDescription: NSAttributedString(string: "$ " + String(describing: itemListFound.unitaryPrice)),
+                                              attributedCredit: NSAttributedString(string: itemListFound.store.name),
+                                              image: image))
+            } else {
+                print("Photo does not exist")
+            }
+        }
+    }
+    
+    func takePhoto(){
+        let cropParameters = CroppingParameters.init(isEnabled: true, allowResizing: true, allowMoving: true, minimumSize: CGSize(width: 60, height: 60))
+        let cameraViewController = CameraViewController(croppingParameters: cropParameters, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
+            guard image != nil else{self?.dismiss(animated: true, completion: nil); return}
+            let uuid = UUID().uuidString
+            print("Photo uuid generated: \(uuid)")
+            if FilesManager.shared.saveImage(image: image!, photoName: uuid){
+                print("Image saved")
+                CoreDataManager.shared.updateItemList(object: (self?.itemListFound)!, date: nil,
+                                                      photoName: uuid,
+                                                      quantity: nil,
+                                                      unitariPrice: nil,
+                                                      article: nil,
+                                                      list: nil,
+                                                      store: nil){ isSaved, error in
+                                                        if isSaved {
+                                                            print("Updated")
+                                                        }
+                }
+            } else {
+                print("Image not saved")
+            }
+            self?.dismiss(animated: true, completion: nil)
+        }
+        present(cameraViewController, animated: true, completion: nil)
+    }
+    
+    func setBadge(){
+        if photoExists{
+            UIView.animate(withDuration: 0.5, animations: {
+                self.photoBadge.alpha = 1
+            })
         }
     }
 }

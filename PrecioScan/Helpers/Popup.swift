@@ -65,7 +65,7 @@ class Popup{
         let popup = PopupDialog(title: finalTitle, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
         let buttonOne = DefaultButton(title: "OK") {
             popup.dismiss()
-            completionHandler(Constants.Popup.continueAnswer)
+            completionHandler(Constants.Popup.Buttons.continueAnswer)
         }
         popup.addButton(buttonOne)
         vc.present(popup, animated: true, completion: nil)
@@ -77,7 +77,7 @@ class Popup{
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
             popup.dismiss()
-            completionHandler(Constants.Popup.continueAnswer)
+            completionHandler(Constants.Popup.Buttons.continueAnswer)
         }
     }
     
@@ -90,11 +90,23 @@ class Popup{
     
     public static func showConfirmationNewArticle(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
         let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
-        let buttonOK = DefaultButton(title: Constants.Popup.yesAnswer){
+        let buttonOK = DefaultButton(title: Constants.Popup.Buttons.yesAnswer){
             completionHandler(PopupResponse.Accept)
         }
-        let buttonCancel = CancelButton(title: Constants.Popup.noAnswer){
+        let buttonCancel = CancelButton(title: Constants.Popup.Buttons.noAnswer){
             completionHandler(PopupResponse.Decline)
+        }
+        popup.addButtons([buttonOK, buttonCancel])
+        vc.present(popup, animated: true, completion: nil)
+    }
+    
+    public static func showPhoto(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
+        let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let buttonOK = DefaultButton(title: Constants.Popup.Buttons.showPhoto){
+            completionHandler(PopupResponse.Show)
+        }
+        let buttonCancel = CancelButton(title: Constants.Popup.Buttons.takePhoto){
+            completionHandler(PopupResponse.Take)
         }
         popup.addButtons([buttonOK, buttonCancel])
         vc.present(popup, animated: true, completion: nil)

@@ -23,6 +23,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     @IBOutlet weak var underlineStore: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var totalArticlesLabel: UILabel!
     
     var componentTitles: [Store] = []
     let paragraphStyle = NSMutableParagraphStyle.init()
@@ -135,6 +136,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
                     grandTotal += eachItem.totalPrice as! Double
                 }
                 self.totalLabel.text = "$ " + String(grandTotal)
+                self.totalArticlesLabel.text = "\(String(describing: (itemLists?.count)!))"
             }
         }
         tableView.reloadData()

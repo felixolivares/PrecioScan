@@ -27,6 +27,11 @@ class UserManager: NSObject {
         isLoggedIn = restoreUserIsLoggedIn()
     }
     
+    static func setCurrentUser(user: User){
+        self.currentUser = user 
+        //print("Current user: \(currentUser.email)")
+    }
+    
     public func verifyUserIsLogged(vc: UIViewController){
         if !UserManager.isLoggedIn!{
             if var topController = UIApplication.shared.keyWindow?.rootViewController {
@@ -65,7 +70,7 @@ class UserManager: NSObject {
         let FRUser = Auth.auth().currentUser
         if let user = FRUser{
             CoreDataManager.shared.user(withEmail: user.email){ users, error in
-                if error == nil {
+                if (users?.count)! > 0 {
                     if let finalUser = users?.first {
                         CoreDataManager.shared.updateUser(object: finalUser, email: finalUser.email, password: finalUser.password, name: finalUser.name, photoName: finalUser.photoName, isLogged: isLogged){ finished, error in
                             UserManager.currentUser = finalUser

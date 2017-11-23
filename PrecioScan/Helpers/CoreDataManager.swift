@@ -34,6 +34,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    //MARK: - Initializers
     public func getFactory() -> CoreDataStackFactory{
         return CoreDataStackFactory(model: model)
     }
@@ -43,11 +44,13 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     }
     
     func createStack(){
+        print("Will create stack")
         guard self.stack == nil else {return}
-        getFactory().createStack{ (result: StackResult) -> Void in
+        getFactory().createStack(onQueue: DispatchQueue.main){ (result: StackResult) -> Void in
             switch result {
             case .success(let s):
                 self.stack = s
+                print("Stack created")
             case .failure(let err):
                 assertionFailure("Error creating stack: \(err)")
             }
@@ -56,10 +59,11 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     
     func createStack(withCompletion completionHandler: @escaping(Bool) -> Void){
         guard self.stack == nil else {return}
-        getFactory().createStack{ (result: StackResult) -> Void in
+        getFactory().createStack(onQueue: DispatchQueue.main){ (result: StackResult) -> Void in
             switch result {
             case .success(let s):
                 self.stack = s
+                _ = UserManager.shared
                 completionHandler(true)
             case .failure(let err):
                 assertionFailure("Error creating stack: \(err)")
@@ -129,9 +133,9 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     }
     
     public func saveArticle(code: String, name: String, completionHandler: @escaping(Article?, Error?) -> Void){
-        FirebaseOperations().addArticle(barcode: code, name: name)
+        let articleID = FirebaseOperations().addArticle(barcode: code, name: name)
         stack.mainContext.performAndWait {
-            let article = Article.create(stack.mainContext, name: name, code: code)
+            let article = Article.create(stack.mainContext, name: name, code: code, uid: articleID)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
@@ -172,7 +176,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func updateItemList(object: ItemList, date: Date, photoName: String?, quantity: Int32, unitariPrice: Decimal, article: Article, list: List, store: Store, completionHandler: @escaping(Bool, Error?) -> Void){
+    public func updateItemList(object: ItemList, date: Date?, photoName: String?, quantity: Int32?, unitariPrice: Decimal?, article: Article?, list: List?, store: Store?, completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
             let _ = object.update(date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store)
             saveContext(stack.mainContext){ result in
@@ -317,6 +321,31 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
                     completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
                 }
             }
+        }
+    }
+    
+    //completionHandler: @escaping(User?, Error?) -> Void
+    public func getUserLoggedIn() -> User?{
+        var fetchRequest: NSFetchRequest<User>
+        fetchRequest = User.fetchRequest
+        fetchRequest.predicate = NSPredicate(format: "isLogged == %@", NSNumber(value: true))
+        var fetchResultController: NSFetchedResultsController<User>!
+//        guard self.stack != nil else { completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData)); return}
+        guard self.stack != nil else {return nil}
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                           managedObjectContext: stack!.mainContext,
+                                                           sectionNameKeyPath: nil,
+                                                           cacheName: nil)
+        fetchResultController.delegate = self
+        do {
+            try fetchResultController.performFetch()
+            print("User objects count \(String(describing: fetchResultController.fetchedObjects?.count))")
+//            completionHandler(fetchResultController.fetchedObjects?.first, nil
+            return fetchResultController.fetchedObjects?.first
+        } catch {
+            assertionFailure("Failed to fetch: \(error)")
+//            completionHandler(nil, error as NSError)
+            return nil
         }
     }
     

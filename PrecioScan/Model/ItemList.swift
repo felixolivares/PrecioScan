@@ -40,16 +40,32 @@ public final class ItemList: NSManagedObject, CoreDataEntityProtocol{
         return ItemList(context: context, date: date as NSDate, photoName: photoName, quantity: quantity, totalPrice: totalPrice as NSDecimalNumber, unitaryPrice: unitaryPrice as NSDecimalNumber, article: article, list: list, store: store)
     }
     
-    func update(_ date: Date, photoName: String?, quantity: Int32, unitaryPrice: Decimal, article: Article, list: List, store: Store) -> ItemList{
-        let totalPrice = Decimal(quantity) * (unitaryPrice as Decimal)
-        self.date = date as NSDate
-        self.photoName = photoName
-        self.quantity = quantity
-        self.totalPrice = totalPrice as NSDecimalNumber
-        self.unitaryPrice = unitaryPrice as NSDecimalNumber
-        self.article = article
-        self.list = list
-        self.store = store
+    func update(_ date: Date?, photoName: String?, quantity: Int32?, unitaryPrice: Decimal?, article: Article?, list: List?, store: Store?) -> ItemList{
+        let totalPrice: Decimal?
+        
+        if date != nil{
+            self.date = date! as NSDate
+        }
+        if photoName != nil{
+            self.photoName = photoName!
+        }
+        if quantity != nil{
+            self.quantity = quantity!
+            totalPrice = Decimal(quantity!) * (unitaryPrice! as Decimal)
+            self.totalPrice = totalPrice! as NSDecimalNumber
+        }
+        if unitaryPrice != nil{
+            self.unitaryPrice = unitaryPrice! as NSDecimalNumber
+        }
+        if article != nil{
+            self.article = article!
+        }
+        if list != nil{
+            self.list = list!
+        }
+        if store != nil{
+            self.store = store!
+        }
         return self
     }
     

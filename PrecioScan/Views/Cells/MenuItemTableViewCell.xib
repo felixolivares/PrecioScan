@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13528" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13526"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,8 +49,8 @@
                             <constraint firstAttribute="width" constant="20" id="jBr-ms-LHI"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="af6-Ye-6fs">
-                        <rect key="frame" x="65" y="17" width="44.5" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="af6-Ye-6fs">
+                        <rect key="frame" x="65" y="17" width="217" height="21"/>
                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="18"/>
                         <color key="textColor" red="0.88627450980392153" green="0.8901960784313725" blue="0.89411764705882346" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -70,6 +70,7 @@
                     <constraint firstAttribute="trailing" secondItem="of3-b3-6dQ" secondAttribute="trailing" id="eHX-aA-Q4b"/>
                     <constraint firstItem="af6-Ye-6fs" firstAttribute="centerY" secondItem="6Nh-eM-AMi" secondAttribute="centerY" id="hKe-dT-fXx"/>
                     <constraint firstItem="of3-b3-6dQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="pap-Fo-xJV"/>
+                    <constraint firstItem="V4E-Nd-Lns" firstAttribute="leading" secondItem="af6-Ye-6fs" secondAttribute="trailing" constant="8" id="vaU-pb-9AS"/>
                     <constraint firstAttribute="trailing" secondItem="V4E-Nd-Lns" secondAttribute="trailing" constant="10" id="zcO-dQ-1aT"/>
                 </constraints>
             </tableViewCellContentView>

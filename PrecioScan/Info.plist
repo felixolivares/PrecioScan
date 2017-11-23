@@ -43,5 +43,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Para poder seleccionar fotos de tu libreria, necesitamos tu permiso para accesar a tu Libreria</string>
 </dict>
 </plist>

@@ -12,6 +12,11 @@ import InteractiveSideMenu
 class NavigationMenuViewController: MenuViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var userEmailLabel: UILabel!
+    
+    var currentUser: User!
     
     let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.logoutItem]
     let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.configurationIcon, ImageNames.logoutIcon]
@@ -19,6 +24,13 @@ class NavigationMenuViewController: MenuViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        currentUser = CoreDataManager.shared.getUserLoggedIn()
+        UserManager.setCurrentUser(user: currentUser)
+        setUserInformation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,6 +47,11 @@ class NavigationMenuViewController: MenuViewController {
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
         tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
+    func setUserInformation(){
+        userNameLabel.text = currentUser.name
+        userEmailLabel.text = currentUser.email
     }
 }
 

@@ -102,10 +102,15 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AXPhotoViewer/AXPhotoViewer.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AXStateButton/AXStateButton.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BadgeSwift/BadgeSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework"
@@ -124,10 +129,15 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AXPhotoViewer/AXPhotoViewer.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/AXStateButton/AXStateButton.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BadgeSwift/BadgeSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework"

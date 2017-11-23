@@ -26,6 +26,9 @@ target 'PrecioScan' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'TransitionButton'
+  pod 'ALCameraViewController'
+  pod 'AXPhotoViewer'
+  pod 'BadgeSwift', '~> 5.0'
   
   target 'PrecioScanTests' do
     inherit! :search_paths
