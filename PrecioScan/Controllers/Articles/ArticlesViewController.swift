@@ -94,7 +94,7 @@ class ArticlesViewController: UIViewController {
     func configureSearchController(){
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar Articulos"
+        searchController.searchBar.placeholder = Constants.Articles.searchBarPlaceholder
         searchController.hidesNavigationBarDuringPresentation = false
         let searchBar = searchController.searchBar
         searchBar.searchBarStyle = .minimal

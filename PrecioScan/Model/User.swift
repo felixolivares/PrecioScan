@@ -19,6 +19,7 @@ public final class User: NSManagedObject, CoreDataEntityProtocol {
     @NSManaged public var password: String?
     @NSManaged public var photoName: String?
     @NSManaged public var isLogged: Bool
+    @NSManaged public var itemList: NSSet 
     
     public init (context: NSManagedObjectContext, email: String, password: String?, name: String, photoName: String?, isLogged: Bool){
         super.init(entity: User.entity(context: context), insertInto: context)

@@ -12,24 +12,24 @@ import CoreData
 import JSQCoreDataKit
 import InteractiveSideMenu
 import DynamicButton
+import MKDropdownMenu
 
 protocol CreateStoreViewControllerDelegate{
     func storeSaved(store: Store)
 }
 
-class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDelegate, SideMenuItemContent {
+class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDelegate, SideMenuItemContent, UISearchBarDelegate {
 
-    @IBOutlet weak var storeNameAnimatedControl: AnimatedInputControl!
-    @IBOutlet weak var locationNameAnimatedControl: AnimatedInputControl!
-    @IBOutlet weak var saveButton: PMSuperButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var searchBarContainer: UIView!
+    @IBOutlet weak var emptyStateContainerView: UIView!
     
+    let searchController = UISearchController(searchResultsController: nil)
     var fetchResultController: NSFetchedResultsController<Store>!
     var stores: [Store] = []
     var isComingFromList: Bool = false
-    
     var delegate: CreateStoreViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -39,8 +39,13 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchStores()
         configureComponents()
+        fetchStores()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        searchController.searchBar.resignFirstResponder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,24 +67,14 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
-        guard storeNameAnimatedControl.valueTextField.text != "", locationNameAnimatedControl.valueTextField.text != "" else{Popup.show(withOK: Warning.CreateStore.completeAllFieldsText, title: Constants.Popup.Titles.attention, vc: self); return}
-        CoreDataManager.shared.saveStore(name: storeNameAnimatedControl.valueTextField.text!, location: locationNameAnimatedControl.valueTextField.text!, information: nil){ storeSaved, error in
-            if let store = storeSaved {
-                self.tableView.reloadData()
-                Popup.show(withCompletionMessage: Constants.CreateStore.Popup.storeSaved, vc: self){ _ in
-                    self.delegate?.storeSaved(store: store)
-                    _ = self.navigationController?.popViewController(animated: true)
-                }
-            }
-        }
     }
     
+    //MARK: - Configure
     func configure(){
         hamburgerButton.isHidden = isComingFromList
         backButton.isHidden = !isComingFromList
-        storeNameAnimatedControl.setDelegate()
-        locationNameAnimatedControl.setDelegate()
         configureTable()
+        configureSearchController()
     }
     
     func configureTable(){
@@ -95,6 +90,19 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     func configureComponents(){
         UserManager.shared.verifyUserIsLogged(vc: self)
         hamburgerButton.setStyle(.hamburger, animated: false)
+        emptyStateContainerView.isHidden = true
+    }
+    
+    func configureSearchController(){
+//        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = Constants.CreateStore.searchBarPlaceholder
+        searchController.hidesNavigationBarDuringPresentation = false
+        let searchBar = searchController.searchBar
+        searchBar.searchBarStyle = .minimal
+        searchBarContainer.addSubview(searchBar)
+        definesPresentationContext = true
     }
     
     func fetchStores(){
@@ -102,7 +110,10 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
             guard error == nil else {return}
             self.stores = stores!
             if self.stores.count > 0 {
+                self.emptyStateContainerView.isHidden = true
                 self.tableView.reloadData()
+            } else {
+                self.emptyStateContainerView.isHidden = false
             }
         }
     }
@@ -137,6 +148,11 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
             }
         }
     }
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        self.performSegue(withIdentifier: Segues.toSearchFromStores, sender: nil)
+        return false
+    }
 }
 
 extension CreateStoreViewController: UITableViewDelegate, UITableViewDataSource{
@@ -161,4 +177,6 @@ extension CreateStoreViewController: UITableViewDelegate, UITableViewDataSource{
         return 80.0
     }
 }
+
+
 

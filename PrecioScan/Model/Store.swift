@@ -18,19 +18,23 @@ public final class Store: NSManagedObject, CoreDataEntityProtocol, NSFetchedResu
     @NSManaged public var location: String
     @NSManaged public var name: String
     @NSManaged public var uid: String
+    @NSManaged public var state: String
+    @NSManaged public var city: String
     @NSManaged public var itemList: NSSet
     @NSManaged public var list: NSSet
     
-    public init (context: NSManagedObjectContext, name: String, information: String? = nil, location: String, uid: String){
+    public init (context: NSManagedObjectContext, name: String, information: String? = nil, location: String, uid: String, state: String, city: String){
         super.init(entity: Store.entity(context: context), insertInto: context)
         self.name = name
         self.information = information
         self.location = location
         self.uid = uid
+        self.state = state
+        self.city = city
     }
     
-    public class func create(_ context: NSManagedObjectContext, name: String, location: String, information: String? = nil, uid: String) -> Store {
-        return Store(context: context, name: name, information: information, location: location, uid: uid)
+    public class func create(_ context: NSManagedObjectContext, name: String, location: String, information: String? = nil, uid: String, state: String, city: String) -> Store {
+        return Store(context: context, name: name, information: information, location: location, uid: uid, state: state, city: city)
     }
     
     public func delete(_ context: NSManagedObjectContext, completionHandler: @escaping(Bool, Error?) -> Void){

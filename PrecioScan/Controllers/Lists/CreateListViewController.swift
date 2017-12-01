@@ -24,6 +24,8 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var totalArticlesLabel: UILabel!
+    @IBOutlet weak var articlesEmptyStateContainerView: UIView!
+    @IBOutlet weak var storeNameLabel: UILabel!
     
     var componentTitles: [Store] = []
     let paragraphStyle = NSMutableParagraphStyle.init()
@@ -95,6 +97,11 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     func configureComponents(){
         paragraphStyle.alignment = .left
         titleLabel.text = titleText
+        articlesEmptyStateContainerView.isHidden = false
+        storeNameLabel.isHidden = true
+        if list != nil{
+            nameListAnimatedControl.isUserInteractionEnabled = false
+        }
     }
     
     func configureTable(){
@@ -137,24 +144,28 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
                 }
                 self.totalLabel.text = "$ " + String(grandTotal)
                 self.totalArticlesLabel.text = "\(String(describing: (itemLists?.count)!))"
+                if itemLists?.count == 0{
+                    self.articlesEmptyStateContainerView.isHidden = false
+                }else{
+                    self.articlesEmptyStateContainerView.isHidden = true
+                }
             }
         }
         tableView.reloadData()
     }
     
     func populateFields(){
+        addStoreMenu.isHidden = true
+        storeNameLabel.isHidden = false
         nameListAnimatedControl.setText(text: list.name, animated: false)
         if let storeRetrieved = list.store{
             storeSaved(store: storeRetrieved)
+            storeNameLabel.text = storeRetrieved.name + " - " + storeRetrieved.location
+            self.underlineStore.backgroundColor = UIColor(spadeGreen)
         }
     }
     
-    //MARK: - Buttons pressed
-    @IBAction func backButtonPressed(_ sender: Any) {
-        _ = navigationController?.popViewController(animated: true)
-    }
-    
-    @IBAction func addArticleButtonPressed(_ sender: Any) {
+    func goToArticles(){
         guard selectedStore != nil, nameListAnimatedControl.valueTextField.text != "" else {Popup.show(withOK: Warning.CreateLlist.selectNameAndStoreText, title: Constants.Popup.Titles.attention, vc: self); return}
         if list != nil{
             print("List already created")
@@ -168,6 +179,22 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
                 self.performSegue(withIdentifier: Segues.toArticleFromList, sender: nil)
             }
         }
+    }
+    
+    //MARK: - Buttons pressed
+    @IBAction func backButtonPressed(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func addArticleButtonPressed(_ sender: Any) {
+        goToArticles()
+    }
+    @IBAction func goToNewArticleButtonPressed(_ sender: Any) {
+        goToArticles()
+    }
+    
+    @IBAction func unwindSegueFromCreateStore(_ sender: UIStoryboardSegue){
+        storeSaved(store: (sender.source as! SaveNewStoreViewController).storeSelected)
     }
     
     func storeSaved(store: Store) {

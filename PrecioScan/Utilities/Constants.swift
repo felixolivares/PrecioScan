@@ -16,6 +16,7 @@ struct CellIdentifiers{
     public static let compareCell = "CompareCellIdentifier"
     public static let storeCell = "StoreCellIdentifier"
     public static let articleCell = "ArticleCellIdentifier"
+    public static let remoteStoreCell = "RemoteStoreCellIdentifier"
 }
 
 //Font Names
@@ -71,7 +72,7 @@ struct Warning {
 
 struct Constants {
     struct CreateList {
-        public static let addStoreText = "Agregar tienda nueva..."
+        public static let addStoreText = "Buscar y agregar tienda nueva..."
         public static let selectStoreText = "Seleccionar una tienda"
         public static let createListTItle = "Crear Lista"
         public static let listTitle = "Detalle de Lista"
@@ -92,11 +93,25 @@ struct Constants {
     struct CreateStore{
         public static let fromMenu = "ComeFromMenu"
         public static let fromList = "ComeFromList"
+        public static let selectStateText = "Selecciona un estado"
+        public static let searchBarPlaceholder = "Buscar y agregar una tienda"
         struct Popup {
             public static let storeSaved = "Tienda guardada!"
             public static let attentionTitle = "Atención!"
             public static let willDeleteStoreMessage = "Al borrar esta tienda, tambien se borraran sus listas asociadas a ella, estas de acuerdo?"
         }
+    }
+    
+    struct SaveNewStore {
+        public static let locationPlaceholder = "Ej. Av Mexico"
+    }
+    
+    struct SearchStore {
+        public static let selectStateText = "De que estado?"
+    }
+    
+    struct Articles {
+        public static let searchBarPlaceholder = "Buscar Articulo"
     }
     
     struct ArticleDetail {
@@ -181,6 +196,7 @@ struct Identifiers {
     public static let headerCompareTableViewCell = "HeaderCompareTableViewCell"
     public static let storeTableViewCell = "StoreTableViewCell"
     public static let articleTableViewCell = "ArticleTableViewCell"
+    public static let remoteStoreTableViewCell = "RemoteStoreTableViewCell"
     
 }
 
@@ -192,6 +208,8 @@ struct Segues{
     public static let toCompareFromArticle = "toCompareFromArticle"
     public static let toArticleDetailFromArticles = "toArticleDetailFromArticles"
     public static let toCompareFromArticleDetail = "toCompareFromArticleDetail"
+    public static let toSearchFromStores = "toSearchFromStores"
+    public static let unwindToList = "unwindToList"
 }
 
 //Images
@@ -201,6 +219,47 @@ struct ImageNames{
     public static let storeIcon = "storeIconWhite"
     public static let articleIcon = "articleIconWhite"
     public static let logoutIcon = "logoutIconWhite"
+}
+
+//States
+struct States {
+    public static let aguascalientes = "Aguascalientes"
+    public static let bajaCalifornia = "Baja California"
+    public static let bajaCaliforniaSur = "Baja California Sur"
+    public static let campeche = "Campeche"
+    public static let chiapas = "Chiapas"
+    public static let chihuahua = "Chihuahua"
+    public static let cdmx = "Ciudad de Mexico"
+    public static let coahuila = "Coahuila"
+    public static let colima = "Colima"
+    public static let durango = "Durango"
+    public static let guanajuato = "Guanajuato"
+    public static let guerrero = "Guerrero"
+    public static let hidalgo = "Hidalgo"
+    public static let jalisco = "Jalisco"
+    public static let edoMex = "Estado de México"
+    public static let michoacan = "Michoacán"
+    public static let morelos = "Morelos"
+    public static let nayarit = "Nayarit"
+    public static let nuevoLeon = "Nuevo Leon"
+    public static let oaxaca = "Oaxaca"
+    public static let puebla = "Puebla"
+    public static let queretaro = "Querétaro"
+    public static let quintanaroo = "Quintana Roo"
+    public static let slp = "San Luis Potosí"
+    public static let sinaloa = "Sinaloa"
+    public static let sonora = "Sonora"
+    public static let tabasco = "Tabasco"
+    public static let tamaulipas = "Tamaulipas"
+    public static let tlaxcala = "Tlaxcala"
+    public static let veracruz = "Veracruz"
+    public static let yucatan = "Yucatan"
+    public static let zacatecas = "Zacatecas"
+    public static let all = "Todos"
+    func allStates() -> [String]{
+        let states = [States.all, States.aguascalientes, States.bajaCalifornia, States.bajaCaliforniaSur, States.campeche, States.chiapas, States.chihuahua, States.cdmx, States.coahuila, States.colima, States.durango, States.guanajuato, States.guerrero, States.hidalgo, States.jalisco, States.edoMex, States.michoacan, States.morelos, States.nayarit, States.nuevoLeon, States.oaxaca, States.puebla, States.queretaro, States.quintanaroo, States.slp, States.sinaloa, States.sonora, States.tabasco, States.tamaulipas, States.tlaxcala, States.veracruz, States.yucatan, States.zacatecas]
+        return states
+    }
 }
 
 //Firebase
@@ -216,7 +275,14 @@ struct FRAttribute {
     public static let email = "email"
     public static let code = "code"
     public static let name = "name"
+    public static let nameSearch = "nameSearch"
     public static let location = "location"
+    public static let locationSearch = "locationSearch"
     public static let information = "information"
+    public static let state = "state"
+    public static let stateSearch = "stateSearch"
+    public static let city = "city"
+    public static let citySearch = "citySearch"
+    public static let uid = "uid"
 }
 

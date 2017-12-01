@@ -26,9 +26,11 @@
         <relationship name="store" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Store" inverseName="list" inverseEntity="Store" syncable="YES"/>
     </entity>
     <entity name="Store" representedClassName=".Store" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="itemList" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ItemList" inverseName="store" inverseEntity="ItemList" syncable="YES"/>
         <relationship name="list" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="List" inverseName="store" inverseEntity="List" syncable="YES"/>
@@ -45,7 +47,7 @@
         <element name="Article" positionX="-450" positionY="-81" width="128" height="103"/>
         <element name="ItemList" positionX="-162" positionY="-64" width="128" height="195"/>
         <element name="List" positionX="70" positionY="122" width="128" height="120"/>
-        <element name="Store" positionX="-522" positionY="99" width="128" height="135"/>
+        <element name="Store" positionX="-522" positionY="99" width="128" height="163"/>
         <element name="User" positionX="-351" positionY="-243" width="128" height="133"/>
     </elements>
 </model>

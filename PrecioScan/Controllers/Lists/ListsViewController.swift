@@ -16,6 +16,7 @@ import TransitionButton
 class ListsViewController: CustomTransitionViewController {
 
     
+    @IBOutlet weak var emptyStateContainerView: UIView!
     @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var tableView: UITableView!
     var lists:[List] = []
@@ -74,10 +75,13 @@ class ListsViewController: CustomTransitionViewController {
             guard error == nil else {Popup.show(withError: error! as NSError, vc: self);return}
             self.lists = lists!
             if self.lists.count > 0{
+                self.emptyStateContainerView.isHidden = true
                 print("Lists Fetched!")
                 self.tableView.reloadData(
                     with: .simple(duration: 0.45, direction: .rotation3D(type: .ironMan),
                                   constantDelay: 0))
+            } else {
+                self.emptyStateContainerView.isHidden = false
             }
         }
     }
@@ -89,9 +93,14 @@ class ListsViewController: CustomTransitionViewController {
         }
     }
     
+    //MARK: - Buttons
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
         hamburgerButton.setStyle(.close, animated: true)
         (self.navigationController as! NavigationListViewController).showSideMenu()
+    }
+    
+    @IBAction func createNewListButtonPressed(_ sender: Any) {
+        
     }
     
 }

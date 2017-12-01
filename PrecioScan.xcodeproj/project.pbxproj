@@ -14,6 +14,12 @@
 		30083B721F88A6F1006274C9 /* HexColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30083B711F88A6F1006274C9 /* HexColors.swift */; };
 		30083B741F88A744006274C9 /* DefineColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30083B731F88A744006274C9 /* DefineColors.swift */; };
 		30083B761F89793E006274C9 /* AnimatedInputControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30083B751F89793E006274C9 /* AnimatedInputControl.swift */; };
+		301682C81FCD193800559A3B /* SaveNewStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301682C71FCD193800559A3B /* SaveNewStoreViewController.swift */; };
+		301682CA1FCD469500559A3B /* SearchStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301682C91FCD469500559A3B /* SearchStoreViewController.swift */; };
+		301682CC1FCE9BE700559A3B /* TempStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301682CB1FCE9BE700559A3B /* TempStore.swift */; };
+		301682CF1FCF168600559A3B /* RemoteStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301682CD1FCF168600559A3B /* RemoteStoreTableViewCell.swift */; };
+		301682D01FCF168600559A3B /* RemoteStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301682CE1FCF168600559A3B /* RemoteStoreTableViewCell.xib */; };
+		301682D21FCF298400559A3B /* Model5-6.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 301682D11FCF298400559A3B /* Model5-6.xcmappingmodel */; };
 		301C9FE51F956FFB00BC43FE /* BarcodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */; };
 		301CA55F1FAC28E100F2009A /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301CA55E1FAC28E100F2009A /* ArticleDetailViewController.swift */; };
 		302B0C541F981F1A001DE5C7 /* DateOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C531F981F1A001DE5C7 /* DateOperations.swift */; };
@@ -69,7 +75,6 @@
 		30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A11F9005EE002DCD90 /* Popup.swift */; };
 		30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A51F90740C002DCD90 /* BarcodeLine.swift */; };
 		30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C321F91FBFB7F700C8F7F2 /* FilesManager.swift */; };
-		30C322081FC7755700C8F7F2 /* Model4-5.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30C322071FC7755700C8F7F2 /* Model4-5.xcmappingmodel */; };
 		30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6211F85977E001CE3B8 /* AppDelegate.swift */; };
 		30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6251F85977E001CE3B8 /* Main.storyboard */; };
 		30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */; };
@@ -107,6 +112,12 @@
 		30083B711F88A6F1006274C9 /* HexColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColors.swift; sourceTree = "<group>"; };
 		30083B731F88A744006274C9 /* DefineColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefineColors.swift; sourceTree = "<group>"; };
 		30083B751F89793E006274C9 /* AnimatedInputControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedInputControl.swift; sourceTree = "<group>"; };
+		301682C71FCD193800559A3B /* SaveNewStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNewStoreViewController.swift; sourceTree = "<group>"; };
+		301682C91FCD469500559A3B /* SearchStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStoreViewController.swift; sourceTree = "<group>"; };
+		301682CB1FCE9BE700559A3B /* TempStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStore.swift; sourceTree = "<group>"; };
+		301682CD1FCF168600559A3B /* RemoteStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStoreTableViewCell.swift; sourceTree = "<group>"; };
+		301682CE1FCF168600559A3B /* RemoteStoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoteStoreTableViewCell.xib; sourceTree = "<group>"; };
+		301682D11FCF298400559A3B /* Model5-6.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model5-6.xcmappingmodel"; sourceTree = "<group>"; };
 		301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReader.swift; sourceTree = "<group>"; };
 		301CA55E1FAC28E100F2009A /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		302450CE1FB936B9000F14C8 /* PrecioScanModel_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PrecioScanModel_ 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -166,7 +177,7 @@
 		30C321F91FBFB7F700C8F7F2 /* FilesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesManager.swift; sourceTree = "<group>"; };
 		30C321FC1FC6ACCB00C8F7F2 /* PrecioScanModel_ 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PrecioScanModel_ 4.xcdatamodel"; sourceTree = "<group>"; };
 		30C322021FC76EA000C8F7F2 /* PrecioScanModel_5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_5.xcdatamodel; sourceTree = "<group>"; };
-		30C322071FC7755700C8F7F2 /* Model4-5.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model4-5.xcmappingmodel"; sourceTree = "<group>"; };
+		30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_6.xcdatamodel; sourceTree = "<group>"; };
 		30FFE61E1F85977E001CE3B8 /* PrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FFE6211F85977E001CE3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30FFE6261F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -232,6 +243,7 @@
 				302B0C531F981F1A001DE5C7 /* DateOperations.swift */,
 				306AC7831FA17B000096814C /* CompareOperations.swift */,
 				308571F51FB6BD540026BB14 /* FirebaseOperations.swift */,
+				301682CB1FCE9BE700559A3B /* TempStore.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -291,6 +303,7 @@
 				306AC78C1FA29EBE0096814C /* HeaderCompareTableViewCell.xib */,
 				306AC7D11FA4050B0096814C /* StoreTableViewCell.xib */,
 				30AC9AC51FABE6590086E319 /* ArticleTableViewCell.xib */,
+				301682CE1FCF168600559A3B /* RemoteStoreTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -298,6 +311,7 @@
 		3050A4AD1F87020600AD60D7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				301682CD1FCF168600559A3B /* RemoteStoreTableViewCell.swift */,
 				306AC7D01FA4050B0096814C /* StoreTableViewCell.swift */,
 				306AC78B1FA29EBE0096814C /* HeaderCompareTableViewCell.swift */,
 				306AC7871FA29E220096814C /* CompareTableViewCell.swift */,
@@ -359,6 +373,8 @@
 			isa = PBXGroup;
 			children = (
 				3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */,
+				301682C91FCD469500559A3B /* SearchStoreViewController.swift */,
+				301682C71FCD193800559A3B /* SaveNewStoreViewController.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -439,7 +455,7 @@
 				3050A49E1F86F3C200AD60D7 /* ItemList.swift */,
 				3050A4AE1F870A8D00AD60D7 /* Model.swift */,
 				303261711FB25CE20083FBA0 /* User.swift */,
-				30C322071FC7755700C8F7F2 /* Model4-5.xcmappingmodel */,
+				301682D11FCF298400559A3B /* Model5-6.xcmappingmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -592,6 +608,7 @@
 				30083B691F883B40006274C9 /* Ubuntu-Medium.otf in Resources */,
 				306AC7791FA0216A0096814C /* MenuItemTableViewCell.xib in Resources */,
 				306AC7D81FA97FE60096814C /* Assets.xcassets in Resources */,
+				301682D01FCF168600559A3B /* RemoteStoreTableViewCell.xib in Resources */,
 				3050A4AC1F8701FD00AD60D7 /* ListTableViewCell.xib in Resources */,
 				30083B631F8839F8006274C9 /* Ubuntu-Regular.otf in Resources */,
 				30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */,
@@ -824,11 +841,14 @@
 				30A7D2EB1F96E74D00F6D1AA /* Extensions.swift in Sources */,
 				303261721FB25CE20083FBA0 /* User.swift in Sources */,
 				3050A4AF1F870A8D00AD60D7 /* Model.swift in Sources */,
-				30C322081FC7755700C8F7F2 /* Model4-5.xcmappingmodel in Sources */,
+				301682CC1FCE9BE700559A3B /* TempStore.swift in Sources */,
+				301682CF1FCF168600559A3B /* RemoteStoreTableViewCell.swift in Sources */,
 				3050A4A51F86FFF700AD60D7 /* ListsViewController.swift in Sources */,
 				30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */,
+				301682CA1FCD469500559A3B /* SearchStoreViewController.swift in Sources */,
 				30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */,
 				302B0C561F98513F001DE5C7 /* Structures.swift in Sources */,
+				301682C81FCD193800559A3B /* SaveNewStoreViewController.swift in Sources */,
 				304487201F8D8EF400C5297D /* CreateStoreViewController.swift in Sources */,
 				306AC77E1FA05A5A0096814C /* PopSwitchDelegate.swift in Sources */,
 				3050A4AB1F8701FD00AD60D7 /* ListTableViewCell.swift in Sources */,
@@ -837,6 +857,7 @@
 				306AC7811FA12A8B0096814C /* ConfigurationManager.swift in Sources */,
 				30AC99FF1F9FDB310029F6E6 /* ConfigurationViewController.swift in Sources */,
 				3032616D1FB2513C0083FBA0 /* CreateAccountViewController.swift in Sources */,
+				301682D21FCF298400559A3B /* Model5-6.xcmappingmodel in Sources */,
 				308571F01FB6889F0026BB14 /* Fonts.swift in Sources */,
 				306AC78D1FA29EBE0096814C /* HeaderCompareTableViewCell.swift in Sources */,
 				3050A49D1F86F38C00AD60D7 /* Article.swift in Sources */,
@@ -1182,13 +1203,14 @@
 		30FFE6561F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */,
 				30C322021FC76EA000C8F7F2 /* PrecioScanModel_5.xcdatamodel */,
 				30C321FC1FC6ACCB00C8F7F2 /* PrecioScanModel_ 4.xcdatamodel */,
 				302450CE1FB936B9000F14C8 /* PrecioScanModel_ 3.xcdatamodel */,
 				303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */,
 				30FFE6571F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodel */,
 			);
-			currentVersion = 30C322021FC76EA000C8F7F2 /* PrecioScanModel_5.xcdatamodel */;
+			currentVersion = 30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */;
 			path = PrecioScanModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -15,17 +15,26 @@ class AnimatedInputControl: UIView {
     @IBOutlet weak var nameLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var valueTextField: UITextField!
     
-    func setDelegate(){
+    private var placeholderTxt: String?
+    
+    func setDelegate(withPlaceholder placeholderText: String? = nil){
         valueTextField.delegate = self
+        if let placeholder = placeholderText{
+            self.placeholderTxt = placeholder
+        }
     }
 
     func animateFocus(){
         self.layoutIfNeeded()
         nameLabelTopConstraint.constant = 0
-        UIView.animate(withDuration: 0.15) {
+        UIView.animate(withDuration: 0.15, animations:{
             self.layoutIfNeeded()
             self.underline.backgroundColor = UIColor(spadeGreen)
-        }
+        }, completion:{ (finished: Bool) in
+            if let placeholderTxt = self.placeholderTxt{
+                self.valueTextField.placeholder = placeholderTxt
+            }
+        })
     }
     
     func animateFocus(withCompletion handler: @escaping(Bool) -> Void){
@@ -35,11 +44,13 @@ class AnimatedInputControl: UIView {
             self.layoutIfNeeded()
             self.underline.backgroundColor = UIColor(spadeGreen)
         }) { (completed) in
+            self.valueTextField.placeholder = ""
             handler(true)
         }
     }
     
     func animateFocusOut(){
+        self.valueTextField.placeholder = ""
         nameLabelTopConstraint.constant = 24
         UIView.animate(withDuration: 0.15) {
             self.layoutIfNeeded()

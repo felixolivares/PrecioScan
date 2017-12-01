@@ -141,11 +141,32 @@ class FirebaseOperations: NSObject {
         return articleRef.key
     }
     
-    public func addStore(name: String, location: String, information: String?) -> String{
-        let values: [String: String?] = [FRAttribute.name: name, FRAttribute.location: location, FRAttribute.information: information]
+    public func addStore(name: String, location: String, information: String?, state: String, city: String) -> String{
+        let values: [String: String?] = [FRAttribute.name: name,
+                                         FRAttribute.nameSearch: name.lowercased(),
+                                         FRAttribute.location: location,
+                                         FRAttribute.locationSearch: location.lowercased(),
+                                         FRAttribute.information: information,
+                                         FRAttribute.state: state,
+                                         FRAttribute.stateSearch: state.lowercased(),
+                                         FRAttribute.city: city,
+                                         FRAttribute.citySearch: city.lowercased()]
         let storeRef = self.ref.child(FRTable.store).childByAutoId()
         storeRef.setValue(values)
         return storeRef.key
+    }
+    
+    //MARK: - Search
+    public func searchStores(withName name: String? = nil, state: String? = nil, completionHandler: @escaping([TempStore]?, NSError?) -> Void){
+        self.ref.child(FRTable.store).queryOrdered(byChild: FRAttribute.nameSearch).queryStarting(atValue: name!).queryEnding(atValue: name! + "\u{f8ff}").observe(.value, with: {snapshot in
+            var stores: [TempStore] = []
+            for eachChild in snapshot.children{
+                let store = ((eachChild as! DataSnapshot).value! as! [String:Any])
+                let newStore = TempStore.init(name: store[FRAttribute.name] as! String, location: store[FRAttribute.location] as! String, state: store[FRAttribute.state] as! String, city: store[FRAttribute.city] as! String, uid: (eachChild as! DataSnapshot).key)
+               stores.append(newStore)
+            }
+            completionHandler(stores, nil)
+        })
     }
     
     private func networkActiviyIndicator(value: Bool){

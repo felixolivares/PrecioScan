@@ -91,10 +91,10 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func saveStore(name: String, location: String, information: String?, completionHandler: @escaping(Store?, Error?) -> Void) {
+    public func saveStore(name: String, location: String, information: String?, state: String, city: String, needSaveFirbase: Bool? = true, uid: String? = nil, completionHandler: @escaping(Store?, Error?) -> Void) {
         stack.mainContext.performAndWait {
-            let storeID = FirebaseOperations().addStore(name: name, location: location, information: information)
-            let storeSaved = Store.create(stack.mainContext, name: name, location: location, information: information, uid: storeID)
+            let storeID = needSaveFirbase! ? FirebaseOperations().addStore(name: name, location: location, information: information, state: state, city: city) : uid!
+            let storeSaved = Store.create(stack.mainContext, name: name, location: location, information: information, uid: storeID, state: state, city: city)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
@@ -103,7 +103,6 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
                     completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
                 }
             }
-            
         }
     }
     
