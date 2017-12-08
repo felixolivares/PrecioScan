@@ -24,6 +24,7 @@ class BarcodeLine: UIImageView {
     }
     
     func endAnimation(){
-        
+        self.superview?.layer.removeAllAnimations()
+        self.superview?.layoutIfNeeded() ?? ()
     }
 }

@@ -106,7 +106,7 @@ class SearchStoreViewController: UIViewController {
     }
     
     func goBack(){
-        if navigationController?.popViewController(animated: true)! == nil {
+        if navigationController?.popViewController(animated: true) == nil {
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -191,7 +191,7 @@ extension SearchStoreViewController: MKDropdownMenuDelegate{
     }
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, didSelectRow row: Int, inComponent component: Int) {
-        dropdownMenu.closeAllComponents(animated: false)
+        dropdownMenu.closeAllComponents(animated: true)
         self.displayStateName = componentTitles[row]
         self.stateSelected = componentTitles[row]
         //self.underlineState.backgroundColor = UIColor(spadeGreen)

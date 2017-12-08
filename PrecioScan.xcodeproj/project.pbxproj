@@ -19,7 +19,6 @@
 		301682CC1FCE9BE700559A3B /* TempStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301682CB1FCE9BE700559A3B /* TempStore.swift */; };
 		301682CF1FCF168600559A3B /* RemoteStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301682CD1FCF168600559A3B /* RemoteStoreTableViewCell.swift */; };
 		301682D01FCF168600559A3B /* RemoteStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301682CE1FCF168600559A3B /* RemoteStoreTableViewCell.xib */; };
-		301682D21FCF298400559A3B /* Model5-6.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 301682D11FCF298400559A3B /* Model5-6.xcmappingmodel */; };
 		301C9FE51F956FFB00BC43FE /* BarcodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */; };
 		301CA55F1FAC28E100F2009A /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301CA55E1FAC28E100F2009A /* ArticleDetailViewController.swift */; };
 		302B0C541F981F1A001DE5C7 /* DateOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C531F981F1A001DE5C7 /* DateOperations.swift */; };
@@ -75,6 +74,8 @@
 		30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A11F9005EE002DCD90 /* Popup.swift */; };
 		30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A51F90740C002DCD90 /* BarcodeLine.swift */; };
 		30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C321F91FBFB7F700C8F7F2 /* FilesManager.swift */; };
+		30FD3A201FD38F0E00FCB9AE /* Model6-7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */; };
+		30FD3A221FD3A5E400FCB9AE /* TempArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */; };
 		30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6211F85977E001CE3B8 /* AppDelegate.swift */; };
 		30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6251F85977E001CE3B8 /* Main.storyboard */; };
 		30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */; };
@@ -117,7 +118,6 @@
 		301682CB1FCE9BE700559A3B /* TempStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStore.swift; sourceTree = "<group>"; };
 		301682CD1FCF168600559A3B /* RemoteStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStoreTableViewCell.swift; sourceTree = "<group>"; };
 		301682CE1FCF168600559A3B /* RemoteStoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoteStoreTableViewCell.xib; sourceTree = "<group>"; };
-		301682D11FCF298400559A3B /* Model5-6.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model5-6.xcmappingmodel"; sourceTree = "<group>"; };
 		301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReader.swift; sourceTree = "<group>"; };
 		301CA55E1FAC28E100F2009A /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		302450CE1FB936B9000F14C8 /* PrecioScanModel_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PrecioScanModel_ 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -178,6 +178,9 @@
 		30C321FC1FC6ACCB00C8F7F2 /* PrecioScanModel_ 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PrecioScanModel_ 4.xcdatamodel"; sourceTree = "<group>"; };
 		30C322021FC76EA000C8F7F2 /* PrecioScanModel_5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_5.xcdatamodel; sourceTree = "<group>"; };
 		30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_6.xcdatamodel; sourceTree = "<group>"; };
+		30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_7.xcdatamodel; sourceTree = "<group>"; };
+		30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model6-7.xcmappingmodel"; sourceTree = "<group>"; };
+		30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempArticle.swift; sourceTree = "<group>"; };
 		30FFE61E1F85977E001CE3B8 /* PrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FFE6211F85977E001CE3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30FFE6261F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -243,7 +246,6 @@
 				302B0C531F981F1A001DE5C7 /* DateOperations.swift */,
 				306AC7831FA17B000096814C /* CompareOperations.swift */,
 				308571F51FB6BD540026BB14 /* FirebaseOperations.swift */,
-				301682CB1FCE9BE700559A3B /* TempStore.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -455,7 +457,9 @@
 				3050A49E1F86F3C200AD60D7 /* ItemList.swift */,
 				3050A4AE1F870A8D00AD60D7 /* Model.swift */,
 				303261711FB25CE20083FBA0 /* User.swift */,
-				301682D11FCF298400559A3B /* Model5-6.xcmappingmodel */,
+				301682CB1FCE9BE700559A3B /* TempStore.swift */,
+				30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */,
+				30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -853,11 +857,11 @@
 				306AC77E1FA05A5A0096814C /* PopSwitchDelegate.swift in Sources */,
 				3050A4AB1F8701FD00AD60D7 /* ListTableViewCell.swift in Sources */,
 				306AC7E01FAAB5BB0096814C /* NavigationArticlesViewController.swift in Sources */,
+				30FD3A221FD3A5E400FCB9AE /* TempArticle.swift in Sources */,
 				3050A49B1F86F35300AD60D7 /* Store.swift in Sources */,
 				306AC7811FA12A8B0096814C /* ConfigurationManager.swift in Sources */,
 				30AC99FF1F9FDB310029F6E6 /* ConfigurationViewController.swift in Sources */,
 				3032616D1FB2513C0083FBA0 /* CreateAccountViewController.swift in Sources */,
-				301682D21FCF298400559A3B /* Model5-6.xcmappingmodel in Sources */,
 				308571F01FB6889F0026BB14 /* Fonts.swift in Sources */,
 				306AC78D1FA29EBE0096814C /* HeaderCompareTableViewCell.swift in Sources */,
 				3050A49D1F86F38C00AD60D7 /* Article.swift in Sources */,
@@ -886,6 +890,7 @@
 				30083B741F88A744006274C9 /* DefineColors.swift in Sources */,
 				30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */,
 				308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */,
+				30FD3A201FD38F0E00FCB9AE /* Model6-7.xcmappingmodel in Sources */,
 				30AC99FB1F9FD7F20029F6E6 /* HostViewController.swift in Sources */,
 				301C9FE51F956FFB00BC43FE /* BarcodeReader.swift in Sources */,
 				30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */,
@@ -1203,6 +1208,7 @@
 		30FFE6561F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */,
 				30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */,
 				30C322021FC76EA000C8F7F2 /* PrecioScanModel_5.xcdatamodel */,
 				30C321FC1FC6ACCB00C8F7F2 /* PrecioScanModel_ 4.xcdatamodel */,
@@ -1210,7 +1216,7 @@
 				303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */,
 				30FFE6571F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodel */,
 			);
-			currentVersion = 30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */;
+			currentVersion = 30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */;
 			path = PrecioScanModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

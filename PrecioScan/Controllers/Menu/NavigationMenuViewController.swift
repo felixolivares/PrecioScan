@@ -29,7 +29,6 @@ class NavigationMenuViewController: MenuViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         currentUser = CoreDataManager.shared.getUserLoggedIn()
-        UserManager.setCurrentUser(user: currentUser)
         setUserInformation()
     }
 

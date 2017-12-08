@@ -30,10 +30,21 @@ public final class Article: NSManagedObject, CoreDataEntityProtocol{
         return Article(context: context, code: code, name: name, uid: uid)
     }
     
-    func update(name: String) -> Article {
-        self.name = name
+    func update(name: String? = nil, uid: String? = nil) -> Article {
+        if name != nil{
+            self.name = name!
+        }
+        if uid != nil{
+            self.uid = uid!
+        }
         return self
     }
+    
+    public func debug(){
+        let debugString = "------ Article ------\nName: \(self.name)\nUid: \(self.uid)\nCode: \(self.code))"
+        print(debugString)
+    }
+    
     @objc
     private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)

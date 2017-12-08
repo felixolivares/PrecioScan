@@ -12,6 +12,7 @@ import InteractiveSideMenu
 import TableViewReloadAnimation
 import Firebase
 import TransitionButton
+import SwipeCellKit
 
 class ListsViewController: CustomTransitionViewController {
 
@@ -24,6 +25,7 @@ class ListsViewController: CustomTransitionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        CoreDataManager.shared.updateProducts()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -116,6 +118,7 @@ extension ListsViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.listCell) as! ListTableViewCell
+        cell.delegate = self
         cell.selectionStyle = .none
         cell.listNameLabel.text = lists[indexPath.row].name
         if let store = lists[indexPath.row].store{
@@ -136,5 +139,38 @@ extension ListsViewController: UITableViewDataSource, UITableViewDelegate{
         cell.borderView.layer.borderColor = UIColor(oliveGreen)?.cgColor
         cell.sendSubview(toBack: cell.borderView)
         self.performSegue(withIdentifier: Segues.toListDetailFromLists, sender: lists[indexPath.row])
+    }
+}
+
+//MARK: - Swipe Cell Delegate Methods
+extension ListsViewController: SwipeTableViewCellDelegate{
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
+            CoreDataManager.shared.delete(object: self.lists[indexPath.row]){ success, error in
+                if success{
+                    self.lists.remove(at: indexPath.row)
+                }else{
+                    Popup.show(withError: error! as NSError, vc: self)
+                }
+            }
+        }
+        let cell = tableView.cellForRow(at: indexPath) as! ListTableViewCell
+        cell.hideSwipe(animated: true)
+        
+        // customize the action appearance
+        deleteAction.title = "Borrar"
+        //        deleteAction.image = UIImage(named: "trash-circle")
+        //        deleteAction.backgroundColor = UIColor.white
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = .destructiveAfterFill
+        options.transitionStyle = SwipeTableOptions().transitionStyle
+        options.backgroundColor = UIColor.white
+        return options
     }
 }

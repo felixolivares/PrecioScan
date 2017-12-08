@@ -143,6 +143,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
                 Popup.show(withError: error! as NSError, vc: self)
             }else{
                 self.stores.remove(at: index)
+                self.fetchStores()
                 self.tableView.reloadData()
                 print("Store deleted")
             }

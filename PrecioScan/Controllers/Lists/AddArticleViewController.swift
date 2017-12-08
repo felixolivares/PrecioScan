@@ -13,6 +13,7 @@ import PMSuperButton
 import ALCameraViewController
 import AXPhotoViewer
 import BadgeSwift
+import FirebaseDatabase
 
 class AddArticleViewController: UIViewController {
 
@@ -42,6 +43,7 @@ class AddArticleViewController: UIViewController {
     var photoExists: Bool = false
     var photosDataSource: [Photo] = []
     var photosViewController: PhotosViewController!
+    var isConnected: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +63,10 @@ class AddArticleViewController: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        barcodeLineScanner.layer.removeAllAnimations()
+    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -126,6 +132,9 @@ class AddArticleViewController: UIViewController {
         coinsIcon.alpha = 0
         photoBadge.alpha = 0
         createPhotoDataSource()
+        UserManager.shared.verifyConnection(){ connected in
+            self.isConnected = connected ? true : false
+        }
     }
     
     //MARK: - Core Data
@@ -138,15 +147,27 @@ class AddArticleViewController: UIViewController {
         CoreDataManager.shared.articles(findWithCode: code){ stack, articles, error in
             if let articles = articles{
                 if articles.count > 0{
-                    self.articleIsFound = true
-                    self.articleFound = articles.first
-                    self.messageLabel.text = Constants.AddArticle.articleFoundText
-                    self.populateWithArticleFound()
+                    print("Local article")
+                    self.articleWasFound(article: articles.first!)
                 }else{
-                    self.articleIsFound = false
-                    self.articleFound = nil
-                    self.messageLabel.text = Constants.AddArticle.articleNotFoundText
-                    self.resetItemList()
+                    print("No local article")
+                    FirebaseOperations().searchArticles(byCode: code!){article in
+                        if article != nil{
+                            CoreDataManager.shared.saveArticle(code: (article?.code)!, name: (article?.name)!, uid: (article?.uid)!, needsToSaveOnFirebase: false){ article, error in
+                                if article != nil {
+                                    self.articleWasFound(article: article!)
+                                }else{
+                                    print("An error ocurred: \(String(describing: error?.localizedDescription))")
+                                }
+                            }
+                        } else {
+                            print("No articles on server")
+                            self.articleIsFound = false
+                            self.articleFound = nil
+                            self.messageLabel.text = Constants.AddArticle.articleNotFoundText
+                            self.resetItemList()
+                        }
+                    }
                 }
                 self.messageLabel.bounce(){ finished in
                     guard self.articleFound != nil else {self.hideCompareButton();return}
@@ -160,6 +181,13 @@ class AddArticleViewController: UIViewController {
             }
             self.barcodeIsRead = true
         }
+    }
+    
+    func articleWasFound(article: Article){
+        self.articleIsFound = true
+        self.articleFound = article
+        self.messageLabel.text = Constants.AddArticle.articleFoundText
+        self.populateWithArticleFound()
     }
     
     func showCompareButton(){
@@ -362,6 +390,8 @@ class AddArticleViewController: UIViewController {
                                                       user: nil){ isSaved, error in
                                                         if isSaved {
                                                             print("Updated")
+                                                            self?.photoExists = true
+                                                            self?.setBadge()
                                                         }
                 }
             } else {

@@ -76,6 +76,9 @@ struct Constants {
         public static let selectStoreText = "Seleccionar una tienda"
         public static let createListTItle = "Crear Lista"
         public static let listTitle = "Detalle de Lista"
+        struct Popup {
+            public static let listSaved = "Lista guardada!"
+        }
     }
     
     struct AddArticle {
@@ -267,6 +270,8 @@ struct FRTable {
     public static let user = "user"
     public static let article = "article"
     public static let store = "store"
+    public static let list = "list"
+    public static let itemList = "itemList"
     
 }
 
@@ -275,6 +280,14 @@ struct FRAttribute {
     public static let email = "email"
     public static let code = "code"
     public static let name = "name"
+    public static let date = "date"
+    public static let photoName = "photoName"
+    public static let quantity = "quantity"
+    public static let unitaryPrice = "unitaryPrice"
+    public static let article = "article"
+    public static let list = "list"
+    public static let user = "user"
+    public static let store = "store"
     public static let nameSearch = "nameSearch"
     public static let location = "location"
     public static let locationSearch = "locationSearch"
@@ -284,5 +297,6 @@ struct FRAttribute {
     public static let city = "city"
     public static let citySearch = "citySearch"
     public static let uid = "uid"
+    public static let itemLists = "itemLists"
 }
 

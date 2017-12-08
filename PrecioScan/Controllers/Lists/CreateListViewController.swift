@@ -197,6 +197,16 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         storeSaved(store: (sender.source as! SaveNewStoreViewController).storeSelected)
     }
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        CoreDataManager.shared.updateList(object: list, name: nameListAnimatedControl.valueTextField.text!, date: nil, store: selectedStore){ saved, error in
+            if saved {
+                Popup.show(withCompletionMessage: Constants.CreateList.Popup.listSaved, vc: self){ _ in
+                    _ = self.navigationController?.popViewController(animated: true)
+                }
+            }
+        }
+    }
+    
     func storeSaved(store: Store) {
         self.selectedStore = store
         self.displayStoreName = store.name + " - " + store.location

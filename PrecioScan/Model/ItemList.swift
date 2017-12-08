@@ -14,6 +14,7 @@ public final class ItemList: NSManagedObject, CoreDataEntityProtocol{
     
     public static let defaultSortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
     
+    @NSManaged public var uid: String
     @NSManaged public var date: NSDate
     @NSManaged public var photoName: String?
     @NSManaged public var quantity: Int32
@@ -24,8 +25,9 @@ public final class ItemList: NSManagedObject, CoreDataEntityProtocol{
     @NSManaged public var store: Store
     @NSManaged public var user: User
     
-    public init (context: NSManagedObjectContext, date: NSDate, photoName: String?, quantity: Int32, totalPrice: NSDecimalNumber, unitaryPrice: NSDecimalNumber, article: Article, list: List, store: Store, user: User){
+    public init (context: NSManagedObjectContext, uid: String, date: NSDate, photoName: String?, quantity: Int32, totalPrice: NSDecimalNumber, unitaryPrice: NSDecimalNumber, article: Article, list: List, store: Store, user: User){
         super.init(entity: ItemList.entity(context: context), insertInto: context)
+        self.uid = uid
         self.date = date
         self.photoName = photoName
         self.quantity = quantity
@@ -37,12 +39,12 @@ public final class ItemList: NSManagedObject, CoreDataEntityProtocol{
         self.user = user
     }
     
-    public class func create(_ context: NSManagedObjectContext, date: Date, photoName: String?, quantity: Int32, unitaryPrice: Decimal, article: Article, list: List, store: Store, user: User) -> ItemList{
+    public class func create(_ context: NSManagedObjectContext, uid: String, date: Date, photoName: String?, quantity: Int32, unitaryPrice: Decimal, article: Article, list: List, store: Store, user: User) -> ItemList{
         let totalPrice = Decimal(quantity) * (unitaryPrice as Decimal)
-        return ItemList(context: context, date: date as NSDate, photoName: photoName, quantity: quantity, totalPrice: totalPrice as NSDecimalNumber, unitaryPrice: unitaryPrice as NSDecimalNumber, article: article, list: list, store: store, user: user)
+        return ItemList(context: context, uid: uid, date: date as NSDate, photoName: photoName, quantity: quantity, totalPrice: totalPrice as NSDecimalNumber, unitaryPrice: unitaryPrice as NSDecimalNumber, article: article, list: list, store: store, user: user)
     }
     
-    func update(_ date: Date?, photoName: String?, quantity: Int32?, unitaryPrice: Decimal?, article: Article?, list: List?, store: Store?, user: User?) -> ItemList{
+    func update(_ date: Date? = nil, photoName: String? = nil, quantity: Int32? = nil, unitaryPrice: Decimal? = nil, article: Article? = nil, list: List? = nil, store: Store? = nil, user: User? = nil) -> ItemList{
         let totalPrice: Decimal?
         
         if date != nil{

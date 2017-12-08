@@ -69,7 +69,7 @@ class FirebaseOperations: NSObject {
                     }
                     self.networkActiviyIndicator(value: false)
                 }
-                CoreDataManager.shared.saveUser(email: email, password: password, name: username, photoName: nil, isLogged: true){ user, error in}
+                CoreDataManager.shared.saveUser(email: email, password: password, name: username, photoName: nil, isLogged: true, uid: Auth.auth().currentUser?.uid){ user, error in}
             } else {
                 button.stopAnimation()
                 Popup.show(withOK: Warning.Generic.genericError, title: Constants.Popup.Titles.attention, vc: vc)
@@ -156,6 +156,59 @@ class FirebaseOperations: NSObject {
         return storeRef.key
     }
     
+    public func addList(name: String, date: Date, storeId: String, userUid: String) -> String{
+        let values: [String: Any?] = [FRAttribute.name: name,
+                                      FRAttribute.date: date.timeIntervalSince1970,
+                                      FRAttribute.store: [storeId: true],
+                                      FRAttribute.user: userUid]
+        let listRef = self.ref.child(FRTable.list).childByAutoId()
+        listRef.setValue(values)
+        return listRef.key
+    }
+    
+    public func addItemList(date: Date, photoName: String?, quantity: Int32, unitaryPrice: Decimal, articleUid: String, listUid: String, storeUid: String, userUid: String) -> String{
+        var imageName: String = ""
+        if photoName != nil{
+            imageName = photoName!
+        }
+        let values: [String: Any?] = [FRAttribute.date: date.timeIntervalSince1970,
+                                      FRAttribute.photoName: imageName,
+                                      FRAttribute.quantity: String(describing: quantity),
+                                      FRAttribute.unitaryPrice: String(describing: unitaryPrice),
+                                      FRAttribute.article: [articleUid: true],
+                                      FRAttribute.list: [listUid: true],
+                                      FRAttribute.store: [storeUid: true],
+                                      FRAttribute.user: [userUid: true]]
+        
+        let itemListRef = self.ref.child(FRTable.itemList).childByAutoId()
+        itemListRef.setValue(values)
+        
+        self.ref.child(FRTable.list).child(listUid).child(FRAttribute.itemLists).queryOrdered(byChild: FRAttribute.itemLists).observeSingleEvent(of: .value, with: { snapshot in
+            var itemLists: [String:Bool] = [:]
+            if snapshot.exists(){
+                if snapshot.childrenCount > 0{
+                    for eachChild in snapshot.children{
+                        itemLists[(eachChild as! DataSnapshot).key] = (eachChild as! DataSnapshot).value! as? Bool
+                    }
+                    itemLists[itemListRef.key] = true
+                    self.ref.child(FRTable.list).child(listUid).child(FRAttribute.itemLists).setValue(itemLists)
+                }
+            } else {
+                itemLists[itemListRef.key] = true
+                self.ref.child(FRTable.list).child(listUid).child(FRAttribute.itemLists).setValue(itemLists)
+            }
+        })
+        
+        return itemListRef.key
+    }
+    
+    public func addPhotoToItemList(itemListUid: String, photoName: String? = nil){
+        if photoName != nil{
+            let values: [String: Any] = [FRAttribute.photoName: photoName!]
+            self.ref.child(FRTable.itemList).child(itemListUid).updateChildValues(values)
+        }
+    }
+    
     //MARK: - Search
     public func searchStores(withName name: String? = nil, state: String? = nil, completionHandler: @escaping([TempStore]?, NSError?) -> Void){
         self.ref.child(FRTable.store).queryOrdered(byChild: FRAttribute.nameSearch).queryStarting(atValue: name!).queryEnding(atValue: name! + "\u{f8ff}").observe(.value, with: {snapshot in
@@ -167,6 +220,40 @@ class FirebaseOperations: NSObject {
             }
             completionHandler(stores, nil)
         })
+    }
+    
+    public func searchArticles(byCode code: String, completionHandler: @escaping(TempArticle?) -> Void){
+        self.ref.child(FRTable.article).queryOrdered(byChild: FRAttribute.code).queryEqual(toValue: code).observeSingleEvent(of: .value, with: { snapshot in
+            //var article: Article!
+            if snapshot.exists(){
+                if snapshot.childrenCount > 0{
+                    print("[FirebaseOperations - searchArticles:byCode] Article found on server")
+                    for eachChild in snapshot.children{
+                        let article = ((eachChild as! DataSnapshot).value! as! [String: Any])
+                        let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: (eachChild as! DataSnapshot).key)
+                        completionHandler(newArticle)
+                    }
+                }
+            } else {
+                completionHandler(nil)
+            }
+        })
+    }
+    
+    //MARK: - Delete
+    public func deleteList(byCode code: String){
+        if code != "" {
+            self.ref.child(FRTable.list).child(code).child(FRAttribute.itemLists).queryOrdered(byChild: FRAttribute.itemLists).observeSingleEvent(of: .value, with: { snapshot in
+                if snapshot.exists(){
+                    if snapshot.childrenCount > 0{
+                        for eachChild in snapshot.children{
+                            self.ref.child(FRTable.itemList).child((eachChild as! DataSnapshot).key).child(FRAttribute.list).removeValue()
+                        }
+                        self.ref.child(FRTable.list).child(code).removeValue()
+                    }
+                }
+            })
+        }
     }
     
     private func networkActiviyIndicator(value: Bool){

@@ -14,6 +14,7 @@ public final class User: NSManagedObject, CoreDataEntityProtocol {
 
     public static let defaultSortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
     
+    @NSManaged public var uid: String?
     @NSManaged public var name: String
     @NSManaged public var email: String
     @NSManaged public var password: String?
@@ -21,25 +22,27 @@ public final class User: NSManagedObject, CoreDataEntityProtocol {
     @NSManaged public var isLogged: Bool
     @NSManaged public var itemList: NSSet 
     
-    public init (context: NSManagedObjectContext, email: String, password: String?, name: String, photoName: String?, isLogged: Bool){
+    public init (context: NSManagedObjectContext, email: String, password: String?, name: String, photoName: String?, isLogged: Bool, uid: String?){
         super.init(entity: User.entity(context: context), insertInto: context)
         self.name = name
         self.email = email
         self.password = password
         self.photoName = photoName
         self.isLogged = isLogged
+        self.uid = uid
     }
     
-    public class func create(_ context: NSManagedObjectContext, name: String, email: String, password: String?, photoName: String?, isLogged: Bool) -> User {
-        return User(context: context, email: email, password: password, name: name, photoName: photoName, isLogged: isLogged)
+    public class func create(_ context: NSManagedObjectContext, name: String, email: String, password: String?, photoName: String?, isLogged: Bool, uid: String?) -> User {
+        return User(context: context, email: email, password: password, name: name, photoName: photoName, isLogged: isLogged, uid: uid)
     }
     
-    func update(_ name: String, email: String, password: String?, photoName: String?, isLogged: Bool) -> User{
+    func update(_ name: String, email: String, password: String?, photoName: String?, isLogged: Bool, uid: String?) -> User{
         self.name = name
         self.email = email
         self.password = password
         self.photoName = photoName
         self.isLogged = isLogged
+        self.uid = uid
         return self
     }
     

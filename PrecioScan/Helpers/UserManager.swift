@@ -29,7 +29,6 @@ class UserManager: NSObject {
     
     static func setCurrentUser(user: User){
         self.currentUser = user 
-        //print("Current user: \(currentUser.email)")
     }
     
     public func verifyUserIsLogged(vc: UIViewController){
@@ -43,6 +42,8 @@ class UserManager: NSObject {
                     vc.present(viewController, animated: true, completion: nil)
                 }
             }
+        } else {
+            let _ = CoreDataManager.shared.getUserLoggedIn()
         }
     }
     
@@ -72,19 +73,30 @@ class UserManager: NSObject {
             CoreDataManager.shared.user(withEmail: user.email){ users, error in
                 if (users?.count)! > 0 {
                     if let finalUser = users?.first {
-                        CoreDataManager.shared.updateUser(object: finalUser, email: finalUser.email, password: finalUser.password, name: finalUser.name, photoName: finalUser.photoName, isLogged: isLogged){ finished, error in
+                        CoreDataManager.shared.updateUser(object: finalUser, email: finalUser.email, password: finalUser.password, name: finalUser.name, photoName: finalUser.photoName, isLogged: isLogged, uid: FRUser?.uid){ finished, error in
                             UserManager.currentUser = finalUser
-                            print("Current user: \(String(describing: finalUser.email)) - Is Logged: \(String(describing: finalUser.isLogged))")
+                            print("Current user: \(String(describing: finalUser.email)) - Is Logged: \(String(describing: finalUser.isLogged)) - Uid: \(String(describing: (finalUser.uid)!))")
                         }
                     }
                 } else {
-                    CoreDataManager.shared.saveUser(email: (FRUser?.email)!, password: nil, name: (FRUser?.displayName)!, photoName: nil, isLogged: true){ user, error in
+                    CoreDataManager.shared.saveUser(email: (FRUser?.email)!, password: nil, name: (FRUser?.displayName)!, photoName: nil, isLogged: true, uid: FRUser?.uid){ user, error in
                         UserManager.currentUser = user
                         print("User saved - Current user: \(String(describing: user?.email)) - Is Logged: \(String(describing: user?.isLogged))")
                     }
                 }
             }
         }
+    }
+    
+    public func verifyConnection(completionHandler: @escaping(Bool) -> Void){
+        let connectedRef = Database.database().reference(withPath: ".info/connected")
+        connectedRef.observe(.value, with: { snapshot in
+            if let connected = snapshot.value as? Bool, connected {
+                completionHandler(true)
+            } else {
+                completionHandler(false)
+            }
+        })
     }
 }
 
