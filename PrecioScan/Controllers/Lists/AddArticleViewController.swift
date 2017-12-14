@@ -225,8 +225,9 @@ class AddArticleViewController: UIViewController {
                                                 article: articleFound,
                                                 list: list,
                                                 store: store,
-                                                user: UserManager.currentUser){ isSaved, error in
+                                                user: UserManager.currentUser){ isSaved, itemListUpdated, error in
                                                     if isSaved {
+                                                        self.itemListFound = itemListUpdated
                                                         print("Updated")
                                                     }
             }
@@ -368,6 +369,16 @@ class AddArticleViewController: UIViewController {
                                               image: image))
             } else {
                 print("Photo does not exist")
+                self.photoExists = false
+                CoreDataManager.shared.updateItemList(object: (self.itemListFound)!, date: nil,
+                                                      photoName: "",
+                                                      quantity: nil,
+                                                      unitariPrice: nil,
+                                                      article: nil,
+                                                      list: nil,
+                                                      store: nil,
+                                                      user: nil){ isSaved, itemListUpdated, error in
+                }
             }
         }
     }
@@ -387,11 +398,13 @@ class AddArticleViewController: UIViewController {
                                                       article: nil,
                                                       list: nil,
                                                       store: nil,
-                                                      user: nil){ isSaved, error in
+                                                      user: nil){ isSaved, itemListUpdated, error in
                                                         if isSaved {
+                                                            self?.itemListFound = itemListUpdated
                                                             print("Updated")
                                                             self?.photoExists = true
                                                             self?.setBadge()
+                                                            self?.createPhotoDataSource()
                                                         }
                 }
             } else {

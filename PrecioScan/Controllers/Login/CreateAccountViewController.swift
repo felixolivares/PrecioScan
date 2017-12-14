@@ -50,9 +50,9 @@ class CreateAccountViewController: UIViewController {
         let username = usernameAnimatedControl.valueTextField.text
         let finalEmail = email?.trimmingCharacters(in: .whitespaces)
         
-        guard finalEmail != "", username != "", password != "", verifyPassword != "" else {Popup.show(withOK: Warning.CreateAccount.allFieldsCompleted, title: Constants.Popup.Titles.attention, vc: self);return}
-        guard let pass = password?.count, pass >= 8 else {Popup.show(withOK: Warning.CreateAccount.passwordGreaterLength, title: Constants.Popup.Titles.attention, vc: self); return}
-        guard password == verifyPassword else {Popup.show(withOK: Warning.CreateAccount.passwordsNeedToMatch, title: Constants.Popup.Titles.attention, vc: self); return}
+        guard finalEmail != "", username != "", password != "", verifyPassword != "" else {Popup.show(withOK: Warning.CreateAccount.allFieldsCompleted, title: Constants.Popup.Titles.attention, vc: self);createAccountButton.stopAnimation();return}
+        guard let pass = password?.count, pass >= 8 else {Popup.show(withOK: Warning.CreateAccount.passwordGreaterLength, title: Constants.Popup.Titles.attention, vc: self);createAccountButton.stopAnimation();return}
+        guard password == verifyPassword else {Popup.show(withOK: Warning.CreateAccount.passwordsNeedToMatch, title: Constants.Popup.Titles.attention, vc: self);createAccountButton.stopAnimation();return}
         self.view.endEditing(true)
         FirebaseOperations().createUser(email: finalEmail!, password: password!, username: username!, button: createAccountButton, vc: self)
     }

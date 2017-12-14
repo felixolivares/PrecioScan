@@ -11,6 +11,7 @@ import UIKit
 class FilesManager: NSObject {
     static let shared = FilesManager()
     static var photosPath: URL!
+    static var photosCount = 0
     let fileManager = FileManager.default
     
     private override init(){
@@ -36,6 +37,7 @@ class FilesManager: NSObject {
                     
                     do {
                         let items = try fm.contentsOfDirectory(atPath: path)
+                        FilesManager.photosCount = items.count
                         print("How many items in folder: \(items.count)")
                         for item in items {
                             print("Found \(item)")
@@ -72,6 +74,27 @@ class FilesManager: NSObject {
         }
     }
     
+    public func deleteAllImages(vc: UIViewController, completionHandler: @escaping(Bool) -> Void){
+        do{
+            var photosDeleted = 0
+            let filePaths = try fileManager.contentsOfDirectory(atPath: FilesManager.photosPath.path)
+            for filePath in filePaths{
+                try fileManager.removeItem(atPath: FilesManager.photosPath.path + "/" + filePath)
+                photosDeleted += 1
+            }
+            print("Success phtos deleted: \(photosDeleted)")
+            if photosDeleted > 0 {
+                Popup.show(message: Constants.Configuration.photosDeletedMessage, vc: vc)
+                completionHandler(true)
+            } else {
+                Popup.show(message: Constants.Configuration.noPhotosToDeleteMessage, vc: vc)
+                completionHandler(false)
+            }
+        } catch {
+            print("Could not clear temp folder: \(error)")
+        }
+    }
+    
     public func verifyPhotoExists(name: String) -> UIImage? {
         let photoPath = FilesManager.photosPath.appendingPathComponent("\(name).png")
         var isDir: ObjCBool = true
@@ -80,6 +103,30 @@ class FilesManager: NSObject {
             return image
         } else {
             return nil
+        }
+    }
+    
+    public func countPhotos(completionHandler:@escaping(Int) -> Void){
+        if let tDocumentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first{
+            let filePath =  tDocumentDirectory.appendingPathComponent(Constants.Files.photosFolder)
+            var isDir: ObjCBool = true
+            if fileManager.fileExists(atPath: filePath.path, isDirectory: &isDir) {
+                if isDir.boolValue{
+                    
+                    let fm = FileManager.default
+                    let path = filePath.path
+                    
+                    do {
+                        let items = try fm.contentsOfDirectory(atPath: path)
+                        FilesManager.photosCount = items.count
+                        completionHandler(items.count)
+                    } catch let error as NSError{
+                        // failed to read directory – bad permissions, perhaps?
+                        print(error.localizedDescription)
+                        completionHandler(0)
+                    }
+                }
+            }
         }
     }
 }

@@ -13,19 +13,20 @@ class Popup{
     public static func setupPopup(){
         let cancelButtonAppearance = CancelButton.appearance()
         // Default button
-        cancelButtonAppearance.titleFont        = UIFont.systemFont(ofSize: 14) //UIFont(name: "Nunito-Bold", size: 14)!
+        cancelButtonAppearance.titleFont        = Fonts().ubuntuBold(size: 14) //UIFont(name: "Nunito-Bold", size: 14)!
         cancelButtonAppearance.titleColor       = UIColor(nicePurple)
         cancelButtonAppearance.buttonColor      = UIColor.clear
         cancelButtonAppearance.separatorColor   = UIColor(nicePurple)?.withAlphaComponent(0.5)
         
         let defaultButtonAppereance = DefaultButton.appearance()
-        defaultButtonAppereance.titleFont       = Fonts().ubuntuMedium(size: 14)
+        defaultButtonAppereance.titleFont       = Fonts().ubuntuBold(size: 14)
         defaultButtonAppereance.titleColor      = UIColor.white
-        defaultButtonAppereance.buttonColor     = UIColor(oliveGreen)
-        defaultButtonAppereance.separatorColor  = UIColor(oliveGreen)?.withAlphaComponent(0.5)
+        defaultButtonAppereance.buttonColor     = UIColor(liveGreen)
+        defaultButtonAppereance.separatorColor  = UIColor(liveGreen)?.withAlphaComponent(0.5)
         
         let destructiveButtonAppereance = DestructiveButton.appearance()
-        destructiveButtonAppereance.separatorColor = UIColor(oliveGreen)?.withAlphaComponent(0.5)
+        destructiveButtonAppereance.separatorColor = UIColor(liveGreen)?.withAlphaComponent(0.5)
+        destructiveButtonAppereance.titleFont   = Fonts().ubuntuBold(size: 14)
         
         let dialogAppearance = PopupDialogDefaultView.appearance()
         dialogAppearance.backgroundColor        = UIColor.white

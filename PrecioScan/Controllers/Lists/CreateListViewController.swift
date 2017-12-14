@@ -53,6 +53,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.view.endEditing(true)
         if dropDownIsOpen{
             addStoreMenu.closeAllComponents(animated: false)
         }
@@ -197,11 +198,30 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         storeSaved(store: (sender.source as! SaveNewStoreViewController).storeSelected)
     }
     
+    @IBAction func unwindSegueFromSearchStore(_ sender: UIStoryboardSegue){
+        storeSaved(store: (sender.source as! SearchStoreViewController).storeSelected)
+    }
+    
     @IBAction func saveButtonPressed(_ sender: Any) {
-        CoreDataManager.shared.updateList(object: list, name: nameListAnimatedControl.valueTextField.text!, date: nil, store: selectedStore){ saved, error in
-            if saved {
-                Popup.show(withCompletionMessage: Constants.CreateList.Popup.listSaved, vc: self){ _ in
-                    _ = self.navigationController?.popViewController(animated: true)
+        guard selectedStore != nil, nameListAnimatedControl.valueTextField.text != "" else {Popup.show(withOK: Warning.CreateLlist.selectNameAndStoreText, title: Constants.Popup.Titles.attention, vc: self); return}
+        
+        if list != nil{
+            CoreDataManager.shared.updateList(object: list, name: nameListAnimatedControl.valueTextField.text!, date: nil, store: selectedStore){ saved, error in
+                if saved {
+                    Popup.show(withCompletionMessage: Constants.CreateList.Popup.listSaved, vc: self){ _ in
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
+        } else {
+            CoreDataManager.shared.saveList(name: nameListAnimatedControl.valueTextField.text!, date: DateOperations().getCurrentLocalDate(), store: selectedStore){ listSaved, error in
+                if listSaved != nil {
+                    self.list = listSaved
+                    print("New list created")
+                    listSaved?.debug()
+                    Popup.show(withCompletionMessage: Constants.CreateList.Popup.listSaved, vc: self){ _ in
+                        _ = self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }
         }

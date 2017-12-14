@@ -26,6 +26,7 @@ class SearchStoreViewController: UIViewController {
     let paragraphStyle = NSMutableParagraphStyle.init()
     var stores: [TempStore] = []
     var filteredStores: [TempStore] = []
+    var storeSelected: Store!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +90,7 @@ class SearchStoreViewController: UIViewController {
         self.tableView.reloadData()
         self.hideNoResults()
         self.showActivityIndicator()
-        FirebaseOperations().searchStores(withName: name?.lowercased(), state: state?.lowercased()){ stores, error in
+        FirebaseOperations().searchStores(withName: name?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines), state: state?.lowercased()){ stores, error in
             if (stores?.count)! > 0{
                 self.hideNoResults()
                 self.hideActivityIndicator()
@@ -106,8 +107,14 @@ class SearchStoreViewController: UIViewController {
     }
     
     func goBack(){
-        if navigationController?.popViewController(animated: true) == nil {
+        if self.navigationController == nil {
             self.dismiss(animated: true, completion: nil)
+        } else {
+            if storeSelected == nil{
+                navigationController?.popViewController(animated: true)
+            } else {
+                self.performSegue(withIdentifier: Segues.unwindToListFromSearch, sender: self)
+            }
         }
     }
     
@@ -203,6 +210,7 @@ extension SearchStoreViewController: MKDropdownMenuDelegate{
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, didOpenComponent component: Int) {
         self.dropDownIsOpen = true
         self.view.endEditing(true)
+        searchStore(name: storeNameTextField.text!, state: nil)
     }
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, didCloseComponent component: Int) {
@@ -237,7 +245,8 @@ extension SearchStoreViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let store = filteredStores[indexPath.row]
         CoreDataManager.shared.saveStore(name: store.name, location: store.location, information: nil, state: store.state, city: store.city, needSaveFirbase: false, uid: store.uid){ store, error in
-            if let _ = store {
+            if let newStore = store {
+                self.storeSelected = newStore
                 Popup.show(withCompletionMessage: Constants.CreateStore.Popup.storeSaved, vc: self){ _ in
                     self.goBack()
                 }

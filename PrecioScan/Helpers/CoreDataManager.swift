@@ -178,16 +178,16 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func updateItemList(object: ItemList, date: Date?, photoName: String?, quantity: Int32?, unitariPrice: Decimal?, article: Article?, list: List?, store: Store?, user: User?, completionHandler: @escaping(Bool, Error?) -> Void){
+    public func updateItemList(object: ItemList, date: Date?, photoName: String?, quantity: Int32?, unitariPrice: Decimal?, article: Article?, list: List?, store: Store?, user: User?, completionHandler: @escaping(Bool, ItemList?, Error?) -> Void){
         stack.mainContext.performAndWait {
             FirebaseOperations().addPhotoToItemList(itemListUid: object.uid, photoName: photoName)
-            let _ = object.update(date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store, user: user)
+            let itemListUpdated = object.update(date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store, user: user)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
-                    completionHandler(true, nil)
+                    completionHandler(true, itemListUpdated, nil)
                 case .failure:
-                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+                    completionHandler(false, nil, NSError(type: ErrorType.cannotSaveInCoreData))
                 }
             }
         }
@@ -287,6 +287,27 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    public func lists(byStore storeUid: String, completionHandler: @escaping(CoreDataStack?, [List]?, Error?) -> Void){
+        let fetchRequest: NSFetchRequest<List>
+        fetchRequest = List.fetchRequest
+        fetchRequest.predicate = NSPredicate(format: "store.uid == %@", storeUid)
+        var fetchResultController: NSFetchedResultsController<List>!
+        guard self.stack != nil else { configure(); return }
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                           managedObjectContext: stack!.mainContext,
+                                                           sectionNameKeyPath: nil,
+                                                           cacheName: nil)
+        fetchResultController.delegate = self
+        do {
+            try fetchResultController.performFetch()
+            print("List objects count \(String(describing: fetchResultController.fetchedObjects?.count))")
+            completionHandler(stack, fetchResultController.fetchedObjects, nil)
+        } catch {
+            assertionFailure("Failed to fetch: \(error)")
+            completionHandler(nil, nil, error)
+        }
+    }
+    
     //MARK: - User
     public func saveUser(email: String, password: String?, name: String, photoName: String?, isLogged: Bool, uid: String?, completionHandler: @escaping(User?, Error?) -> Void){
         stack.mainContext.performAndWait {
@@ -370,6 +391,13 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     
     //MARK: - Delete object
     public func deleteStore(object: Store, comlpetionHandler: @escaping(Bool, Error?) -> Void){
+        lists(byStore: object.uid){ stack, lists, error in
+            if lists != nil {
+                for eachList in lists!{
+                    FirebaseOperations().deleteList(byCode: eachList.uid)
+                }
+            }
+        }
         object.delete(self.stack!.mainContext){ success, error in
             if success{
                 comlpetionHandler(true, nil)
@@ -383,6 +411,8 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         switch object {
         case let list as List:
             FirebaseOperations().deleteList(byCode: list.uid)
+        case let itemList as ItemList:
+            FirebaseOperations().deleteItemListFromList(byUid: itemList.uid, listUid: itemList.list.uid)
         default:
             print("Default")
         }
@@ -402,8 +432,21 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
             for eachArticle in articles!{
                 if eachArticle.uid == ""{
                     FirebaseOperations().searchArticles(byCode: eachArticle.code){ tempArticle in
-                        let articleUpdated = eachArticle.update(name: nil, uid: tempArticle?.uid)
-                        articleUpdated.debug()
+                        var uid: String = ""
+                        if tempArticle?.uid != nil{
+                            uid = (tempArticle?.uid)!
+                        } else {
+                            uid = FirebaseOperations().addArticle(barcode: eachArticle.code, name: eachArticle.name)
+                        }
+                        let articleUpdated = eachArticle.update(name: nil, uid: uid)
+                        saveContext((stack?.mainContext)!){ result in
+                            switch result{
+                            case .success:
+                                articleUpdated.debug()
+                            case .failure:
+                                print("Error saving")
+                            }
+                        }
                     }
                 }
             }

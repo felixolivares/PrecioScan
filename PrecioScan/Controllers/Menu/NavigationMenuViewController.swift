@@ -18,8 +18,8 @@ class NavigationMenuViewController: MenuViewController {
     
     var currentUser: User!
     
-    let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.logoutItem]
-    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.configurationIcon, ImageNames.logoutIcon]
+    let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.subscritpionIten, Constants.NavigationMenu.logoutItem]
+    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.configurationIcon, ImageNames.subscriptionIcon, ImageNames.logoutIcon]
     
     override func viewDidLoad() {
         super.viewDidLoad()

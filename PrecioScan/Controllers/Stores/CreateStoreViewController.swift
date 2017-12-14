@@ -18,7 +18,7 @@ protocol CreateStoreViewControllerDelegate{
     func storeSaved(store: Store)
 }
 
-class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDelegate, SideMenuItemContent, UISearchBarDelegate {
+class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var hamburgerButton: DynamicButton!
@@ -59,7 +59,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
 
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
         hamburgerButton.setStyle(.close, animated: true)
-        self.showSideMenu()
+        (self.navigationController as! NavigationStoreViewController).showSideMenu()
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {

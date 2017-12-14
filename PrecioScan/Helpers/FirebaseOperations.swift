@@ -251,8 +251,17 @@ class FirebaseOperations: NSObject {
                         }
                         self.ref.child(FRTable.list).child(code).removeValue()
                     }
+                } else {
+                    self.ref.child(FRTable.list).child(code).removeValue()
                 }
             })
+        }
+    }
+    
+    public func deleteItemListFromList(byUid itemListUid: String, listUid: String){
+        if itemListUid != ""{
+            self.ref.child(FRTable.list).child(listUid).child(FRAttribute.itemLists).child(itemListUid).removeValue()
+            self.ref.child(FRTable.itemList).child(itemListUid).child(FRAttribute.list).child(listUid).removeValue()
         }
     }
     

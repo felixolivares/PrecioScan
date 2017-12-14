@@ -146,7 +146,7 @@ struct Constants {
         public static let listNavigation = "ListNavigation"
         public static let articlesNavigation = "ArticlesNavigation"
         public static let configuration = "Configuration"
-        public static let stores = "Stores"
+        public static let navigationStore = "NavigationStore"
     }
     
     struct NavigationMenu{
@@ -154,11 +154,14 @@ struct Constants {
         public static let storeItem = "Tiendas"
         public static let articleItem = "Articulos"
         public static let configurationItem = "Configuracion"
+        public static let subscritpionIten = "Subscripción"
         public static let logoutItem = "Cerrar Sesión"
     }
     
     struct Configuration{
         public static let soundEnable = "sharedPrefSoundEnabled"
+        public static let photosDeletedMessage = "Todas las fotos fueron borradas con exito!"
+        public static let noPhotosToDeleteMessage = "No hay fotos guardadas"
     }
     
     struct User{
@@ -213,6 +216,7 @@ struct Segues{
     public static let toCompareFromArticleDetail = "toCompareFromArticleDetail"
     public static let toSearchFromStores = "toSearchFromStores"
     public static let unwindToList = "unwindToList"
+    public static let unwindToListFromSearch = "unwindToListFromSearch"
 }
 
 //Images
@@ -222,6 +226,7 @@ struct ImageNames{
     public static let storeIcon = "storeIconWhite"
     public static let articleIcon = "articleIconWhite"
     public static let logoutIcon = "logoutIconWhite"
+    public static let subscriptionIcon = "subscriptionIcon"
 }
 
 //States

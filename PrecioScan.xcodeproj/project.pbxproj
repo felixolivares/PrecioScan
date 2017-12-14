@@ -74,8 +74,10 @@
 		30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A11F9005EE002DCD90 /* Popup.swift */; };
 		30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A51F90740C002DCD90 /* BarcodeLine.swift */; };
 		30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C321F91FBFB7F700C8F7F2 /* FilesManager.swift */; };
+		30D800601FDFA3D7003BD2FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D8005F1FDFA3D7003BD2FF /* StoreKit.framework */; };
 		30FD3A201FD38F0E00FCB9AE /* Model6-7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */; };
 		30FD3A221FD3A5E400FCB9AE /* TempArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */; };
+		30FF9B4A1FE246DF00E4C49A /* NavigationStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FF9B491FE246DF00E4C49A /* NavigationStoreViewController.swift */; };
 		30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6211F85977E001CE3B8 /* AppDelegate.swift */; };
 		30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6251F85977E001CE3B8 /* Main.storyboard */; };
 		30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */; };
@@ -178,9 +180,11 @@
 		30C321FC1FC6ACCB00C8F7F2 /* PrecioScanModel_ 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PrecioScanModel_ 4.xcdatamodel"; sourceTree = "<group>"; };
 		30C322021FC76EA000C8F7F2 /* PrecioScanModel_5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_5.xcdatamodel; sourceTree = "<group>"; };
 		30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_6.xcdatamodel; sourceTree = "<group>"; };
+		30D8005F1FDFA3D7003BD2FF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_7.xcdatamodel; sourceTree = "<group>"; };
 		30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model6-7.xcmappingmodel"; sourceTree = "<group>"; };
 		30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempArticle.swift; sourceTree = "<group>"; };
+		30FF9B491FE246DF00E4C49A /* NavigationStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStoreViewController.swift; sourceTree = "<group>"; };
 		30FFE61E1F85977E001CE3B8 /* PrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FFE6211F85977E001CE3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30FFE6261F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAC07B1A4722D2511618268B /* Pods_PrecioScan.framework in Frameworks */,
+				30D800601FDFA3D7003BD2FF /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +294,7 @@
 				306AC7DE1FAAB56F0096814C /* Articles */,
 				306AC7DD1FAAB55F0096814C /* Stores */,
 				306AC7DC1FAAB5370096814C /* Configuration */,
+				30FF9B481FE2442000E4C49A /* Subscription */,
 				306AC77A1FA037CF0096814C /* Menu */,
 				3050A4AD1F87020600AD60D7 /* Cells */,
 			);
@@ -374,6 +380,7 @@
 		306AC7DD1FAAB55F0096814C /* Stores */ = {
 			isa = PBXGroup;
 			children = (
+				30FF9B491FE246DF00E4C49A /* NavigationStoreViewController.swift */,
 				3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */,
 				301682C91FCD469500559A3B /* SearchStoreViewController.swift */,
 				301682C71FCD193800559A3B /* SaveNewStoreViewController.swift */,
@@ -389,6 +396,13 @@
 				301CA55E1FAC28E100F2009A /* ArticleDetailViewController.swift */,
 			);
 			path = Articles;
+			sourceTree = "<group>";
+		};
+		30FF9B481FE2442000E4C49A /* Subscription */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Subscription;
 			sourceTree = "<group>";
 		};
 		30FFE6151F85977E001CE3B8 = {
@@ -480,6 +494,7 @@
 		FE3C16BAD3DBC8BC0ADFE841 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				30D8005F1FDFA3D7003BD2FF /* StoreKit.framework */,
 				63F920A08F9F5CDD0BFE6F24 /* Pods_PrecioScan.framework */,
 				706F3779779F902CB4876CAC /* Pods_PrecioScanTests.framework */,
 				1DF3F025C91EB7794508F0A8 /* Pods_PrecioScanUITests.framework */,
@@ -565,6 +580,11 @@
 					30FFE61D1F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					30FFE6311F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
@@ -714,6 +734,7 @@
 				"${BUILT_PRODUCTS_DIR}/PWSwitch/PWSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TableViewReloadAnimation/TableViewReloadAnimation.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
@@ -742,6 +763,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PWSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableViewReloadAnimation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
@@ -891,6 +913,7 @@
 				30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */,
 				308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */,
 				30FD3A201FD38F0E00FCB9AE /* Model6-7.xcmappingmodel in Sources */,
+				30FF9B4A1FE246DF00E4C49A /* NavigationStoreViewController.swift in Sources */,
 				30AC99FB1F9FD7F20029F6E6 /* HostViewController.swift in Sources */,
 				301C9FE51F956FFB00BC43FE /* BarcodeReader.swift in Sources */,
 				30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */,
@@ -1064,6 +1087,7 @@
 			baseConfigurationReference = 516C364AF82B1D3E5ABC8B00 /* Pods-PrecioScan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
@@ -1071,6 +1095,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1081,6 +1107,7 @@
 			baseConfigurationReference = 50F7ACDCD7E3559EECE3E1BD /* Pods-PrecioScan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
@@ -1088,6 +1115,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

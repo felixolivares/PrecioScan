@@ -15,6 +15,7 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
 
     @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var soundSwitch: PWSwitch!
+    @IBOutlet weak var photosNumberLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +41,14 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
         self.showSideMenu()
     }
     
+    @IBAction func deleteAllPhotosButtonPressed(_ sender: Any) {
+        FilesManager.shared.deleteAllImages(vc: self){ success in
+            if success {
+                self.updatePhotosCountLabel()
+            }
+        }
+    }
+    
     func restoreConfigurationValues(){
         soundSwitch.setOn(ConfigurationManager.soundEnabled!, animated: false)
         soundSwitch.addTarget(self, action: #selector(self.onSwitchChanged(_:)), for: .valueChanged)
@@ -52,9 +61,17 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
         sender.thumbOnBorderColor = UIColor("9d9d9d")
         sender.trackOnFillColor = UIColor(oliveGreen)
     }
+    
     func configureComponents(){
         UserManager.shared.verifyUserIsLogged(vc: self)
         hamburgerButton.setStyle(.hamburger, animated: false)
+        updatePhotosCountLabel()
+    }
+    
+    func updatePhotosCountLabel(){
+        FilesManager.shared.countPhotos(){ photosNumber in
+            self.photosNumberLabel.text = String(describing: photosNumber)
+        }
     }
     
     func updateSwitch(withstate state: Bool, pwSwitch: PWSwitch){

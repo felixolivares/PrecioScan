@@ -29,7 +29,7 @@ target 'PrecioScan' do
   pod 'ALCameraViewController'
   pod 'AXPhotoViewer'
   pod 'BadgeSwift', '~> 5.0'
-  pod 'ZXLoadingView'
+  pod 'SwiftyStoreKit'
   
   target 'PrecioScanTests' do
     inherit! :search_paths

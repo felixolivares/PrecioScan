@@ -13,6 +13,7 @@ import TableViewReloadAnimation
 import Firebase
 import TransitionButton
 import SwipeCellKit
+import SwiftyStoreKit
 
 class ListsViewController: CustomTransitionViewController {
 
@@ -26,6 +27,10 @@ class ListsViewController: CustomTransitionViewController {
         super.viewDidLoad()
         setupTableView()
         CoreDataManager.shared.updateProducts()
+        
+        SwiftyStoreKit.retrieveProductsInfo(["com.felixolivares.PrecioScan.PremiumSubscription"]) { result in
+            print(result)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +88,7 @@ class ListsViewController: CustomTransitionViewController {
                     with: .simple(duration: 0.45, direction: .rotation3D(type: .ironMan),
                                   constantDelay: 0))
             } else {
+                self.tableView.reloadData()
                 self.emptyStateContainerView.isHidden = false
             }
         }
