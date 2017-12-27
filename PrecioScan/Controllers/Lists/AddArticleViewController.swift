@@ -215,6 +215,7 @@ class AddArticleViewController: UIViewController {
     }
     
     func saveItemList(){
+        
         let quantity = Int32(stepper.value)
         let unitaryPrice = Decimal(round(100*Double(priceAnimatedControl.valueTextField.text!)!)/100)
         guard itemListFound == nil else {

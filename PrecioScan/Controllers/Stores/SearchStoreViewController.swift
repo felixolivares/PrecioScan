@@ -113,7 +113,11 @@ class SearchStoreViewController: UIViewController {
             if storeSelected == nil{
                 navigationController?.popViewController(animated: true)
             } else {
-                self.performSegue(withIdentifier: Segues.unwindToListFromSearch, sender: self)
+                if navigationController is NavigationStoreViewController{
+                    navigationController?.popViewController(animated: true)
+                } else {
+                    self.performSegue(withIdentifier: Segues.unwindToListFromSearch, sender: self)
+                }
             }
         }
     }
@@ -157,6 +161,27 @@ class SearchStoreViewController: UIViewController {
             showNoResults()
         } else {
             hideNoResults()
+        }
+    }
+    
+    func saveStore(store: TempStore){
+        CoreDataManager.shared.store(findByUid: store.uid){ stores, error in
+            if (stores?.count)! > 0{
+                Popup.show(withCompletionMessage: Constants.CreateStore.Popup.storeAlreadySaved, vc: self){ _ in
+                    self.storeSelected = stores?.first
+                    self.goBack()
+                }
+            } else {
+                CoreDataManager.shared.saveStore(name: store.name, location: store.location, information: nil, state: store.state, city: store.city, needSaveFirbase: false, uid: store.uid){ store, error in
+                    if let newStore = store {
+                        self.storeSelected = newStore
+                        Popup.show(withCompletionMessage: Constants.CreateStore.Popup.storeSaved, vc: self){ _ in
+                            self.goBack()
+                        }
+                    }
+                }
+
+            }
         }
     }
 }
@@ -244,14 +269,7 @@ extension SearchStoreViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let store = filteredStores[indexPath.row]
-        CoreDataManager.shared.saveStore(name: store.name, location: store.location, information: nil, state: store.state, city: store.city, needSaveFirbase: false, uid: store.uid){ store, error in
-            if let newStore = store {
-                self.storeSelected = newStore
-                Popup.show(withCompletionMessage: Constants.CreateStore.Popup.storeSaved, vc: self){ _ in
-                    self.goBack()
-                }
-            }
-        }
+        self.saveStore(store: store)
     }
 }
 

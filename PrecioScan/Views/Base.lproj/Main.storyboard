@@ -919,10 +919,26 @@
             </objects>
             <point key="canvasLocation" x="-714" y="1465"/>
         </scene>
-        <!--View Controller-->
+        <!--Navigation Subscription View Controller-->
+        <scene sceneID="MIx-MJ-4GD">
+            <objects>
+                <navigationController storyboardIdentifier="SubscriptionNavigation" navigationBarHidden="YES" id="kal-ia-mob" customClass="NavigationSubscriptionViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cmo-jD-HER">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pJt-Uk-MUQ" kind="relationship" relationship="rootViewController" id="aFq-ZB-KZk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNy-Eb-jKA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-714" y="2209"/>
+        </scene>
+        <!--Subscription View Controller-->
         <scene sceneID="UD0-wz-aDE">
             <objects>
-                <viewController id="pJt-Uk-MUQ" sceneMemberID="viewController">
+                <viewController id="pJt-Uk-MUQ" customClass="SubscriptionViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CdG-oy-bUU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -951,6 +967,9 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="hamburgerButtonPressed:" destination="pJt-Uk-MUQ" eventType="touchUpInside" id="ZWi-2B-MqU"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suscripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB5-f5-bRN">
                                         <rect key="frame" x="111" y="33.5" width="153" height="32"/>
@@ -983,10 +1002,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GMM-KE-7RG"/>
                     </view>
+                    <navigationItem key="navigationItem" id="WlP-PS-dKx"/>
+                    <connections>
+                        <outlet property="hamburgerButton" destination="7Zj-Wf-qhI" id="PHA-SX-vqh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qsc-8j-fgW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-714" y="2169"/>
+            <point key="canvasLocation" x="118" y="2209"/>
         </scene>
         <!--Data Source-->
         <scene sceneID="qVw-JO-YV0">
@@ -2797,7 +2820,7 @@ introduce el codigo del articulo</string>
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbV-ja-mHC">
-                                <rect key="frame" x="0.0" y="235" width="375" height="310"/>
+                                <rect key="frame" x="0.0" y="251" width="375" height="310"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXJ-lq-8Ja" customClass="TransitionButton" customModule="TransitionButton">
                                         <rect key="frame" x="87.5" y="150" width="200" height="40"/>
@@ -2962,24 +2985,34 @@ introduce el codigo del articulo</string>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrecioScanLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Azn-Yc-6r5">
-                                <rect key="frame" x="102" y="50" width="170" height="170"/>
+                                <rect key="frame" x="112" y="40" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="170" id="9FM-b7-V9q"/>
-                                    <constraint firstAttribute="width" constant="170" id="j3g-7j-VB7"/>
+                                    <constraint firstAttribute="height" constant="150" id="9FM-b7-V9q"/>
+                                    <constraint firstAttribute="width" constant="150" id="j3g-7j-VB7"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrecioScanTitle" translatesAutoresizingMaskIntoConstraints="NO" id="p0F-6O-VAM">
+                                <rect key="frame" x="102.5" y="205" width="170" height="26"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="734-IR-b9x"/>
+                                    <constraint firstAttribute="height" constant="26" id="cat-FH-xPw"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="fbV-ja-mHC" firstAttribute="top" secondItem="Azn-Yc-6r5" secondAttribute="bottom" constant="15" id="G6z-wy-6E8"/>
+                            <constraint firstItem="p0F-6O-VAM" firstAttribute="centerX" secondItem="A5k-Py-EDs" secondAttribute="centerX" id="Br4-cX-QGx"/>
+                            <constraint firstItem="fbV-ja-mHC" firstAttribute="top" secondItem="p0F-6O-VAM" secondAttribute="bottom" constant="20" id="O1d-RW-I1S"/>
                             <constraint firstItem="XZk-z1-S2b" firstAttribute="trailing" secondItem="hJA-VV-3RI" secondAttribute="trailing" id="PwJ-9D-Zwt"/>
                             <constraint firstItem="Azn-Yc-6r5" firstAttribute="centerX" secondItem="A5k-Py-EDs" secondAttribute="centerX" id="XD2-Bf-ylQ"/>
                             <constraint firstItem="XZk-z1-S2b" firstAttribute="bottom" secondItem="A5k-Py-EDs" secondAttribute="bottom" id="XO7-GT-Z02"/>
                             <constraint firstItem="XZk-z1-S2b" firstAttribute="top" secondItem="A5k-Py-EDs" secondAttribute="top" id="cLr-nl-ehF"/>
+                            <constraint firstItem="p0F-6O-VAM" firstAttribute="top" secondItem="Azn-Yc-6r5" secondAttribute="bottom" constant="15" id="gZn-Hg-x2Y"/>
                             <constraint firstItem="fbV-ja-mHC" firstAttribute="leading" secondItem="hJA-VV-3RI" secondAttribute="leading" id="i0E-Rz-JOi"/>
+                            <constraint firstItem="XZk-z1-S2b" firstAttribute="centerX" secondItem="A5k-Py-EDs" secondAttribute="centerX" id="ik9-jY-I7d"/>
                             <constraint firstItem="fbV-ja-mHC" firstAttribute="trailing" secondItem="hJA-VV-3RI" secondAttribute="trailing" id="lF2-G0-cpc"/>
                             <constraint firstItem="XZk-z1-S2b" firstAttribute="leading" secondItem="hJA-VV-3RI" secondAttribute="leading" id="sQX-Km-kxF"/>
-                            <constraint firstItem="Azn-Yc-6r5" firstAttribute="top" secondItem="A5k-Py-EDs" secondAttribute="top" constant="50" id="vmI-X1-sXH"/>
+                            <constraint firstItem="Azn-Yc-6r5" firstAttribute="top" secondItem="A5k-Py-EDs" secondAttribute="top" constant="40" id="vmI-X1-sXH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hJA-VV-3RI"/>
                     </view>
@@ -3301,7 +3334,8 @@ introduce el codigo del articulo</string>
     </scenes>
     <resources>
         <image name="HeaderSmall" width="414" height="118"/>
-        <image name="PrecioScanLogo" width="249" height="249"/>
+        <image name="PrecioScanLogo" width="199" height="199"/>
+        <image name="PrecioScanTitle" width="249" height="39"/>
         <image name="articlesEmptyState" width="197" height="197"/>
         <image name="backArrowWhite" width="132" height="132"/>
         <image name="barcode" width="188" height="116"/>

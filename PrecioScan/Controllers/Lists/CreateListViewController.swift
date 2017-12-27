@@ -269,9 +269,10 @@ extension CreateListViewController: SwipeTableViewCellDelegate{
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
         
-        let deleteAction = SwipeAction(style: .destructive, title: "Borrar") { action, indexPath in
+        let deleteAction = SwipeAction(style: .destructive, title: Constants.CreateList.deleteCellText) { action, indexPath in
             CoreDataManager.shared.delete(object: self.itemLists[indexPath.row]){ success, error in
                 if success{
+                    self.fetchItemLists()
                     self.itemLists.remove(at: indexPath.row)
                 }else{
                     Popup.show(withError: error! as NSError, vc: self)
@@ -282,7 +283,7 @@ extension CreateListViewController: SwipeTableViewCellDelegate{
         cell.hideSwipe(animated: true)
         
         // customize the action appearance
-        deleteAction.title = "Borrar"
+        deleteAction.title = Constants.CreateList.deleteCellText
 //        deleteAction.image = UIImage(named: "trash-circle")
 //        deleteAction.backgroundColor = UIColor.white
         return [deleteAction]

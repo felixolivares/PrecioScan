@@ -76,6 +76,7 @@ struct Constants {
         public static let selectStoreText = "Seleccionar una tienda"
         public static let createListTItle = "Crear Lista"
         public static let listTitle = "Detalle de Lista"
+        public static let deleteCellText = "Borrar"
         struct Popup {
             public static let listSaved = "Lista guardada!"
         }
@@ -102,6 +103,7 @@ struct Constants {
             public static let storeSaved = "Tienda guardada!"
             public static let attentionTitle = "Atención!"
             public static let willDeleteStoreMessage = "Al borrar esta tienda, tambien se borraran sus listas asociadas a ella, estas de acuerdo?"
+            public static let storeAlreadySaved = "Ya habías guardado esta tienda antes!"
         }
     }
     
@@ -147,6 +149,7 @@ struct Constants {
         public static let articlesNavigation = "ArticlesNavigation"
         public static let configuration = "Configuration"
         public static let navigationStore = "NavigationStore"
+        public static let subscriptionNavigation = "SubscriptionNavigation"
     }
     
     struct NavigationMenu{
@@ -154,7 +157,7 @@ struct Constants {
         public static let storeItem = "Tiendas"
         public static let articleItem = "Articulos"
         public static let configurationItem = "Configuracion"
-        public static let subscritpionIten = "Subscripción"
+        public static let subscritpionIten = "Suscripción"
         public static let logoutItem = "Cerrar Sesión"
     }
     
@@ -226,7 +229,7 @@ struct ImageNames{
     public static let storeIcon = "storeIconWhite"
     public static let articleIcon = "articleIconWhite"
     public static let logoutIcon = "logoutIconWhite"
-    public static let subscriptionIcon = "subscriptionIcon"
+    public static let subscriptionIcon = "subscriptionIocn"
 }
 
 //States

@@ -78,6 +78,8 @@
 		30FD3A201FD38F0E00FCB9AE /* Model6-7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */; };
 		30FD3A221FD3A5E400FCB9AE /* TempArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */; };
 		30FF9B4A1FE246DF00E4C49A /* NavigationStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FF9B491FE246DF00E4C49A /* NavigationStoreViewController.swift */; };
+		30FF9B4C1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FF9B4B1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift */; };
+		30FF9B4E1FE24A1400E4C49A /* SubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FF9B4D1FE24A1400E4C49A /* SubscriptionViewController.swift */; };
 		30FFE6221F85977E001CE3B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6211F85977E001CE3B8 /* AppDelegate.swift */; };
 		30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE6251F85977E001CE3B8 /* Main.storyboard */; };
 		30FFE62C1F85977E001CE3B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30FFE62A1F85977E001CE3B8 /* LaunchScreen.storyboard */; };
@@ -185,6 +187,8 @@
 		30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model6-7.xcmappingmodel"; sourceTree = "<group>"; };
 		30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempArticle.swift; sourceTree = "<group>"; };
 		30FF9B491FE246DF00E4C49A /* NavigationStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStoreViewController.swift; sourceTree = "<group>"; };
+		30FF9B4B1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSubscriptionViewController.swift; sourceTree = "<group>"; };
+		30FF9B4D1FE24A1400E4C49A /* SubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionViewController.swift; sourceTree = "<group>"; };
 		30FFE61E1F85977E001CE3B8 /* PrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30FFE6211F85977E001CE3B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30FFE6261F85977E001CE3B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -401,6 +405,8 @@
 		30FF9B481FE2442000E4C49A /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
+				30FF9B4B1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift */,
+				30FF9B4D1FE24A1400E4C49A /* SubscriptionViewController.swift */,
 			);
 			path = Subscription;
 			sourceTree = "<group>";
@@ -869,6 +875,7 @@
 				3050A4AF1F870A8D00AD60D7 /* Model.swift in Sources */,
 				301682CC1FCE9BE700559A3B /* TempStore.swift in Sources */,
 				301682CF1FCF168600559A3B /* RemoteStoreTableViewCell.swift in Sources */,
+				30FF9B4E1FE24A1400E4C49A /* SubscriptionViewController.swift in Sources */,
 				3050A4A51F86FFF700AD60D7 /* ListsViewController.swift in Sources */,
 				30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */,
 				301682CA1FCD469500559A3B /* SearchStoreViewController.swift in Sources */,
@@ -879,6 +886,7 @@
 				306AC77E1FA05A5A0096814C /* PopSwitchDelegate.swift in Sources */,
 				3050A4AB1F8701FD00AD60D7 /* ListTableViewCell.swift in Sources */,
 				306AC7E01FAAB5BB0096814C /* NavigationArticlesViewController.swift in Sources */,
+				30FF9B4C1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift in Sources */,
 				30FD3A221FD3A5E400FCB9AE /* TempArticle.swift in Sources */,
 				3050A49B1F86F35300AD60D7 /* Store.swift in Sources */,
 				306AC7811FA12A8B0096814C /* ConfigurationManager.swift in Sources */,
@@ -1090,6 +1098,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1110,6 +1119,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

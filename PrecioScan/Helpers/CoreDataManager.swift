@@ -106,6 +106,29 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    public func store(findByUid uid: String? = nil, completionHandler: @escaping([Store]?, Error?) -> Void){
+        var fetchRequest: NSFetchRequest<Store>!
+        fetchRequest = Store.fetchRequest
+        if uid != nil{
+            fetchRequest.predicate = NSPredicate(format: "uid == %@", uid!)
+        }
+        var fetchResultController: NSFetchedResultsController<Store>!
+        guard self.stack != nil else { completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData)); return }
+        fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                           managedObjectContext: stack!.mainContext,
+                                                           sectionNameKeyPath: nil,
+                                                           cacheName: nil)
+        fetchResultController.delegate = self
+        do {
+            try fetchResultController.performFetch()
+            print("[CoreData Manager - store:findByUid] Store objects count \(String(describing: fetchResultController.fetchedObjects?.count))")
+            completionHandler(fetchResultController.fetchedObjects, nil)
+        } catch {
+            assertionFailure("Failed to fetch: \(error)")
+            completionHandler(nil, error)
+        }
+    }
+    
     //MARK: - Articles
     public func articles(findWithCode code: String? = nil, completionHandler: @escaping(CoreDataStack?, [Article]?, Error?) -> Void){
         var fetchRequest: NSFetchRequest<Article>!
