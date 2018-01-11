@@ -12,10 +12,11 @@ import DynamicButton
 class SubscriptionViewController: UIViewController {
 
     @IBOutlet weak var hamburgerButton: DynamicButton!
+    var openedWithModal: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configure()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -27,13 +28,24 @@ class SubscriptionViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
-        hamburgerButton.setStyle(.close, animated: true)
-        (self.navigationController as! NavigationSubscriptionViewController).showSideMenu()
+        if !openedWithModal{
+            hamburgerButton.setStyle(.close, animated: true)
+            (self.navigationController as! NavigationSubscriptionViewController).showSideMenu()
+        } else {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    func configure(){
     }
     
     func configureComponents(){
         UserManager.shared.verifyUserIsLogged(vc: self)
-        hamburgerButton.setStyle(.hamburger, animated: true)
+        if openedWithModal{
+            hamburgerButton.setStyle(.close, animated: false)
+        } else {
+            hamburgerButton.setStyle(.hamburger, animated: true)
+        }
     }
     
     /*

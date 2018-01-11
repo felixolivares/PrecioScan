@@ -10,23 +10,24 @@ import Foundation
 import PopupDialog
 
 class Popup{
+    
     public static func setupPopup(){
         let cancelButtonAppearance = CancelButton.appearance()
         // Default button
-        cancelButtonAppearance.titleFont        = Fonts().ubuntuBold(size: 14) //UIFont(name: "Nunito-Bold", size: 14)!
-        cancelButtonAppearance.titleColor       = UIColor(nicePurple)
+        cancelButtonAppearance.titleFont        = Fonts().ubuntuBold(size: 16) //UIFont(name: "Nunito-Bold", size: 14)!
+        cancelButtonAppearance.titleColor       = UIColor(liveGreen)
         cancelButtonAppearance.buttonColor      = UIColor.clear
-        cancelButtonAppearance.separatorColor   = UIColor(nicePurple)?.withAlphaComponent(0.5)
+        cancelButtonAppearance.separatorColor   = UIColor(liveGreen)?.withAlphaComponent(0.5)
         
         let defaultButtonAppereance = DefaultButton.appearance()
-        defaultButtonAppereance.titleFont       = Fonts().ubuntuBold(size: 14)
+        defaultButtonAppereance.titleFont       = Fonts().ubuntuBold(size: 16)
         defaultButtonAppereance.titleColor      = UIColor.white
         defaultButtonAppereance.buttonColor     = UIColor(liveGreen)
         defaultButtonAppereance.separatorColor  = UIColor(liveGreen)?.withAlphaComponent(0.5)
         
         let destructiveButtonAppereance = DestructiveButton.appearance()
         destructiveButtonAppereance.separatorColor = UIColor(liveGreen)?.withAlphaComponent(0.5)
-        destructiveButtonAppereance.titleFont   = Fonts().ubuntuBold(size: 14)
+        destructiveButtonAppereance.titleFont   = Fonts().ubuntuBold(size: 16)
         
         let dialogAppearance = PopupDialogDefaultView.appearance()
         dialogAppearance.backgroundColor        = UIColor.white
@@ -97,7 +98,7 @@ class Popup{
         let buttonCancel = CancelButton(title: Constants.Popup.Buttons.noAnswer){
             completionHandler(PopupResponse.Decline)
         }
-        popup.addButtons([buttonOK, buttonCancel])
+        popup.addButtons([buttonCancel, buttonOK])
         vc.present(popup, animated: true, completion: nil)
     }
     
@@ -109,7 +110,22 @@ class Popup{
         let buttonCancel = CancelButton(title: Constants.Popup.Buttons.takePhoto){
             completionHandler(PopupResponse.Take)
         }
-        popup.addButtons([buttonOK, buttonCancel])
+        popup.addButtons([buttonCancel, buttonOK])
+        vc.present(popup, animated: true, completion: nil)
+    }
+    
+    public static func showPurchase(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
+        let subscribeBannerImage = UIImage(named: ImageNames.subscribeBannerGreen)
+        let popup = PopupDialog(title: title, message: message, image: subscribeBannerImage , buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let buttonOK = DefaultButton(title: Constants.Popup.Buttons.goToPremium) {
+            completionHandler(PopupResponse.Accept)
+        }
+        
+        let buttonCancel = CancelButton(title: Constants.Popup.Buttons.noAnswer) {
+            completionHandler(PopupResponse.Decline)
+        }
+        
+        popup.addButtons([buttonCancel, buttonOK])
         vc.present(popup, animated: true, completion: nil)
     }
 }

@@ -53,7 +53,7 @@ class HostViewController: MenuContainerViewController {
     }
     
     private func contentControllers() -> [UIViewController] {
-        let controllersIdentifiers = [Constants.Storyboard.listNavigation, Constants.Storyboard.navigationStore, Constants.Storyboard.articlesNavigation, Constants.Storyboard.configuration, Constants.Storyboard.subscriptionNavigation]
+        let controllersIdentifiers = [Constants.Storyboard.listNavigation, Constants.Storyboard.navigationStore, Constants.Storyboard.articlesNavigation, Constants.Storyboard.subscriptionNavigation, Constants.Storyboard.configuration, Constants.Storyboard.profile]
         var contentList = [UIViewController]()
         
         /*

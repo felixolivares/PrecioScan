@@ -22,7 +22,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         configure()
     }
     
-    func configure(){
+    private func configure(){
         createStack()
         let model = CoreDataModel(name: modelName, bundle: modelBundle)
         if model.needsMigration {
@@ -126,6 +126,18 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         } catch {
             assertionFailure("Failed to fetch: \(error)")
             completionHandler(nil, error)
+        }
+    }
+    
+    public func updateStore(object: Store, name: String? = nil, location: String? = nil, information: String? = nil, uid: String? = nil, state: String? = nil, city: String? = nil, completionHandler: @escaping(Bool, Error?) -> Void){
+        let _ = object.update(name: name, location: location, information: information, uid: uid, state: state, city: city)
+        saveContext(stack.mainContext){ result in
+            switch result{
+            case .success:
+                completionHandler(true, nil)
+            case .failure:
+                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+            }
         }
     }
     
@@ -372,9 +384,9 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func updateUser(object: User, email: String, password: String?, name: String, photoName: String?, isLogged: Bool, uid: String?, completionHandler: @escaping(Bool, Error?) -> Void){
+    public func updateUser(object: User, name: String, photoName: String?, isLogged: Bool, completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
-            let _ = object.update(name, email: email, password: password, photoName: photoName, isLogged: isLogged, uid: uid)
+            let _ = object.update(name, photoName: photoName, isLogged: isLogged, isSuscribed: nil)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
@@ -386,13 +398,25 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    //completionHandler: @escaping(User?, Error?) -> Void
+    public func updateUserSubscription(object: User, isSubscribed: Bool?, completionHandler: @escaping(Bool, Error?) -> Void){
+        stack.mainContext.performAndWait {
+            let _ = object.update(nil, photoName: nil, isLogged: nil, isSuscribed: isSubscribed)
+            saveContext(stack.mainContext){ result in
+                switch result{
+                case .success:
+                    completionHandler(true, nil)
+                case .failure:
+                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+                }
+            }
+        }
+    }
+    
     public func getUserLoggedIn() -> User?{
         var fetchRequest: NSFetchRequest<User>
         fetchRequest = User.fetchRequest
         fetchRequest.predicate = NSPredicate(format: "isLogged == %@", NSNumber(value: true))
         var fetchResultController: NSFetchedResultsController<User>!
-//        guard self.stack != nil else { completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData)); return}
         guard self.stack != nil else {return nil}
         fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                            managedObjectContext: stack!.mainContext,
@@ -402,12 +426,12 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         do {
             try fetchResultController.performFetch()
             print("User objects count \(String(describing: fetchResultController.fetchedObjects?.count))")
-//            completionHandler(fetchResultController.fetchedObjects?.first, nil
-            UserManager.setCurrentUser(user: (fetchResultController.fetchedObjects?.first)!)
+            if UserManager.shared.getCurrentUser() == nil {
+                UserManager.setCurrentUser(user: (fetchResultController.fetchedObjects?.first)!)
+            }
             return fetchResultController.fetchedObjects?.first
         } catch {
             assertionFailure("Failed to fetch: \(error)")
-//            completionHandler(nil, error as NSError)
             return nil
         }
     }

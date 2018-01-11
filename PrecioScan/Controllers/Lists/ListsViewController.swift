@@ -56,7 +56,13 @@ class ListsViewController: CustomTransitionViewController {
             let vc = segue.destination as! CreateListViewController
             vc.list = sender as! List
             vc.titleText = Constants.CreateList.listTitle
-        }else{
+        } else if(segue.identifier == Segues.toNewListFromLists) {
+            let vc = segue.destination as! CreateListViewController
+            vc.titleText = Constants.CreateList.createListTItle
+        } else if (segue.identifier == Segues.toSuscribeFromLists){
+            let vc = segue.destination as! SubscriptionViewController
+            vc.openedWithModal = true
+        } else {
             let vc = segue.destination as! CreateListViewController
             vc.titleText = Constants.CreateList.createListTItle
         }
@@ -108,9 +114,20 @@ class ListsViewController: CustomTransitionViewController {
     }
     
     @IBAction func createNewListButtonPressed(_ sender: Any) {
-        
+        if lists.count >= 2 {
+            SuscriptionManager.shared.promptToSubscribe(vc: self, message: Constants.Lists.Popup.listRestriction, completionHandler: { popupDecision, suscription in
+                if suscription == SuscriptionManager.SubscriptionStatus.Subscribed{
+                    self.performSegue(withIdentifier: Segues.toNewListFromLists, sender: nil)
+                } else {
+                    if popupDecision {
+                        self.performSegue(withIdentifier: Segues.toSuscribeFromLists, sender: nil)
+                    }
+                }
+            })
+        } else {
+            self.performSegue(withIdentifier: Segues.toNewListFromLists, sender: nil)
+        }
     }
-    
 }
 
 extension ListsViewController: UITableViewDataSource, UITableViewDelegate{

@@ -57,6 +57,8 @@
 		306AC7D81FA97FE60096814C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 306AC7D71FA97FE60096814C /* Assets.xcassets */; };
 		306AC7DA1FAAB4B70096814C /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7D91FAAB4B70096814C /* ArticlesViewController.swift */; };
 		306AC7E01FAAB5BB0096814C /* NavigationArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7DF1FAAB5BB0096814C /* NavigationArticlesViewController.swift */; };
+		306B7B1D1FFEB77E0054F1CE /* Model7-8.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 306B7B1C1FFEB77E0054F1CE /* Model7-8.xcmappingmodel */; };
+		306B7B1F20001D8E0054F1CE /* SuscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */; };
 		308571F01FB6889F0026BB14 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571EF1FB6889F0026BB14 /* Fonts.swift */; };
 		308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */; };
 		308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F51FB6BD540026BB14 /* FirebaseOperations.swift */; };
@@ -70,12 +72,12 @@
 		30AC9AC71FABE6590086E319 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30AC9AC51FABE6590086E319 /* ArticleTableViewCell.xib */; };
 		30AF238C1F8C496E00523870 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AF238B1F8C496E00523870 /* Button.swift */; };
 		30AF238E1F8C501100523870 /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AF238D1F8C501100523870 /* AddArticleViewController.swift */; };
+		30B2A23720072E67005A0A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2A23620072E67005A0A41 /* ProfileViewController.swift */; };
 		30BD65A01F8FDB17002DCD90 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD659F1F8FDB17002DCD90 /* Errors.swift */; };
 		30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A11F9005EE002DCD90 /* Popup.swift */; };
 		30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A51F90740C002DCD90 /* BarcodeLine.swift */; };
 		30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C321F91FBFB7F700C8F7F2 /* FilesManager.swift */; };
 		30D800601FDFA3D7003BD2FF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30D8005F1FDFA3D7003BD2FF /* StoreKit.framework */; };
-		30FD3A201FD38F0E00FCB9AE /* Model6-7.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */; };
 		30FD3A221FD3A5E400FCB9AE /* TempArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */; };
 		30FF9B4A1FE246DF00E4C49A /* NavigationStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FF9B491FE246DF00E4C49A /* NavigationStoreViewController.swift */; };
 		30FF9B4C1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FF9B4B1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift */; };
@@ -162,6 +164,9 @@
 		306AC7D71FA97FE60096814C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		306AC7D91FAAB4B70096814C /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		306AC7DF1FAAB5BB0096814C /* NavigationArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationArticlesViewController.swift; sourceTree = "<group>"; };
+		306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_8.xcdatamodel; sourceTree = "<group>"; };
+		306B7B1C1FFEB77E0054F1CE /* Model7-8.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model7-8.xcmappingmodel"; sourceTree = "<group>"; };
+		306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuscriptionManager.swift; sourceTree = "<group>"; };
 		308571EF1FB6889F0026BB14 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		308571F51FB6BD540026BB14 /* FirebaseOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseOperations.swift; sourceTree = "<group>"; };
@@ -175,6 +180,7 @@
 		30AC9AC51FABE6590086E319 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		30AF238B1F8C496E00523870 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		30AF238D1F8C501100523870 /* AddArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArticleViewController.swift; sourceTree = "<group>"; };
+		30B2A23620072E67005A0A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		30BD659F1F8FDB17002DCD90 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		30BD65A11F9005EE002DCD90 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		30BD65A51F90740C002DCD90 /* BarcodeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeLine.swift; sourceTree = "<group>"; };
@@ -184,7 +190,6 @@
 		30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_6.xcdatamodel; sourceTree = "<group>"; };
 		30D8005F1FDFA3D7003BD2FF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_7.xcdatamodel; sourceTree = "<group>"; };
-		30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model6-7.xcmappingmodel"; sourceTree = "<group>"; };
 		30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempArticle.swift; sourceTree = "<group>"; };
 		30FF9B491FE246DF00E4C49A /* NavigationStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStoreViewController.swift; sourceTree = "<group>"; };
 		30FF9B4B1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSubscriptionViewController.swift; sourceTree = "<group>"; };
@@ -243,18 +248,14 @@
 		30083B6A1F88A0F5006274C9 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				304487251F8DDD4300C5297D /* CoreDataManager.swift */,
-				306AC7801FA12A8B0096814C /* ConfigurationManager.swift */,
-				3032616E1FB252B60083FBA0 /* UserManager.swift */,
-				30C321F91FBFB7F700C8F7F2 /* FilesManager.swift */,
+				308571F51FB6BD540026BB14 /* FirebaseOperations.swift */,
+				306AC7831FA17B000096814C /* CompareOperations.swift */,
 				30083B751F89793E006274C9 /* AnimatedInputControl.swift */,
 				30AF238B1F8C496E00523870 /* Button.swift */,
 				30BD659F1F8FDB17002DCD90 /* Errors.swift */,
 				30BD65A11F9005EE002DCD90 /* Popup.swift */,
 				301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */,
 				302B0C531F981F1A001DE5C7 /* DateOperations.swift */,
-				306AC7831FA17B000096814C /* CompareOperations.swift */,
-				308571F51FB6BD540026BB14 /* FirebaseOperations.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -298,6 +299,7 @@
 				306AC7DE1FAAB56F0096814C /* Articles */,
 				306AC7DD1FAAB55F0096814C /* Stores */,
 				306AC7DC1FAAB5370096814C /* Configuration */,
+				30B2A23520072E3B005A0A41 /* Profile */,
 				30FF9B481FE2442000E4C49A /* Subscription */,
 				306AC77A1FA037CF0096814C /* Menu */,
 				3050A4AD1F87020600AD60D7 /* Cells */,
@@ -402,6 +404,26 @@
 			path = Articles;
 			sourceTree = "<group>";
 		};
+		306B7B2020001DA20054F1CE /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				304487251F8DDD4300C5297D /* CoreDataManager.swift */,
+				306AC7801FA12A8B0096814C /* ConfigurationManager.swift */,
+				3032616E1FB252B60083FBA0 /* UserManager.swift */,
+				30C321F91FBFB7F700C8F7F2 /* FilesManager.swift */,
+				306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		30B2A23520072E3B005A0A41 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				30B2A23620072E67005A0A41 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		30FF9B481FE2442000E4C49A /* Subscription */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +458,7 @@
 		30FFE6201F85977E001CE3B8 /* PrecioScan */ = {
 			isa = PBXGroup;
 			children = (
+				306B7B2020001DA20054F1CE /* Managers */,
 				30083B6A1F88A0F5006274C9 /* Helpers */,
 				3050A4B01F870D2D00AD60D7 /* Utilities */,
 				30FFE6551F85B25F001CE3B8 /* Model */,
@@ -479,7 +502,7 @@
 				303261711FB25CE20083FBA0 /* User.swift */,
 				301682CB1FCE9BE700559A3B /* TempStore.swift */,
 				30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */,
-				30FD3A1F1FD38F0E00FCB9AE /* Model6-7.xcmappingmodel */,
+				306B7B1C1FFEB77E0054F1CE /* Model7-8.xcmappingmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -881,11 +904,13 @@
 				301682CA1FCD469500559A3B /* SearchStoreViewController.swift in Sources */,
 				30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */,
 				302B0C561F98513F001DE5C7 /* Structures.swift in Sources */,
+				30B2A23720072E67005A0A41 /* ProfileViewController.swift in Sources */,
 				301682C81FCD193800559A3B /* SaveNewStoreViewController.swift in Sources */,
 				304487201F8D8EF400C5297D /* CreateStoreViewController.swift in Sources */,
 				306AC77E1FA05A5A0096814C /* PopSwitchDelegate.swift in Sources */,
 				3050A4AB1F8701FD00AD60D7 /* ListTableViewCell.swift in Sources */,
 				306AC7E01FAAB5BB0096814C /* NavigationArticlesViewController.swift in Sources */,
+				306B7B1F20001D8E0054F1CE /* SuscriptionManager.swift in Sources */,
 				30FF9B4C1FE249FD00E4C49A /* NavigationSubscriptionViewController.swift in Sources */,
 				30FD3A221FD3A5E400FCB9AE /* TempArticle.swift in Sources */,
 				3050A49B1F86F35300AD60D7 /* Store.swift in Sources */,
@@ -915,12 +940,12 @@
 				302B0C541F981F1A001DE5C7 /* DateOperations.swift in Sources */,
 				30AF238C1F8C496E00523870 /* Button.swift in Sources */,
 				30083B721F88A6F1006274C9 /* HexColors.swift in Sources */,
+				306B7B1D1FFEB77E0054F1CE /* Model7-8.xcmappingmodel in Sources */,
 				308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */,
 				306AC7781FA0216A0096814C /* MenuItemTableViewCell.swift in Sources */,
 				30083B741F88A744006274C9 /* DefineColors.swift in Sources */,
 				30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */,
 				308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */,
-				30FD3A201FD38F0E00FCB9AE /* Model6-7.xcmappingmodel in Sources */,
 				30FF9B4A1FE246DF00E4C49A /* NavigationStoreViewController.swift in Sources */,
 				30AC99FB1F9FD7F20029F6E6 /* HostViewController.swift in Sources */,
 				301C9FE51F956FFB00BC43FE /* BarcodeReader.swift in Sources */,
@@ -1247,6 +1272,7 @@
 		30FFE6561F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */,
 				30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */,
 				30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */,
 				30C322021FC76EA000C8F7F2 /* PrecioScanModel_5.xcdatamodel */,
@@ -1255,7 +1281,7 @@
 				303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */,
 				30FFE6571F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodel */,
 			);
-			currentVersion = 30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */;
+			currentVersion = 306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */;
 			path = PrecioScanModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

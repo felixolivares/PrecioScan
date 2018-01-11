@@ -15,26 +15,41 @@ class NavigationMenuViewController: MenuViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
+    @IBOutlet weak var heightPremiumIconConstraint: NSLayoutConstraint!
     
     var currentUser: User!
     
-    let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.subscritpionIten, Constants.NavigationMenu.logoutItem]
-    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.configurationIcon, ImageNames.subscriptionIcon, ImageNames.logoutIcon]
+    let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.subscritpionIten, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.logoutItem]
+    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.subscriptionIcon, ImageNames.configurationIcon, ImageNames.logoutIcon]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        configure()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        currentUser = CoreDataManager.shared.getUserLoggedIn()
+        currentUser = UserManager.shared.getCurrentUser()
         setUserInformation()
+        updateUserSubscribed()
+        
+        if !UserManager.shared.userIsSuscribed(){
+            heightPremiumIconConstraint.constant = 0
+        } else {
+            heightPremiumIconConstraint.constant = 21
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func updateUserSubscribed(){
+        persistentContainer.updateUserSubscription(object: currentUser, isSubscribed: true, completionHandler: { finished, error in
+            if finished {
+                print("User updated")
+            }
+        })
+    }
+    
+    func configure(){
+        setupTableView()
     }
     
     //MARK: - Setup TableView
@@ -51,6 +66,14 @@ class NavigationMenuViewController: MenuViewController {
     func setUserInformation(){
         userNameLabel.text = currentUser.name
         userEmailLabel.text = currentUser.email
+    }
+    
+    @IBAction func profileButtonPressed(_ sender: Any) {
+        guard let menuContainerViewController = self.menuContainerViewController else {
+            return
+        }
+        menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers.last!)
+        menuContainerViewController.hideSideMenu()
     }
 }
 

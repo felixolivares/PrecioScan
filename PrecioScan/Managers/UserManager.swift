@@ -13,6 +13,8 @@ import CoreData
 import JSQCoreDataKit
 
 class UserManager: NSObject {
+    
+    //Create singleton class
     static let shared = UserManager()
     
     static var isLoggedIn: Bool? = false
@@ -31,6 +33,9 @@ class UserManager: NSObject {
         self.currentUser = user 
     }
     
+    public func getCurrentUser() -> User? {
+        return UserManager.currentUser
+    }
     public func verifyUserIsLogged(vc: UIViewController){
         if !UserManager.isLoggedIn!{
             if var topController = UIApplication.shared.keyWindow?.rootViewController {
@@ -73,7 +78,7 @@ class UserManager: NSObject {
             CoreDataManager.shared.user(withEmail: user.email){ users, error in
                 if (users?.count)! > 0 {
                     if let finalUser = users?.first {
-                        CoreDataManager.shared.updateUser(object: finalUser, email: finalUser.email, password: finalUser.password, name: finalUser.name, photoName: finalUser.photoName, isLogged: isLogged, uid: FRUser?.uid){ finished, error in
+                        CoreDataManager.shared.updateUser(object: finalUser, name: finalUser.name, photoName: finalUser.photoName, isLogged: isLogged){ finished, error in
                             UserManager.currentUser = finalUser
                             print("Current user: \(String(describing: finalUser.email)) - Is Logged: \(String(describing: finalUser.isLogged)) - Uid: \(String(describing: (finalUser.uid)!))")
                         }
@@ -98,6 +103,8 @@ class UserManager: NSObject {
             }
         })
     }
+    
+    public func userIsSuscribed() -> Bool{
+        return UserManager.currentUser.isSuscribed
+    }
 }
-
-

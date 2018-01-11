@@ -30,6 +30,9 @@ class ArticleDetailViewController: UIViewController {
             let vc = segue.destination as! CompareViewController
             guard articleSelected != nil else {return}
             vc.articleCode = articleSelected.code
+        } else if segue.identifier == Segues.toSubscribeFromArticleDetail{
+            let vc = segue.destination as! SubscriptionViewController
+            vc.openedWithModal = true
         }
     }
     
@@ -38,7 +41,15 @@ class ArticleDetailViewController: UIViewController {
     }
     
     @IBAction func compareButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: Segues.toCompareFromArticleDetail, sender: nil)
+        SuscriptionManager.shared.promptToSubscribe(vc: self, message: Constants.ArticleDetail.Poppup.subscriptionRestriction, completionHandler: { popupDecision, suscription in
+            if suscription == SuscriptionManager.SubscriptionStatus.Subscribed{
+                self.performSegue(withIdentifier: Segues.toCompareFromArticleDetail, sender: nil)
+            } else {
+                if popupDecision {
+                    self.performSegue(withIdentifier: Segues.toSubscribeFromArticleDetail, sender: nil)
+                }
+            }
+        })
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
@@ -54,7 +65,7 @@ class ArticleDetailViewController: UIViewController {
         articleNameAnimatedControl.setText(text: articleSelected.name, animated: true)
         codeLabel.text = articleSelected.code
         CompareOperations().getArticleAveragePrice(withCode: articleSelected.code){ average in
-            self.averagePriceAnimatedControl.setText(text: "$ " + average, animated: true)
+            self.averagePriceAnimatedControl.setText(text: average, animated: true)
         }
     }
 }

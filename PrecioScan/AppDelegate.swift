@@ -11,6 +11,8 @@ import IQKeyboardManagerSwift
 import Firebase
 import SwiftyStoreKit
 
+let persistentContainer = CoreDataManager.shared
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

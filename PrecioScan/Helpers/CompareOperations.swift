@@ -44,13 +44,15 @@ class CompareOperations: NSObject {
     
     public func getArticleAveragePrice(withCode code: String, completionHandler:@escaping(String) -> Void){
         CoreDataManager.shared.itemLists(byArticleCode: code){ itemListsRetrieved, error in
-            if let items = itemListsRetrieved {
+            if let items = itemListsRetrieved, items.count > 0 {
                 var sum = Float()
                 for eachItem in items{
                     sum += Float(truncating: eachItem.unitaryPrice)
                     print("Price: \(eachItem.unitaryPrice) - Store: \(eachItem.store.name) - Article Name: \(eachItem.article.name)")
                 }
-                completionHandler((sum / Float(items.count)).formatDecimals())
+                completionHandler("$ " + (sum / Float(items.count)).formatDecimals())
+            } else {
+                completionHandler("--")
             }
         }
     }

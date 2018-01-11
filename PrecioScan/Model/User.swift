@@ -20,29 +20,39 @@ public final class User: NSManagedObject, CoreDataEntityProtocol {
     @NSManaged public var password: String?
     @NSManaged public var photoName: String?
     @NSManaged public var isLogged: Bool
+    @NSManaged public var isSuscribed: Bool
     @NSManaged public var itemList: NSSet 
     
-    public init (context: NSManagedObjectContext, email: String, password: String?, name: String, photoName: String?, isLogged: Bool, uid: String?){
+    public init (context: NSManagedObjectContext, email: String, password: String?, name: String, photoName: String?, isLogged: Bool, uid: String?, isSuscribed: Bool? = nil){
         super.init(entity: User.entity(context: context), insertInto: context)
         self.name = name
         self.email = email
         self.password = password
         self.photoName = photoName
         self.isLogged = isLogged
+        if isSuscribed != nil {
+          self.isSuscribed = isSuscribed!
+        }
         self.uid = uid
     }
     
-    public class func create(_ context: NSManagedObjectContext, name: String, email: String, password: String?, photoName: String?, isLogged: Bool, uid: String?) -> User {
-        return User(context: context, email: email, password: password, name: name, photoName: photoName, isLogged: isLogged, uid: uid)
+    public class func create(_ context: NSManagedObjectContext, name: String, email: String, password: String?, photoName: String?, isLogged: Bool, uid: String?, isSuscribed: Bool) -> User {
+        return User(context: context, email: email, password: password, name: name, photoName: photoName, isLogged: isLogged, uid: uid, isSuscribed: isSuscribed)
     }
-    
-    func update(_ name: String, email: String, password: String?, photoName: String?, isLogged: Bool, uid: String?) -> User{
-        self.name = name
-        self.email = email
-        self.password = password
-        self.photoName = photoName
-        self.isLogged = isLogged
-        self.uid = uid
+    //email: String, password: String?, name: String, photoName: String?, isLogged: Bool, uid: String?
+    func update(_ name: String? = nil, photoName: String? = nil, isLogged: Bool? = nil, isSuscribed: Bool? = nil) -> User{
+        if name != nil{
+            self.name = name!
+        }
+        if photoName != nil{
+            self.photoName = photoName!
+        }
+        if isLogged != nil{
+            self.isLogged = isLogged!
+        }
+        if isSuscribed != nil {
+            self.isSuscribed = isSuscribed!
+        }
         return self
     }
     

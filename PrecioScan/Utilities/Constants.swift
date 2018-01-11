@@ -82,6 +82,12 @@ struct Constants {
         }
     }
     
+    struct Lists {
+        struct Popup {
+            public static let listRestriction = "Para poder agregar mas listas debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la seccion de compra?"
+        }
+    }
+    
     struct AddArticle {
         public static let scanArticleCodeText = "Escabea el código de barras o introduce el código del artículo"
         public static let articleFoundText = "Articulo encontrado!"
@@ -91,6 +97,8 @@ struct Constants {
             public static let articleSavedTitle = "Articulo Guardado!"
             public static let photoAlreadySavedTitle = "Foto Guardada"
             public static let photoAlreadySavedMessage = "Ya hay una foto guardada para este articulo. Te gustaria verla o tomar una nueva?"
+            public static let subscriptionRestriction = "Para poder comparar los precios anteriores de este articulo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la sección de compra?"
+            public static let photoSubscriptionRestriction = "Para poder tomar una foto de este articulo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la seccion de compra?"
         }
     }
     
@@ -122,6 +130,7 @@ struct Constants {
     struct ArticleDetail {
         struct Poppup {
             public static let articleUpdated = "Articulo actualizado"
+            public static let subscriptionRestriction = "Para poder comparar los precios anteriores de este articulo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la sección de compra?"
         }
     }
     
@@ -136,10 +145,15 @@ struct Constants {
             public static let continueAnswer = "Continue"
             public static let showPhoto = "Ver"
             public static let takePhoto = "Tomar"
+            public static let goToPremium = "Comprar!"
         }
         struct Titles {
             public static let ready = "Listo!"
             public static let attention = "Atención"
+            public static let premium = "Premium"
+        }
+        struct Messages {
+            public static let purchaseMessage = "Para"
         }
     }
     
@@ -150,6 +164,7 @@ struct Constants {
         public static let configuration = "Configuration"
         public static let navigationStore = "NavigationStore"
         public static let subscriptionNavigation = "SubscriptionNavigation"
+        public static let profile = "Profile"
     }
     
     struct NavigationMenu{
@@ -220,6 +235,10 @@ struct Segues{
     public static let toSearchFromStores = "toSearchFromStores"
     public static let unwindToList = "unwindToList"
     public static let unwindToListFromSearch = "unwindToListFromSearch"
+    public static let toSuscribeFromLists = "toSuscribeFromLists"
+    public static let toNewListFromLists = "toNewListFromLists"
+    public static let toSubscribeFromArticleDetail = "toSubscribeFromArticleDetail"
+    public static let toSubscriptionFromAddArticle = "toSubscriptionFromAddArticle"
 }
 
 //Images
@@ -230,6 +249,7 @@ struct ImageNames{
     public static let articleIcon = "articleIconWhite"
     public static let logoutIcon = "logoutIconWhite"
     public static let subscriptionIcon = "subscriptionIocn"
+    public static let subscribeBannerGreen = "subscribeBannerGreen"
 }
 
 //States

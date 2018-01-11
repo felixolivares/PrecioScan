@@ -83,7 +83,7 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
         case 1:
             ConfigurationManager.shared.saveSoundEnabled(completed: sender.on)
         default:
-            print("default")
+            break
         }
     }
 }

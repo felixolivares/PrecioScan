@@ -49,6 +49,28 @@ public final class Store: NSManagedObject, CoreDataEntityProtocol, NSFetchedResu
         }
     }
     
+    public func update(name: String? = nil, location: String? = nil, information: String? = nil, uid: String? = nil, state: String? = nil, city: String? = nil) -> Store{
+        if name != nil{
+            self.name = name!
+        }
+        if location != nil{
+            self.location = location!
+        }
+        if information != nil{
+            self.information = information
+        }
+        if uid != nil{
+            self.uid = uid!
+        }
+        if state != nil{
+            self.state = state!
+        }
+        if city != nil{
+            self.city = city!
+        }
+        return self
+    }
+    
     @objc
     private override init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
         super.init(entity: entity, insertInto: context)

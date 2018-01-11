@@ -44,6 +44,7 @@ class AddArticleViewController: UIViewController {
     var photosDataSource: [Photo] = []
     var photosViewController: PhotosViewController!
     var isConnected: Bool = false
+    var photoUid: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +80,9 @@ class AddArticleViewController: UIViewController {
             vc.articleCode = articleFound.code
             vc.store = store
             vc.todayPrice = self.priceAnimatedControl.valueTextField.text
+        } else if segue.identifier == Segues.toSubscriptionFromAddArticle{
+            let vc = segue.destination as! SubscriptionViewController
+            vc.openedWithModal = true
         }
     }
     
@@ -108,19 +112,35 @@ class AddArticleViewController: UIViewController {
     }
     
     @IBAction func compareButtonPressed(_ sender: Any) {
-        if codeTextField.text != "", nameAnimatedControl.valueTextField.text != "", priceAnimatedControl.valueTextField.text != ""{
-            performSegue(withIdentifier: Segues.toCompareFromArticle, sender: nil)
-        }else{
-            Popup.show(withOK: Warning.AddArticle.completeFieldsBeforeCompare, title: Constants.Popup.Titles.attention, vc: self)
-        }
+        SuscriptionManager.shared.promptToSubscribe(vc: self, message: Constants.AddArticle.Popup.subscriptionRestriction, completionHandler: { popupDecision, suscription in
+            if suscription == SuscriptionManager.SubscriptionStatus.Subscribed{
+                if self.codeTextField.text != "", self.nameAnimatedControl.valueTextField.text != "", self.priceAnimatedControl.valueTextField.text != ""{
+                    self.performSegue(withIdentifier: Segues.toCompareFromArticle, sender: nil)
+                }else{
+                    Popup.show(withOK: Warning.AddArticle.completeFieldsBeforeCompare, title: Constants.Popup.Titles.attention, vc: self)
+                }
+            } else {
+                if popupDecision {
+                    self.performSegue(withIdentifier: Segues.toSubscriptionFromAddArticle, sender: nil)
+                }
+            }
+        })
     }
     
     @IBAction func photoButtonPressed(_ sender: Any) {
-        if photoExists{
-            displayShowPhotoPopup()
-        } else {
-            takePhoto()
-        }
+        SuscriptionManager.shared.promptToSubscribe(vc: self, message: Constants.AddArticle.Popup.photoSubscriptionRestriction, completionHandler: { popupDecision, suscription in
+            if suscription == SuscriptionManager.SubscriptionStatus.Subscribed{
+                if self.photoExists{
+                    self.displayShowPhotoPopup()
+                } else {
+                    self.takePhoto()
+                }
+            } else {
+                if popupDecision {
+                    self.performSegue(withIdentifier: Segues.toSubscriptionFromAddArticle, sender: nil)
+                }
+            }
+        })
     }
     
     //MARK: - Configure
@@ -220,7 +240,7 @@ class AddArticleViewController: UIViewController {
         let unitaryPrice = Decimal(round(100*Double(priceAnimatedControl.valueTextField.text!)!)/100)
         guard itemListFound == nil else {
             CoreDataManager.shared.updateItemList(object: self.itemListFound, date: DateOperations().getCurrentLocalDate(),
-                                                photoName: nil,
+                                                photoName: photoUid,
                                                 quantity: quantity,
                                                 unitariPrice: unitaryPrice,
                                                 article: articleFound,
@@ -235,7 +255,7 @@ class AddArticleViewController: UIViewController {
             return
         }
         CoreDataManager.shared.saveItemList(date: DateOperations().getCurrentLocalDate(),
-                                            photoName: nil,
+                                            photoName: photoUid,
                                             quantity: quantity,
                                             unitariPrice: unitaryPrice,
                                             article: articleFound,
@@ -275,7 +295,7 @@ class AddArticleViewController: UIViewController {
     
     @objc func receivedNotificationBarcodeFound(notification: Notification){
         if (notification.userInfo?[Identifiers.codeIdentifier] as? String) != nil {
-            let barcode = notification.userInfo?[Identifiers.codeIdentifier] as? String
+            let barcode = notification.userInfo?[Identifiers.codeIdentifier] as! String
             if codeAnimatedControl.valueTextField.text != barcode{
                 barcodeIsRead = false
                 fetchArticles(withCode: barcode)
@@ -344,7 +364,7 @@ class AddArticleViewController: UIViewController {
         ]
         bottomView.backgroundColor = .clear
         bottomView.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
-        photosViewController.overlayView.bottomStackContainer.insertSubview(bottomView, at: 0)
+        //photosViewController.overlayView.bottomStackContainer.insertSubview(bottomView, at: 0)
         self.present(photosViewController, animated: true)
     }
     
@@ -392,21 +412,25 @@ class AddArticleViewController: UIViewController {
             print("Photo uuid generated: \(uuid)")
             if FilesManager.shared.saveImage(image: image!, photoName: uuid){
                 print("Image saved")
-                CoreDataManager.shared.updateItemList(object: (self?.itemListFound)!, date: nil,
-                                                      photoName: uuid,
-                                                      quantity: nil,
-                                                      unitariPrice: nil,
-                                                      article: nil,
-                                                      list: nil,
-                                                      store: nil,
-                                                      user: nil){ isSaved, itemListUpdated, error in
-                                                        if isSaved {
-                                                            self?.itemListFound = itemListUpdated
-                                                            print("Updated")
-                                                            self?.photoExists = true
-                                                            self?.setBadge()
-                                                            self?.createPhotoDataSource()
-                                                        }
+                if self?.itemListFound != nil{
+                    CoreDataManager.shared.updateItemList(object: (self?.itemListFound)!, date: nil,
+                                                          photoName: uuid,
+                                                          quantity: nil,
+                                                          unitariPrice: nil,
+                                                          article: nil,
+                                                          list: nil,
+                                                          store: nil,
+                                                          user: nil){ isSaved, itemListUpdated, error in
+                                                            if isSaved {
+                                                                self?.itemListFound = itemListUpdated
+                                                                print("Updated")
+                                                                self?.photoExists = true
+                                                                self?.setBadge()
+                                                                self?.createPhotoDataSource()
+                                                            }
+                    }
+                } else {
+                    self?.photoUid = uuid
                 }
             } else {
                 print("Image not saved")
