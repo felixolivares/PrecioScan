@@ -384,7 +384,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func updateUser(object: User, name: String, photoName: String?, isLogged: Bool, completionHandler: @escaping(Bool, Error?) -> Void){
+    public func updateUser(object: User, name: String?, photoName: String?, isLogged: Bool?, completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
             let _ = object.update(name, photoName: photoName, isLogged: isLogged, isSuscribed: nil)
             saveContext(stack.mainContext){ result in

@@ -68,6 +68,10 @@ struct Warning {
         public static let genericError = "Ocurrion un problema, intentalo de nuevo"
         public static let networkError = "Ocurrio un problema con la red, verifica tu conexión y vuelve a intentarlo"
     }
+    
+    struct Profile{
+        public static let completeName = "El nombre no debe estar vacio"
+    }
 }
 
 struct Constants {
@@ -182,6 +186,10 @@ struct Constants {
         public static let noPhotosToDeleteMessage = "No hay fotos guardadas"
     }
     
+    struct Profile {
+        public static let infoUpdated = "Información Actualizada!"
+    }
+    
     struct User{
         struct Keys {
             public static let isLoggedIn = "userIsLoggedIn"
@@ -190,6 +198,8 @@ struct Constants {
     
     struct Files {
         public static let photosFolder = "photos"
+        public static let profilePhotoFolder = "profile"
+        public static let photoExtension = ".png"
     }
     
     struct RecoverPassword{
@@ -250,6 +260,7 @@ struct ImageNames{
     public static let logoutIcon = "logoutIconWhite"
     public static let subscriptionIcon = "subscriptionIocn"
     public static let subscribeBannerGreen = "subscribeBannerGreen"
+    public static let profilePlaceholder = "profilePlaceholder"
 }
 
 //States

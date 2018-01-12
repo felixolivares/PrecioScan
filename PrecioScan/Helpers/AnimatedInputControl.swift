@@ -76,6 +76,26 @@ class AnimatedInputControl: UIView {
         }
     }
     
+    func setText(text: String?, animated: Bool?, completionHandler: @escaping(Bool) -> Void){
+        if self.valueTextField.text == "" {
+            animateFocus(withCompletion: { finished in
+                self.valueTextField.alpha = 0
+                self.valueTextField.text = text
+                if animated != nil, animated == true{
+                    UIView.animate(withDuration: 0.8, animations: {
+                        self.valueTextField.alpha = 1
+                    }, completion: { (finished) in
+                        completionHandler(true)
+                    })
+                }else{
+                    self.valueTextField.alpha = 1
+                }
+            })
+        }else{
+            self.valueTextField.text = text
+        }
+    }
+    
     func removeText(){
         self.valueTextField.text = ""
         animateFocusOut()

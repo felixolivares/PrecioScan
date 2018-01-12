@@ -32,6 +32,7 @@ class NavigationMenuViewController: MenuViewController {
         currentUser = UserManager.shared.getCurrentUser()
         setUserInformation()
         updateUserSubscribed()
+        loadProfilePhoto()
         
         if !UserManager.shared.userIsSuscribed(){
             heightPremiumIconConstraint.constant = 0
@@ -50,6 +51,10 @@ class NavigationMenuViewController: MenuViewController {
     
     func configure(){
         setupTableView()
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.borderWidth = 3.0
+        profileImageView.layer.borderColor = UIColor.white.cgColor
     }
     
     //MARK: - Setup TableView
@@ -66,6 +71,11 @@ class NavigationMenuViewController: MenuViewController {
     func setUserInformation(){
         userNameLabel.text = currentUser.name
         userEmailLabel.text = currentUser.email
+    }
+    
+    func loadProfilePhoto(){
+        guard let photoName = currentUser.photoName, let photo = FilesManager.shared.getProfileImage(photoName: photoName) else {self.profileImageView.image = UIImage(named: ImageNames.profilePlaceholder); return}
+        self.profileImageView.image = photo
     }
     
     @IBAction func profileButtonPressed(_ sender: Any) {
@@ -102,7 +112,7 @@ extension NavigationMenuViewController: UITableViewDataSource, UITableViewDelega
         guard let menuContainerViewController = self.menuContainerViewController else {
             return
         }
-        if indexPath.row == menuContainerViewController.contentViewControllers.count{
+        if indexPath.row == menuContainerViewController.contentViewControllers.count - 1{
             FirebaseOperations().signOut(vc: self){ success, error in
                 if success{
                     menuContainerViewController.hideSideMenu()

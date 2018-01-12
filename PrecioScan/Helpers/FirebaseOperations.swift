@@ -130,7 +130,7 @@ class FirebaseOperations: NSObject {
     //MARK: - Save
     public func addUser(){
         let user = Auth.auth().currentUser
-        let values: [String: String?] = [FRAttribute.username: user?.displayName, FRAttribute.email: user?.email]
+        let values: [String: String?] = [FRAttribute.username: user?.displayName, FRAttribute.email: user?.email, FRAttribute.photoName: user?.photoURL?.absoluteString]
         self.ref.child(FRTable.user).child((user?.uid)!).setValue(values)
     }
     

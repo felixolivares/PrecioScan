@@ -68,6 +68,7 @@ class AddArticleViewController: UIViewController {
         super.viewWillDisappear(animated)
         barcodeLineScanner.layer.removeAllAnimations()
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

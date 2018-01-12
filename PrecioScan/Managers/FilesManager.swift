@@ -11,7 +11,9 @@ import UIKit
 class FilesManager: NSObject {
     static let shared = FilesManager()
     static var photosPath: URL!
+    static var profilePhotoPath: URL!
     static var photosCount = 0
+    static var profilePhotoCount = 0
     let fileManager = FileManager.default
     
     private override init(){
@@ -21,11 +23,13 @@ class FilesManager: NSObject {
     
     func configure(){
         self.createPhotosFolder()
+        self.createProfilePhotoFolder()
     }
     
     private func createPhotosFolder(){
         if let tDocumentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
             let filePath =  tDocumentDirectory.appendingPathComponent(Constants.Files.photosFolder)
+            
             var isDir: ObjCBool = true
             FilesManager.photosPath = filePath
             print("Document directory is \(filePath)")
@@ -57,14 +61,65 @@ class FilesManager: NSObject {
         }
     }
     
+    private func createProfilePhotoFolder(){
+        if let tDocumentDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let filePath = tDocumentDirectory.appendingPathComponent(Constants.Files.profilePhotoFolder)
+            
+            var isDir: ObjCBool = true
+            FilesManager.profilePhotoPath = filePath
+            print("Profile photo directory is \(filePath)")
+            if fileManager.fileExists(atPath: filePath.path, isDirectory: &isDir) {
+                if isDir.boolValue{
+                    
+                    let fm = FileManager.default
+                    let path = filePath.path
+                    
+                    do {
+                        let items = try fm.contentsOfDirectory(atPath: path)
+                        FilesManager.profilePhotoCount = items.count
+                        print("How many items in profile folder: \(items.count)")
+                        for item in items {
+                            print("Found \(item)")
+                        }
+                    } catch let error as NSError{
+                        // failed to read directory – bad permissions, perhaps?
+                        print(error.localizedDescription)
+                    }
+                }
+            }else{
+                do {
+                    try fileManager.createDirectory(atPath: filePath.path, withIntermediateDirectories: false, attributes: nil)
+                } catch let error as NSError {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+    }
+    
     public func saveImage (image: UIImage, photoName: String) -> Bool{
         let pngImageData = UIImagePNGRepresentation(image)
-        let path = FilesManager.photosPath.appendingPathComponent("\(photoName).png")
+        let path = FilesManager.photosPath.appendingPathComponent("\(photoName + Constants.Files.photoExtension)")
         return FileManager.default.createFile(atPath: path.path, contents: pngImageData, attributes: nil)
     }
     
+    public func saveProfileImage (image: UIImage, photoName: String) -> Bool{
+        let pngImageData = UIImagePNGRepresentation(image)
+        let path = FilesManager.profilePhotoPath.appendingPathComponent("\(photoName + Constants.Files.photoExtension)")
+        return FileManager.default.createFile(atPath: path.path, contents: pngImageData, attributes: nil)
+    }
+    
+    public func getProfileImage(photoName: String) -> UIImage? {
+        let path = FilesManager.profilePhotoPath.appendingPathComponent("\(photoName + Constants.Files.photoExtension)")
+        if fileManager.fileExists(atPath: path.path){
+            print("Profile image exists!")
+        }else{
+            print("Profile image dos not exists :(")
+        }
+        return UIImage.init(contentsOfFile: path.path)
+    }
+    
     public func deleteImage(imageName: String) -> Bool{
-        let photoPath = FilesManager.photosPath.appendingPathComponent("\(imageName).png")
+        let photoPath = FilesManager.photosPath.appendingPathComponent("\(imageName + Constants.Files.photoExtension)")
         do {
             try fileManager.removeItem(atPath: photoPath.path)
             return true
@@ -77,9 +132,9 @@ class FilesManager: NSObject {
     public func deleteAllImages(vc: UIViewController, completionHandler: @escaping(Bool) -> Void){
         do{
             var photosDeleted = 0
-            let filePaths = try fileManager.contentsOfDirectory(atPath: FilesManager.photosPath.path)
+            let filePaths = try fileManager.contentsOfDirectory(atPath: FilesManager.profilePhotoPath.path)
             for filePath in filePaths{
-                try fileManager.removeItem(atPath: FilesManager.photosPath.path + "/" + filePath)
+                try fileManager.removeItem(atPath: FilesManager.profilePhotoPath.path + "/" + filePath)
                 photosDeleted += 1
             }
             print("Success phtos deleted: \(photosDeleted)")
