@@ -85,8 +85,7 @@ class BarcodeReader: UIView, AVCaptureMetadataOutputObjectsDelegate {
         
         if metadataObj.stringValue != nil {
             let codeDict: [String:String] = ["code": metadataObj.stringValue!]
-            NotificationCenter.default.post(name: Notification.Name(Identifiers.notificationIdArticleFound), object: nil, userInfo: codeDict)
-
+            NotificationCenter.default.post(name: Notification.Name(Identifiers.Notifications.idArticleFound), object: nil, userInfo: codeDict)
         }
     }
 }

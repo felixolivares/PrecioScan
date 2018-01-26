@@ -148,7 +148,7 @@ class AddArticleViewController: UIViewController {
     func configure(){
         nameAnimatedControl.setDelegate()
         priceAnimatedControl.setDelegate()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotificationBarcodeFound(notification:)), name: Notification.Name(Identifiers.notificationIdArticleFound), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotificationBarcodeFound(notification:)), name: Notification.Name(Identifiers.Notifications.idArticleFound), object: nil)
         compareButton.alpha = 0
         coinsIcon.alpha = 0
         photoBadge.alpha = 0

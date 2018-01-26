@@ -13,11 +13,14 @@ import TableViewReloadAnimation
 import Firebase
 import TransitionButton
 import SwipeCellKit
-import SwiftyStoreKit
+import GoogleMobileAds
+
 
 class ListsViewController: CustomTransitionViewController {
 
     
+    @IBOutlet weak var mainListBannerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var mainListBannerView: GADBannerView!
     @IBOutlet weak var emptyStateContainerView: UIView!
     @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var tableView: UITableView!
@@ -27,23 +30,20 @@ class ListsViewController: CustomTransitionViewController {
         super.viewDidLoad()
         setupTableView()
         CoreDataManager.shared.updateProducts()
-        
-        SwiftyStoreKit.retrieveProductsInfo(["com.felixolivares.PrecioScan.PremiumSubscription"]) { result in
-            print(result)
-        }
+        setupAds()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         UserManager.shared.verifyUserIsLogged(vc: self)
         deselectCell()
+        configureComponents()
         guard CoreDataManager.shared.getStack() == nil else {fetchLists(); return}
         CoreDataManager.shared.createStack{ finished in
             if finished{
                 self.fetchLists()
             }
         }
-        configureComponents()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -81,6 +81,23 @@ class ListsViewController: CustomTransitionViewController {
     
     func configureComponents(){
         hamburgerButton.setStyle(.hamburger, animated: false)
+        adsViewabilty()
+    }
+    
+    func setupAds(){
+        mainListBannerView.adSize = kGADAdSizeBanner
+        mainListBannerView.adUnitID = Constants.Admob.bannerTestId
+        mainListBannerView.rootViewController = self
+        mainListBannerView.delegate = self
+        mainListBannerView.load(AdsManager.shared.getRequest())
+    }
+    
+    func adsViewabilty(){
+        if UserManager.shared.userIsSuscribed() {
+            mainListBannerView.isHidden = true
+            mainListBannerHeightConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
     }
     
     func fetchLists(){
@@ -195,5 +212,15 @@ extension ListsViewController: SwipeTableViewCellDelegate{
         options.transitionStyle = SwipeTableOptions().transitionStyle
         options.backgroundColor = UIColor.white
         return options
+    }
+}
+
+//MARk: - Admob ads
+extension ListsViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            bannerView.alpha = 1
+        })
     }
 }

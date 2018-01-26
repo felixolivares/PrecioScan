@@ -8,6 +8,7 @@
 
 import UIKit
 import MKDropdownMenu
+import GoogleMobileAds
 
 class SearchStoreViewController: UIViewController {
 
@@ -17,6 +18,9 @@ class SearchStoreViewController: UIViewController {
     @IBOutlet weak var noResultsContainerView: UIView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var addStoreButton: UIButton!
+    @IBOutlet weak var bannerViewSmall: GADBannerView!
+    @IBOutlet weak var bannerViewLarge: GADBannerView!
+    @IBOutlet weak var bannerViewSmallHeightConstraint: NSLayoutConstraint!
     
     var stateSelected: String!
     var dropDownIsOpen: Bool = false
@@ -41,9 +45,16 @@ class SearchStoreViewController: UIViewController {
         self.view.endEditing(true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        adsViewabilty()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        storeNameTextField.becomeFirstResponder()
+        if UserManager.shared.userIsSuscribed(){
+            storeNameTextField.becomeFirstResponder()
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -60,10 +71,10 @@ class SearchStoreViewController: UIViewController {
     func configure(){
         configureMenu()
         configureTable()
+        setupAds()
         paragraphStyle.alignment = .left
         noResultsContainerView.alpha = 0
         activityIndicator.alpha = 0
-//        addStoreButton.alpha = 0
         activityIndicator.hidesWhenStopped = true
     }
     
@@ -106,6 +117,28 @@ class SearchStoreViewController: UIViewController {
         }
     }
     
+    func setupAds(){
+        bannerViewSmall.adSize = kGADAdSizeBanner
+        bannerViewSmall.adUnitID = Constants.Admob.bannerSearchStoresSmallId
+        bannerViewSmall.rootViewController = self
+        bannerViewSmall.delegate = self
+        bannerViewSmall.load(AdsManager.shared.getRequest())
+        
+        bannerViewLarge.adSize = kGADAdSizeMediumRectangle
+        bannerViewLarge.adUnitID = Constants.Admob.bannerSeachStoresIABMedium
+        bannerViewLarge.rootViewController = self
+        bannerViewLarge.delegate = self
+        bannerViewLarge.load(AdsManager.shared.getRequest())
+    }
+    
+    func adsViewabilty(){
+        if UserManager.shared.userIsSuscribed() {
+            bannerViewSmall.isHidden = true
+            bannerViewSmallHeightConstraint.constant = 0
+            bannerViewLarge.isHidden = true
+        }
+    }
+    
     func goBack(){
         if self.navigationController == nil {
             self.dismiss(animated: true, completion: nil)
@@ -125,14 +158,26 @@ class SearchStoreViewController: UIViewController {
     func showNoResults(){
         UIView.animate(withDuration: 0.3, animations: {
             self.noResultsContainerView.alpha = 1
-//            self.addStoreButton.alpha = 1
+            if !UserManager.shared.userIsSuscribed(){
+                self.bannerViewLarge.isHidden = true
+                self.view.sendSubview(toBack: self.bannerViewLarge)
+                self.bannerViewSmall.isHidden = false
+                self.bannerViewSmallHeightConstraint.constant = 50
+                self.view.layoutIfNeeded()
+            }
         })
     }
     
     func hideNoResults(){
         UIView.animate(withDuration: 0.3, animations: {
             self.noResultsContainerView.alpha = 0
-//            self.addStoreButton.alpha = 0
+            if !UserManager.shared.userIsSuscribed(){
+                self.bannerViewLarge.isHidden = false
+                self.view.bringSubview(toFront: self.bannerViewLarge)
+                self.bannerViewSmall.isHidden = true
+                self.bannerViewSmallHeightConstraint.constant = 0
+                self.view.layoutIfNeeded()
+            }
         })
     }
     
@@ -278,5 +323,15 @@ extension SearchStoreViewController: UITextFieldDelegate{
         searchStore(name: storeNameTextField.text!, state: nil)
         self.view.endEditing(true)
         return false
+    }
+}
+
+//MARk: - Admob ads
+extension SearchStoreViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            bannerView.alpha = 1
+        })
     }
 }

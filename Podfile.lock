@@ -16,49 +16,50 @@ PODS:
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - DynamicButton (5.0.0)
-  - Firebase/Auth (4.3.0):
+  - Firebase/Auth (4.8.1):
     - Firebase/Core
-    - FirebaseAuth (= 4.2.1)
-  - Firebase/Core (4.3.0):
-    - FirebaseAnalytics (= 4.0.4)
-    - FirebaseCore (= 4.0.8)
-  - Firebase/Database (4.3.0):
+    - FirebaseAuth (= 4.4.2)
+  - Firebase/Core (4.8.1):
+    - FirebaseAnalytics (= 4.0.7)
+    - FirebaseCore (= 4.0.14)
+  - Firebase/Database (4.8.1):
     - Firebase/Core
-    - FirebaseDatabase (= 4.1.0)
-  - FirebaseAnalytics (4.0.4):
+    - FirebaseDatabase (= 4.1.4)
+  - FirebaseAnalytics (4.0.7):
     - FirebaseCore (~> 4.0)
     - FirebaseInstanceID (~> 2.0)
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
     - nanopb (~> 0.3)
-  - FirebaseAuth (4.2.1):
+  - FirebaseAuth (4.4.2):
     - FirebaseAnalytics (~> 4.0)
     - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.8):
+  - FirebaseCore (4.0.14):
     - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-    - nanopb (~> 0.3)
-  - FirebaseDatabase (4.1.0):
+  - FirebaseDatabase (4.1.4):
     - FirebaseAnalytics (~> 4.0)
     - FirebaseCore (~> 4.0)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (2.0.4)
+  - FirebaseInstanceID (2.0.8):
+    - FirebaseCore (~> 4.0)
   - FLAnimatedImage (1.0.12)
   - GMStepper (2.1)
-  - GoogleToolboxForMac/DebugUtils (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/Defines (2.1.1)
-  - GoogleToolboxForMac/NSData+zlib (2.1.1):
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
-    - GoogleToolboxForMac/Defines (= 2.1.1)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
+  - Google-Mobile-Ads-SDK (7.27.0)
+  - GoogleToolboxForMac/DebugUtils (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
+    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
+  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - GTMSessionFetcher/Core (1.1.12)
   - InteractiveSideMenu (2.0)
   - IQKeyboardManagerSwift (5.0.2)
   - JSQCoreDataKit (7.0.0)
-  - leveldb-library (1.18.3)
+  - leveldb-library (1.20)
   - MKDropdownMenu (1.4)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -79,6 +80,7 @@ PODS:
   - PromiseKit/UIKit (4.4.0):
     - PromiseKit/CorePromise
   - PWSwitch (1.1.0)
+  - SwiftyOnboard (1.3.6)
   - SwiftyStoreKit (0.10.8)
   - SwipeCellKit (2.0.0)
   - TableViewReloadAnimation (0.0.5)
@@ -96,6 +98,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - GMStepper (from `https://github.com/gmertk/GMStepper.git`, branch `swift4`)
+  - Google-Mobile-Ads-SDK
   - InteractiveSideMenu
   - IQKeyboardManagerSwift
   - JSQCoreDataKit
@@ -104,6 +107,7 @@ DEPENDENCIES:
   - PopupDialog (~> 0.6)
   - PromiseKit (~> 4.4)
   - PWSwitch
+  - SwiftyOnboard
   - SwiftyStoreKit
   - SwipeCellKit (from `https://github.com/SwipeCellKit/SwipeCellKit.git`, branch `develop`)
   - TableViewReloadAnimation (~> 0.0.5)
@@ -140,31 +144,33 @@ SPEC CHECKSUMS:
   BadgeSwift: 3defa56f504bfb46f2300122c4a565ec9e405c1e
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DynamicButton: 4c2fef968e4aa0a8a6ed7ca6b8a58c8e21a36cdc
-  Firebase: 83283761a1ef6dc9846e03d08059f51421afbd65
-  FirebaseAnalytics: 722b53c7b32bfc7806b06e0093a2f5180d4f2c5a
-  FirebaseAuth: d7f047fbeab98062b98ea933b8d934e0fb1190e2
-  FirebaseCore: 69b1a5ac5f857ba6d5fd9d5fe794f4786dd5e579
-  FirebaseDatabase: 607284a103e961d7f5863ee603cab5e85f443bd6
-  FirebaseInstanceID: 70c2b877e9338971b2429ea5a4293df6961aa44e
+  Firebase: 2721056b8885eef90233b03f37be64358d35d262
+  FirebaseAnalytics: 617afa8c26b57a0c3f11361b248bc9e17bfd8dfd
+  FirebaseAuth: bd2738c5c1e92b108ba5f7f7335908097a4e50bb
+  FirebaseCore: 2e0b98fb2d64ca8140136beff15772bdd14d2dd7
+  FirebaseDatabase: de4446507ccd3257fca37d16f40e1540324571fd
+  FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GMStepper: f3258bbe25a90462e99bbeea0f48074932bfa32a
-  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  Google-Mobile-Ads-SDK: 83f7f890e638ce8f1debd440ea363338c9f6be3b
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   InteractiveSideMenu: 337f6d95a3f6543c517a888893531430e18553b3
   IQKeyboardManagerSwift: e580da046d804d2836ee84668cc17e43a850a35d
   JSQCoreDataKit: bc6f37205d36c379a70c56e829fcbc7e921900c2
-  leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
+  leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MKDropdownMenu: 269df4a41d21a1db684ce8bc709befe419fc5bae
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   PMSuperButton: 2269b1cd625ce2d2aa8029d79c6dae3544024817
   PopupDialog: d4336d7274a6aa3af4cb26d8b6691510eba90cc3
   PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
   PWSwitch: e5a45cb84ff794a4d651812cce1f061764629ed3
+  SwiftyOnboard: 8dec41d4725b3e6ebcae276dd206d7f74c1b7f61
   SwiftyStoreKit: 8c193678fabbaafb4430a536497613f89fefd7ec
   SwipeCellKit: 7db3ff3595609793108b0e7dbc8c6ca7d9dafa8a
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
   TransitionButton: 82a065bd97f9434ecfa7bb3a15306aec1b5a5894
 
-PODFILE CHECKSUM: 6d3d67ec52eaa56867d0cb0172cc6b34ac04af02
+PODFILE CHECKSUM: 4c55be2f993be7e845f899fc50642e680352571b
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

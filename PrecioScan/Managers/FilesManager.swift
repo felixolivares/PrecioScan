@@ -132,9 +132,9 @@ class FilesManager: NSObject {
     public func deleteAllImages(vc: UIViewController, completionHandler: @escaping(Bool) -> Void){
         do{
             var photosDeleted = 0
-            let filePaths = try fileManager.contentsOfDirectory(atPath: FilesManager.profilePhotoPath.path)
+            let filePaths = try fileManager.contentsOfDirectory(atPath: FilesManager.photosPath.path)
             for filePath in filePaths{
-                try fileManager.removeItem(atPath: FilesManager.profilePhotoPath.path + "/" + filePath)
+                try fileManager.removeItem(atPath: FilesManager.photosPath.path + "/" + filePath)
                 photosDeleted += 1
             }
             print("Success phtos deleted: \(photosDeleted)")

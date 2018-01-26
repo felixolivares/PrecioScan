@@ -30,6 +30,8 @@ target 'PrecioScan' do
   pod 'AXPhotoViewer'
   pod 'BadgeSwift', '~> 5.0'
   pod 'SwiftyStoreKit'
+  pod 'SwiftyOnboard'
+  pod 'Google-Mobile-Ads-SDK'
   
   target 'PrecioScanTests' do
     inherit! :search_paths

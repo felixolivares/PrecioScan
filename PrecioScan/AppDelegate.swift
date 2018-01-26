@@ -10,6 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import Firebase
 import SwiftyStoreKit
+import GoogleMobileAds
 
 let persistentContainer = CoreDataManager.shared
 
@@ -23,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ = CoreDataManager.shared
         _ = ConfigurationManager.shared
         _ = FilesManager.shared
+        _ = AdsManager.shared
+        
         FirebaseApp.configure()
         Popup.setupPopup()
 
@@ -30,15 +33,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
-                if purchase.transaction.transactionState == .purchased || purchase.transaction.transactionState == .restored {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
                     if purchase.needsFinishTransaction {
                         // Deliver content from server, then:
                         SwiftyStoreKit.finishTransaction(purchase.transaction)
                     }
-                    print("purchased: \(purchase)")
+                // Unlock content
+                    print("Purchase: \(purchase)")
+                case .failed, .purchasing, .deferred:
+                    break // do nothing
                 }
             }
         }
+        InAppPurchasesManager.shared.retrieveProducts()
+        GADMobileAds.configure(withApplicationID: Constants.Admob.appID)
+
         
         return true
     }
@@ -55,6 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        UserManager.shared.verifyConnection(){ connected in
+            print("[AppDelegate] - willEnterForeground: Internet connection status: \(connected)")
+        }
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

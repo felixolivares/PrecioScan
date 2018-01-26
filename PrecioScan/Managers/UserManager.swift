@@ -19,6 +19,7 @@ class UserManager: NSObject {
     
     static var isLoggedIn: Bool? = false
     static var currentUser: User!
+    static var connectionStatus: Bool? = false
     
     private override init(){
         super.init()
@@ -78,13 +79,21 @@ class UserManager: NSObject {
             CoreDataManager.shared.user(withEmail: user.email){ users, error in
                 if (users?.count)! > 0 {
                     if let finalUser = users?.first {
-                        CoreDataManager.shared.updateUser(object: finalUser, name: finalUser.name, photoName: finalUser.photoName, isLogged: isLogged){ finished, error in
+                        CoreDataManager.shared.updateUser(object: finalUser,
+                                                          name: finalUser.name,
+                                                          photoName: finalUser.photoName,
+                                                          isLogged: isLogged){ finished, error in
                             UserManager.currentUser = finalUser
                             print("Current user: \(String(describing: finalUser.email)) - Is Logged: \(String(describing: finalUser.isLogged)) - Uid: \(String(describing: (finalUser.uid)!))")
                         }
                     }
                 } else {
-                    CoreDataManager.shared.saveUser(email: (FRUser?.email)!, password: nil, name: (FRUser?.displayName)!, photoName: nil, isLogged: true, uid: FRUser?.uid){ user, error in
+                    CoreDataManager.shared.saveUser(email: (FRUser?.email)!,
+                                                    password: nil,
+                                                    name: (FRUser?.displayName)!,
+                                                    photoName: nil,
+                                                    isLogged: true,
+                                                    uid: FRUser?.uid){ user, error in
                         UserManager.currentUser = user
                         print("User saved - Current user: \(String(describing: user?.email)) - Is Logged: \(String(describing: user?.isLogged))")
                     }
@@ -97,8 +106,10 @@ class UserManager: NSObject {
         let connectedRef = Database.database().reference(withPath: ".info/connected")
         connectedRef.observe(.value, with: { snapshot in
             if let connected = snapshot.value as? Bool, connected {
+                UserManager.connectionStatus = true
                 completionHandler(true)
             } else {
+                UserManager.connectionStatus = false
                 completionHandler(false)
             }
         })

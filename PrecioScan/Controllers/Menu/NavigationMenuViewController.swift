@@ -19,8 +19,10 @@ class NavigationMenuViewController: MenuViewController {
     
     var currentUser: User!
     
+    var debugIsSubscribed: Bool = false
+    
     let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.subscritpionIten, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.logoutItem]
-    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.subscriptionIcon, ImageNames.configurationIcon, ImageNames.logoutIcon]
+    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.crwonIconWhite, ImageNames.configurationIcon, ImageNames.logoutIcon]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,11 +31,10 @@ class NavigationMenuViewController: MenuViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        updateUserSubscribed(isSubscribed: false)
         currentUser = UserManager.shared.getCurrentUser()
         setUserInformation()
-        updateUserSubscribed()
         loadProfilePhoto()
-        
         if !UserManager.shared.userIsSuscribed(){
             heightPremiumIconConstraint.constant = 0
         } else {
@@ -41,8 +42,8 @@ class NavigationMenuViewController: MenuViewController {
         }
     }
     
-    func updateUserSubscribed(){
-        persistentContainer.updateUserSubscription(object: currentUser, isSubscribed: true, completionHandler: { finished, error in
+    func updateUserSubscribed(isSubscribed: Bool){
+        persistentContainer.updateUserSubscription(object: UserManager.shared.getCurrentUser()!, isSubscribed: isSubscribed, completionHandler: { finished, error in
             if finished {
                 print("User updated")
             }

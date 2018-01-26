@@ -138,6 +138,10 @@ struct Constants {
         }
     }
     
+    struct Subscription {
+        public static let buyButtonTitle = "Comprar por "
+    }
+    
     struct Compare {
         public static let historyTitle = "Historial:"
     }
@@ -150,6 +154,7 @@ struct Constants {
             public static let showPhoto = "Ver"
             public static let takePhoto = "Tomar"
             public static let goToPremium = "Comprar!"
+            public static let retry = "Reintentar"
         }
         struct Titles {
             public static let ready = "Listo!"
@@ -208,6 +213,20 @@ struct Constants {
             public static let wrongEmail = "El correo electronico no existe"
         }
     }
+    
+    struct InAppPurchasesManager{
+        public static let product = "com.felixolivares.PrecioScan.PremiumSubscription"
+    }
+    
+    //Admob
+    struct Admob{
+        public static let appID = "ca-app-pub-3913769475917328~5547690405"
+        public static let bannerTestId = "ca-app-pub-3940256099942544/2934735716"
+        public static let bannerMainListId = "ca-app-pub-3913769475917328/6205687021"
+        public static let bannerStoresListId = "ca-app-pub-3913769475917328/9766492234"
+        public static let bannerSearchStoresSmallId = "ca-app-pub-3913769475917328/1720960184"
+        public static let bannerSeachStoresIABMedium = "ca-app-pub-3913769475917328/2014148819"
+    }
 }
 
 //Popup Response
@@ -221,8 +240,13 @@ struct PopupResponse {
 
 //Identifiers
 struct Identifiers {
-    public static let notificationIdArticleFound = "NotificationIdArticleFound"
+    struct Notifications{
+        public static let idArticleFound = "NotificationIdArticleFound"
+        public static let purchaseComplete = "NotificationPurchaseComplete"
+        public static let connectionChanged = "NotificationConnectionChanged"
+    }
     public static let codeIdentifier = "code"
+    public static let productIdentifier = "product"
     public static let itemListTableViewCell = "ItemListTableViewCell"
     public static let listTableViewCell = "ListTableViewCell"
     public static let menuItemTableViewCell = "MenuItemTableViewCell"
@@ -259,6 +283,7 @@ struct ImageNames{
     public static let articleIcon = "articleIconWhite"
     public static let logoutIcon = "logoutIconWhite"
     public static let subscriptionIcon = "subscriptionIocn"
+    public static let crwonIconWhite = "crownIconWhite"
     public static let subscribeBannerGreen = "subscribeBannerGreen"
     public static let profilePlaceholder = "profilePlaceholder"
 }
@@ -338,4 +363,3 @@ struct FRAttribute {
     public static let uid = "uid"
     public static let itemLists = "itemLists"
 }
-

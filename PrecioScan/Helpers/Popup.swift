@@ -102,6 +102,15 @@ class Popup{
         vc.present(popup, animated: true, completion: nil)
     }
     
+    public static func showRetryConnection(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
+        let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .bounceUp, gestureDismissal: true) {}
+        let buttonRetry = DefaultButton(title: Constants.Popup.Buttons.yesAnswer){
+            completionHandler(PopupResponse.Accept)
+        }
+        popup.addButtons([buttonRetry])
+        vc.present(popup, animated: true, completion: nil)
+    }
+    
     public static func showPhoto(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
         let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
         let buttonOK = DefaultButton(title: Constants.Popup.Buttons.showPhoto){

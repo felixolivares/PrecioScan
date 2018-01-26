@@ -39,3 +39,37 @@ extension TransitionButton{
         self.disabledBackgroundColor = UIColor.white
     }
 }
+
+extension UIView{
+    func bounce(){
+        self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.4,
+                       initialSpringVelocity: 0.2,
+                       options: UIViewAnimationOptions.beginFromCurrentState,
+                       animations: {
+                        self.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+    }
+}
+
+class RoundedCorners: UIView{
+    @IBInspectable var corner: CGFloat = 0 {
+        didSet {
+            layer.cornerRadius = corner
+            layer.masksToBounds = corner > 0
+            layer.borderWidth = 1.0
+            layer.borderColor = UIColor(liveGreen)?.cgColor
+        }
+    }
+}
+
+class RoundedButton: UIButton{
+    @IBInspectable var corner: CGFloat = 0 {
+        didSet{
+            layer.cornerRadius = corner
+            layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+}

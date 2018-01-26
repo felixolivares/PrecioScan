@@ -16,6 +16,8 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
     @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var soundSwitch: PWSwitch!
     @IBOutlet weak var photosNumberLabel: UILabel!
+    @IBOutlet weak var heightHeaderConstraint: NSLayoutConstraint!
+    @IBOutlet weak var premiumInfoContainerView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +68,14 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
         UserManager.shared.verifyUserIsLogged(vc: self)
         hamburgerButton.setStyle(.hamburger, animated: false)
         updatePhotosCountLabel()
+        
+        if !UserManager.shared.userIsSuscribed(){
+            heightHeaderConstraint.constant = 180
+            premiumInfoContainerView.isHidden = false
+        } else {
+            heightHeaderConstraint.constant = 0
+            premiumInfoContainerView.isHidden = true
+        }
     }
     
     func updatePhotosCountLabel(){
