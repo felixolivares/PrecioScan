@@ -83,7 +83,7 @@ class SubscriptionViewController: UIViewController {
 extension SubscriptionViewController: SwiftyOnboardDelegate, SwiftyOnboardDataSource {
     
     func swiftyOnboardNumberOfPages(_ swiftyOnboard: SwiftyOnboard) -> Int {
-        return 4
+        return 5
     }
     
     func swiftyOnboardPageForIndex(_ swiftyOnboard: SwiftyOnboard, index: Int) -> SwiftyOnboardPage? {
@@ -95,6 +95,8 @@ extension SubscriptionViewController: SwiftyOnboardDelegate, SwiftyOnboardDataSo
         case 2:
             return PageThree.instanceFromNib() as? PageThree
         case 3:
+            return PageRemoveAds.instanceFromNib() as? PageRemoveAds
+        case 4:
             let pageFour = PageFour.instanceFromNib() as? PageFour
             pageFour?.configure()
             if let product = InAppPurchasesManager.shared.product{
@@ -133,7 +135,7 @@ extension SubscriptionViewController: SwiftyOnboardDelegate, SwiftyOnboardDataSo
         let currentPage = round(position)
         overlay.controlPage.currentPage = Int(currentPage)
         overlay.buttonContinue.tag = Int(position)
-        if currentPage == 3.0 {
+        if currentPage == 4.0 {
             UIView.animate(withDuration: 0.2, animations: {
                 overlay.controlPage.alpha = 0
             })

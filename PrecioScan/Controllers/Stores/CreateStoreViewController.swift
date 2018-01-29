@@ -13,6 +13,7 @@ import JSQCoreDataKit
 import InteractiveSideMenu
 import DynamicButton
 import MKDropdownMenu
+import GoogleMobileAds
 
 protocol CreateStoreViewControllerDelegate{
     func storeSaved(store: Store)
@@ -25,6 +26,8 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchBarContainer: UIView!
     @IBOutlet weak var emptyStateContainerView: UIView!
+    @IBOutlet weak var bannerViewStoresList: GADBannerView!
+    @IBOutlet weak var bannerViewStoresListHeightConstraint: NSLayoutConstraint!
     
     let searchController = UISearchController(searchResultsController: nil)
     var fetchResultController: NSFetchedResultsController<Store>!
@@ -75,6 +78,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
         backButton.isHidden = !isComingFromList
         configureTable()
         configureSearchController()
+        setupAds()
     }
     
     func configureTable(){
@@ -91,6 +95,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
         UserManager.shared.verifyUserIsLogged(vc: self)
         hamburgerButton.setStyle(.hamburger, animated: false)
         emptyStateContainerView.isHidden = true
+        adsViewabilty()
     }
     
     func configureSearchController(){
@@ -103,6 +108,22 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
         searchBar.searchBarStyle = .minimal
         searchBarContainer.addSubview(searchBar)
         definesPresentationContext = true
+    }
+    
+    func setupAds(){
+        bannerViewStoresList.adSize = kGADAdSizeBanner
+        bannerViewStoresList.adUnitID = testingAds ? Constants.Admob.bannerTestId : Constants.Admob.bannerStoresListId
+        bannerViewStoresList.rootViewController = self
+        bannerViewStoresList.delegate = self
+        bannerViewStoresList.load(AdsManager.shared.getRequest())
+    }
+    
+    func adsViewabilty(){
+        if UserManager.shared.userIsSuscribed() {
+            bannerViewStoresList.isHidden = true
+            bannerViewStoresListHeightConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        }
     }
     
     func fetchStores(){
@@ -179,5 +200,13 @@ extension CreateStoreViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-
+//MARk: - Admob ads
+extension CreateStoreViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            bannerView.alpha = 1
+        })
+    }
+}
 

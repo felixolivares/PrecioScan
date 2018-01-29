@@ -29,6 +29,8 @@
 		3021562E20116BA7002B9500 /* CustomOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3021562D20116BA7002B9500 /* CustomOverlay.xib */; };
 		30215630201187FD002B9500 /* Ubuntu-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3021562F201187FD002B9500 /* Ubuntu-Light.otf */; };
 		30241980201BE218009C68B0 /* AdsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3024197F201BE218009C68B0 /* AdsManager.swift */; };
+		30241982201EEC51009C68B0 /* PageRemoveAds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30241981201EEC51009C68B0 /* PageRemoveAds.swift */; };
+		30241986201EEC85009C68B0 /* PageRemoveAds.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30241985201EEC85009C68B0 /* PageRemoveAds.xib */; };
 		302B0C541F981F1A001DE5C7 /* DateOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C531F981F1A001DE5C7 /* DateOperations.swift */; };
 		302B0C561F98513F001DE5C7 /* Structures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C551F98513F001DE5C7 /* Structures.swift */; };
 		302B0C5C1F998EFD001DE5C7 /* ItemListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B0C5A1F998EFD001DE5C7 /* ItemListTableViewCell.swift */; };
@@ -147,6 +149,8 @@
 		3021562D20116BA7002B9500 /* CustomOverlay.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomOverlay.xib; sourceTree = "<group>"; };
 		3021562F201187FD002B9500 /* Ubuntu-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.otf"; sourceTree = "<group>"; };
 		3024197F201BE218009C68B0 /* AdsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsManager.swift; sourceTree = "<group>"; };
+		30241981201EEC51009C68B0 /* PageRemoveAds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageRemoveAds.swift; sourceTree = "<group>"; };
+		30241985201EEC85009C68B0 /* PageRemoveAds.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageRemoveAds.xib; sourceTree = "<group>"; };
 		302450CE1FB936B9000F14C8 /* PrecioScanModel_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PrecioScanModel_ 3.xcdatamodel"; sourceTree = "<group>"; };
 		302B0C531F981F1A001DE5C7 /* DateOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOperations.swift; sourceTree = "<group>"; };
 		302B0C551F98513F001DE5C7 /* Structures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structures.swift; sourceTree = "<group>"; };
@@ -318,6 +322,8 @@
 				30B76BDA2011908F003A28B7 /* PageThree.xib */,
 				30B76BDC2011AAF1003A28B7 /* PageFour.swift */,
 				30B76BDE2011AB37003A28B7 /* PageFour.xib */,
+				30241981201EEC51009C68B0 /* PageRemoveAds.swift */,
+				30241985201EEC85009C68B0 /* PageRemoveAds.xib */,
 			);
 			path = Premium;
 			sourceTree = "<group>";
@@ -724,6 +730,7 @@
 				3021562620116A31002B9500 /* PageOne.xib in Resources */,
 				3050A4AC1F8701FD00AD60D7 /* ListTableViewCell.xib in Resources */,
 				30083B631F8839F8006274C9 /* Ubuntu-Regular.otf in Resources */,
+				30241986201EEC85009C68B0 /* PageRemoveAds.xib in Resources */,
 				30FFE6271F85977E001CE3B8 /* Main.storyboard in Resources */,
 				306AC78A1FA29E220096814C /* CompareTableViewCell.xib in Resources */,
 				30B76BDB2011908F003A28B7 /* PageThree.xib in Resources */,
@@ -982,6 +989,7 @@
 				3050A49B1F86F35300AD60D7 /* Store.swift in Sources */,
 				306AC7811FA12A8B0096814C /* ConfigurationManager.swift in Sources */,
 				30AC99FF1F9FDB310029F6E6 /* ConfigurationViewController.swift in Sources */,
+				30241982201EEC51009C68B0 /* PageRemoveAds.swift in Sources */,
 				3032616D1FB2513C0083FBA0 /* CreateAccountViewController.swift in Sources */,
 				308571F01FB6889F0026BB14 /* Fonts.swift in Sources */,
 				306AC78D1FA29EBE0096814C /* HeaderCompareTableViewCell.swift in Sources */,

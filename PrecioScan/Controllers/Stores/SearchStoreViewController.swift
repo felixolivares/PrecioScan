@@ -32,6 +32,11 @@ class SearchStoreViewController: UIViewController {
     var filteredStores: [TempStore] = []
     var storeSelected: Store!
     
+    enum Viewabilty{
+        case Hide
+        case Show
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -76,6 +81,7 @@ class SearchStoreViewController: UIViewController {
         noResultsContainerView.alpha = 0
         activityIndicator.alpha = 0
         activityIndicator.hidesWhenStopped = true
+        smallBannerChanged(withViewability: .Hide)
     }
     
     func configureMenu(){
@@ -114,18 +120,20 @@ class SearchStoreViewController: UIViewController {
                 self.setFilteredStores()
             }
             self.tableView.reloadData()
+            self.largeBannerChanged(withViewability: .Hide)
+            self.smallBannerChanged(withViewability: .Show)
         }
     }
     
     func setupAds(){
         bannerViewSmall.adSize = kGADAdSizeBanner
-        bannerViewSmall.adUnitID = Constants.Admob.bannerSearchStoresSmallId
+        bannerViewSmall.adUnitID = testingAds ? Constants.Admob.bannerTestId : Constants.Admob.bannerSearchStoresSmallId
         bannerViewSmall.rootViewController = self
         bannerViewSmall.delegate = self
         bannerViewSmall.load(AdsManager.shared.getRequest())
         
         bannerViewLarge.adSize = kGADAdSizeMediumRectangle
-        bannerViewLarge.adUnitID = Constants.Admob.bannerSeachStoresIABMedium
+        bannerViewLarge.adUnitID = testingAds ? Constants.Admob.bannerTestId : Constants.Admob.bannerSeachStoresIABMediumId
         bannerViewLarge.rootViewController = self
         bannerViewLarge.delegate = self
         bannerViewLarge.load(AdsManager.shared.getRequest())
@@ -158,27 +166,45 @@ class SearchStoreViewController: UIViewController {
     func showNoResults(){
         UIView.animate(withDuration: 0.3, animations: {
             self.noResultsContainerView.alpha = 1
-            if !UserManager.shared.userIsSuscribed(){
-                self.bannerViewLarge.isHidden = true
-                self.view.sendSubview(toBack: self.bannerViewLarge)
-                self.bannerViewSmall.isHidden = false
-                self.bannerViewSmallHeightConstraint.constant = 50
-                self.view.layoutIfNeeded()
-            }
         })
     }
     
     func hideNoResults(){
         UIView.animate(withDuration: 0.3, animations: {
             self.noResultsContainerView.alpha = 0
-            if !UserManager.shared.userIsSuscribed(){
-                self.bannerViewLarge.isHidden = false
-                self.view.bringSubview(toFront: self.bannerViewLarge)
-                self.bannerViewSmall.isHidden = true
+        })
+    }
+    
+    func smallBannerChanged(withViewability value: Viewabilty){
+        guard !UserManager.shared.userIsSuscribed() else {return}
+        switch value{
+        case .Hide:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bannerViewSmall.alpha = 0
                 self.bannerViewSmallHeightConstraint.constant = 0
                 self.view.layoutIfNeeded()
-            }
-        })
+            })
+        case .Show:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bannerViewSmall.alpha = 1
+                self.bannerViewSmallHeightConstraint.constant = 50
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    func largeBannerChanged(withViewability value: Viewabilty){
+        guard !UserManager.shared.userIsSuscribed() else {return}
+        switch value {
+        case .Hide:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bannerViewLarge.alpha = 0
+            })
+        case .Show:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.bannerViewLarge.alpha = 1
+            })
+        }
     }
     
     func showActivityIndicator(){

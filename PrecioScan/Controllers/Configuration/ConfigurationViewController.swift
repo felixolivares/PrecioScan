@@ -32,12 +32,20 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
         super.viewDidAppear(animated)
         hamburgerButton.setStyle(.hamburger, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.toSubscriptionFromConfiguration{
+            let vc = segue.destination as! SubscriptionViewController
+            vc.openedWithModal = true
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    //Buttons
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
         hamburgerButton.setStyle(.close, animated: true)
         self.showSideMenu()
@@ -49,6 +57,10 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
                 self.updatePhotosCountLabel()
             }
         }
+    }
+    
+    @IBAction func moreInfoButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: Segues.toSubscriptionFromConfiguration, sender: nil)
     }
     
     func restoreConfigurationValues(){

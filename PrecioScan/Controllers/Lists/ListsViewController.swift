@@ -86,7 +86,7 @@ class ListsViewController: CustomTransitionViewController {
     
     func setupAds(){
         mainListBannerView.adSize = kGADAdSizeBanner
-        mainListBannerView.adUnitID = Constants.Admob.bannerTestId
+        mainListBannerView.adUnitID = testingAds ? Constants.Admob.bannerTestId : Constants.Admob.bannerMainListId
         mainListBannerView.rootViewController = self
         mainListBannerView.delegate = self
         mainListBannerView.load(AdsManager.shared.getRequest())
@@ -132,7 +132,9 @@ class ListsViewController: CustomTransitionViewController {
     
     @IBAction func createNewListButtonPressed(_ sender: Any) {
         if lists.count >= 2 {
-            SuscriptionManager.shared.promptToSubscribe(vc: self, message: Constants.Lists.Popup.listRestriction, completionHandler: { popupDecision, suscription in
+            SuscriptionManager.shared.promptToSubscribe(vc: self,
+                                                        message: Constants.Lists.Popup.listRestriction,
+                                                        completionHandler: { popupDecision, suscription in
                 if suscription == SuscriptionManager.SubscriptionStatus.Subscribed{
                     self.performSegue(withIdentifier: Segues.toNewListFromLists, sender: nil)
                 } else {

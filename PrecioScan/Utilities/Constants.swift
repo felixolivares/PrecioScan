@@ -222,10 +222,12 @@ struct Constants {
     struct Admob{
         public static let appID = "ca-app-pub-3913769475917328~5547690405"
         public static let bannerTestId = "ca-app-pub-3940256099942544/2934735716"
+        public static let interstitialTestId = "ca-app-pub-3940256099942544/4411468910"
         public static let bannerMainListId = "ca-app-pub-3913769475917328/6205687021"
         public static let bannerStoresListId = "ca-app-pub-3913769475917328/9766492234"
         public static let bannerSearchStoresSmallId = "ca-app-pub-3913769475917328/1720960184"
-        public static let bannerSeachStoresIABMedium = "ca-app-pub-3913769475917328/2014148819"
+        public static let bannerSeachStoresIABMediumId = "ca-app-pub-3913769475917328/2014148819"
+        public static let interstitialListDetailId = "ca-app-pub-3913769475917328/6722554161"
     }
 }
 
@@ -273,6 +275,7 @@ struct Segues{
     public static let toNewListFromLists = "toNewListFromLists"
     public static let toSubscribeFromArticleDetail = "toSubscribeFromArticleDetail"
     public static let toSubscriptionFromAddArticle = "toSubscriptionFromAddArticle"
+    public static let toSubscriptionFromConfiguration = "toSubscriptionFromConfiguration"
 }
 
 //Images

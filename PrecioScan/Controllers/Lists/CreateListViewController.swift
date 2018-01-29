@@ -12,6 +12,7 @@ import CoreData
 import JSQCoreDataKit
 import PMSuperButton
 import SwipeCellKit
+import GoogleMobileAds
 
 class CreateListViewController: UIViewController, CreateStoreViewControllerDelegate {
 
@@ -39,6 +40,9 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     var fetchResultController: NSFetchedResultsController<Store>!
     var stores: [Store] = []
     var titleText = String()
+    
+    var interstitialAd: GADInterstitial!
+    var interstitialAdReceived: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +89,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         configureComponents()
         configureTable()
         nameListAnimatedControl.setDelegate()
+        interstitialAd = createAndLoadInterstitial()
     }
     
     func configureMenu(){
@@ -182,6 +187,22 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         }
     }
     
+    func createAndLoadInterstitial() -> GADInterstitial{
+        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId)
+        interstitial.delegate = self
+        interstitial.load(AdsManager.shared.getRequest())
+        return interstitial
+    }
+    
+    func showInterstitial(){
+        if interstitialAd.isReady {
+            interstitialAd.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     //MARK: - Buttons pressed
     @IBAction func backButtonPressed(_ sender: Any) {
         _ = navigationController?.popViewController(animated: true)
@@ -209,7 +230,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
             CoreDataManager.shared.updateList(object: list, name: nameListAnimatedControl.valueTextField.text!, date: nil, store: selectedStore){ saved, error in
                 if saved {
                     Popup.show(withCompletionMessage: Constants.CreateList.Popup.listSaved, vc: self){ _ in
-                        _ = self.navigationController?.popViewController(animated: true)
+                        self.showInterstitial()
                     }
                 }
             }
@@ -220,7 +241,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
                     print("New list created")
                     listSaved?.debug()
                     Popup.show(withCompletionMessage: Constants.CreateList.Popup.listSaved, vc: self){ _ in
-                        _ = self.navigationController?.popViewController(animated: true)
+                        self.showInterstitial()
                     }
                 }
             }
@@ -358,5 +379,18 @@ extension CreateListViewController: MKDropdownMenuDelegate{
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, backgroundColorForRow row: Int, forComponent component: Int) -> UIColor? {
         return UIColor(solitudeGray)
+    }
+}
+
+extension CreateListViewController: GADInterstitialDelegate{
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        _ = self.navigationController?.popViewController(animated: true)
+        interstitialAd = createAndLoadInterstitial()
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("Ad received")
+        interstitialAdReceived = true
     }
 }

@@ -13,7 +13,7 @@ import SwiftyStoreKit
 import GoogleMobileAds
 
 let persistentContainer = CoreDataManager.shared
-
+let testingAds:Bool = false
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

@@ -47,6 +47,7 @@ class PageFour: SwiftyOnboardPage, InAppPurchasesDelegate {
                             self.purchaseFade()
                         } else {
                             Popup.show(withError: error! as NSError, vc: self.viewController()!)
+                            self.activityIndicatorPurchasing.stopAnimating()
                         }
                     }
                 } else {
