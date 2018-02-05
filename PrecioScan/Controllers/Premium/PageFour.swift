@@ -59,6 +59,27 @@ class PageFour: SwiftyOnboardPage, InAppPurchasesDelegate {
         }
     }
     
+    @IBAction func restoreButtonPressed(_ sender: Any) {
+        print("Restore button presed ")
+        activityIndicatorPurchasing.startAnimating()
+        activityIndicatorPurchasing.alpha = 1.0
+        UserManager.shared.verifyConnection(){ connected in
+            if connected {
+                InAppPurchasesManager.shared.restorePurchase(completionHandler: { finished, error in
+                    if let success = finished, success {
+                        self.activityIndicatore.startAnimating()
+                        self.purchaseFade()
+                    }else if let success = finished, !success, let purchaseError = error {
+                        Popup.show(withError: purchaseError as NSError, vc: self.viewController()!)
+                        self.activityIndicatorPurchasing.stopAnimating()
+                    }
+                })
+            } else {
+                self.showRetryConnection()
+            }
+        }
+    }
+    
     @IBAction func continueButtonPressed(_ sender: Any) {
         (self.viewController() as! SubscriptionViewController).continueButtonPressed()
     }

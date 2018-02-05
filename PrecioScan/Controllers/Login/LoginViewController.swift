@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailAnimatedControl: AnimatedInputControl!
     @IBOutlet weak var loginButton: TransitionButton!
     
-    var debugMode: Bool = true
+    var debugMode: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

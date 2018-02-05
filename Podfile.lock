@@ -12,10 +12,35 @@ PODS:
     - AXPhotoViewer/Core
   - AXStateButton (1.1.3)
   - BadgeSwift (5.0.1)
+  - Bolts (1.9.0):
+    - Bolts/AppLinks (= 1.9.0)
+    - Bolts/Tasks (= 1.9.0)
+  - Bolts/AppLinks (1.9.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.9.0)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
   - DynamicButton (5.0.0)
+  - FacebookCore (0.3.0):
+    - Bolts (~> 1.8)
+    - FBSDKCoreKit (~> 4.27)
+  - FacebookLogin (0.3.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.3)
+    - FBSDKCoreKit (~> 4.27)
+    - FBSDKLoginKit (~> 4.27)
+  - FacebookShare (0.3.0):
+    - Bolts (~> 1.8)
+    - FacebookCore (~> 0.3)
+    - FBSDKCoreKit (~> 4.27)
+    - FBSDKShareKit (~> 4.27)
+  - FBSDKCoreKit (4.29.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.29.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.29.0):
+    - FBSDKCoreKit
   - Firebase/Auth (4.8.1):
     - Firebase/Core
     - FirebaseAuth (= 4.4.2)
@@ -94,6 +119,9 @@ DEPENDENCIES:
   - BadgeSwift (~> 5.0)
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
   - DynamicButton (~> 5.0.0)
+  - FacebookCore
+  - FacebookLogin
+  - FacebookShare
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -142,8 +170,15 @@ SPEC CHECKSUMS:
   AXPhotoViewer: fb4aa2cbbf7603f693aefc9f6a81dab3dbe0ab32
   AXStateButton: b42f7132f4d8232fc342d004e4738b84923a93e9
   BadgeSwift: 3defa56f504bfb46f2300122c4a565ec9e405c1e
+  Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DynamicButton: 4c2fef968e4aa0a8a6ed7ca6b8a58c8e21a36cdc
+  FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
+  FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
+  FacebookShare: 0469964297ebd75f052be2c5083389a4208e82b7
+  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
+  FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
+  FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
   Firebase: 2721056b8885eef90233b03f37be64358d35d262
   FirebaseAnalytics: 617afa8c26b57a0c3f11361b248bc9e17bfd8dfd
   FirebaseAuth: bd2738c5c1e92b108ba5f7f7335908097a4e50bb
@@ -171,6 +206,6 @@ SPEC CHECKSUMS:
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
   TransitionButton: 82a065bd97f9434ecfa7bb3a15306aec1b5a5894
 
-PODFILE CHECKSUM: 4c55be2f993be7e845f899fc50642e680352571b
+PODFILE CHECKSUM: 869fcfdf1245beeba357a6008904baff58ff7bca
 
 COCOAPODS: 1.4.0

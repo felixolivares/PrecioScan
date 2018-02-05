@@ -32,6 +32,9 @@ target 'PrecioScan' do
   pod 'SwiftyStoreKit'
   pod 'SwiftyOnboard'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
   
   target 'PrecioScanTests' do
     inherit! :search_paths

@@ -182,6 +182,8 @@ struct Constants {
         public static let articleItem = "Articulos"
         public static let configurationItem = "Configuracion"
         public static let subscritpionIten = "Suscripción"
+        public static let inviteFriendsItem = "Invitar Amigos"
+        public static let contactUsItem = "Contáctanos"
         public static let logoutItem = "Cerrar Sesión"
     }
     
@@ -228,6 +230,13 @@ struct Constants {
         public static let bannerSearchStoresSmallId = "ca-app-pub-3913769475917328/1720960184"
         public static let bannerSeachStoresIABMediumId = "ca-app-pub-3913769475917328/2014148819"
         public static let interstitialListDetailId = "ca-app-pub-3913769475917328/6722554161"
+        public static let bannerArticlesListId = "ca-app-pub-3913769475917328/8559299880"
+    }
+    
+    struct Email{
+        public static let recipients = "precioscan1@gmail.com"
+        public static let subject = "Comentarios acerca PrecioScan"
+        public static let messageBody = "Hola PrecioScan, estos son mis commentarios..."
     }
 }
 
@@ -289,6 +298,10 @@ struct ImageNames{
     public static let crwonIconWhite = "crownIconWhite"
     public static let subscribeBannerGreen = "subscribeBannerGreen"
     public static let profilePlaceholder = "profilePlaceholder"
+    public static let facebookIcon = "facebookIcon"
+    public static let facebook2Icon = "facebook2Icon"
+    public static let contact1Icon = "contact1Icon"
+    public static let contact2Icon = "contact2Icon"
 }
 
 //States
@@ -365,4 +378,6 @@ struct FRAttribute {
     public static let citySearch = "citySearch"
     public static let uid = "uid"
     public static let itemLists = "itemLists"
+    public static let isSubscribed = "isSubscribed"
+    public static let subscriptionDate = "subscriptionDate"
 }

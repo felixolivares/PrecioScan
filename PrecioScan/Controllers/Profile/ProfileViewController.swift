@@ -10,6 +10,7 @@ import UIKit
 import DynamicButton
 import InteractiveSideMenu
 import ALCameraViewController
+import GoogleMobileAds
 
 class ProfileViewController: UIViewController, SideMenuItemContent {
 
@@ -19,10 +20,12 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     @IBOutlet weak var emailAnimatedControl: AnimatedInputControl!
     
     var currentUser: User!
+    var interstitialAd: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.currentUser = UserManager.shared.getCurrentUser()
+        interstitialAd = createAndLoadInterstitial()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +61,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
         persistentContainer.updateUser(object: self.currentUser, name: nameAnimatedControl.valueTextField.text!, photoName: nil, isLogged: nil, completionHandler: { finished, error in
             guard error == nil else {Popup.show(withError: error! as NSError, vc: self);return}
             if finished {
-                FirebaseOperations().updateCurrentUser(displayName: self.nameAnimatedControl.valueTextField.text, photoURL: self.currentUser.photoName)
+                FirebaseOperations().updateUserLoggedIn(displayName: self.nameAnimatedControl.valueTextField.text, photoURL: self.currentUser.photoName)
                 Popup.show(message: Constants.Profile.infoUpdated, vc: self)
             }
         })
@@ -75,6 +78,23 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
         profileImageView.layer.borderWidth = 6.0
     }
     
+    func createAndLoadInterstitial() -> GADInterstitial{
+        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId)
+        interstitial.delegate = self
+        interstitial.load(AdsManager.shared.getRequest())
+        return interstitial
+    }
+    
+    func showInterstitial(){
+        guard !UserManager.shared.userIsSuscribed() else {_ = self.navigationController?.popViewController(animated: true);return}
+        if interstitialAd.isReady {
+            interstitialAd.present(fromRootViewController: self)
+        } else {
+            print("Ad wasn't ready")
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+    }
+    
     func loadProfilePhoto(){
         guard let photoName = self.currentUser.photoName, let photo = FilesManager.shared.getProfileImage(photoName: photoName) else {self.profileImageView.image = UIImage(named: ImageNames.profilePlaceholder);return}
         self.profileImageView.image = photo
@@ -83,7 +103,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     func takePhoto(){
         let cropParameters = CroppingParameters.init(isEnabled: true, allowResizing: true, allowMoving: true, minimumSize: CGSize(width: 60, height: 60))
         let cameraViewController = CameraViewController(croppingParameters: cropParameters, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
-            guard image != nil else{self?.dismiss(animated: true, completion: nil); return}
+            guard image != nil else{self?.dismiss(animated: true, completion: nil); self?.showInterstitial();return}
             let uuid = UUID().uuidString
             print("Photo uuid generated: \(uuid)")
             if FilesManager.shared.saveProfileImage(image: image!, photoName: uuid){
@@ -97,7 +117,21 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
                 print("Image not saved")
             }
             self?.dismiss(animated: true, completion: nil)
+            self?.showInterstitial()
         }
         present(cameraViewController, animated: true, completion: nil)
     }
 }
+
+extension ProfileViewController: GADInterstitialDelegate{
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        _ = self.navigationController?.popViewController(animated: true)
+        interstitialAd = createAndLoadInterstitial()
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("Ad received")
+    }
+}
+

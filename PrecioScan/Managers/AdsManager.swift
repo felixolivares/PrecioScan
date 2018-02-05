@@ -15,7 +15,7 @@ class AdsManager: NSObject {
     private let adRequest = GADRequest()
     
     public func getRequest() -> GADRequest {
-        adRequest.testDevices = ["83e00fd76a3f30b0f778eff61eb2718a", kGADSimulatorID]
+        //adRequest.testDevices = ["83e00fd76a3f30b0f778eff61eb2718a", kGADSimulatorID]
         return adRequest
     }
 }

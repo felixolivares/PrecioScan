@@ -57,7 +57,7 @@ class FirebaseOperations: NSObject {
                 Auth.auth().currentUser?.sendEmailVerification(){error in
                     if error == nil{
                         UserManager.shared.logIn(email: email)
-                        self.updateCurrentUser(displayName: username, photoURL: nil)
+                        self.updateUserLoggedIn(displayName: username, photoURL: nil)
                         Popup.show(OKWithCompletionAndMessage: Warning.CreateAccount.usersaved, title: Constants.Popup.Titles.ready , vc: vc){ _ in
                             button.stopAnimation(animationStyle: .expand, completion: {
                                 vc.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
@@ -102,7 +102,7 @@ class FirebaseOperations: NSObject {
     }
     
     //MARK: - Update current user
-    public func updateCurrentUser(displayName: String?, photoURL: String?){
+    public func updateUserLoggedIn(displayName: String?, photoURL: String?){
         self.networkActiviyIndicator(value: true)
         let user = Auth.auth().currentUser
         if let user = user {
@@ -131,6 +131,12 @@ class FirebaseOperations: NSObject {
     public func addUser(){
         let user = Auth.auth().currentUser
         let values: [String: String?] = [FRAttribute.username: user?.displayName, FRAttribute.email: user?.email, FRAttribute.photoName: user?.photoURL?.absoluteString]
+        self.ref.child(FRTable.user).child((user?.uid)!).setValue(values)
+    }
+    
+    public func updateCurrentUser(withSubscriptionDate date: Date, isSubscribed: Bool){
+        let user = UserManager.shared.getCurrentUser()
+        let values: [String: Any?] = [FRAttribute.username: user?.name, FRAttribute.email: user?.email, FRAttribute.photoName: user?.photoName, FRAttribute.isSubscribed: isSubscribed, FRAttribute.subscriptionDate: date.timeIntervalSince1970]
         self.ref.child(FRTable.user).child((user?.uid)!).setValue(values)
     }
     
@@ -219,6 +225,24 @@ class FirebaseOperations: NSObject {
                stores.append(newStore)
             }
             completionHandler(stores, nil)
+        })
+    }
+    
+    public func searchCurrentUser(withId uid: String, completionHandler: @escaping(TempUser?) -> Void){
+        self.ref.child(FRTable.user).child(uid).observe(.value, with:{ snapshot in
+            if snapshot.exists(){
+                var userDic = snapshot.value as! [String:Any]
+                print("User dict: \(userDic)")
+                let tmpUser = TempUser.init(email: userDic[FRAttribute.email] as! String,
+                                            isSubscribed: userDic[FRAttribute.isSubscribed] as? Bool ?? false,
+                                            uid: uid,
+                                            subscriptionDate: userDic[FRAttribute.subscriptionDate] as? Double ?? nil,
+                                            username: userDic[FRAttribute.username] as! String)
+                print("Temp User: \(tmpUser)")
+                completionHandler(tmpUser)
+            } else {
+                completionHandler(nil)
+            }
         })
     }
     

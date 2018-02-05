@@ -412,6 +412,19 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
+    public func save(completionHandler: @escaping(Bool, Error?) -> Void){
+        stack.mainContext.performAndWait {
+            saveContext(stack.mainContext){ result in
+                switch result{
+                case .success:
+                    completionHandler(true, nil)
+                case .failure:
+                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+                }
+            }
+        }
+    }
+    
     public func getUserLoggedIn() -> User?{
         var fetchRequest: NSFetchRequest<User>
         fetchRequest = User.fetchRequest

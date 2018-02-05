@@ -88,6 +88,7 @@
 		30B76BDD2011AAF1003A28B7 /* PageFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B76BDC2011AAF1003A28B7 /* PageFour.swift */; };
 		30B76BDF2011AB37003A28B7 /* PageFour.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30B76BDE2011AB37003A28B7 /* PageFour.xib */; };
 		30B76BE22012BF20003A28B7 /* InAppPurchasesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B76BE12012BF20003A28B7 /* InAppPurchasesManager.swift */; };
+		30B7969120213382000E4261 /* TempUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B7969020213382000E4261 /* TempUser.swift */; };
 		30BD65A01F8FDB17002DCD90 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD659F1F8FDB17002DCD90 /* Errors.swift */; };
 		30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A11F9005EE002DCD90 /* Popup.swift */; };
 		30BD65A61F90740C002DCD90 /* BarcodeLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BD65A51F90740C002DCD90 /* BarcodeLine.swift */; };
@@ -211,6 +212,7 @@
 		30B76BDC2011AAF1003A28B7 /* PageFour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFour.swift; sourceTree = "<group>"; };
 		30B76BDE2011AB37003A28B7 /* PageFour.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PageFour.xib; sourceTree = "<group>"; };
 		30B76BE12012BF20003A28B7 /* InAppPurchasesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesManager.swift; sourceTree = "<group>"; };
+		30B7969020213382000E4261 /* TempUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempUser.swift; sourceTree = "<group>"; };
 		30BD659F1F8FDB17002DCD90 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		30BD65A11F9005EE002DCD90 /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		30BD65A51F90740C002DCD90 /* BarcodeLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeLine.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 				301682CB1FCE9BE700559A3B /* TempStore.swift */,
 				30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */,
 				306B7B1C1FFEB77E0054F1CE /* Model7-8.xcmappingmodel */,
+				30B7969020213382000E4261 /* TempUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -669,7 +672,7 @@
 				TargetAttributes = {
 					30FFE61D1F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -817,9 +820,16 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/BadgeSwift/BadgeSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -847,9 +857,16 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GMStepper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -1019,6 +1036,7 @@
 				306B7B1D1FFEB77E0054F1CE /* Model7-8.xcmappingmodel in Sources */,
 				308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */,
 				306AC7781FA0216A0096814C /* MenuItemTableViewCell.swift in Sources */,
+				30B7969120213382000E4261 /* TempUser.swift in Sources */,
 				30083B741F88A744006274C9 /* DefineColors.swift in Sources */,
 				3021562420116A0A002B9500 /* PageOne.swift in Sources */,
 				30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */,
@@ -1198,8 +1216,8 @@
 			baseConfigurationReference = 516C364AF82B1D3E5ABC8B00 /* Pods-PrecioScan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
@@ -1207,8 +1225,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d755ee55-296e-4e49-ab50-8576d461c540";
+				PROVISIONING_PROFILE_SPECIFIER = "PrecioScan-Distribution";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1219,8 +1237,8 @@
 			baseConfigurationReference = 50F7ACDCD7E3559EECE3E1BD /* Pods-PrecioScan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
@@ -1228,8 +1246,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d755ee55-296e-4e49-ab50-8576d461c540";
+				PROVISIONING_PROFILE_SPECIFIER = "PrecioScan-Distribution";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

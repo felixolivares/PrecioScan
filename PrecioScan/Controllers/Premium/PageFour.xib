@@ -12,6 +12,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Ubuntu-Bold.otf">
+            <string>Ubuntu-Bold</string>
+        </array>
         <array key="Ubuntu-Light.otf">
             <string>Ubuntu-Light</string>
         </array>
@@ -42,9 +45,6 @@ y podrás</string>
                         <constraint firstAttribute="height" constant="10" id="fbx-4t-cGG"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerGray">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="corner">
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
@@ -79,9 +79,6 @@ y podrás</string>
                         <constraint firstAttribute="height" constant="10" id="YoI-kK-kg1"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerGray">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="corner">
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
@@ -104,9 +101,6 @@ y podrás</string>
                         <constraint firstAttribute="width" constant="10" id="oKX-4h-2b8"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerGray">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="corner">
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
@@ -129,9 +123,6 @@ y podrás</string>
                         <constraint firstAttribute="height" constant="10" id="jvN-sw-MZC"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="cornerGray">
-                            <real key="value" value="5"/>
-                        </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="corner">
                             <real key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
@@ -163,6 +154,19 @@ y podrás</string>
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="buyButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="lBO-vT-3Me"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOw-fw-eDk">
+                    <rect key="frame" x="132" y="616" width="150" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="GJs-W5-KKz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
+                    <state key="normal" title="Restaurar Compra">
+                        <color key="titleColor" red="0.70980392156862748" green="0.73333333333333328" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="restoreButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="ceg-VX-8gR"/>
                     </connections>
                 </button>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="2Te-7R-KT7">
@@ -243,6 +247,7 @@ y podrás</string>
                 <constraint firstItem="u1w-9K-KKL" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="C0j-dj-UlT"/>
                 <constraint firstItem="8xp-Pz-zzE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="70" id="DDx-gC-lxX"/>
                 <constraint firstAttribute="trailing" secondItem="qEj-mf-phC" secondAttribute="trailing" constant="20" id="DXr-TA-7F0"/>
+                <constraint firstItem="SOw-fw-eDk" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ENZ-Bu-RPg"/>
                 <constraint firstItem="2Te-7R-KT7" firstAttribute="centerY" secondItem="u1w-9K-KKL" secondAttribute="centerY" id="EUQ-VI-tv8"/>
                 <constraint firstItem="dCN-7N-Rsq" firstAttribute="top" secondItem="8xp-Pz-zzE" secondAttribute="bottom" constant="14" id="Gq9-NQ-oA5"/>
                 <constraint firstItem="qEj-mf-phC" firstAttribute="leading" secondItem="ZWT-a1-WkT" secondAttribute="trailing" constant="8" id="IAg-VY-D5E"/>
@@ -251,6 +256,7 @@ y podrás</string>
                 <constraint firstItem="nSi-Mi-HHq" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="PFs-ju-r3b"/>
                 <constraint firstItem="dCN-7N-Rsq" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-10" id="Pn8-Tr-7vi"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="u1w-9K-KKL" secondAttribute="bottom" constant="30" id="U1d-LT-iFk"/>
+                <constraint firstItem="u1w-9K-KKL" firstAttribute="top" secondItem="SOw-fw-eDk" secondAttribute="bottom" constant="16" id="Vea-Sx-F6Z"/>
                 <constraint firstItem="u1w-9K-KKL" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.92" id="XlA-sg-Wc2"/>
                 <constraint firstItem="nSi-Mi-HHq" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Yzy-9l-UeA"/>
                 <constraint firstItem="V6c-cu-esX" firstAttribute="leading" secondItem="2Xo-u0-jTi" secondAttribute="trailing" constant="8" id="ajo-T7-YcQ"/>

@@ -8,8 +8,19 @@
 
 import UIKit
 import InteractiveSideMenu
+import MessageUI
+import FBSDKShareKit
+import FBSDKCoreKit
 
-class NavigationMenuViewController: MenuViewController {
+class NavigationMenuViewController: MenuViewController, FBSDKAppInviteDialogDelegate {
+    func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [AnyHashable : Any]!) {
+        print("")
+    }
+    
+    func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: Error!) {
+        print("")
+    }
+    
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!
@@ -21,8 +32,8 @@ class NavigationMenuViewController: MenuViewController {
     
     var debugIsSubscribed: Bool = false
     
-    let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.subscritpionIten, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.logoutItem]
-    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.crwonIconWhite, ImageNames.configurationIcon, ImageNames.logoutIcon]
+    let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.subscritpionIten, Constants.NavigationMenu.contactUsItem, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.logoutItem]
+    let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.crwonIconWhite, ImageNames.contact1Icon, ImageNames.configurationIcon, ImageNames.logoutIcon]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +42,7 @@ class NavigationMenuViewController: MenuViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        updateUserSubscribed(isSubscribed: false)
+        //updateUserSubscribed(isSubscribed: debugIsSubscribed)
         currentUser = UserManager.shared.getCurrentUser()
         setUserInformation()
         loadProfilePhoto()
@@ -86,6 +97,26 @@ class NavigationMenuViewController: MenuViewController {
         menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers.last!)
         menuContainerViewController.hideSideMenu()
     }
+    
+    func sendEmail(){
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+        
+        // Configure the fields of the interface.
+        composeVC.setToRecipients([Constants.Email.recipients])
+        composeVC.setSubject(Constants.Email.subject)
+        composeVC.setMessageBody(Constants.Email.messageBody, isHTML: false)
+        
+        // Present the view controller modally.
+        self.present(composeVC, animated: true, completion: nil)
+    }
+    
+    func facebookShare(){
+        let whatsappURL:NSURL? = NSURL(string: "whatsapp://send?text=Hello%2C%20World!")
+        if (UIApplication.shared.canOpenURL(whatsappURL! as URL)) {
+            UIApplication.shared.openURL(whatsappURL! as URL)
+        }
+    }
 }
 
 extension NavigationMenuViewController: UITableViewDataSource, UITableViewDelegate{
@@ -106,14 +137,20 @@ extension NavigationMenuViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55.0
+        return 53.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let menuContainerViewController = self.menuContainerViewController else {
             return
         }
-        if indexPath.row == menuContainerViewController.contentViewControllers.count - 1{
+        switch indexPath.row {
+        case 4:
+            self.sendEmail()
+        case 5:
+            menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[4])
+            menuContainerViewController.hideSideMenu()
+        case 6:
             FirebaseOperations().signOut(vc: self){ success, error in
                 if success{
                     menuContainerViewController.hideSideMenu()
@@ -121,9 +158,16 @@ extension NavigationMenuViewController: UITableViewDataSource, UITableViewDelega
                     Popup.show(withError: error!, vc: self)
                 }
             }
-        } else {
+        default:
             menuContainerViewController.selectContentViewController(menuContainerViewController.contentViewControllers[indexPath.row])
             menuContainerViewController.hideSideMenu()
         }
+    }
+}
+
+extension NavigationMenuViewController: MFMailComposeViewControllerDelegate{
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
     }
 }

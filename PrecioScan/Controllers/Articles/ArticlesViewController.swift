@@ -9,6 +9,7 @@
 import UIKit
 import DynamicButton
 import TableViewReloadAnimation
+import GoogleMobileAds
 
 class ArticlesViewController: UIViewController {
 
@@ -16,6 +17,8 @@ class ArticlesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBarContainer: UIView!
     @IBOutlet weak var articlesCountLabel: UILabel!
+    @IBOutlet weak var bannerViewArticles: GADBannerView!
+    @IBOutlet weak var bannerViewArticlesHeightConstarint: NSLayoutConstraint!
     
     var articles: [Article] = []
     var filteredArticles: [Article] = []
@@ -69,6 +72,7 @@ class ArticlesViewController: UIViewController {
         (self.navigationController as! NavigationArticlesViewController).showSideMenu()
     }
     func configure(){
+        configureAd()
         configureComponents()
         configureTable()
         configureSearchController()
@@ -77,6 +81,7 @@ class ArticlesViewController: UIViewController {
     func configureComponents(){
         UserManager.shared.verifyUserIsLogged(vc: self)
         hamburgerButton.setStyle(.hamburger, animated: false)
+        adsViewabilty()
     }
     
     func configureTable(){
@@ -102,6 +107,21 @@ class ArticlesViewController: UIViewController {
         definesPresentationContext = true
     }
     
+    func configureAd(){
+        bannerViewArticles.adSize = kGADAdSizeBanner
+        bannerViewArticles.adUnitID = testingAds ? Constants.Admob.bannerTestId : Constants.Admob.bannerArticlesListId
+        bannerViewArticles.rootViewController = self
+        bannerViewArticles.delegate = self
+        bannerViewArticles.load(AdsManager.shared.getRequest())
+    }
+    
+    func adsViewabilty(){
+        if UserManager.shared.userIsSuscribed() {
+            bannerViewArticles.isHidden = true
+            bannerViewArticlesHeightConstarint.constant = 0
+            self.view.layoutIfNeeded()
+        }
+    }
     func fetchArticles(){
         CoreDataManager.shared.articles(findWithCode: nil){_, articlesFetched, error in
             guard error == nil else {Popup.show(withError: error! as NSError, vc: self); return}
@@ -190,5 +210,15 @@ extension ArticlesViewController: UISearchResultsUpdating {
             articlesCountLabel.text = String(describing: articles.count)
             self.tableView.reloadData()
         }
+    }
+}
+
+//MARk: - Admob ads
+extension ArticlesViewController: GADBannerViewDelegate{
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        bannerView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            bannerView.alpha = 1
+        })
     }
 }

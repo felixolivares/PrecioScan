@@ -42,7 +42,6 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     var titleText = String()
     
     var interstitialAd: GADInterstitial!
-    var interstitialAdReceived: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -195,6 +194,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     }
     
     func showInterstitial(){
+        guard !UserManager.shared.userIsSuscribed() else {_ = self.navigationController?.popViewController(animated: true);return}
         if interstitialAd.isReady {
             interstitialAd.present(fromRootViewController: self)
         } else {
@@ -391,6 +391,5 @@ extension CreateListViewController: GADInterstitialDelegate{
     
     func interstitialDidReceiveAd(_ ad: GADInterstitial) {
         print("Ad received")
-        interstitialAdReceived = true
     }
 }

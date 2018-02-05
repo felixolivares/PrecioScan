@@ -31,7 +31,17 @@ class UserManager: NSObject {
     }
     
     static func setCurrentUser(user: User){
-        self.currentUser = user 
+        self.currentUser = user
+        FirebaseOperations().searchCurrentUser(withId: user.uid!, completionHandler: { tmpUser in
+            if let user = tmpUser{
+                self.currentUser.isSuscribed = user.isSubscribed
+                persistentContainer.save(completionHandler: { finished, error in
+                    if finished && error == nil{
+                        print("User updated and saved")
+                    }
+                })
+            }
+        })
     }
     
     public func getCurrentUser() -> User? {
@@ -116,6 +126,10 @@ class UserManager: NSObject {
     }
     
     public func userIsSuscribed() -> Bool{
-        return UserManager.currentUser.isSuscribed
+        if let user = UserManager.currentUser {
+            return user.isSuscribed
+        } else {
+            return false
+        }
     }
 }

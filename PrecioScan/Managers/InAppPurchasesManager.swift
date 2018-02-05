@@ -38,10 +38,6 @@ class InAppPurchasesManager: NSObject {
                 self.retrieveProducts(completionHandler: { product, error in
                     if product != nil {
                         self.delegate?.connectionChanged(withConnectionStatus: true, productPrice: product?.localizedPrice)
-//                        let productDict: [String:String] = [Identifiers.productIdentifier: (product?.localizedPrice)!]
-//                        NotificationCenter.default.post(name: Notification.Name(Identifiers.Notifications.connectionChanged), object: nil, userInfo: productDict)
-                    } else {
-                        //self.verifyConnectionAndRetrieveProduct()
                     }
                 })
             }
@@ -92,7 +88,7 @@ class InAppPurchasesManager: NSObject {
             switch result {
             case .success(let purchase):
                 print("Purchase Success: \(purchase.productId)")
-                self.updateUserSubscribed(isSubscribed: true)
+                self.updateUserSubscription(isSubscribed: true, purchaseDate: DateOperations().getCurrentLocalDate())
                 completionHandler(true, nil)
             case .error(let error):
                 completionHandler(false, error)
@@ -111,10 +107,29 @@ class InAppPurchasesManager: NSObject {
         }
     }
     
-    func updateUserSubscribed(isSubscribed: Bool){
+    public func restorePurchase(completionHandler: @escaping(Bool?, SKError?) -> Void){
+        SwiftyStoreKit.restorePurchases(atomically: true) { results in
+            if results.restoreFailedPurchases.count > 0 {
+                print("Restore Failed: \(results.restoreFailedPurchases)")
+                completionHandler(false, results.restoreFailedPurchases.first?.0)
+            }
+            else if results.restoredPurchases.count > 0 {
+                print("Restore Success: \(results.restoredPurchases)")
+                self.updateUserSubscription(isSubscribed: true, purchaseDate: DateOperations().getCurrentLocalDate())
+                completionHandler(true, nil)
+            }
+            else {
+                print("Nothing to Restore")
+                completionHandler(nil, nil)
+            }
+        }
+    }
+    
+    private func updateUserSubscription(isSubscribed: Bool, purchaseDate: Date){
         persistentContainer.updateUserSubscription(object: UserManager.shared.getCurrentUser()!, isSubscribed: isSubscribed, completionHandler: { finished, error in
             if finished {
                 print("User updated")
+                FirebaseOperations().updateCurrentUser(withSubscriptionDate: purchaseDate, isSubscribed: isSubscribed)
             }
         })
     }
