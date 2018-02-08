@@ -70,14 +70,14 @@ struct Warning {
     }
     
     struct Profile{
-        public static let completeName = "El nombre no debe estar vacio"
+        public static let completeFields = "Los campos no deben estar vacíos"
     }
 }
 
 struct Constants {
     struct CreateList {
         public static let addStoreText = "Buscar y agregar tienda nueva..."
-        public static let selectStoreText = "Seleccionar una tienda"
+        public static let selectStoreText = "Selecciona una tienda"
         public static let createListTItle = "Crear Lista"
         public static let listTitle = "Detalle de Lista"
         public static let deleteCellText = "Borrar"

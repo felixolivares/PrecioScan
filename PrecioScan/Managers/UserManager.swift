@@ -92,7 +92,9 @@ class UserManager: NSObject {
                         CoreDataManager.shared.updateUser(object: finalUser,
                                                           name: finalUser.name,
                                                           photoName: finalUser.photoName,
-                                                          isLogged: isLogged){ finished, error in
+                                                          isLogged: isLogged,
+                                                          state: nil,
+                                                          city: nil){ finished, error in
                             UserManager.currentUser = finalUser
                             print("Current user: \(String(describing: finalUser.email)) - Is Logged: \(String(describing: finalUser.isLogged)) - Uid: \(String(describing: (finalUser.uid)!))")
                         }
@@ -102,6 +104,8 @@ class UserManager: NSObject {
                                                     password: nil,
                                                     name: (FRUser?.displayName)!,
                                                     photoName: nil,
+                                                    state: nil,
+                                                    city: nil,
                                                     isLogged: true,
                                                     uid: FRUser?.uid){ user, error in
                         UserManager.currentUser = user

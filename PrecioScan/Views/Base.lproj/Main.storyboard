@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
@@ -1051,7 +1052,7 @@
             </objects>
             <point key="canvasLocation" x="-714" y="2209"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Data Source-->
         <scene sceneID="dsq-d6-mb1">
             <objects>
                 <viewController storyboardIdentifier="Profile" id="BZM-p7-oaT" customClass="ProfileViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
@@ -1112,53 +1113,8 @@
                                     <constraint firstAttribute="width" secondItem="OrW-he-Cac" secondAttribute="height" multiplier="1:1" id="Pa2-nP-qbb"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51W-dS-Z74" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="239" width="375" height="50"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRK-vj-vMY" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
-                                        <color key="backgroundColor" red="0.79607843140000001" green="0.79215686269999996" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="ipQ-2A-gGC"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCp-ix-HEx" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="57" height="16"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
-                                        <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7p4-fb-1Ap">
-                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="c4m-6P-YKg"/>
-                                        </constraints>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="leading" secondItem="51W-dS-Z74" secondAttribute="leading" constant="25" id="5EF-D4-Q8U"/>
-                                    <constraint firstAttribute="height" constant="50" id="AiM-1q-hen"/>
-                                    <constraint firstItem="BCp-ix-HEx" firstAttribute="top" secondItem="51W-dS-Z74" secondAttribute="top" constant="24" id="Djr-wW-3Sb"/>
-                                    <constraint firstAttribute="trailing" secondItem="gRK-vj-vMY" secondAttribute="trailing" constant="25" id="K6l-A7-0WM"/>
-                                    <constraint firstAttribute="bottom" secondItem="gRK-vj-vMY" secondAttribute="bottom" constant="3" id="Zzo-WV-QI7"/>
-                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="leading" secondItem="BCp-ix-HEx" secondAttribute="leading" id="hYb-mz-icz"/>
-                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="trailing" secondItem="7p4-fb-1Ap" secondAttribute="trailing" id="mQa-Ko-GP8"/>
-                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="leading" secondItem="7p4-fb-1Ap" secondAttribute="leading" id="sHZ-vP-HNI"/>
-                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="top" secondItem="7p4-fb-1Ap" secondAttribute="bottom" id="z25-f7-FIO"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="nameLabel" destination="BCp-ix-HEx" id="4uj-E6-qNN"/>
-                                    <outlet property="nameLabelTopConstraint" destination="Djr-wW-3Sb" id="rl2-4v-CQj"/>
-                                    <outlet property="underline" destination="gRK-vj-vMY" id="dKH-PH-va4"/>
-                                    <outlet property="valueTextField" destination="7p4-fb-1Ap" id="3A9-v1-dFQ"/>
-                                </connections>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDC-QJ-eUw" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="309" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="239" width="375" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vVx-lF-CZo" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
                                         <rect key="frame" x="25" y="45" width="325" height="2"/>
@@ -1202,6 +1158,126 @@
                                     <outlet property="valueTextField" destination="gvx-h7-aTd" id="oRq-aT-5fv"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51W-dS-Z74" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="309" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gRK-vj-vMY" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
+                                        <color key="backgroundColor" red="0.79607843140000001" green="0.79215686269999996" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="ipQ-2A-gGC"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCp-ix-HEx" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="24" width="57" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7p4-fb-1Ap">
+                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="c4m-6P-YKg"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="leading" secondItem="51W-dS-Z74" secondAttribute="leading" constant="25" id="5EF-D4-Q8U"/>
+                                    <constraint firstAttribute="height" constant="50" id="AiM-1q-hen"/>
+                                    <constraint firstItem="BCp-ix-HEx" firstAttribute="top" secondItem="51W-dS-Z74" secondAttribute="top" constant="24" id="Djr-wW-3Sb"/>
+                                    <constraint firstAttribute="trailing" secondItem="gRK-vj-vMY" secondAttribute="trailing" constant="25" id="K6l-A7-0WM"/>
+                                    <constraint firstAttribute="bottom" secondItem="gRK-vj-vMY" secondAttribute="bottom" constant="3" id="Zzo-WV-QI7"/>
+                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="leading" secondItem="BCp-ix-HEx" secondAttribute="leading" id="hYb-mz-icz"/>
+                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="trailing" secondItem="7p4-fb-1Ap" secondAttribute="trailing" id="mQa-Ko-GP8"/>
+                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="leading" secondItem="7p4-fb-1Ap" secondAttribute="leading" id="sHZ-vP-HNI"/>
+                                    <constraint firstItem="gRK-vj-vMY" firstAttribute="top" secondItem="7p4-fb-1Ap" secondAttribute="bottom" id="z25-f7-FIO"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="BCp-ix-HEx" id="4uj-E6-qNN"/>
+                                    <outlet property="nameLabelTopConstraint" destination="Djr-wW-3Sb" id="rl2-4v-CQj"/>
+                                    <outlet property="underline" destination="gRK-vj-vMY" id="dKH-PH-va4"/>
+                                    <outlet property="valueTextField" destination="7p4-fb-1Ap" id="3A9-v1-dFQ"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86m-s8-izT">
+                                <rect key="frame" x="25" y="396" width="45" height="16"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-Wt-4gt" customClass="MKDropdownMenu">
+                                <rect key="frame" x="17" y="389" width="338" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="L03-92-rRY"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BZM-p7-oaT" id="bqC-L8-GYO"/>
+                                    <outlet property="delegate" destination="BZM-p7-oaT" id="Ufj-rj-SL2"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Estado" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1c-ad-fh8">
+                                <rect key="frame" x="25" y="394" width="330" height="19.5"/>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="knf-Yd-fdj">
+                                <rect key="frame" x="23" y="419" width="325" height="2"/>
+                                <color key="backgroundColor" red="0.79607843137254897" green="0.792156862745098" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="YxN-fn-vOS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oqG-Ue-EAj" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="436" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pS0-Vy-lYC" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
+                                        <color key="backgroundColor" red="0.79607843140000001" green="0.79215686269999996" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="OXj-Ph-xbA"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ciudad:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfc-pv-d9r" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="24" width="49" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="13c-uD-pEK">
+                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="B6Y-R7-JfT"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="pS0-Vy-lYC" firstAttribute="top" secondItem="13c-uD-pEK" secondAttribute="bottom" id="B02-tf-vw1"/>
+                                    <constraint firstAttribute="trailing" secondItem="pS0-Vy-lYC" secondAttribute="trailing" constant="25" id="Blm-An-06F"/>
+                                    <constraint firstItem="pS0-Vy-lYC" firstAttribute="trailing" secondItem="13c-uD-pEK" secondAttribute="trailing" id="GJl-sz-SGr"/>
+                                    <constraint firstItem="pS0-Vy-lYC" firstAttribute="leading" secondItem="oqG-Ue-EAj" secondAttribute="leading" constant="25" id="GRj-kf-AHe"/>
+                                    <constraint firstItem="bfc-pv-d9r" firstAttribute="top" secondItem="oqG-Ue-EAj" secondAttribute="top" constant="24" id="N2A-V7-ylS"/>
+                                    <constraint firstItem="pS0-Vy-lYC" firstAttribute="leading" secondItem="bfc-pv-d9r" secondAttribute="leading" id="Z2e-ef-zp5"/>
+                                    <constraint firstAttribute="bottom" secondItem="pS0-Vy-lYC" secondAttribute="bottom" constant="3" id="hsG-gM-yAD"/>
+                                    <constraint firstAttribute="height" constant="50" id="kMH-sB-qHD"/>
+                                    <constraint firstItem="pS0-Vy-lYC" firstAttribute="leading" secondItem="13c-uD-pEK" secondAttribute="leading" id="oeY-4M-Grq"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="bfc-pv-d9r" id="mSI-hP-f9z"/>
+                                    <outlet property="nameLabelTopConstraint" destination="N2A-V7-ylS" id="dbC-vP-ECv"/>
+                                    <outlet property="underline" destination="pS0-Vy-lYC" id="aWH-1H-Yj0"/>
+                                    <outlet property="valueTextField" destination="13c-uD-pEK" id="eor-lK-0rf"/>
+                                </connections>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cameraIconGrey" translatesAutoresizingMaskIntoConstraints="NO" id="Tyf-2q-9T9">
                                 <rect key="frame" x="262" y="205" width="25" height="20"/>
                                 <constraints>
@@ -1238,35 +1314,54 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PON-49-efv" firstAttribute="leading" secondItem="hw9-EY-4cU" secondAttribute="leading" constant="25" id="04D-pS-fYD"/>
+                            <constraint firstItem="oqG-Ue-EAj" firstAttribute="trailing" secondItem="hw9-EY-4cU" secondAttribute="trailing" id="3EB-Gu-qEa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="knf-Yd-fdj" secondAttribute="trailing" constant="11" id="3fT-jr-eIt"/>
                             <constraint firstItem="51W-dS-Z74" firstAttribute="leading" secondItem="hw9-EY-4cU" secondAttribute="leading" id="6P1-zF-P64"/>
                             <constraint firstItem="Tyf-2q-9T9" firstAttribute="trailing" secondItem="0gD-I9-GQu" secondAttribute="trailing" id="8pz-oc-bg1"/>
                             <constraint firstItem="0gD-I9-GQu" firstAttribute="top" secondItem="OrW-he-Cac" secondAttribute="top" id="CmU-ek-PHf"/>
-                            <constraint firstItem="51W-dS-Z74" firstAttribute="top" secondItem="OrW-he-Cac" secondAttribute="bottom" constant="14" id="DmL-3V-Sbc"/>
                             <constraint firstItem="dV6-vH-Nuz" firstAttribute="top" secondItem="eLU-Lj-3Ud" secondAttribute="top" id="HJa-QU-vsZ"/>
                             <constraint firstItem="OrW-he-Cac" firstAttribute="top" secondItem="dV6-vH-Nuz" secondAttribute="bottom" constant="-75" id="IGb-EE-XqO"/>
+                            <constraint firstItem="51W-dS-Z74" firstAttribute="top" secondItem="QDC-QJ-eUw" secondAttribute="bottom" constant="20" id="IKc-jd-JLN"/>
+                            <constraint firstItem="Q1c-ad-fh8" firstAttribute="leading" secondItem="86m-s8-izT" secondAttribute="leading" id="IYZ-QT-sig"/>
                             <constraint firstItem="hw9-EY-4cU" firstAttribute="bottom" secondItem="PON-49-efv" secondAttribute="bottom" constant="20" id="K9u-0C-okr"/>
                             <constraint firstItem="QDC-QJ-eUw" firstAttribute="trailing" secondItem="hw9-EY-4cU" secondAttribute="trailing" id="L75-0F-kTs"/>
                             <constraint firstItem="0gD-I9-GQu" firstAttribute="leading" secondItem="OrW-he-Cac" secondAttribute="leading" id="LnE-9G-amB"/>
                             <constraint firstItem="hw9-EY-4cU" firstAttribute="trailing" secondItem="PON-49-efv" secondAttribute="trailing" constant="25" id="MRS-aQ-BiQ"/>
                             <constraint firstItem="dV6-vH-Nuz" firstAttribute="trailing" secondItem="hw9-EY-4cU" secondAttribute="trailing" id="OuM-nf-ijO"/>
+                            <constraint firstItem="QDC-QJ-eUw" firstAttribute="top" secondItem="OrW-he-Cac" secondAttribute="bottom" constant="14" id="PJy-dx-BI0"/>
+                            <constraint firstItem="vMY-Wt-4gt" firstAttribute="top" secondItem="51W-dS-Z74" secondAttribute="bottom" constant="30" id="PhN-U7-DaI"/>
+                            <constraint firstItem="vMY-Wt-4gt" firstAttribute="leading" secondItem="hw9-EY-4cU" secondAttribute="leading" constant="17" id="Un9-Pc-9Jp"/>
                             <constraint firstItem="PON-49-efv" firstAttribute="centerX" secondItem="eLU-Lj-3Ud" secondAttribute="centerX" id="VtP-cQ-MU9"/>
+                            <constraint firstItem="hw9-EY-4cU" firstAttribute="trailing" secondItem="vMY-Wt-4gt" secondAttribute="trailing" constant="20" id="X1j-2g-tDi"/>
                             <constraint firstItem="OrW-he-Cac" firstAttribute="height" secondItem="cRm-qT-gXd" secondAttribute="height" id="afQ-9d-wb6"/>
+                            <constraint firstItem="oqG-Ue-EAj" firstAttribute="top" secondItem="knf-Yd-fdj" secondAttribute="bottom" constant="15" id="cEK-Nl-lZl"/>
+                            <constraint firstItem="oqG-Ue-EAj" firstAttribute="leading" secondItem="hw9-EY-4cU" secondAttribute="leading" id="eg5-oA-XwX"/>
+                            <constraint firstItem="86m-s8-izT" firstAttribute="centerY" secondItem="vMY-Wt-4gt" secondAttribute="centerY" id="f2i-xm-EIk"/>
                             <constraint firstItem="Tyf-2q-9T9" firstAttribute="leading" secondItem="OrW-he-Cac" secondAttribute="trailing" id="g8g-dH-c7P"/>
                             <constraint firstItem="0gD-I9-GQu" firstAttribute="bottom" secondItem="OrW-he-Cac" secondAttribute="bottom" id="gFq-8b-RbB"/>
                             <constraint firstItem="Tyf-2q-9T9" firstAttribute="bottom" secondItem="OrW-he-Cac" secondAttribute="bottom" id="iHa-NI-ATN"/>
-                            <constraint firstItem="QDC-QJ-eUw" firstAttribute="top" secondItem="51W-dS-Z74" secondAttribute="bottom" constant="20" id="kfk-eS-vry"/>
+                            <constraint firstItem="knf-Yd-fdj" firstAttribute="top" secondItem="vMY-Wt-4gt" secondAttribute="bottom" id="itE-el-EO7"/>
+                            <constraint firstItem="Q1c-ad-fh8" firstAttribute="centerY" secondItem="vMY-Wt-4gt" secondAttribute="centerY" id="itK-mC-yQC"/>
                             <constraint firstItem="OrW-he-Cac" firstAttribute="centerX" secondItem="eLU-Lj-3Ud" secondAttribute="centerX" id="or2-mi-YT3"/>
+                            <constraint firstItem="Q1c-ad-fh8" firstAttribute="trailing" secondItem="vMY-Wt-4gt" secondAttribute="trailing" id="tYc-PA-ODz"/>
                             <constraint firstItem="51W-dS-Z74" firstAttribute="trailing" secondItem="hw9-EY-4cU" secondAttribute="trailing" id="tbQ-Yi-Qwt"/>
+                            <constraint firstItem="86m-s8-izT" firstAttribute="leading" secondItem="hw9-EY-4cU" secondAttribute="leading" constant="25" id="va9-F6-yxF"/>
                             <constraint firstItem="dV6-vH-Nuz" firstAttribute="leading" secondItem="hw9-EY-4cU" secondAttribute="leading" id="wh3-ch-UOB"/>
+                            <constraint firstItem="knf-Yd-fdj" firstAttribute="leading" secondItem="eLU-Lj-3Ud" secondAttribute="leadingMargin" constant="7" id="yb3-MC-Oiz"/>
                             <constraint firstItem="QDC-QJ-eUw" firstAttribute="leading" secondItem="hw9-EY-4cU" secondAttribute="leading" id="zeJ-Ql-Qw0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hw9-EY-4cU"/>
                     </view>
                     <connections>
+                        <outlet property="cityAnimatedControl" destination="oqG-Ue-EAj" id="pbD-IR-781"/>
                         <outlet property="emailAnimatedControl" destination="QDC-QJ-eUw" id="tYd-em-7eo"/>
                         <outlet property="hamburgerButton" destination="Hvx-hU-YVA" id="FEG-gD-mXf"/>
                         <outlet property="nameAnimatedControl" destination="51W-dS-Z74" id="JEK-gT-qGf"/>
                         <outlet property="profileImageView" destination="OrW-he-Cac" id="ThL-vq-GfZ"/>
+                        <outlet property="stateDisplayName" destination="Q1c-ad-fh8" id="MH5-Cs-04h"/>
+                        <outlet property="stateLabelCenterConstraint" destination="f2i-xm-EIk" id="PNv-bM-bJx"/>
+                        <outlet property="statesMenu" destination="vMY-Wt-4gt" id="lHY-p7-jZQ"/>
+                        <outlet property="underlineState" destination="knf-Yd-fdj" id="X1T-rC-fu6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFM-lT-e6i" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1492,8 +1587,8 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de la lista: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBT-cQ-KxI" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="125.5" height="16"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <rect key="frame" x="25" y="24" width="148.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1529,6 +1624,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jxg-BQ-hz4" customClass="MKDropdownMenu">
                                 <rect key="frame" x="17" y="135" width="338" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.70980392160000005" green="0.73333333329999995" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ZZs-FE-4Ze"/>
                                 </constraints>
@@ -2725,7 +2821,7 @@ introduce el codigo del articulo</string>
                                     <constraint firstItem="rGd-ai-Dhx" firstAttribute="centerY" secondItem="wc9-ef-3hB" secondAttribute="centerY" id="FM2-Fj-hem"/>
                                     <constraint firstItem="wc9-ef-3hB" firstAttribute="centerX" secondItem="gTu-nF-dw7" secondAttribute="centerX" id="GBv-6d-bFc"/>
                                     <constraint firstAttribute="bottom" secondItem="wc9-ef-3hB" secondAttribute="bottom" constant="10" id="Hdn-KN-fY8"/>
-                                    <constraint firstItem="gc8-QW-GMR" firstAttribute="leading" relation="lessThanOrEqual" secondItem="gTu-nF-dw7" secondAttribute="leading" constant="40" id="T08-R6-XeS"/>
+                                    <constraint firstItem="gc8-QW-GMR" firstAttribute="leading" secondItem="gTu-nF-dw7" secondAttribute="leading" constant="40" id="T08-R6-XeS"/>
                                     <constraint firstItem="gc8-QW-GMR" firstAttribute="centerY" secondItem="gTu-nF-dw7" secondAttribute="centerY" constant="10" id="bZA-7g-7I8"/>
                                     <constraint firstAttribute="trailing" secondItem="gc8-QW-GMR" secondAttribute="trailing" constant="40" id="h4c-tR-1Xs"/>
                                     <constraint firstAttribute="height" constant="91" id="qVe-9T-mg3"/>
@@ -3188,7 +3284,7 @@ introduce el codigo del articulo</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u64-X5-JKW" customClass="TransitionButton" customModule="TransitionButton">
-                                <rect key="frame" x="25" y="254" width="325" height="40"/>
+                                <rect key="frame" x="25" y="615" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.66274509800000003" green="0.65490196079999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Cpr-PS-Xow"/>
@@ -3217,6 +3313,7 @@ introduce el codigo del articulo</string>
                             <constraint firstItem="YfW-Gv-1nN" firstAttribute="top" secondItem="1NK-ac-b2Y" secondAttribute="top" constant="10" id="JrI-4y-NjJ"/>
                             <constraint firstItem="Zvn-0b-qqx" firstAttribute="top" secondItem="fbf-yB-SQe" secondAttribute="bottom" constant="25" id="P7f-Tn-dtt"/>
                             <constraint firstItem="fbf-yB-SQe" firstAttribute="top" secondItem="GMd-iB-ONB" secondAttribute="bottom" constant="30" id="PLB-Ve-Evu"/>
+                            <constraint firstItem="1NK-ac-b2Y" firstAttribute="bottom" secondItem="u64-X5-JKW" secondAttribute="bottom" constant="12" id="X0b-YU-e7a"/>
                             <constraint firstItem="Zvn-0b-qqx" firstAttribute="trailing" secondItem="1NK-ac-b2Y" secondAttribute="trailing" id="a2L-Fa-CXe"/>
                             <constraint firstItem="1NK-ac-b2Y" firstAttribute="trailing" secondItem="u64-X5-JKW" secondAttribute="trailing" constant="25" id="cbv-TY-fNx"/>
                             <constraint firstItem="GMd-iB-ONB" firstAttribute="top" secondItem="1NK-ac-b2Y" secondAttribute="top" constant="17" id="dqE-UD-Oqi"/>
@@ -3225,7 +3322,6 @@ introduce el codigo del articulo</string>
                             <constraint firstItem="GMd-iB-ONB" firstAttribute="leading" secondItem="1NK-ac-b2Y" secondAttribute="leading" constant="25" id="h09-s0-bCt"/>
                             <constraint firstItem="Zvn-0b-qqx" firstAttribute="leading" secondItem="1NK-ac-b2Y" secondAttribute="leading" id="iSg-N3-CAL"/>
                             <constraint firstItem="OV6-Jw-aR5" firstAttribute="top" secondItem="Uto-n2-JFN" secondAttribute="top" id="pkF-PU-XCk"/>
-                            <constraint firstItem="u64-X5-JKW" firstAttribute="top" secondItem="Zvn-0b-qqx" secondAttribute="bottom" constant="60" id="scs-Z2-UYK"/>
                             <constraint firstItem="OV6-Jw-aR5" firstAttribute="bottom" secondItem="Uto-n2-JFN" secondAttribute="bottom" id="y6A-tg-wtc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1NK-ac-b2Y"/>
@@ -3458,7 +3554,7 @@ introduce el codigo del articulo</string>
             </objects>
             <point key="canvasLocation" x="-2455.1999999999998" y="33.733133433283363"/>
         </scene>
-        <!--Create Account View Controller-->
+        <!--Data Source-->
         <scene sceneID="Epd-re-0M4">
             <objects>
                 <viewController id="buf-We-PXd" customClass="CreateAccountViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
@@ -3517,8 +3613,104 @@ introduce el codigo del articulo</string>
                                     <outlet property="valueTextField" destination="2Y5-M0-Dcc" id="VhA-u4-EGA"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnZ-MI-udM" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="202" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZa-ra-ovQ" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
+                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="Fdf-Zo-JWJ"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtC-oo-eAi" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="24" width="53" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5W-nD-hpo">
+                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="3GV-9E-MRz"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="hVq-QF-s05"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="EtC-oo-eAi" secondAttribute="leading" id="0wG-5n-gAq"/>
+                                    <constraint firstAttribute="bottom" secondItem="HZa-ra-ovQ" secondAttribute="bottom" constant="3" id="11f-4b-PMy"/>
+                                    <constraint firstAttribute="trailing" secondItem="HZa-ra-ovQ" secondAttribute="trailing" constant="25" id="PDV-XP-NOd"/>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="h5W-nD-hpo" secondAttribute="leading" id="QlE-gN-Jap"/>
+                                    <constraint firstItem="EtC-oo-eAi" firstAttribute="top" secondItem="vnZ-MI-udM" secondAttribute="top" constant="24" id="Tfv-5R-pqO"/>
+                                    <constraint firstAttribute="height" constant="50" id="TsN-wl-xqn"/>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="trailing" secondItem="h5W-nD-hpo" secondAttribute="trailing" id="UVm-06-DhL"/>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="top" secondItem="h5W-nD-hpo" secondAttribute="bottom" id="oeU-ni-HNL"/>
+                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="vnZ-MI-udM" secondAttribute="leading" constant="25" id="rqq-P3-skf"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="EtC-oo-eAi" id="zxr-dk-EJ4"/>
+                                    <outlet property="nameLabelTopConstraint" destination="Tfv-5R-pqO" id="qGV-4Q-VFh"/>
+                                    <outlet property="underline" destination="HZa-ra-ovQ" id="lNm-zd-vOg"/>
+                                    <outlet property="valueTextField" destination="h5W-nD-hpo" id="iRq-df-dTI"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whh-99-dGb" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="314" width="375" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P37-ze-1d7" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
+                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="nqh-W3-2uE"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ciudad" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXn-kI-j81" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="24" width="45.5" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Fw-3e-6Sm">
+                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="2k7-5k-Cqt"/>
+                                        </constraints>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="QGZ-Vv-G5s"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="P37-ze-1d7" secondAttribute="bottom" constant="3" id="Cgj-3K-KqB"/>
+                                    <constraint firstItem="P37-ze-1d7" firstAttribute="leading" secondItem="7Fw-3e-6Sm" secondAttribute="leading" id="ILt-nO-id2"/>
+                                    <constraint firstItem="P37-ze-1d7" firstAttribute="top" secondItem="7Fw-3e-6Sm" secondAttribute="bottom" id="QJG-Mq-xmC"/>
+                                    <constraint firstAttribute="trailing" secondItem="P37-ze-1d7" secondAttribute="trailing" constant="25" id="bRE-HG-Idz"/>
+                                    <constraint firstItem="eXn-kI-j81" firstAttribute="top" secondItem="whh-99-dGb" secondAttribute="top" constant="24" id="bVM-uC-yAt"/>
+                                    <constraint firstAttribute="height" constant="50" id="eGL-y0-8Aa"/>
+                                    <constraint firstItem="P37-ze-1d7" firstAttribute="leading" secondItem="whh-99-dGb" secondAttribute="leading" constant="25" id="gdN-lX-3mK"/>
+                                    <constraint firstItem="P37-ze-1d7" firstAttribute="trailing" secondItem="7Fw-3e-6Sm" secondAttribute="trailing" id="qAi-Zo-gKV"/>
+                                    <constraint firstItem="P37-ze-1d7" firstAttribute="leading" secondItem="eXn-kI-j81" secondAttribute="leading" id="rOl-x3-aqs"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="eXn-kI-j81" id="VGh-58-Sak"/>
+                                    <outlet property="nameLabelTopConstraint" destination="bVM-uC-yAt" id="AOy-i8-Np5"/>
+                                    <outlet property="underline" destination="P37-ze-1d7" id="gZw-dB-9Ny"/>
+                                    <outlet property="valueTextField" destination="7Fw-3e-6Sm" id="hbG-MQ-7zo"/>
+                                </connections>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VC2-FD-LZo" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="260" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="372" width="375" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4B-0K-Bfi" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
                                         <rect key="frame" x="25" y="45" width="325" height="2"/>
@@ -3565,56 +3757,8 @@ introduce el codigo del articulo</string>
                                     <outlet property="valueTextField" destination="uzf-qW-2t8" id="4Vc-Kl-5yH"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnZ-MI-udM" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="202" width="375" height="50"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HZa-ra-ovQ" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="45" width="325" height="2"/>
-                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="Fdf-Zo-JWJ"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de Usuario" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtC-oo-eAi" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="125.5" height="16"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
-                                        <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5W-nD-hpo">
-                                        <rect key="frame" x="25" y="15" width="325" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="3GV-9E-MRz"/>
-                                        </constraints>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="Ccu-bP-Iec" id="hVq-QF-s05"/>
-                                        </connections>
-                                    </textField>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="EtC-oo-eAi" secondAttribute="leading" id="0wG-5n-gAq"/>
-                                    <constraint firstAttribute="bottom" secondItem="HZa-ra-ovQ" secondAttribute="bottom" constant="3" id="11f-4b-PMy"/>
-                                    <constraint firstAttribute="trailing" secondItem="HZa-ra-ovQ" secondAttribute="trailing" constant="25" id="PDV-XP-NOd"/>
-                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="h5W-nD-hpo" secondAttribute="leading" id="QlE-gN-Jap"/>
-                                    <constraint firstItem="EtC-oo-eAi" firstAttribute="top" secondItem="vnZ-MI-udM" secondAttribute="top" constant="24" id="Tfv-5R-pqO"/>
-                                    <constraint firstAttribute="height" constant="50" id="TsN-wl-xqn"/>
-                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="trailing" secondItem="h5W-nD-hpo" secondAttribute="trailing" id="UVm-06-DhL"/>
-                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="top" secondItem="h5W-nD-hpo" secondAttribute="bottom" id="oeU-ni-HNL"/>
-                                    <constraint firstItem="HZa-ra-ovQ" firstAttribute="leading" secondItem="vnZ-MI-udM" secondAttribute="leading" constant="25" id="rqq-P3-skf"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="nameLabel" destination="EtC-oo-eAi" id="zxr-dk-EJ4"/>
-                                    <outlet property="nameLabelTopConstraint" destination="Tfv-5R-pqO" id="qGV-4Q-VFh"/>
-                                    <outlet property="underline" destination="HZa-ra-ovQ" id="lNm-zd-vOg"/>
-                                    <outlet property="valueTextField" destination="h5W-nD-hpo" id="iRq-df-dTI"/>
-                                </connections>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0W-Fp-k81" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="318" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="430" width="375" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="udZ-YH-fph" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
                                         <rect key="frame" x="25" y="45" width="325" height="2"/>
@@ -3685,7 +3829,7 @@ introduce el codigo del articulo</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-Ud-K8a" customClass="TransitionButton" customModule="TransitionButton">
-                                <rect key="frame" x="25" y="428" width="325" height="40"/>
+                                <rect key="frame" x="25" y="615" width="325" height="40"/>
                                 <color key="backgroundColor" red="0.66274509800000003" green="0.65490196079999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tsY-Rl-t1h"/>
@@ -3704,42 +3848,72 @@ introduce el codigo del articulo</string>
                                     <action selector="createAccountBtnPressed:" destination="buf-We-PXd" eventType="touchUpInside" id="I80-Xy-4y0"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uyg-Ig-ueh" customClass="MKDropdownMenu">
+                                <rect key="frame" x="17" y="272" width="338" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="TSk-6d-tXz"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="buf-We-PXd" id="V4n-GN-1oJ"/>
+                                    <outlet property="delegate" destination="buf-We-PXd" id="cxh-6F-H8T"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbu-1o-i3v">
+                                <rect key="frame" x="24" y="302" width="325" height="2"/>
+                                <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="ezy-pZ-auI"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xON-fh-gov" firstAttribute="trailing" secondItem="IPN-Ud-K8a" secondAttribute="trailing" constant="25" id="1UJ-2Z-ctt"/>
                             <constraint firstItem="IPN-Ud-K8a" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" constant="25" id="2bf-33-kX7"/>
                             <constraint firstItem="IC6-PO-JEf" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="2ci-hy-qii"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zbu-1o-i3v" secondAttribute="trailing" constant="10" id="9xB-d3-IVx"/>
                             <constraint firstItem="1nf-KQ-Bel" firstAttribute="top" secondItem="xON-fh-gov" secondAttribute="top" constant="10" id="AU5-Xe-RE1"/>
+                            <constraint firstItem="xON-fh-gov" firstAttribute="trailing" secondItem="Uyg-Ig-ueh" secondAttribute="trailing" constant="20" id="Bcg-Xd-57J"/>
                             <constraint firstItem="vnZ-MI-udM" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="Bfy-UJ-b3l"/>
                             <constraint firstItem="IX1-h2-Bt9" firstAttribute="top" secondItem="KYG-xl-8U1" secondAttribute="bottom" constant="30" id="EOK-Rm-aht"/>
+                            <constraint firstItem="Zbu-1o-i3v" firstAttribute="leading" secondItem="y52-0V-QXh" secondAttribute="leadingMargin" constant="8" id="Fji-OW-uUT"/>
                             <constraint firstItem="1nf-KQ-Bel" firstAttribute="centerX" secondItem="y52-0V-QXh" secondAttribute="centerX" id="GaJ-Cv-q4P"/>
                             <constraint firstItem="e0W-Fp-k81" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="H8o-K4-lBh"/>
+                            <constraint firstItem="whh-99-dGb" firstAttribute="top" secondItem="Zbu-1o-i3v" secondAttribute="bottom" constant="10" id="IKB-GE-AIY"/>
                             <constraint firstItem="VC2-FD-LZo" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="JfN-wf-NsK"/>
                             <constraint firstItem="vnZ-MI-udM" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="K2F-C7-Ytk"/>
                             <constraint firstItem="IC6-PO-JEf" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="Lod-sx-jy8"/>
                             <constraint firstItem="VC2-FD-LZo" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="Onc-HT-1SV"/>
                             <constraint firstItem="IX1-h2-Bt9" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" constant="25" id="PNG-7U-wKA"/>
+                            <constraint firstItem="whh-99-dGb" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="RKS-Oi-FwD"/>
                             <constraint firstItem="KYG-xl-8U1" firstAttribute="top" secondItem="xON-fh-gov" secondAttribute="top" constant="17" id="Reb-1R-Iu3"/>
+                            <constraint firstItem="VC2-FD-LZo" firstAttribute="top" secondItem="whh-99-dGb" secondAttribute="bottom" constant="8" id="RjO-6C-QLj"/>
+                            <constraint firstItem="Uyg-Ig-ueh" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" constant="17" id="SCd-qu-lHp"/>
                             <constraint firstItem="BYe-fB-ard" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" id="SbT-Cd-2do"/>
                             <constraint firstItem="e0W-Fp-k81" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="ZtV-AB-kAa"/>
+                            <constraint firstItem="Uyg-Ig-ueh" firstAttribute="top" secondItem="vnZ-MI-udM" secondAttribute="bottom" constant="20" id="cQj-ZD-7AH"/>
                             <constraint firstItem="KYG-xl-8U1" firstAttribute="leading" secondItem="xON-fh-gov" secondAttribute="leading" constant="25" id="gUN-s3-ygk"/>
+                            <constraint firstItem="whh-99-dGb" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="iP0-dK-u1F"/>
                             <constraint firstItem="vnZ-MI-udM" firstAttribute="top" secondItem="BYe-fB-ard" secondAttribute="bottom" constant="8" id="ihe-Lu-BxZ"/>
                             <constraint firstItem="IC6-PO-JEf" firstAttribute="bottom" secondItem="y52-0V-QXh" secondAttribute="bottom" id="kTe-wv-fuv"/>
-                            <constraint firstItem="IPN-Ud-K8a" firstAttribute="top" secondItem="e0W-Fp-k81" secondAttribute="bottom" constant="60" id="meb-0e-Oax"/>
                             <constraint firstItem="e0W-Fp-k81" firstAttribute="top" secondItem="VC2-FD-LZo" secondAttribute="bottom" constant="8" id="ndx-Vn-6Pb"/>
+                            <constraint firstItem="Zbu-1o-i3v" firstAttribute="top" secondItem="Uyg-Ig-ueh" secondAttribute="bottom" id="tJz-yW-duX"/>
                             <constraint firstItem="BYe-fB-ard" firstAttribute="trailing" secondItem="xON-fh-gov" secondAttribute="trailing" id="ulv-pe-8dO"/>
-                            <constraint firstItem="VC2-FD-LZo" firstAttribute="top" secondItem="vnZ-MI-udM" secondAttribute="bottom" constant="8" id="vQs-VP-9VX"/>
                             <constraint firstItem="IC6-PO-JEf" firstAttribute="top" secondItem="y52-0V-QXh" secondAttribute="top" id="w73-pF-6XU"/>
                             <constraint firstItem="IPN-Ud-K8a" firstAttribute="centerX" secondItem="y52-0V-QXh" secondAttribute="centerX" id="w8U-US-fpa"/>
                             <constraint firstItem="BYe-fB-ard" firstAttribute="top" secondItem="IX1-h2-Bt9" secondAttribute="bottom" constant="25" id="yUY-nV-lt8"/>
+                            <constraint firstItem="xON-fh-gov" firstAttribute="bottom" secondItem="IPN-Ud-K8a" secondAttribute="bottom" constant="12" id="yjP-WG-PKz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xON-fh-gov"/>
                     </view>
                     <connections>
+                        <outlet property="cityAnimatedControl" destination="whh-99-dGb" id="tEp-kd-9PH"/>
                         <outlet property="createAccountButton" destination="IPN-Ud-K8a" id="uMV-LQ-oOe"/>
                         <outlet property="emailAnimatedControl" destination="BYe-fB-ard" id="wft-Vy-day"/>
                         <outlet property="passwordAnimatedControl" destination="VC2-FD-LZo" id="2NA-Fg-CHQ"/>
+                        <outlet property="statesMenu" destination="Uyg-Ig-ueh" id="6ZK-8V-o1j"/>
+                        <outlet property="underlineState" destination="Zbu-1o-i3v" id="jEv-hH-lqZ"/>
                         <outlet property="usernameAnimatedControl" destination="vnZ-MI-udM" id="0GA-iN-Krt"/>
                         <outlet property="verifyPasswordAnimatedControl" destination="e0W-Fp-k81" id="Urr-CE-3mw"/>
                     </connections>

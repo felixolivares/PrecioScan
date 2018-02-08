@@ -344,9 +344,9 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     }
     
     //MARK: - User
-    public func saveUser(email: String, password: String?, name: String, photoName: String?, isLogged: Bool, uid: String?, completionHandler: @escaping(User?, Error?) -> Void){
+    public func saveUser(email: String, password: String?, name: String, photoName: String?, state: String?, city: String?, isLogged: Bool, uid: String?, completionHandler: @escaping(User?, Error?) -> Void){
         stack.mainContext.performAndWait {
-            let user = User(context: stack.mainContext, email: email, password: password, name: name, photoName: photoName, isLogged: isLogged, uid: uid)
+            let user = User(context: stack.mainContext, email: email, password: password, name: name, photoName: photoName, isLogged: isLogged, uid: uid, state: state, city: city )
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
@@ -384,9 +384,9 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func updateUser(object: User, name: String?, photoName: String?, isLogged: Bool?, completionHandler: @escaping(Bool, Error?) -> Void){
+    public func updateUser(object: User, name: String?, photoName: String?, isLogged: Bool?, state: String?, city: String?, completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
-            let _ = object.update(name, photoName: photoName, isLogged: isLogged, isSuscribed: nil)
+            let _ = object.update(name, photoName: photoName, isLogged: isLogged, isSuscribed: nil, state: state, city: city)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:

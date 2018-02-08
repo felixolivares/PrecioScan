@@ -50,14 +50,14 @@ class FirebaseOperations: NSObject {
     }
     
     //MARK: - Create user
-    public func createUser(email: String, password: String, username: String, button: TransitionButton, vc: UIViewController){
+    public func createUser(email: String, password: String, username: String, state: String, city: String, button: TransitionButton, vc: UIViewController){
         self.networkActiviyIndicator(value: true)
         Auth.auth().createUser(withEmail: email, password: password){ user, error in
             if error == nil{
                 Auth.auth().currentUser?.sendEmailVerification(){error in
                     if error == nil{
                         UserManager.shared.logIn(email: email)
-                        self.updateUserLoggedIn(displayName: username, photoURL: nil)
+                        self.updateUserLoggedIn(displayName: username, photoURL: nil, state: state, city: city)
                         Popup.show(OKWithCompletionAndMessage: Warning.CreateAccount.usersaved, title: Constants.Popup.Titles.ready , vc: vc){ _ in
                             button.stopAnimation(animationStyle: .expand, completion: {
                                 vc.presentingViewController?.presentingViewController?.dismiss(animated: false, completion: nil)
@@ -69,7 +69,7 @@ class FirebaseOperations: NSObject {
                     }
                     self.networkActiviyIndicator(value: false)
                 }
-                CoreDataManager.shared.saveUser(email: email, password: password, name: username, photoName: nil, isLogged: true, uid: Auth.auth().currentUser?.uid){ user, error in}
+                CoreDataManager.shared.saveUser(email: email, password: password, name: username, photoName: nil, state: state, city: city, isLogged: true, uid: Auth.auth().currentUser?.uid){ user, error in}
             } else {
                 button.stopAnimation()
                 Popup.show(withOK: Warning.Generic.genericError, title: Constants.Popup.Titles.attention, vc: vc)
@@ -102,7 +102,7 @@ class FirebaseOperations: NSObject {
     }
     
     //MARK: - Update current user
-    public func updateUserLoggedIn(displayName: String?, photoURL: String?){
+    public func updateUserLoggedIn(displayName: String?, photoURL: String?, state: String?, city: String?){
         self.networkActiviyIndicator(value: true)
         let user = Auth.auth().currentUser
         if let user = user {
@@ -120,7 +120,7 @@ class FirebaseOperations: NSObject {
                     print("Error: Profile not updated")
                 } else {
                     print("Profile updated")
-                    self.addUser()
+                    self.addUser(state: state, city: city)
                 }
                 self.networkActiviyIndicator(value: false)
             }
@@ -128,10 +128,16 @@ class FirebaseOperations: NSObject {
     }
     
     //MARK: - Save
-    public func addUser(){
+    public func addUser(state: String?, city: String?){
         let user = Auth.auth().currentUser
-        let values: [String: String?] = [FRAttribute.username: user?.displayName, FRAttribute.email: user?.email, FRAttribute.photoName: user?.photoURL?.absoluteString]
-        self.ref.child(FRTable.user).child((user?.uid)!).setValue(values)
+        var values: [String: String?] = [:]
+        if state != nil, city != nil {
+            values = [FRAttribute.username: user?.displayName, FRAttribute.email: user?.email, FRAttribute.photoName: user?.photoURL?.absoluteString, FRAttribute.state: state!, FRAttribute.city: city!]
+        } else {
+            values = [FRAttribute.username: user?.displayName, FRAttribute.email: user?.email, FRAttribute.photoName: user?.photoURL?.absoluteString]
+        }
+        let userKey = self.ref.child(FRTable.user).child((user?.uid)!).key
+        self.ref.child(FRTable.user).child(userKey).updateChildValues((values as Any) as! [AnyHashable : Any])
     }
     
     public func updateCurrentUser(withSubscriptionDate date: Date, isSubscribed: Bool){

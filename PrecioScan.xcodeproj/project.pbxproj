@@ -40,6 +40,7 @@
 		3032616D1FB2513C0083FBA0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3032616C1FB2513C0083FBA0 /* CreateAccountViewController.swift */; };
 		3032616F1FB252B60083FBA0 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3032616E1FB252B60083FBA0 /* UserManager.swift */; };
 		303261721FB25CE20083FBA0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303261711FB25CE20083FBA0 /* User.swift */; };
+		303C4376202A4E2200C8D58F /* Model8-9.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 303C4375202A4E2200C8D58F /* Model8-9.xcmappingmodel */; };
 		304487201F8D8EF400C5297D /* CreateStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */; };
 		304487261F8DDD4300C5297D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304487251F8DDD4300C5297D /* CoreDataManager.swift */; };
 		3050A49B1F86F35300AD60D7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A49A1F86F35300AD60D7 /* Store.swift */; };
@@ -67,7 +68,6 @@
 		306AC7D81FA97FE60096814C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 306AC7D71FA97FE60096814C /* Assets.xcassets */; };
 		306AC7DA1FAAB4B70096814C /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7D91FAAB4B70096814C /* ArticlesViewController.swift */; };
 		306AC7E01FAAB5BB0096814C /* NavigationArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7DF1FAAB5BB0096814C /* NavigationArticlesViewController.swift */; };
-		306B7B1D1FFEB77E0054F1CE /* Model7-8.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 306B7B1C1FFEB77E0054F1CE /* Model7-8.xcmappingmodel */; };
 		306B7B1F20001D8E0054F1CE /* SuscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */; };
 		308571F01FB6889F0026BB14 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571EF1FB6889F0026BB14 /* Fonts.swift */; };
 		308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */; };
@@ -163,6 +163,8 @@
 		3032616E1FB252B60083FBA0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_2.xcdatamodel; sourceTree = "<group>"; };
 		303261711FB25CE20083FBA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_9.xcdatamodel; sourceTree = "<group>"; };
+		303C4375202A4E2200C8D58F /* Model8-9.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model8-9.xcmappingmodel"; sourceTree = "<group>"; };
 		3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoreViewController.swift; sourceTree = "<group>"; };
 		304487251F8DDD4300C5297D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3050A49A1F86F35300AD60D7 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -191,7 +193,6 @@
 		306AC7D91FAAB4B70096814C /* ArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesViewController.swift; sourceTree = "<group>"; };
 		306AC7DF1FAAB5BB0096814C /* NavigationArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationArticlesViewController.swift; sourceTree = "<group>"; };
 		306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_8.xcdatamodel; sourceTree = "<group>"; };
-		306B7B1C1FFEB77E0054F1CE /* Model7-8.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model7-8.xcmappingmodel"; sourceTree = "<group>"; };
 		306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuscriptionManager.swift; sourceTree = "<group>"; };
 		308571EF1FB6889F0026BB14 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
@@ -565,8 +566,8 @@
 				303261711FB25CE20083FBA0 /* User.swift */,
 				301682CB1FCE9BE700559A3B /* TempStore.swift */,
 				30FD3A211FD3A5E400FCB9AE /* TempArticle.swift */,
-				306B7B1C1FFEB77E0054F1CE /* Model7-8.xcmappingmodel */,
 				30B7969020213382000E4261 /* TempUser.swift */,
+				303C4375202A4E2200C8D58F /* Model8-9.xcmappingmodel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -672,7 +673,7 @@
 				TargetAttributes = {
 					30FFE61D1F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
 								enabled = 1;
@@ -1033,13 +1034,13 @@
 				302B0C541F981F1A001DE5C7 /* DateOperations.swift in Sources */,
 				30AF238C1F8C496E00523870 /* Button.swift in Sources */,
 				30083B721F88A6F1006274C9 /* HexColors.swift in Sources */,
-				306B7B1D1FFEB77E0054F1CE /* Model7-8.xcmappingmodel in Sources */,
 				308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */,
 				306AC7781FA0216A0096814C /* MenuItemTableViewCell.swift in Sources */,
 				30B7969120213382000E4261 /* TempUser.swift in Sources */,
 				30083B741F88A744006274C9 /* DefineColors.swift in Sources */,
 				3021562420116A0A002B9500 /* PageOne.swift in Sources */,
 				30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */,
+				303C4376202A4E2200C8D58F /* Model8-9.xcmappingmodel in Sources */,
 				308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */,
 				30FF9B4A1FE246DF00E4C49A /* NavigationStoreViewController.swift in Sources */,
 				30AC99FB1F9FD7F20029F6E6 /* HostViewController.swift in Sources */,
@@ -1216,8 +1217,8 @@
 			baseConfigurationReference = 516C364AF82B1D3E5ABC8B00 /* Pods-PrecioScan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
@@ -1225,8 +1226,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d755ee55-296e-4e49-ab50-8576d461c540";
-				PROVISIONING_PROFILE_SPECIFIER = "PrecioScan-Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1237,8 +1238,8 @@
 			baseConfigurationReference = 50F7ACDCD7E3559EECE3E1BD /* Pods-PrecioScan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
@@ -1246,8 +1247,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d755ee55-296e-4e49-ab50-8576d461c540";
-				PROVISIONING_PROFILE_SPECIFIER = "PrecioScan-Distribution";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1368,6 +1369,7 @@
 		30FFE6561F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */,
 				306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */,
 				30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */,
 				30C322091FC89B2800C8F7F2 /* PrecioScanModel_6.xcdatamodel */,
@@ -1377,7 +1379,7 @@
 				303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */,
 				30FFE6571F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodel */,
 			);
-			currentVersion = 306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */;
+			currentVersion = 303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */;
 			path = PrecioScanModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
