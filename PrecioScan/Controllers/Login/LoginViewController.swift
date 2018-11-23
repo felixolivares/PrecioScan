@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
     func configure(){
         passwordAnimatedControl.setDelegate()
         emailAnimatedControl.setDelegate()
-        loginButton.setLoading()
+//        loginButton.setLoading()
     }
     
     func fillFields(){

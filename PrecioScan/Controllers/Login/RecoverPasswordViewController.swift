@@ -22,7 +22,7 @@ class RecoverPasswordViewController: UIViewController {
 
     func configure(){
         emailAnimatedControl.setDelegate()
-        recoverButton.setLoading()
+//        recoverButton.setLoading()
     }
     
     @IBAction func goBackButtonPressed(_ sender: Any) {

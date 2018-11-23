@@ -53,7 +53,7 @@ internal extension UIView {
     }
 
     internal func pv_layoutIfNeededAnimated(duration: CFTimeInterval = 0.08) {
-        UIView.animate(withDuration: duration, delay: 0, options: UIViewAnimationOptions(), animations: {
+        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(), animations: {
             self.layoutIfNeeded()
         }, completion: nil)
     }

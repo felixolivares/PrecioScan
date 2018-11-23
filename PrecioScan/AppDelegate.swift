@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Popup.setupPopup()
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
 
-        IQKeyboardManager.sharedManager().enable = true
+        IQKeyboardManager.shared.enable = true
         completeTransactions()
         InAppPurchasesManager.shared.retrieveProducts()
         GADMobileAds.configure(withApplicationID: Constants.Admob.appID)

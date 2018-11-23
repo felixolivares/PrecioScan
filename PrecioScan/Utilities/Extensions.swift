@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import TransitionButton
+//import TransitionButton
 
 extension UILabel{
     func bounce(completionHandler: @escaping(Bool) -> Void){
@@ -31,14 +31,14 @@ extension Float{
     }
 }
 
-extension TransitionButton{
-    func setLoading(){
-        self.layer.borderColor = UIColor.clear.cgColor
-        self.layer.borderWidth = 1
-        self.layer.cornerRadius = 10
-        self.disabledBackgroundColor = UIColor.white
-    }
-}
+//extension TransitionButton{
+//    func setLoading(){
+//        self.layer.borderColor = UIColor.clear.cgColor
+//        self.layer.borderWidth = 1
+//        self.layer.cornerRadius = 10
+//        self.disabledBackgroundColor = UIColor.white
+//    }
+//}
 
 extension UIView{
     func bounce(){

@@ -41,8 +41,8 @@ class AddArticleViewController: UIViewController {
     var barcodeBeepPlayer: AVAudioPlayer?
     var itemListFound: ItemList!
     var photoExists: Bool = false
-    var photosDataSource: [Photo] = []
-    var photosViewController: PhotosViewController!
+    var photosDataSource: [AXPhoto] = []
+    var photosViewController: AXPhotosViewController!
     var isConnected: Bool = false
     var photoUid: String!
     
@@ -350,8 +350,8 @@ class AddArticleViewController: UIViewController {
     
     //MARK: - Photo
     func showPhoto(){
-        let dataSource = PhotosDataSource(photos: self.photosDataSource)
-        photosViewController = PhotosViewController(dataSource: dataSource)
+        let dataSource = AXPhotosDataSource(photos: self.photosDataSource)
+        photosViewController = AXPhotosViewController(dataSource: dataSource)
         
         let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let bottomView = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 320, height: 44)))
@@ -385,7 +385,7 @@ class AddArticleViewController: UIViewController {
             if let image = FilesManager.shared.verifyPhotoExists(name: photoName){
                 print("Photo exists: \(String(describing: itemListFound.photoName!)).png")
                 self.photoExists = true
-                photosDataSource.append(Photo(attributedTitle: NSAttributedString(string: itemListFound.article.name),
+                photosDataSource.append(AXPhoto(attributedTitle: NSAttributedString(string: itemListFound.article.name),
                                               attributedDescription: NSAttributedString(string: "$ " + String(describing: itemListFound.unitaryPrice)),
                                               attributedCredit: NSAttributedString(string: itemListFound.store.name),
                                               image: image))
