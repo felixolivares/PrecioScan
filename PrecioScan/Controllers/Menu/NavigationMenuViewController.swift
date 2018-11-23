@@ -77,7 +77,7 @@ class NavigationMenuViewController: MenuViewController, FBSDKAppInviteDialogDele
         tableView.backgroundColor = UIColor.clear
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func setUserInformation(){

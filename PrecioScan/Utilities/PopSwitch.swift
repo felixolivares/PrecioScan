@@ -105,7 +105,7 @@ open class PopSwitch: UIView {
         spring.speed = 2
         spring.toValue = [onXOrigin, self.circle.frame.size.height / 2]
         spring.initialVelocity = 0
-        spring.fillMode = kCAFillModeBoth
+        spring.fillMode = CAMediaTimingFillMode.both
         spring.isRemovedOnCompletion = false
         return spring
     }
@@ -118,7 +118,7 @@ open class PopSwitch: UIView {
         spring.repeatCount = 0
         spring.toValue = [offXOrigin, self.circle.frame.size.height / 2]
         spring.initialVelocity = 0
-        spring.fillMode = kCAFillModeBoth
+        spring.fillMode = CAMediaTimingFillMode.both
         spring.isRemovedOnCompletion = false
         return spring
     }
@@ -134,7 +134,7 @@ open class PopSwitch: UIView {
             spring.toValue = [0.6,0.6]
         }
         spring.initialVelocity = 0
-        spring.fillMode = kCAFillModeBoth
+        spring.fillMode = CAMediaTimingFillMode.both
         spring.isRemovedOnCompletion = false
         return spring
     }
@@ -147,7 +147,7 @@ open class PopSwitch: UIView {
         spring.repeatCount = 0
         spring.toValue = [1.0,1.0]
         spring.initialVelocity = 0
-        spring.fillMode = kCAFillModeBoth
+        spring.fillMode = CAMediaTimingFillMode.both
         spring.isRemovedOnCompletion = false
         return spring
     }
@@ -157,7 +157,7 @@ open class PopSwitch: UIView {
         let colorChange = CABasicAnimation(keyPath: "fillColor")
         colorChange.toValue = self.color?.background ?? UIColor.white.cgColor
         colorChange.isRemovedOnCompletion = false
-        colorChange.fillMode = kCAFillModeBoth
+        colorChange.fillMode = CAMediaTimingFillMode.both
         colorChange.repeatCount = 0
         return colorChange
     }
@@ -167,7 +167,7 @@ open class PopSwitch: UIView {
         let colorChange = CABasicAnimation(keyPath: "fillColor")
         colorChange.toValue = getDarkerColor()
         colorChange.repeatCount = 0
-        colorChange.fillMode = kCAFillModeBoth
+        colorChange.fillMode = CAMediaTimingFillMode.both
         colorChange.isRemovedOnCompletion = false
         return colorChange
     }

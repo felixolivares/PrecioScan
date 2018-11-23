@@ -137,7 +137,7 @@ import UIKit
         self.creditLabel.numberOfLines = 0
         self.addSubview(self.creditLabel)
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil, queue: .main) { [weak self] (note) in
+        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: .main) { [weak self] (note) in
             self?.setNeedsLayout()
         }
     }

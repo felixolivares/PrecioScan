@@ -60,7 +60,7 @@ class BarcodeReader: UIView, AVCaptureMetadataOutputObjectsDelegate {
                 qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
                 qrCodeFrameView.layer.borderWidth = 2
                 self.addSubview(qrCodeFrameView)
-                self.bringSubview(toFront: qrCodeFrameView)
+                self.bringSubviewToFront(qrCodeFrameView)
             }
         } catch {
             // If any error occurs, simply print it out and don't continue any more.

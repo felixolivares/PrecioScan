@@ -342,7 +342,7 @@ import FLAnimatedImage_tvOS
         
         self.pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                        navigationOrientation: self.pagingConfig.navigationOrientation,
-                                                       options: [UIPageViewControllerOptionInterPageSpacingKey: self.pagingConfig.interPhotoSpacing])
+                                                       options: convertToOptionalUIPageViewControllerOptionsKeyDictionary([convertFromUIPageViewControllerOptionsKey(UIPageViewController.OptionsKey.interPageSpacing): self.pagingConfig.interPhotoSpacing]))
         self.pageViewController.delegate = self
         self.pageViewController.dataSource = (self.dataSource.numberOfPhotos > 1) ? self : nil
         self.pageViewController.scrollView.addContentOffsetObserver(self)
@@ -405,9 +405,9 @@ import FLAnimatedImage_tvOS
         if self.pageViewController.view.superview == nil {
             self.pageViewController.view.addGestureRecognizer(self.singleTapGestureRecognizer)
             
-            self.addChildViewController(self.pageViewController)
+            self.addChild(self.pageViewController)
             self.view.addSubview(self.pageViewController.view)
-            self.pageViewController.didMove(toParentViewController: self)
+            self.pageViewController.didMove(toParent: self)
         }
         
         if self.overlayView.superview == nil {
@@ -458,8 +458,8 @@ import FLAnimatedImage_tvOS
         }
     }
     
-    open override func didMove(toParentViewController parent: UIViewController?) {
-        super.didMove(toParentViewController: parent)
+    open override func didMove(toParent parent: UIViewController?) {
+        super.didMove(toParent: parent)
         
         if parent is UINavigationController {
             assertionFailure("Do not embed `PhotosViewController` in a navigation stack.")
@@ -1341,4 +1341,15 @@ fileprivate extension UIScrollView {
 public extension Notification.Name {
     static let photoLoadingProgressUpdate = Notification.Name("AXPhotoLoadingProgressUpdateNotification")
     static let photoImageUpdate = Notification.Name("AXPhotoImageUpdateNotification")
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalUIPageViewControllerOptionsKeyDictionary(_ input: [String: Any]?) -> [UIPageViewController.OptionsKey: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIPageViewController.OptionsKey(rawValue: key), value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIPageViewControllerOptionsKey(_ input: UIPageViewController.OptionsKey) -> String {
+	return input.rawValue
 }

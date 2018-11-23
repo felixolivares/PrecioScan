@@ -154,7 +154,7 @@ open class AutoPurgingImageCache: ImageRequestCache {
         #if swift(>=4.2)
         let notification = UIApplication.didReceiveMemoryWarningNotification
         #else
-        let notification = Notification.Name.UIApplicationDidReceiveMemoryWarning
+        let notification = UIApplication.didReceiveMemoryWarningNotification
         #endif
         NotificationCenter.default.addObserver(
             self,

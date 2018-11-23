@@ -44,7 +44,7 @@
     @objc public fileprivate(set) var retryHandler: (() -> Void)?
     #endif
     
-    @objc open fileprivate(set) lazy var indicatorView: UIView = UIActivityIndicatorView(activityIndicatorStyle: .white)
+    @objc open fileprivate(set) lazy var indicatorView: UIView = UIActivityIndicatorView(style: .white)
     
     @objc open fileprivate(set) var errorImageView: UIImageView?
     
@@ -92,7 +92,7 @@
     @objc public init() {
         super.init(frame: .zero)
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil, queue: .main) { [weak self] (note) in
+        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: .main) { [weak self] (note) in
             self?.setNeedsLayout()
         }
     }

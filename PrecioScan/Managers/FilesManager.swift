@@ -97,13 +97,13 @@ class FilesManager: NSObject {
     }
     
     public func saveImage (image: UIImage, photoName: String) -> Bool{
-        let pngImageData = UIImagePNGRepresentation(image)
+        let pngImageData = image.pngData()
         let path = FilesManager.photosPath.appendingPathComponent("\(photoName + Constants.Files.photoExtension)")
         return FileManager.default.createFile(atPath: path.path, contents: pngImageData, attributes: nil)
     }
     
     public func saveProfileImage (image: UIImage, photoName: String) -> Bool{
-        let pngImageData = UIImagePNGRepresentation(image)
+        let pngImageData = image.pngData()
         let path = FilesManager.profilePhotoPath.appendingPathComponent("\(photoName + Constants.Files.photoExtension)")
         return FileManager.default.createFile(atPath: path.path, contents: pngImageData, attributes: nil)
     }

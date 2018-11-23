@@ -13,7 +13,7 @@ import UIKit
 extension UILabel{
     func bounce(completionHandler: @escaping(Bool) -> Void){
         self.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIViewAnimationOptions.beginFromCurrentState, animations: {
+        UIView.animate(withDuration: 0.8, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: UIView.AnimationOptions.beginFromCurrentState, animations: {
             self.transform = CGAffineTransform(scaleX: 1, y: 1)
         }) { (finished) in
             if finished {
@@ -47,7 +47,7 @@ extension UIView{
                        delay: 0,
                        usingSpringWithDamping: 0.4,
                        initialSpringVelocity: 0.2,
-                       options: UIViewAnimationOptions.beginFromCurrentState,
+                       options: UIView.AnimationOptions.beginFromCurrentState,
                        animations: {
                         self.transform = CGAffineTransform(scaleX: 1, y: 1)
         })

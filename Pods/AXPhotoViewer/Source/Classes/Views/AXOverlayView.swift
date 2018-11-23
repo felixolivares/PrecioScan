@@ -183,7 +183,7 @@ import UIKit
             self.bottomStackContainer.addSubview(captionView)
         }
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIContentSizeCategoryDidChange, object: nil, queue: .main) { [weak self] (note) in
+        NotificationCenter.default.addObserver(forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: .main) { [weak self] (note) in
             self?.setNeedsLayout()
         }
     }

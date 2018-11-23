@@ -71,7 +71,7 @@ class AXPhotosDismissalAnimator: AXPhotosTransitionAnimator, UIViewControllerInt
         if let from = from as? AXPhotosViewController {
             photosViewController = from
         } else {
-            guard let childViewController = from.childViewControllers.filter({ $0 is AXPhotosViewController }).first as? AXPhotosViewController else {
+            guard let childViewController = from.children.filter({ $0 is AXPhotosViewController }).first as? AXPhotosViewController else {
                 assertionFailure(
                     """
                     Could not find AXPhotosViewController in container's children. \
@@ -295,7 +295,7 @@ class AXPhotosDismissalAnimator: AXPhotosTransitionAnimator, UIViewControllerInt
         if let from = from as? AXPhotosViewController {
             photosViewController = from
         } else {
-            guard let childViewController = from.childViewControllers.filter({ $0 is AXPhotosViewController }).first as? AXPhotosViewController else {
+            guard let childViewController = from.children.filter({ $0 is AXPhotosViewController }).first as? AXPhotosViewController else {
                 assertionFailure(
                     """
                     Could not find AXPhotosViewController in container's children. \
@@ -399,7 +399,7 @@ class AXPhotosDismissalAnimator: AXPhotosTransitionAnimator, UIViewControllerInt
         if let from = from as? AXPhotosViewController {
             photosViewController = from
         } else {
-            guard let childViewController = from.childViewControllers.filter({ $0 is AXPhotosViewController }).first as? AXPhotosViewController else {
+            guard let childViewController = from.children.filter({ $0 is AXPhotosViewController }).first as? AXPhotosViewController else {
                 assertionFailure("Could not find AXPhotosViewController in container's children.")
                 return
             }

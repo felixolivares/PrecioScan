@@ -76,7 +76,7 @@ class ListsViewController: CustomTransitionViewController {
         //tableView.backgroundColor = UIColor.init(hexString: "F7F7F7")
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func configureComponents(){
@@ -179,7 +179,7 @@ extension ListsViewController: UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.cellForRow(at: indexPath) as! ListTableViewCell
 //        cell.contentView.backgroundColor = UIColor.clear
         cell.borderView.layer.borderColor = UIColor(oliveGreen)?.cgColor
-        cell.sendSubview(toBack: cell.borderView)
+        cell.sendSubviewToBack(cell.borderView)
         self.performSegue(withIdentifier: Segues.toListDetailFromLists, sender: lists[indexPath.row])
     }
 }

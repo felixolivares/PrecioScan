@@ -118,7 +118,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func fetchStores(){
@@ -345,15 +345,15 @@ extension CreateListViewController: MKDropdownMenuDelegate{
     }
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, attributedTitleForComponent component: Int) -> NSAttributedString? {
-        return NSMutableAttributedString(string: displayStoreName, attributes: [NSAttributedStringKey.font: UIFont(name: Font.ubuntuMediumFont, size: 14.0)!, NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.paragraphStyle: paragraphStyle])
+        return NSMutableAttributedString(string: displayStoreName, attributes: [NSAttributedString.Key.font: UIFont(name: Font.ubuntuMediumFont, size: 14.0)!, NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
     }
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         if row < componentTitles.count{
-            return NSAttributedString.init(string: componentTitles[row].name + " - " + componentTitles[row].location, attributes:[NSAttributedStringKey.font: UIFont(name: Font.ubuntuRegularFont, size: 17.0)!, NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.paragraphStyle: paragraphStyle])
+            return NSAttributedString.init(string: componentTitles[row].name + " - " + componentTitles[row].location, attributes:[NSAttributedString.Key.font: UIFont(name: Font.ubuntuRegularFont, size: 17.0)!, NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         }else{
-            return NSAttributedString.init(string: Constants.CreateList.addStoreText, attributes:[NSAttributedStringKey.font: UIFont(name: Font.ubuntuRegularFont, size: 17.0)!, NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.paragraphStyle: paragraphStyle])
+            return NSAttributedString.init(string: Constants.CreateList.addStoreText, attributes:[NSAttributedString.Key.font: UIFont(name: Font.ubuntuRegularFont, size: 17.0)!, NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         }
     }
     
