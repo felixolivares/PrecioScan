@@ -84,6 +84,7 @@ class BarcodeReader: UIView, AVCaptureMetadataOutputObjectsDelegate {
         qrCodeFrameView?.frame = barCodeObject!.bounds
         
         if metadataObj.stringValue != nil {
+            captureSession?.stopRunning()
             let codeDict: [String:String] = ["code": metadataObj.stringValue!]
             NotificationCenter.default.post(name: Notification.Name(Identifiers.Notifications.idArticleFound), object: nil, userInfo: codeDict)
         }

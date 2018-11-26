@@ -73,7 +73,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
             vc.store = selectedStore
             vc.list = list
             if sender != nil{
-                vc.itemListFound = sender as! ItemList
+                vc.itemListFound = sender as? ItemList
             }
         } else if segue.identifier == Segues.toStoresFromCreateList{
             let vc = segue.destination as! CreateStoreViewController

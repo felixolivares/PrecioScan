@@ -257,7 +257,7 @@ class FirebaseOperations: NSObject {
             //var article: Article!
             if snapshot.exists(){
                 if snapshot.childrenCount > 0{
-                    print("[FirebaseOperations - searchArticles:byCode] Article found on server")
+                    print("[FirebaseOperations - searchArticles:byCode] Article found on Firebase")
                     for eachChild in snapshot.children{
                         let article = ((eachChild as! DataSnapshot).value! as! [String: Any])
                         let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: (eachChild as! DataSnapshot).key)

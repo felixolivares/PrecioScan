@@ -54,7 +54,7 @@ class ListsViewController: CustomTransitionViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.toListDetailFromLists{
             let vc = segue.destination as! CreateListViewController
-            vc.list = sender as! List
+            vc.list = sender as? List
             vc.titleText = Constants.CreateList.listTitle
         } else if(segue.identifier == Segues.toNewListFromLists) {
             let vc = segue.destination as! CreateListViewController

@@ -114,7 +114,7 @@ class NavigationMenuViewController: MenuViewController, FBSDKAppInviteDialogDele
     func facebookShare(){
         let whatsappURL:NSURL? = NSURL(string: "whatsapp://send?text=Hello%2C%20World!")
         if (UIApplication.shared.canOpenURL(whatsappURL! as URL)) {
-            UIApplication.shared.openURL(whatsappURL! as URL)
+            UIApplication.shared.open(whatsappURL! as URL, options: [:], completionHandler: nil)
         }
     }
 }

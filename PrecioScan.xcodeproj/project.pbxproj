@@ -73,6 +73,8 @@
 		308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */; };
 		308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F51FB6BD540026BB14 /* FirebaseOperations.swift */; };
 		309228501F86ED6100D6AA6A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092284F1F86ED6100D6AA6A /* List.swift */; };
+		30A1D24821A8D2F60013A82C /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1D24721A8D2F60013A82C /* ClientManager.swift */; };
+		30A1D24A21A9D5DD0013A82C /* BarcodeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30A1D24921A9D5DD0013A82C /* BarcodeSound.mp3 */; };
 		30A7D2EB1F96E74D00F6D1AA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7D2EA1F96E74D00F6D1AA /* Extensions.swift */; };
 		30AC99FB1F9FD7F20029F6E6 /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC99FA1F9FD7F20029F6E6 /* HostViewController.swift */; };
 		30AC99FD1F9FDAC20029F6E6 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC99FC1F9FDAC20029F6E6 /* NavigationMenuViewController.swift */; };
@@ -198,6 +200,8 @@
 		308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		308571F51FB6BD540026BB14 /* FirebaseOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseOperations.swift; sourceTree = "<group>"; };
 		3092284F1F86ED6100D6AA6A /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		30A1D24721A8D2F60013A82C /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
+		30A1D24921A9D5DD0013A82C /* BarcodeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BarcodeSound.mp3; sourceTree = "<group>"; };
 		30A7D2EA1F96E74D00F6D1AA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		30AC99FA1F9FD7F20029F6E6 /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
 		30AC99FC1F9FDAC20029F6E6 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 				306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */,
 				30B76BE12012BF20003A28B7 /* InAppPurchasesManager.swift */,
 				3024197F201BE218009C68B0 /* AdsManager.swift */,
+				30A1D24721A8D2F60013A82C /* ClientManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 		30FFE6201F85977E001CE3B8 /* PrecioScan */ = {
 			isa = PBXGroup;
 			children = (
+				30A1D24921A9D5DD0013A82C /* BarcodeSound.mp3 */,
 				306B7B2020001DA20054F1CE /* Managers */,
 				30083B6A1F88A0F5006274C9 /* Helpers */,
 				3050A4B01F870D2D00AD60D7 /* Utilities */,
@@ -727,6 +733,7 @@
 				306AC78E1FA29EBE0096814C /* HeaderCompareTableViewCell.xib in Resources */,
 				30AC9AC71FABE6590086E319 /* ArticleTableViewCell.xib in Resources */,
 				3021562A20116AF3002B9500 /* PageTwo.xib in Resources */,
+				30A1D24A21A9D5DD0013A82C /* BarcodeSound.mp3 in Resources */,
 				30215630201187FD002B9500 /* Ubuntu-Light.otf in Resources */,
 				30083B691F883B40006274C9 /* Ubuntu-Medium.otf in Resources */,
 				306AC7791FA0216A0096814C /* MenuItemTableViewCell.xib in Resources */,
@@ -847,6 +854,7 @@
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyOnboard/SwiftyOnboard.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TableViewReloadAnimation/TableViewReloadAnimation.framework",
@@ -885,6 +893,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyOnboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableViewReloadAnimation.framework",
@@ -993,6 +1002,7 @@
 				30B76BD920119084003A28B7 /* PageThree.swift in Sources */,
 				301682CF1FCF168600559A3B /* RemoteStoreTableViewCell.swift in Sources */,
 				30FF9B4E1FE24A1400E4C49A /* SubscriptionViewController.swift in Sources */,
+				30A1D24821A8D2F60013A82C /* ClientManager.swift in Sources */,
 				3050A4A51F86FFF700AD60D7 /* ListsViewController.swift in Sources */,
 				30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */,
 				301682CA1FCD469500559A3B /* SearchStoreViewController.swift in Sources */,
