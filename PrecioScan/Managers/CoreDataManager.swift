@@ -175,6 +175,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
+                    print("[CodeData Manager - saveArticle] - Article saved with code: \(code)")
                     completionHandler(article, nil)
                 case .failure:
                     completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))

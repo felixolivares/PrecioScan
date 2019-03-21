@@ -161,7 +161,11 @@ class AddArticleViewController: UIViewController {
     
     //MARK: - Core Data
     func fetchArticles(withCode code: String?){
+        NotificationCenter.default.removeObserver(self,
+                                                  name: Notification.Name(Identifiers.Notifications.idArticleFound),
+                                                  object: nil)
         guard barcodeIsRead == false else {return}
+        self.barcodeIsRead = true
         if ConfigurationManager.soundEnabled! {
             self.playBarcodeSound()
         }
