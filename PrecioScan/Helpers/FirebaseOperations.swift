@@ -148,9 +148,9 @@ class FirebaseOperations: NSObject {
     
     public func addArticle(barcode: String, name: String) -> String{
         let values: [String: String?] = [FRAttribute.code: barcode, FRAttribute.name: name]
-        let articleRef = self.ref.child(FRTable.article).childByAutoId()
+        let articleRef = self.ref.child(FRTable.article).child(barcode)
         articleRef.setValue(values)
-        return articleRef.key!
+        return barcode
     }
     
     public func addStore(name: String, location: String, information: String?, state: String, city: String) -> String{
@@ -253,16 +253,17 @@ class FirebaseOperations: NSObject {
     }
     
     public func searchArticles(byCode code: String, completionHandler: @escaping(TempArticle?) -> Void){
-        self.ref.child(FRTable.article).queryOrdered(byChild: FRAttribute.code).queryEqual(toValue: code).observeSingleEvent(of: .value, with: { snapshot in
+        self.ref.child(FRTable.article).child(code).observeSingleEvent(of: .value, with: { snapshot in
             //var article: Article!
             if snapshot.exists(){
                 if snapshot.childrenCount > 0{
                     print("[FirebaseOperations - searchArticles:byCode] Article found on Firebase")
-                    for eachChild in snapshot.children{
-                        let article = ((eachChild as! DataSnapshot).value! as! [String: Any])
-                        let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: (eachChild as! DataSnapshot).key)
-                        completionHandler(newArticle)
-                    }
+                    let article = (snapshot.value! as! [String: Any])
+                    let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: snapshot.key)
+                    completionHandler(newArticle)
+//                    for eachChild in snapshot.children{
+//                        
+//                    }
                 }
             } else {
                 completionHandler(nil)
