@@ -162,7 +162,6 @@ class AddArticleViewController: UIViewController {
     //MARK: - Core Data
     func fetchArticles(withCode code: String?){
         guard barcodeIsRead == false else {return}
-        self.barcodeIsRead = true
         if ConfigurationManager.soundEnabled! {
             self.playBarcodeSound()
         }
