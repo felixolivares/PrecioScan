@@ -60,7 +60,7 @@ class BarcodeReader: UIView, AVCaptureMetadataOutputObjectsDelegate {
                 qrCodeFrameView.layer.borderColor = UIColor.green.cgColor
                 qrCodeFrameView.layer.borderWidth = 2
                 self.addSubview(qrCodeFrameView)
-                self.bringSubview(toFront: qrCodeFrameView)
+                self.bringSubviewToFront(qrCodeFrameView)
             }
         } catch {
             // If any error occurs, simply print it out and don't continue any more.
@@ -84,6 +84,7 @@ class BarcodeReader: UIView, AVCaptureMetadataOutputObjectsDelegate {
         qrCodeFrameView?.frame = barCodeObject!.bounds
         
         if metadataObj.stringValue != nil {
+            captureSession?.stopRunning()
             let codeDict: [String:String] = ["code": metadataObj.stringValue!]
             NotificationCenter.default.post(name: Notification.Name(Identifiers.Notifications.idArticleFound), object: nil, userInfo: codeDict)
         }

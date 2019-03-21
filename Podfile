@@ -35,6 +35,7 @@ target 'PrecioScan' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'FacebookShare'
+  pod 'SwiftySound'
   
   target 'PrecioScanTests' do
     inherit! :search_paths

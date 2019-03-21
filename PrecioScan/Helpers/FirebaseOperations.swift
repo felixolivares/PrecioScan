@@ -137,7 +137,7 @@ class FirebaseOperations: NSObject {
             values = [FRAttribute.username: user?.displayName, FRAttribute.email: user?.email, FRAttribute.photoName: user?.photoURL?.absoluteString]
         }
         let userKey = self.ref.child(FRTable.user).child((user?.uid)!).key
-        self.ref.child(FRTable.user).child(userKey).updateChildValues((values as Any) as! [AnyHashable : Any])
+        self.ref.child(FRTable.user).child(userKey!).updateChildValues((values as Any) as! [AnyHashable : Any])
     }
     
     public func updateCurrentUser(withSubscriptionDate date: Date, isSubscribed: Bool){
@@ -150,7 +150,7 @@ class FirebaseOperations: NSObject {
         let values: [String: String?] = [FRAttribute.code: barcode, FRAttribute.name: name]
         let articleRef = self.ref.child(FRTable.article).childByAutoId()
         articleRef.setValue(values)
-        return articleRef.key
+        return articleRef.key!
     }
     
     public func addStore(name: String, location: String, information: String?, state: String, city: String) -> String{
@@ -165,7 +165,7 @@ class FirebaseOperations: NSObject {
                                          FRAttribute.citySearch: city.lowercased()]
         let storeRef = self.ref.child(FRTable.store).childByAutoId()
         storeRef.setValue(values)
-        return storeRef.key
+        return storeRef.key!
     }
     
     public func addList(name: String, date: Date, storeId: String, userUid: String) -> String{
@@ -175,7 +175,7 @@ class FirebaseOperations: NSObject {
                                       FRAttribute.user: userUid]
         let listRef = self.ref.child(FRTable.list).childByAutoId()
         listRef.setValue(values)
-        return listRef.key
+        return listRef.key!
     }
     
     public func addItemList(date: Date, photoName: String?, quantity: Int32, unitaryPrice: Decimal, articleUid: String, listUid: String, storeUid: String, userUid: String) -> String{
@@ -202,16 +202,16 @@ class FirebaseOperations: NSObject {
                     for eachChild in snapshot.children{
                         itemLists[(eachChild as! DataSnapshot).key] = (eachChild as! DataSnapshot).value! as? Bool
                     }
-                    itemLists[itemListRef.key] = true
+                    itemLists[itemListRef.key!] = true
                     self.ref.child(FRTable.list).child(listUid).child(FRAttribute.itemLists).setValue(itemLists)
                 }
             } else {
-                itemLists[itemListRef.key] = true
+                itemLists[itemListRef.key!] = true
                 self.ref.child(FRTable.list).child(listUid).child(FRAttribute.itemLists).setValue(itemLists)
             }
         })
         
-        return itemListRef.key
+        return itemListRef.key!
     }
     
     public func addPhotoToItemList(itemListUid: String, photoName: String? = nil){
@@ -257,7 +257,7 @@ class FirebaseOperations: NSObject {
             //var article: Article!
             if snapshot.exists(){
                 if snapshot.childrenCount > 0{
-                    print("[FirebaseOperations - searchArticles:byCode] Article found on server")
+                    print("[FirebaseOperations - searchArticles:byCode] Article found on Firebase")
                     for eachChild in snapshot.children{
                         let article = ((eachChild as! DataSnapshot).value! as! [String: Any])
                         let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: (eachChild as! DataSnapshot).key)

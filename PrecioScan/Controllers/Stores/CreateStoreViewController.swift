@@ -88,7 +88,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
         tableView.backgroundColor = UIColor.white
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func configureComponents(){

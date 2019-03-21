@@ -93,7 +93,7 @@ class ArticlesViewController: UIViewController {
         tableView.allowsSelection = true
         tableView.allowsMultipleSelectionDuringEditing = true
         
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     func configureSearchController(){

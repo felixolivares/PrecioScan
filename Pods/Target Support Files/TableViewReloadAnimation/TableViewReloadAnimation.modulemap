@@ -1,0 +1,6 @@
+framework module TableViewReloadAnimation {
+  umbrella header "TableViewReloadAnimation-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -73,6 +73,8 @@
 		308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */; };
 		308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F51FB6BD540026BB14 /* FirebaseOperations.swift */; };
 		309228501F86ED6100D6AA6A /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3092284F1F86ED6100D6AA6A /* List.swift */; };
+		30A1D24821A8D2F60013A82C /* ClientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A1D24721A8D2F60013A82C /* ClientManager.swift */; };
+		30A1D24A21A9D5DD0013A82C /* BarcodeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 30A1D24921A9D5DD0013A82C /* BarcodeSound.mp3 */; };
 		30A7D2EB1F96E74D00F6D1AA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A7D2EA1F96E74D00F6D1AA /* Extensions.swift */; };
 		30AC99FB1F9FD7F20029F6E6 /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC99FA1F9FD7F20029F6E6 /* HostViewController.swift */; };
 		30AC99FD1F9FDAC20029F6E6 /* NavigationMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC99FC1F9FDAC20029F6E6 /* NavigationMenuViewController.swift */; };
@@ -198,6 +200,8 @@
 		308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		308571F51FB6BD540026BB14 /* FirebaseOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseOperations.swift; sourceTree = "<group>"; };
 		3092284F1F86ED6100D6AA6A /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		30A1D24721A8D2F60013A82C /* ClientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientManager.swift; sourceTree = "<group>"; };
+		30A1D24921A9D5DD0013A82C /* BarcodeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BarcodeSound.mp3; sourceTree = "<group>"; };
 		30A7D2EA1F96E74D00F6D1AA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		30AC99FA1F9FD7F20029F6E6 /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
 		30AC99FC1F9FDAC20029F6E6 /* NavigationMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMenuViewController.swift; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 				306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */,
 				30B76BE12012BF20003A28B7 /* InAppPurchasesManager.swift */,
 				3024197F201BE218009C68B0 /* AdsManager.swift */,
+				30A1D24721A8D2F60013A82C /* ClientManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -522,6 +527,7 @@
 		30FFE6201F85977E001CE3B8 /* PrecioScan */ = {
 			isa = PBXGroup;
 			children = (
+				30A1D24921A9D5DD0013A82C /* BarcodeSound.mp3 */,
 				306B7B2020001DA20054F1CE /* Managers */,
 				30083B6A1F88A0F5006274C9 /* Helpers */,
 				3050A4B01F870D2D00AD60D7 /* Utilities */,
@@ -668,11 +674,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Felix Olivares";
 				TargetAttributes = {
 					30FFE61D1F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
@@ -682,11 +689,13 @@
 					};
 					30FFE6311F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 30FFE61D1F85977E001CE3B8;
 					};
 					30FFE63C1F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 30FFE61D1F85977E001CE3B8;
 					};
@@ -724,6 +733,7 @@
 				306AC78E1FA29EBE0096814C /* HeaderCompareTableViewCell.xib in Resources */,
 				30AC9AC71FABE6590086E319 /* ArticleTableViewCell.xib in Resources */,
 				3021562A20116AF3002B9500 /* PageTwo.xib in Resources */,
+				30A1D24A21A9D5DD0013A82C /* BarcodeSound.mp3 in Resources */,
 				30215630201187FD002B9500 /* Ubuntu-Light.otf in Resources */,
 				30083B691F883B40006274C9 /* Ubuntu-Medium.otf in Resources */,
 				306AC7791FA0216A0096814C /* MenuItemTableViewCell.xib in Resources */,
@@ -823,6 +833,7 @@
 				"${BUILT_PRODUCTS_DIR}/BadgeSwift/BadgeSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -833,7 +844,7 @@
 				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQCoreDataKit/JSQCoreDataKit.framework",
@@ -843,6 +854,7 @@
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyOnboard/SwiftyOnboard.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TableViewReloadAnimation/TableViewReloadAnimation.framework",
@@ -860,6 +872,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -870,7 +883,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GMStepper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InteractiveSideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQCoreDataKit.framework",
@@ -880,6 +893,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyOnboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TableViewReloadAnimation.framework",
@@ -988,6 +1002,7 @@
 				30B76BD920119084003A28B7 /* PageThree.swift in Sources */,
 				301682CF1FCF168600559A3B /* RemoteStoreTableViewCell.swift in Sources */,
 				30FF9B4E1FE24A1400E4C49A /* SubscriptionViewController.swift in Sources */,
+				30A1D24821A8D2F60013A82C /* ClientManager.swift in Sources */,
 				3050A4A51F86FFF700AD60D7 /* ListsViewController.swift in Sources */,
 				30BD65A21F9005EE002DCD90 /* Popup.swift in Sources */,
 				301682CA1FCD469500559A3B /* SearchStoreViewController.swift in Sources */,
@@ -1119,6 +1134,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1126,6 +1142,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1176,6 +1193,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1183,6 +1201,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1228,7 +1247,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1249,7 +1268,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1266,7 +1285,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrecioScan.app/PrecioScan";
 			};
@@ -1284,7 +1303,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrecioScan.app/PrecioScan";
 			};
@@ -1301,7 +1320,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PrecioScan;
 			};
@@ -1318,7 +1337,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PrecioScan;
 			};

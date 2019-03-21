@@ -42,14 +42,16 @@ class Popup{
         }else{
             finalTitle = ""
         }
-        let popup = PopupDialog(title: finalTitle, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+//        let popup = PopupDialog(title: finalTitle, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: finalTitle, message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         let buttonOne = DefaultButton(title: "OK") {}
         popup.addButton(buttonOne)
         vc.present(popup, animated: true, completion: nil)
     }
     
     public static func show(message:String?, vc: UIViewController){
-        let popup = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+//        let popu = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: "", message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         vc.present(popup, animated: true, completion: nil)
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
@@ -64,7 +66,8 @@ class Popup{
         }else{
             finalTitle = ""
         }
-        let popup = PopupDialog(title: finalTitle, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+//        let popup = PopupDialog(title: finalTitle, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: finalTitle, message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         let buttonOne = DefaultButton(title: "OK") {
             popup.dismiss()
             completionHandler(Constants.Popup.Buttons.continueAnswer)
@@ -74,7 +77,8 @@ class Popup{
     }
     
     public static func show(withCompletionMessage message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
-        let popup = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+//        let popup = PopupDialog(title: "", message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: "", message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         vc.present(popup, animated: true, completion: nil)
         let when = DispatchTime.now() + 2
         DispatchQueue.main.asyncAfter(deadline: when) {
@@ -84,14 +88,16 @@ class Popup{
     }
     
     public static func show(withError error: NSError, vc: UIViewController){
-        let popup = PopupDialog(title: error.localizedFailureReason, message: error.localizedDescription, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+//        let popu = PopupDialog(title: error.localizedFailureReason, message: error.localizedDescription, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: error.localizedFailureReason, message: error.localizedDescription, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         let buttonOne = DefaultButton(title: "OK") {}
         popup.addButton(buttonOne)
         vc.present(popup, animated: true, completion: nil)
     }
     
     public static func showConfirmationNewArticle(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
-        let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+//        let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         let buttonOK = DefaultButton(title: Constants.Popup.Buttons.yesAnswer){
             completionHandler(PopupResponse.Accept)
         }
@@ -103,7 +109,8 @@ class Popup{
     }
     
     public static func showRetryConnection(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
-        let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .bounceUp, gestureDismissal: true) {}
+//        let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .bounceUp, gestureDismissal: true) {}
+        let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         let buttonRetry = DefaultButton(title: Constants.Popup.Buttons.yesAnswer){
             completionHandler(PopupResponse.Accept)
         }
@@ -112,7 +119,8 @@ class Popup{
     }
     
     public static func showPhoto(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
-        let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+//        let popup = PopupDialog(title: title, message: message, buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         let buttonOK = DefaultButton(title: Constants.Popup.Buttons.showPhoto){
             completionHandler(PopupResponse.Show)
         }
@@ -125,7 +133,8 @@ class Popup{
     
     public static func showPurchase(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
         let subscribeBannerImage = UIImage(named: ImageNames.subscribeBannerGreen)
-        let popup = PopupDialog(title: title, message: message, image: subscribeBannerImage , buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+//        let popup = PopupDialog(title: title, message: message, image: subscribeBannerImage , buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: title, message: message, image: subscribeBannerImage, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         let buttonOK = DefaultButton(title: Constants.Popup.Buttons.goToPremium) {
             completionHandler(PopupResponse.Accept)
         }

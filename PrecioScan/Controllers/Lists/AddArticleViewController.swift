@@ -14,6 +14,7 @@ import ALCameraViewController
 import AXPhotoViewer
 import BadgeSwift
 import FirebaseDatabase
+import SwiftySound
 
 class AddArticleViewController: UIViewController {
 
@@ -36,13 +37,13 @@ class AddArticleViewController: UIViewController {
     var articleFound: Article!
     var store: Store!
     var list: List!
-    var barcodeIsRead: Bool = false
+    private var barcodeIsRead: Bool = false
     var articleIsFound: Bool = false
     var barcodeBeepPlayer: AVAudioPlayer?
     var itemListFound: ItemList!
     var photoExists: Bool = false
-    var photosDataSource: [Photo] = []
-    var photosViewController: PhotosViewController!
+    var photosDataSource: [AXPhoto] = []
+    var photosViewController: AXPhotosViewController!
     var isConnected: Bool = false
     var photoUid: String!
     
@@ -168,25 +169,41 @@ class AddArticleViewController: UIViewController {
         CoreDataManager.shared.articles(findWithCode: code){ stack, articles, error in
             if let articles = articles{
                 if articles.count > 0{
-                    print("Local article")
+                    print("[AddArticle] - Local article")
                     self.articleWasFound(article: articles.first!)
                 }else{
-                    print("No local article")
+                    print("[AddArticle] - No local article with code: \(String(describing: code))")
                     FirebaseOperations().searchArticles(byCode: code!){article in
                         if article != nil{
                             CoreDataManager.shared.saveArticle(code: (article?.code)!, name: (article?.name)!, uid: (article?.uid)!, needsToSaveOnFirebase: false){ article, error in
                                 if article != nil {
                                     self.articleWasFound(article: article!)
                                 }else{
-                                    print("An error ocurred: \(String(describing: error?.localizedDescription))")
+                                    print("[AddArticle] - An error ocurred: \(String(describing: error?.localizedDescription))")
                                 }
                             }
                         } else {
-                            print("No articles on server")
-                            self.articleIsFound = false
-                            self.articleFound = nil
-                            self.messageLabel.text = Constants.AddArticle.articleNotFoundText
-                            self.resetItemList()
+                            print("[AddArticle] - No articles on Firebase")
+                            let barcode = self.prepareBarcode(code: code!)
+                            print("[AddArticle] - Barcode prepared \(barcode)")
+                            ClientManager.shared.getPath(sku: barcode){ response, error in
+                                guard let articleName = response!.object(forKey: "skuDisplayNameText") else {
+                                    self.articleIsFound = false
+                                    self.articleFound = nil
+                                    self.messageLabel.text = Constants.AddArticle.articleNotFoundText
+                                    self.resetItemList()
+                                    return
+                                }
+                                print("[AddArticle] - Article name: \(articleName)")
+                                print("[AddArticle] - Remote response: \(String(describing: response))")
+                                CoreDataManager.shared.saveArticle(code: code!, name: articleName as! String){ article, error in
+                                    if article != nil {
+                                        self.articleWasFound(article: article!)
+                                    }else{
+                                        print("[AddArticle] - An error ocurred: \(String(describing: error?.localizedDescription))")
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -337,21 +354,24 @@ class AddArticleViewController: UIViewController {
     
     func playBarcodeSound(){
         DispatchQueue.global(qos: .background).async {
-            if let sound = NSDataAsset(name: "BarcodeSound"){
-                do {
-                    self.barcodeBeepPlayer = try AVAudioPlayer(data: sound.data, fileTypeHint: AVFileType.mp3.rawValue)
-                    self.barcodeBeepPlayer?.play()
-                } catch {
-                    // couldn't load file :(
-                }
-            }
+            Sound.play(file: "BarcodeSound.mp3")
         }
+//        DispatchQueue.global(qos: .background).async {
+//            if let sound = NSDataAsset(name: "BarcodeSound"){
+//                do {
+//                    self.barcodeBeepPlayer = try AVAudioPlayer(data: sound.data, fileTypeHint: AVFileType.mp3.rawValue)
+//                    self.barcodeBeepPlayer?.play()
+//                } catch {
+//                    // couldn't load file :(
+//                }
+//            }
+//        }
     }
     
     //MARK: - Photo
     func showPhoto(){
-        let dataSource = PhotosDataSource(photos: self.photosDataSource)
-        photosViewController = PhotosViewController(dataSource: dataSource)
+        let dataSource = AXPhotosDataSource(photos: self.photosDataSource)
+        photosViewController = AXPhotosViewController(dataSource: dataSource)
         
         let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let bottomView = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 320, height: 44)))
@@ -385,7 +405,7 @@ class AddArticleViewController: UIViewController {
             if let image = FilesManager.shared.verifyPhotoExists(name: photoName){
                 print("Photo exists: \(String(describing: itemListFound.photoName!)).png")
                 self.photoExists = true
-                photosDataSource.append(Photo(attributedTitle: NSAttributedString(string: itemListFound.article.name),
+                photosDataSource.append(AXPhoto(attributedTitle: NSAttributedString(string: itemListFound.article.name),
                                               attributedDescription: NSAttributedString(string: "$ " + String(describing: itemListFound.unitaryPrice)),
                                               attributedCredit: NSAttributedString(string: itemListFound.store.name),
                                               image: image))
@@ -447,6 +467,11 @@ class AddArticleViewController: UIViewController {
                 self.photoBadge.alpha = 1
             })
         }
+    }
+    //MARK: - Barcode actions
+    func prepareBarcode(code: String) -> String {
+        let barcode = code.dropLast()
+        return "00" + String(barcode)
     }
 }
     

@@ -41,7 +41,7 @@ public extension UITableView {
             var visibleViews = [UIView]()
             
             for items in grouped! {
-                var currentViews: [UIView] = items.value.flatMap { tableView.cellForRow(at: $0) }
+                var currentViews: [UIView] = items.value.compactMap { tableView.cellForRow(at: $0) }
                 if let header = visibleHeaderFooter[items.key]?.header {
                     currentViews.insert(header, at: 0)
                 }

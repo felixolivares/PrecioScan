@@ -211,12 +211,12 @@ extension ProfileViewController: MKDropdownMenuDelegate{
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, attributedTitleForComponent component: Int) -> NSAttributedString? {
         let titleColor = self.stateIsSelected ? UIColor.black : UIColor(titleGray)
         let titleFont = self.stateIsSelected ? UIFont(name: Font.ubuntuBoldFont, size: 17.0)! : UIFont(name: Font.ubuntuMediumFont, size: 14.0)!
-        return NSMutableAttributedString(string: "", attributes: [NSAttributedStringKey.font: titleFont, NSAttributedStringKey.foregroundColor: titleColor!, NSAttributedStringKey.paragraphStyle: paragraphStyle])
+        return NSMutableAttributedString(string: "", attributes: [NSAttributedString.Key.font: titleFont, NSAttributedString.Key.foregroundColor: titleColor!, NSAttributedString.Key.paragraphStyle: paragraphStyle])
         
     }
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        return NSAttributedString.init(string: componentTitles[row], attributes:[NSAttributedStringKey.font: UIFont(name: Font.ubuntuRegularFont, size: 17.0)!, NSAttributedStringKey.foregroundColor: UIColor.black, NSAttributedStringKey.paragraphStyle: paragraphStyle])
+        return NSAttributedString.init(string: componentTitles[row], attributes:[NSAttributedString.Key.font: UIFont(name: Font.ubuntuRegularFont, size: 17.0)!, NSAttributedString.Key.foregroundColor: UIColor.black, NSAttributedString.Key.paragraphStyle: paragraphStyle])
     }
     
     func dropdownMenu(_ dropdownMenu: MKDropdownMenu, didSelectRow row: Int, inComponent component: Int) {

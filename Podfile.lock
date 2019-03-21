@@ -1,16 +1,15 @@
 PODS:
-  - Alamofire (4.5.1)
-  - AlamofireImage (3.3.0):
-    - Alamofire (~> 4.5)
-  - ALCameraViewController (3.0.2)
-  - AXPhotoViewer (1.3.2):
-    - AXPhotoViewer/Lite (= 1.3.2)
-  - AXPhotoViewer/Core (1.3.2):
+  - Alamofire (4.7.3)
+  - AlamofireImage (3.4.1):
+    - Alamofire (~> 4.7)
+  - ALCameraViewController (3.0.3)
+  - AXPhotoViewer (1.6.1):
+    - AXPhotoViewer/Core (= 1.6.1)
+  - AXPhotoViewer/Core (1.6.1):
     - AXStateButton (>= 1.1.3)
     - FLAnimatedImage (>= 1.0.0)
-  - AXPhotoViewer/Lite (1.3.2):
-    - AXPhotoViewer/Core
-  - AXStateButton (1.1.3)
+    - FLAnimatedImage-tvOS (>= 1.0.16)
+  - AXStateButton (1.1.4)
   - BadgeSwift (5.0.1)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
@@ -21,95 +20,121 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - DynamicButton (5.0.0)
-  - FacebookCore (0.3.0):
-    - Bolts (~> 1.8)
-    - FBSDKCoreKit (~> 4.27)
-  - FacebookLogin (0.3.0):
-    - Bolts (~> 1.8)
-    - FacebookCore (~> 0.3)
-    - FBSDKCoreKit (~> 4.27)
-    - FBSDKLoginKit (~> 4.27)
-  - FacebookShare (0.3.0):
-    - Bolts (~> 1.8)
-    - FacebookCore (~> 0.3)
-    - FBSDKCoreKit (~> 4.27)
-    - FBSDKShareKit (~> 4.27)
-  - FBSDKCoreKit (4.29.0):
-    - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.29.0):
+  - DynamicBlurView (3.0.1)
+  - DynamicButton (5.0.1)
+  - FacebookCore (0.5.0):
+    - Bolts (~> 1.9)
+    - FBSDKCoreKit (~> 4.37)
+  - FacebookLogin (0.5.0):
+    - Bolts (~> 1.9)
+    - FacebookCore (~> 0.5)
+    - FBSDKCoreKit (~> 4.37)
+    - FBSDKLoginKit (~> 4.37)
+  - FacebookShare (0.5.0):
+    - Bolts (~> 1.9)
+    - FacebookCore (~> 0.5)
+    - FBSDKCoreKit (~> 4.37)
+    - FBSDKShareKit (~> 4.37)
+  - FBSDKCoreKit (4.38.1):
+    - Bolts (~> 1.9)
+  - FBSDKLoginKit (4.38.1):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.29.0):
+  - FBSDKShareKit (4.38.1):
     - FBSDKCoreKit
-  - Firebase/Auth (4.8.1):
-    - Firebase/Core
-    - FirebaseAuth (= 4.4.2)
-  - Firebase/Core (4.8.1):
-    - FirebaseAnalytics (= 4.0.7)
-    - FirebaseCore (= 4.0.14)
-  - Firebase/Database (4.8.1):
-    - Firebase/Core
-    - FirebaseDatabase (= 4.1.4)
-  - FirebaseAnalytics (4.0.7):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - Firebase/Auth (5.13.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (= 5.0.5)
+  - Firebase/Core (5.13.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 5.3.0)
+  - Firebase/CoreOnly (5.13.0):
+    - FirebaseCore (= 5.1.8)
+  - Firebase/Database (5.13.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (= 5.0.3)
+  - FirebaseAnalytics (5.3.0):
+    - FirebaseCore (~> 5.1)
+    - FirebaseInstanceID (~> 3.3)
+    - GoogleAppMeasurement (~> 5.3)
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - GoogleUtilities/NSData+zlib (~> 5.2)
     - nanopb (~> 0.3)
-  - FirebaseAuth (4.4.2):
-    - FirebaseAnalytics (~> 4.0)
-    - GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)
+  - FirebaseAuth (5.0.5):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseCore (4.0.14):
-    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
-  - FirebaseDatabase (4.1.4):
-    - FirebaseAnalytics (~> 4.0)
-    - FirebaseCore (~> 4.0)
+  - FirebaseAuthInterop (1.0.0)
+  - FirebaseCore (5.1.8):
+    - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseDatabase (5.0.3):
+    - FirebaseCore (~> 5.0)
     - leveldb-library (~> 1.18)
-  - FirebaseInstanceID (2.0.8):
-    - FirebaseCore (~> 4.0)
+  - FirebaseInstanceID (3.3.0):
+    - FirebaseCore (~> 5.1)
+    - GoogleUtilities/Environment (~> 5.3)
+    - GoogleUtilities/UserDefaults (~> 5.3)
   - FLAnimatedImage (1.0.12)
   - GMStepper (2.1)
-  - Google-Mobile-Ads-SDK (7.27.0)
-  - GoogleToolboxForMac/DebugUtils (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/Defines (2.1.3)
-  - GoogleToolboxForMac/NSData+zlib (2.1.3):
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-  - GoogleToolboxForMac/NSDictionary+URLArguments (2.1.3):
-    - GoogleToolboxForMac/DebugUtils (= 2.1.3)
-    - GoogleToolboxForMac/Defines (= 2.1.3)
-    - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
-  - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
-  - GTMSessionFetcher/Core (1.1.12)
-  - InteractiveSideMenu (2.0)
-  - IQKeyboardManagerSwift (5.0.2)
+  - Google-Mobile-Ads-SDK (7.36.0)
+  - GoogleAppMeasurement (5.3.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
+    - GoogleUtilities/MethodSwizzler (~> 5.2)
+    - GoogleUtilities/Network (~> 5.2)
+    - GoogleUtilities/NSData+zlib (~> 5.2)
+    - nanopb (~> 0.3)
+  - GoogleUtilities/AppDelegateSwizzler (5.3.6):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (5.3.6)
+  - GoogleUtilities/Logger (5.3.6):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (5.3.6):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (5.3.6):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/NSData+zlib
+    - GoogleUtilities/Reachability
+  - GoogleUtilities/NSData+zlib (5.3.6)
+  - GoogleUtilities/Reachability (5.3.6):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (5.3.6):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.2.1)
+  - InteractiveSideMenu (2.3)
+  - IQKeyboardManagerSwift (6.2.0)
   - JSQCoreDataKit (7.0.0)
   - leveldb-library (1.20)
   - MKDropdownMenu (1.4)
-  - nanopb (0.3.8):
-    - nanopb/decode (= 0.3.8)
-    - nanopb/encode (= 0.3.8)
-  - nanopb/decode (0.3.8)
-  - nanopb/encode (0.3.8)
-  - PMSuperButton (2.0.0)
-  - PopupDialog (0.6.2)
-  - PromiseKit (4.4.0):
-    - PromiseKit/Foundation (= 4.4.0)
-    - PromiseKit/QuartzCore (= 4.4.0)
-    - PromiseKit/UIKit (= 4.4.0)
-  - PromiseKit/CorePromise (4.4.0)
-  - PromiseKit/Foundation (4.4.0):
+  - nanopb (0.3.901):
+    - nanopb/decode (= 0.3.901)
+    - nanopb/encode (= 0.3.901)
+  - nanopb/decode (0.3.901)
+  - nanopb/encode (0.3.901)
+  - PMSuperButton (2.2.0)
+  - PopupDialog (0.9.1):
+    - DynamicBlurView (~> 3.0.1)
+  - PromiseKit (4.5.2):
+    - PromiseKit/Foundation (= 4.5.2)
+    - PromiseKit/QuartzCore (= 4.5.2)
+    - PromiseKit/UIKit (= 4.5.2)
+  - PromiseKit/CorePromise (4.5.2)
+  - PromiseKit/Foundation (4.5.2):
     - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.4.0):
+  - PromiseKit/QuartzCore (4.5.2):
     - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.4.0):
+  - PromiseKit/UIKit (4.5.2):
     - PromiseKit/CorePromise
-  - PWSwitch (1.1.0)
-  - SwiftyOnboard (1.3.6)
-  - SwiftyStoreKit (0.10.8)
-  - SwipeCellKit (2.0.0)
+  - PWSwitch (1.1.2)
+  - SwiftyOnboard (1.3.8)
+  - SwiftySound (1.0.0)
+  - SwiftyStoreKit (0.14.1)
+  - SwipeCellKit (2.5.0)
   - TableViewReloadAnimation (0.0.5)
-  - TransitionButton (0.2.0)
+  - TransitionButton (0.5.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
@@ -136,6 +161,7 @@ DEPENDENCIES:
   - PromiseKit (~> 4.4)
   - PWSwitch
   - SwiftyOnboard
+  - SwiftySound
   - SwiftyStoreKit
   - SwipeCellKit (from `https://github.com/SwipeCellKit/SwipeCellKit.git`, branch `develop`)
   - TableViewReloadAnimation (~> 0.0.5)
@@ -157,55 +183,59 @@ CHECKOUT OPTIONS:
     :commit: db432ca1b1a3d8f83ee1f881208c0c960a325e73
     :git: https://github.com/ViccAlexander/Chameleon.git
   GMStepper:
-    :commit: c2748bb7765ca836a4a6a479584edeb19607d4da
+    :commit: ae98a8c70b00f1cc933a65946849c520f26c2d92
     :git: https://github.com/gmertk/GMStepper.git
   SwipeCellKit:
-    :commit: 11d86e3864329a970925d985f5273d76b5d74afc
+    :commit: 9c69084b9b331c3c9f4767add20afe72112adee8
     :git: https://github.com/SwipeCellKit/SwipeCellKit.git
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
-  ALCameraViewController: 1edce3497633f0df138523645ed1228961ee2eab
-  AXPhotoViewer: fb4aa2cbbf7603f693aefc9f6a81dab3dbe0ab32
-  AXStateButton: b42f7132f4d8232fc342d004e4738b84923a93e9
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AlamofireImage: 78d67ccbb763d87ba44b21583d2153500a195630
+  ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
+  AXPhotoViewer: 45d93a29d097e8bf4c07a6f3dedb4fa155dfbb51
+  AXStateButton: 6c515a433e37551505046429b5be04c12daa8c07
   BadgeSwift: 3defa56f504bfb46f2300122c4a565ec9e405c1e
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  DynamicButton: 4c2fef968e4aa0a8a6ed7ca6b8a58c8e21a36cdc
-  FacebookCore: 3ffa190a3f1f96cec0e44d3fc221bc322c595ffa
-  FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
-  FacebookShare: 0469964297ebd75f052be2c5083389a4208e82b7
-  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
-  FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
-  FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
-  Firebase: 2721056b8885eef90233b03f37be64358d35d262
-  FirebaseAnalytics: 617afa8c26b57a0c3f11361b248bc9e17bfd8dfd
-  FirebaseAuth: bd2738c5c1e92b108ba5f7f7335908097a4e50bb
-  FirebaseCore: 2e0b98fb2d64ca8140136beff15772bdd14d2dd7
-  FirebaseDatabase: de4446507ccd3257fca37d16f40e1540324571fd
-  FirebaseInstanceID: 81df5805a08001e69138664bdd02c6719a9ac80f
+  DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
+  DynamicButton: 998b18d1568be705c153451bcfccbc34c7e0053d
+  FacebookCore: 74288d0add931d361b1596beae787ab72c438249
+  FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
+  FacebookShare: 963b4bb1124a64a395b1e428163d70b5774116e8
+  FBSDKCoreKit: 8d47857400e2f5bdea697a80daff882e91c84ef6
+  FBSDKLoginKit: 4621c690d9dd8628031a4791497062183ea34b0d
+  FBSDKShareKit: 6ffe22f0a0618eb7424d4104ab0ef3ce9643d42a
+  Firebase: 6df9a6114bc9f106a98fe83d5438d4d9833c2019
+  FirebaseAnalytics: 63202d2665de4e6adcbdce189135255d8b5962ba
+  FirebaseAuth: 9299ab178271bec7426967b05b2718bb6fc31f17
+  FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
+  FirebaseCore: fba2bfaa691c49028309b92e4dd37cc4b5512fbe
+  FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
+  FirebaseInstanceID: e2fa4cb35ef5558c200f7f0ad8a53e212215f93e
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GMStepper: f3258bbe25a90462e99bbeea0f48074932bfa32a
-  Google-Mobile-Ads-SDK: 83f7f890e638ce8f1debd440ea363338c9f6be3b
-  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
-  GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
-  InteractiveSideMenu: 337f6d95a3f6543c517a888893531430e18553b3
-  IQKeyboardManagerSwift: e580da046d804d2836ee84668cc17e43a850a35d
+  Google-Mobile-Ads-SDK: 5bb4d2cea811842e104a24780caef63b4808e1bd
+  GoogleAppMeasurement: 5029d78f2b438bd30ffb44e6c558b57c21622727
+  GoogleUtilities: 95996bea7c7d9b8fb811b7507669a4a8762f80c7
+  GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
+  InteractiveSideMenu: d503a508c6d62a4d5d4372d9fb9e1795637a8e45
+  IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
   JSQCoreDataKit: bc6f37205d36c379a70c56e829fcbc7e921900c2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   MKDropdownMenu: 269df4a41d21a1db684ce8bc709befe419fc5bae
-  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  PMSuperButton: 2269b1cd625ce2d2aa8029d79c6dae3544024817
-  PopupDialog: d4336d7274a6aa3af4cb26d8b6691510eba90cc3
-  PromiseKit: ecf5fe92275d57ee77c9ede858af47a162e9b97e
-  PWSwitch: e5a45cb84ff794a4d651812cce1f061764629ed3
-  SwiftyOnboard: 8dec41d4725b3e6ebcae276dd206d7f74c1b7f61
-  SwiftyStoreKit: 8c193678fabbaafb4430a536497613f89fefd7ec
-  SwipeCellKit: 7db3ff3595609793108b0e7dbc8c6ca7d9dafa8a
+  nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
+  PMSuperButton: 5e7b2eb79468dba1ced3fd00e47a7ce88a1fa664
+  PopupDialog: 03985b669c29802661c187513bf827340db1ae4d
+  PromiseKit: 743e497a5f505a470d3bbbf4ce0663c1268af0a4
+  PWSwitch: 399db6ef5dd8417f9a1e9f82cb70602f10a6c38f
+  SwiftyOnboard: de60e90c2af23dd61b01ec0c6a8d0be3370f857b
+  SwiftySound: b9c3370956fd4ed65ed79d45563070077a50a2cd
+  SwiftyStoreKit: a5cdece4327f3943eb72fa81aebe3aa6684b5eab
+  SwipeCellKit: d8f2617538ce3021cb0a11d1b93856a06a2f2e20
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
-  TransitionButton: 82a065bd97f9434ecfa7bb3a15306aec1b5a5894
+  TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
 
-PODFILE CHECKSUM: 869fcfdf1245beeba357a6008904baff58ff7bca
+PODFILE CHECKSUM: 0807820de62bf263aaefde361280adb3529bc1ab
 
 COCOAPODS: 1.4.0

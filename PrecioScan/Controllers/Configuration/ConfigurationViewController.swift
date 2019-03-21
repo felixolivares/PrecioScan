@@ -70,10 +70,10 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
     }
     
     func configureSwitch(sender: PWSwitch){
-        sender.trackOffBorderColor = UIColor(oliveGreen)
+        sender.trackOffBorderColor = UIColor(oliveGreen)!
         sender.thumbOnFillColor = UIColor.white
-        sender.thumbOnBorderColor = UIColor("9d9d9d")
-        sender.trackOnFillColor = UIColor(oliveGreen)
+        sender.thumbOnBorderColor = UIColor("9d9d9d")!
+        sender.trackOnFillColor = UIColor(oliveGreen)!
     }
     
     func configureComponents(){
