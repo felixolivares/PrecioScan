@@ -34,7 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         completeTransactions()
         InAppPurchasesManager.shared.retrieveProducts()
-        GADMobileAds.configure(withApplicationID: Constants.Admob.appID)
+//        GADMobileAds.configure(withApplicationID: Constants.Admob.appID)
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
 
         
         return true
