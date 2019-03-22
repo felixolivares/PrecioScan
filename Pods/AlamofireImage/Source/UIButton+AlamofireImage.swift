@@ -32,7 +32,7 @@ import UIKit
 #if swift(>=4.2)
 public typealias ControlState = UIControl.State
 #else
-public typealias ControlState = UIControl.State
+public typealias ControlState = UIControlState
 #endif
 
 extension UIButton {

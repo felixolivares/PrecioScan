@@ -28,11 +28,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>5</string>
+	<string>6</string>
 	<key>FacebookAppID</key>
 	<string>183688445715704</string>
 	<key>FacebookDisplayName</key>
 	<string>PrecioScan</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-3913769475917328~5547690405</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

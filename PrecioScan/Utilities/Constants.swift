@@ -234,7 +234,7 @@ struct Constants {
     }
     
     struct Email{
-        public static let recipients = "precioscan1@gmail.com"
+        public static let recipients = "contacto@precioscan.mx"
         public static let subject = "Comentarios acerca PrecioScan"
         public static let messageBody = "Hola PrecioScan, estos son mis commentarios..."
     }
