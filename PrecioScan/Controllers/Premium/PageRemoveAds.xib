@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Ubuntu-Light.otf">
+            <string>Ubuntu-Light</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="PageRemoveAds" customModule="PrecioScan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elimina los anuncios que  aparecen en la aplicación" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="mpb-cg-NhY">
+                    <rect key="frame" x="30" y="90" width="315" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="6cy-VI-Wd7"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="adsPlaceholderIcon" translatesAutoresizingMaskIntoConstraints="NO" id="v98-9l-dLR">
+                    <rect key="frame" x="54" y="200" width="266.5" height="266.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="v98-9l-dLR" secondAttribute="height" multiplier="1:1" id="DV5-P0-hKs"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mpb-cg-NhY" secondAttribute="trailing" constant="30" id="312-0f-wrp"/>
+                <constraint firstItem="v98-9l-dLR" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="8fa-Kh-WqP"/>
+                <constraint firstItem="mpb-cg-NhY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="Pyz-zQ-7BR"/>
+                <constraint firstItem="v98-9l-dLR" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.4" id="b3P-0v-RtZ"/>
+                <constraint firstItem="mpb-cg-NhY" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="70" id="kEE-Sh-Mfu"/>
+                <constraint firstItem="v98-9l-dLR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qaZ-Rv-KH7"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="adsPlaceholderIcon" width="233" height="233"/>
+    </resources>
+</document>
