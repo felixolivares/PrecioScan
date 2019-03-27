@@ -381,3 +381,7 @@ struct FRAttribute {
     public static let isSubscribed = "isSubscribed"
     public static let subscriptionDate = "subscriptionDate"
 }
+
+struct NetworkKeys {
+    public static let skuDisplayText = "skuDisplayText"
+}

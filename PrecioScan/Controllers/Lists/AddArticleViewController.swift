@@ -191,7 +191,7 @@ class AddArticleViewController: UIViewController {
                             let barcode = self.prepareBarcode(code: code!)
                             print("[AddArticle] - Barcode prepared \(barcode)")
                             ClientManager.shared.getPath(sku: barcode){ response, error in
-                                guard let articleName = response!.object(forKey: "skuDisplayNameText") else {
+                                guard let articleName = response!.object(forKey: NetworkKeys.skuDisplayText) else {
                                     self.articleIsFound = false
                                     self.articleFound = nil
                                     self.messageLabel.text = Constants.AddArticle.articleNotFoundText
