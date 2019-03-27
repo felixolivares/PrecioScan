@@ -99,7 +99,7 @@ class ListsViewController: CustomTransitionViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
+
     func fetchLists(){
         CoreDataManager.shared.lists{ _, lists, error in
             guard error == nil else {Popup.show(withError: error! as NSError, vc: self);return}
