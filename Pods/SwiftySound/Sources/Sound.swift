@@ -46,15 +46,15 @@ import AVFoundation
             get {
                 switch self {
                 case .ambient:
-                    return AVAudioSessionCategoryAmbient
+                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.ambient)
                 case .soloAmbient:
-                    return AVAudioSessionCategorySoloAmbient
+                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.soloAmbient)
                 case .playback:
-                    return AVAudioSessionCategoryPlayback
+                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)
                 case .record:
-                    return AVAudioSessionCategoryRecord
+                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.record)
                 case .playAndRecord:
-                    return AVAudioSessionCategoryPlayAndRecord
+                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.playAndRecord)
                 }
             }
         }
@@ -381,3 +381,8 @@ public protocol Session: class {
 
 extension AVAudioSession: Session {}
 #endif
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
+	return input.rawValue
+}
