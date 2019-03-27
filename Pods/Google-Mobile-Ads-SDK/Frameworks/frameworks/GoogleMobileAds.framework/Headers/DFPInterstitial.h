@@ -9,21 +9,17 @@
 #import <GoogleMobileAds/GADAppEventDelegate.h>
 #import <GoogleMobileAds/GADCorrelator.h>
 #import <GoogleMobileAds/GADInterstitial.h>
-#import <GoogleMobileAds/GoogleMobileAdsDefines.h>
-
-NS_ASSUME_NONNULL_BEGIN
 
 /// Google Ad Manager interstitial ad, a full-screen advertisement shown at natural
 /// transition points in your application such as between game levels or news stories.
 @interface DFPInterstitial : GADInterstitial
 
-/// Required value created on the Ad Manager website. Create a new ad unit for every unique
-/// placement of an
-/// ad in your application. Set this to the ID assigned for this placement. Ad units are important
-/// for targeting and stats.
+/// Initializes an interstitial with an ad unit created on the Ad Manager website. Create a new ad
+/// unit for every unique placement of an ad in your application. Set this to the ID assigned for
+/// this placement. Ad units are important for targeting and statistics.
 ///
 /// Example Ad Manager ad unit ID: @"/6499/example/interstitial"
-@property(nonatomic, readonly, copy) NSString *adUnitID;
+- (nonnull instancetype)initWithAdUnitID:(nonnull NSString *)adUnitID NS_DESIGNATED_INITIALIZER;
 
 /// Correlator object for correlating this object to other ad objects.
 @property(nonatomic, strong, nullable) GADCorrelator *correlator;
@@ -36,5 +32,3 @@ NS_ASSUME_NONNULL_BEGIN
     customRenderedInterstitialDelegate;
 
 @end
-
-NS_ASSUME_NONNULL_END

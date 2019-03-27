@@ -52,6 +52,7 @@
 		3050A4AF1F870A8D00AD60D7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4AE1F870A8D00AD60D7 /* Model.swift */; };
 		3050A4B21F870D3D00AD60D7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4B11F870D3D00AD60D7 /* Constants.swift */; };
 		3050A4B41F8713C300AD60D7 /* CreateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */; };
+		3057557E224B0D3C00FC9EC3 /* BarcodeReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3057557D224B0D3C00FC9EC3 /* BarcodeReaderViewController.swift */; };
 		306AC7781FA0216A0096814C /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7761FA0216A0096814C /* MenuItemTableViewCell.swift */; };
 		306AC7791FA0216A0096814C /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 306AC7771FA0216A0096814C /* MenuItemTableViewCell.xib */; };
 		306AC77C1FA05A120096814C /* PopSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC77B1FA05A120096814C /* PopSwitch.swift */; };
@@ -178,6 +179,7 @@
 		3050A4AE1F870A8D00AD60D7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		3050A4B11F870D3D00AD60D7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateListViewController.swift; sourceTree = "<group>"; };
+		3057557D224B0D3C00FC9EC3 /* BarcodeReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReaderViewController.swift; sourceTree = "<group>"; };
 		306AC7761FA0216A0096814C /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		306AC7771FA0216A0096814C /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		306AC77B1FA05A120096814C /* PopSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopSwitch.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				3050A4B31F8713C300AD60D7 /* CreateListViewController.swift */,
 				30AF238D1F8C501100523870 /* AddArticleViewController.swift */,
 				306AC7851FA17F4A0096814C /* CompareViewController.swift */,
+				3057557D224B0D3C00FC9EC3 /* BarcodeReaderViewController.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -674,7 +677,7 @@
 				TargetAttributes = {
 					30FFE61D1F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.InAppPurchase = {
@@ -684,13 +687,13 @@
 					};
 					30FFE6311F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 30FFE61D1F85977E001CE3B8;
 					};
 					30FFE63C1F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 1010;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 30FFE61D1F85977E001CE3B8;
 					};
@@ -931,6 +934,7 @@
 				30241980201BE218009C68B0 /* AdsManager.swift in Sources */,
 				30B2A23720072E67005A0A41 /* ProfileViewController.swift in Sources */,
 				301682C81FCD193800559A3B /* SaveNewStoreViewController.swift in Sources */,
+				3057557E224B0D3C00FC9EC3 /* BarcodeReaderViewController.swift in Sources */,
 				304487201F8D8EF400C5297D /* CreateStoreViewController.swift in Sources */,
 				3021562820116AD3002B9500 /* PageTwo.swift in Sources */,
 				306AC77E1FA05A5A0096814C /* PopSwitchDelegate.swift in Sources */,
@@ -1167,7 +1171,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1188,7 +1192,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1205,7 +1209,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrecioScan.app/PrecioScan";
 			};
@@ -1223,7 +1227,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PrecioScan.app/PrecioScan";
 			};
@@ -1240,7 +1244,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PrecioScan;
 			};
@@ -1257,7 +1261,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScanUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = PrecioScan;
 			};

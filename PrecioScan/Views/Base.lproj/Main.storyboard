@@ -1937,6 +1937,7 @@
                         <outlet property="underlineStore" destination="jTr-7Q-Cdh" id="OaH-XY-a0G"/>
                         <segue destination="tob-7n-sdA" kind="show" identifier="toStoresFromCreateList" id="tyf-o9-d1V"/>
                         <segue destination="Ccu-bP-Iec" kind="show" identifier="toArticleFromList" id="wja-hu-F0u"/>
+                        <segue destination="HdV-Gt-Vyk" kind="show" identifier="toBarcodeFromCreateList" id="cCy-Jl-H7N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ST9-qo-H9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2639,6 +2640,175 @@
             </objects>
             <point key="canvasLocation" x="1766" y="34"/>
         </scene>
+        <!--Barcode Reader View Controller-->
+        <scene sceneID="uLU-A0-Iai">
+            <objects>
+                <viewController id="HdV-Gt-Vyk" customClass="BarcodeReaderViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tk3-I8-vkF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CameraFullBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2eD-a7-h3a">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encuentra el codigo de barras del articulo y escanealo aquí." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bg-Db-87n">
+                                <rect key="frame" x="30" y="90" width="315" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="00i-R2-VgB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SK-Ec-wkG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codigo de Barras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8F-8w-tC8">
+                                        <rect key="frame" x="74" y="33" width="227" height="32"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
+                                        <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTq-Kr-Poo">
+                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="lnY-xc-zTK"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="qnj-Ea-psN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="backArrowWhite"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="1qT-Ab-FKF"/>
+                                    <constraint firstAttribute="bottom" secondItem="V8F-8w-tC8" secondAttribute="bottom" constant="10" id="ERb-nc-RHA"/>
+                                    <constraint firstItem="QTq-Kr-Poo" firstAttribute="leading" secondItem="4SK-Ec-wkG" secondAttribute="leading" constant="25" id="ZDr-Op-BE5"/>
+                                    <constraint firstItem="V8F-8w-tC8" firstAttribute="centerX" secondItem="4SK-Ec-wkG" secondAttribute="centerX" id="dQz-6L-xAB"/>
+                                    <constraint firstItem="V8F-8w-tC8" firstAttribute="centerY" secondItem="QTq-Kr-Poo" secondAttribute="centerY" id="jpt-Ap-DfH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ix-B5-fDk">
+                                <rect key="frame" x="30" y="170" width="315" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzR-qY-FkI" customClass="BarcodeReader" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="300"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodeCaptureBorderBig" translatesAutoresizingMaskIntoConstraints="NO" id="N7s-RN-i4j">
+                                        <rect key="frame" x="8" y="8" width="299" height="284"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodeLineScanerWhite" translatesAutoresizingMaskIntoConstraints="NO" id="dfL-Ch-Rb2" customClass="BarcodeLine" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="18" y="20" width="279" height="2"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="tu7-mN-Nh0"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="topConstraint" destination="xyL-Dk-rCh" id="Hf0-bj-9W7"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="N7s-RN-i4j" secondAttribute="bottom" constant="8" id="AQa-w4-ARc"/>
+                                    <constraint firstAttribute="trailing" secondItem="dfL-Ch-Rb2" secondAttribute="trailing" constant="18" id="Gbs-A2-SNf"/>
+                                    <constraint firstItem="N7s-RN-i4j" firstAttribute="leading" secondItem="3ix-B5-fDk" secondAttribute="leading" constant="8" id="Icg-mN-yka"/>
+                                    <constraint firstItem="FzR-qY-FkI" firstAttribute="top" secondItem="3ix-B5-fDk" secondAttribute="top" id="Ke5-Q0-Ho7"/>
+                                    <constraint firstAttribute="height" constant="300" id="ORH-pm-QyP"/>
+                                    <constraint firstAttribute="bottom" secondItem="FzR-qY-FkI" secondAttribute="bottom" id="TmR-Ri-fwp"/>
+                                    <constraint firstItem="N7s-RN-i4j" firstAttribute="top" secondItem="3ix-B5-fDk" secondAttribute="top" constant="8" id="fvG-cD-POi"/>
+                                    <constraint firstItem="dfL-Ch-Rb2" firstAttribute="leading" secondItem="3ix-B5-fDk" secondAttribute="leading" constant="18" id="gpo-yR-E4L"/>
+                                    <constraint firstItem="FzR-qY-FkI" firstAttribute="leading" secondItem="3ix-B5-fDk" secondAttribute="leading" id="l0n-kR-oUT"/>
+                                    <constraint firstItem="dfL-Ch-Rb2" firstAttribute="top" secondItem="3ix-B5-fDk" secondAttribute="top" constant="20" id="xyL-Dk-rCh"/>
+                                    <constraint firstAttribute="trailing" secondItem="FzR-qY-FkI" secondAttribute="trailing" id="zKy-t0-9Tm"/>
+                                    <constraint firstAttribute="trailing" secondItem="N7s-RN-i4j" secondAttribute="trailing" constant="8" id="zhY-06-69Z"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2eD-a7-h3a" firstAttribute="leading" secondItem="Apd-N1-dlH" secondAttribute="leading" id="6U1-0h-uAJ"/>
+                            <constraint firstItem="2eD-a7-h3a" firstAttribute="top" secondItem="Tk3-I8-vkF" secondAttribute="top" id="729-Xv-WVS"/>
+                            <constraint firstItem="0bg-Db-87n" firstAttribute="top" secondItem="4SK-Ec-wkG" secondAttribute="bottom" constant="15" id="8hi-jJ-Dvs"/>
+                            <constraint firstItem="2eD-a7-h3a" firstAttribute="bottom" secondItem="Apd-N1-dlH" secondAttribute="bottom" id="KMo-yK-lm8"/>
+                            <constraint firstItem="2eD-a7-h3a" firstAttribute="trailing" secondItem="Apd-N1-dlH" secondAttribute="trailing" id="P2Q-NO-QX4"/>
+                            <constraint firstItem="0bg-Db-87n" firstAttribute="leading" secondItem="Apd-N1-dlH" secondAttribute="leading" constant="30" id="Uhh-Js-Hfv"/>
+                            <constraint firstItem="Apd-N1-dlH" firstAttribute="trailing" secondItem="3ix-B5-fDk" secondAttribute="trailing" constant="30" id="YlO-VL-NFG"/>
+                            <constraint firstItem="4SK-Ec-wkG" firstAttribute="top" secondItem="Tk3-I8-vkF" secondAttribute="top" id="aF5-jf-IOe"/>
+                            <constraint firstAttribute="trailing" secondItem="0bg-Db-87n" secondAttribute="trailing" constant="30" id="bPc-hz-dCg"/>
+                            <constraint firstItem="3ix-B5-fDk" firstAttribute="top" secondItem="0bg-Db-87n" secondAttribute="bottom" constant="38" id="g9E-VJ-Xlb"/>
+                            <constraint firstItem="4SK-Ec-wkG" firstAttribute="leading" secondItem="Apd-N1-dlH" secondAttribute="leading" id="lNx-il-ucO"/>
+                            <constraint firstItem="3ix-B5-fDk" firstAttribute="leading" secondItem="Apd-N1-dlH" secondAttribute="leading" constant="30" id="qJu-lC-EOk"/>
+                            <constraint firstItem="4SK-Ec-wkG" firstAttribute="trailing" secondItem="Apd-N1-dlH" secondAttribute="trailing" id="xAZ-OL-cIN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Apd-N1-dlH"/>
+                    </view>
+                    <connections>
+                        <outlet property="barcodeLineScanner" destination="dfL-Ch-Rb2" id="oyC-6d-k2g"/>
+                        <outlet property="barcodeReader" destination="FzR-qY-FkI" id="q8d-ZJ-6pE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hTg-pM-IvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1752.8" y="-1369.5652173913045"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="esO-Tv-2ek">
+            <objects>
+                <viewController id="Rs3-Yh-3A3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GVa-cG-tFB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeaderSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Bav-nE-J5S">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="kWB-7B-VAf"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDc-1M-jRs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcm-9e-tgy">
+                                        <rect key="frame" x="133" y="33" width="109" height="32"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
+                                        <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bT-Zq-ckx">
+                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="LXn-Il-uSl"/>
+                                            <constraint firstAttribute="height" constant="30" id="Zpr-g3-axN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="backArrowWhite"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="DIj-3c-MJH"/>
+                                    <constraint firstItem="kcm-9e-tgy" firstAttribute="centerY" secondItem="0bT-Zq-ckx" secondAttribute="centerY" id="Doh-BL-oRJ"/>
+                                    <constraint firstItem="kcm-9e-tgy" firstAttribute="centerX" secondItem="oDc-1M-jRs" secondAttribute="centerX" id="HzG-KS-Pl7"/>
+                                    <constraint firstAttribute="bottom" secondItem="kcm-9e-tgy" secondAttribute="bottom" constant="10" id="bxP-Ej-CYK"/>
+                                    <constraint firstItem="0bT-Zq-ckx" firstAttribute="leading" secondItem="oDc-1M-jRs" secondAttribute="leading" constant="25" id="uvC-Hr-bpS"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bav-nE-J5S" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="0vu-JF-I0f"/>
+                            <constraint firstItem="oDc-1M-jRs" firstAttribute="top" secondItem="GVa-cG-tFB" secondAttribute="top" id="IFw-eE-sRY"/>
+                            <constraint firstItem="Bav-nE-J5S" firstAttribute="trailing" secondItem="pOi-M6-lbD" secondAttribute="trailing" id="laf-WY-QWn"/>
+                            <constraint firstItem="oDc-1M-jRs" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="m4g-j1-3A1"/>
+                            <constraint firstItem="oDc-1M-jRs" firstAttribute="trailing" secondItem="pOi-M6-lbD" secondAttribute="trailing" id="qrA-YW-MKH"/>
+                            <constraint firstItem="Bav-nE-J5S" firstAttribute="top" secondItem="GVa-cG-tFB" secondAttribute="top" id="wHy-Kj-gU0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pOi-M6-lbD"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wPs-pI-TSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2697" y="-1368"/>
+        </scene>
         <!--Add Article View Controller-->
         <scene sceneID="Ypj-dX-vZi">
             <objects>
@@ -3072,7 +3242,7 @@ introduce el codigo del articulo</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKd-bI-w9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="-711"/>
+            <point key="canvasLocation" x="1753" y="-675"/>
         </scene>
         <!--Compare View Controller-->
         <scene sceneID="Xnh-dQ-jwn">
@@ -3936,6 +4106,7 @@ introduce el codigo del articulo</string>
         </scene>
     </scenes>
     <resources>
+        <image name="CameraFullBackground" width="1242" height="2203"/>
         <image name="HeaderSmall" width="414" height="118.5"/>
         <image name="PrecioScanLogo" width="199" height="199"/>
         <image name="PrecioScanLogoSimple" width="199" height="199"/>
@@ -3943,6 +4114,7 @@ introduce el codigo del articulo</string>
         <image name="articlesEmptyState" width="197" height="197"/>
         <image name="backArrowWhite" width="132" height="132"/>
         <image name="barcode" width="188" height="116"/>
+        <image name="barcodeCaptureBorderBig" width="1122" height="1122"/>
         <image name="barcodeCaptureBorderWhite" width="374" height="117"/>
         <image name="barcodeLineScanerWhite" width="354.5" height="3"/>
         <image name="cameraIconGrey" width="174" height="131.5"/>
@@ -3970,7 +4142,7 @@ introduce el codigo del articulo</string>
         <segue reference="pnP-xg-XW3"/>
         <segue reference="tyf-o9-d1V"/>
         <segue reference="hDX-Qp-dMp"/>
-        <segue reference="Rxa-RG-oSS"/>
+        <segue reference="dbd-ll-BLH"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.66666666666666663" green="0.74509803921568629" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

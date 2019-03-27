@@ -80,7 +80,7 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 5.2)
   - FLAnimatedImage (1.0.12)
   - GMStepper (2.1)
-  - Google-Mobile-Ads-SDK (7.42.0):
+  - Google-Mobile-Ads-SDK (7.42.1):
     - GoogleAppMeasurement (~> 5.7)
   - GoogleAppMeasurement (5.8.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
@@ -135,7 +135,7 @@ PODS:
   - SwiftyOnboard (1.3.8)
   - SwiftySound (1.0.0)
   - SwiftyStoreKit (0.14.2)
-  - SwipeCellKit (2.5.1)
+  - SwipeCellKit (2.6.0)
   - TableViewReloadAnimation (0.0.5)
   - TransitionButton (0.5.2)
 
@@ -234,7 +234,7 @@ CHECKOUT OPTIONS:
     :commit: ae98a8c70b00f1cc933a65946849c520f26c2d92
     :git: https://github.com/gmertk/GMStepper.git
   SwipeCellKit:
-    :commit: 9c291d2f3624fe45eac75f001deaef45fc7a3828
+    :commit: b724892f8c4daab931de1b5555de3373107db184
     :git: https://github.com/SwipeCellKit/SwipeCellKit.git
 
 SPEC CHECKSUMS:
@@ -263,7 +263,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: cf488df2f4b79782f0e430b04a0e17c0aa7979b2
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   GMStepper: f3258bbe25a90462e99bbeea0f48074932bfa32a
-  Google-Mobile-Ads-SDK: c7bec408202526ec4e9ccd025c00f9f30e9f8807
+  Google-Mobile-Ads-SDK: 30a1520469efa03097af62ea0d8f9be773542267
   GoogleAppMeasurement: 1624046ab1bcc5e170061a56ef5679000b079c8e
   GoogleUtilities: 6481e6318c5fcabaaa8513ef8120f329055d7c10
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
@@ -280,7 +280,7 @@ SPEC CHECKSUMS:
   SwiftyOnboard: de60e90c2af23dd61b01ec0c6a8d0be3370f857b
   SwiftySound: b9c3370956fd4ed65ed79d45563070077a50a2cd
   SwiftyStoreKit: cc399645796b094022fb650c148a0aed25995873
-  SwipeCellKit: 593b8bc2c5612d68bfcd33b214576350de54fdbe
+  SwipeCellKit: 75903f4840bd14958df3291314562e32d4d9b7ae
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
   TransitionButton: fb271583d9c9e4bb116b97103047e5157653f233
 

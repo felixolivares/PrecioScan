@@ -68,13 +68,13 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     
     //MARK: - Prepare for Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segues.toArticleFromList{
-            let vc = segue.destination as! AddArticleViewController
+        if segue.identifier == Segues.toBarcodeFromCreateList{
+            let vc = segue.destination as! BarcodeReaderViewController
             vc.store = selectedStore
             vc.list = list
-            if sender != nil{
-                vc.itemListFound = sender as? ItemList
-            }
+//            if sender != nil{
+//                vc.itemListFound = sender as? ItemList
+//            }
         } else if segue.identifier == Segues.toStoresFromCreateList{
             let vc = segue.destination as! CreateStoreViewController
             vc.delegate = self
@@ -281,7 +281,8 @@ extension CreateListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Segues.toArticleFromList, sender: itemLists[indexPath.row])
+//        performSegue(withIdentifier: Segues.toArticleFromList, sender: itemLists[indexPath.row])
+        performSegue(withIdentifier: Segues.toBarcodeFromCreateList, sender: itemLists[indexPath.row])
     }
 }
 

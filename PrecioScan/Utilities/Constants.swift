@@ -285,6 +285,7 @@ struct Segues{
     public static let toSubscribeFromArticleDetail = "toSubscribeFromArticleDetail"
     public static let toSubscriptionFromAddArticle = "toSubscriptionFromAddArticle"
     public static let toSubscriptionFromConfiguration = "toSubscriptionFromConfiguration"
+    public static let toBarcodeFromCreateList = "toBarcodeFromCreateList"
 }
 
 //Images
