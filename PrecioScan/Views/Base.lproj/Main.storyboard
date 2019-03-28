@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PUz-Yh-NdL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PUz-Yh-NdL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -91,13 +91,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PrecioScan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAD-ew-6PE">
-                                        <rect key="frame" x="114" y="33.5" width="147" height="31.5"/>
+                                        <rect key="frame" x="116" y="32" width="143.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV2-bL-OS8">
-                                        <rect key="frame" x="320" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="320" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="08T-xQ-Mjl"/>
                                             <constraint firstAttribute="height" constant="30" id="crR-PM-ysF"/>
@@ -108,7 +108,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWg-Le-bYH" customClass="DynamicButton" customModule="DynamicButton">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="1WN-qi-KrF"/>
                                             <constraint firstAttribute="height" constant="30" id="CtK-0B-PNn"/>
@@ -139,7 +139,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mis Listas de Compras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uu-Cl-VUK">
-                                <rect key="frame" x="25" y="83" width="190" height="21"/>
+                                <rect key="frame" x="25" y="83" width="185.5" height="21"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -685,7 +685,6 @@
                         <constraints>
                             <constraint firstItem="7OH-vN-H2y" firstAttribute="bottom" secondItem="cMg-CJ-vSQ" secondAttribute="bottom" constant="12" id="1o7-5h-xop"/>
                             <constraint firstItem="Lzp-0m-bWc" firstAttribute="leading" secondItem="7OH-vN-H2y" secondAttribute="leading" id="1xi-XI-iOH"/>
-                            <constraint firstItem="cMg-CJ-vSQ" firstAttribute="centerX" secondItem="oDu-gp-bI5" secondAttribute="centerX" id="4hR-NX-JX5"/>
                             <constraint firstItem="cMg-CJ-vSQ" firstAttribute="leading" secondItem="7OH-vN-H2y" secondAttribute="leading" constant="25" id="Dgy-Ik-JVx"/>
                             <constraint firstItem="KBC-VZ-ZhS" firstAttribute="leading" secondItem="7OH-vN-H2y" secondAttribute="leading" id="JG7-6H-CQs"/>
                             <constraint firstItem="lsU-ME-zQa" firstAttribute="top" secondItem="oDu-gp-bI5" secondAttribute="top" id="L1z-4F-h2e"/>
@@ -735,7 +734,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cev-Ep-ywE" customClass="DynamicButton" customModule="DynamicButton">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="35" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="cSl-gK-2QO"/>
                                             <constraint firstAttribute="height" constant="30" id="rf4-ne-g3E"/>
@@ -754,7 +753,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Configuracion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hCi-GL-c0h">
-                                        <rect key="frame" x="94" y="33.5" width="187" height="31.5"/>
+                                        <rect key="frame" x="100" y="33.5" width="175.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -775,13 +774,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sonido de lector codigo de barras" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-vO-XPC">
-                                <rect key="frame" x="25" y="300" width="255" height="16"/>
+                                <rect key="frame" x="25" y="300" width="255" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9g-jy-NTg" customClass="PWSwitch" customModule="PWSwitch">
-                                <rect key="frame" x="290" y="294" width="60" height="28"/>
+                                <rect key="frame" x="290" y="294.5" width="60" height="28"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="0zw-Av-z9V"/>
@@ -816,7 +815,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sonido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGv-gM-uGg">
-                                <rect key="frame" x="60" y="267" width="59.5" height="21"/>
+                                <rect key="frame" x="60" y="267" width="57.5" height="21"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -829,7 +828,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgP-AK-gGc">
-                                <rect key="frame" x="25" y="341" width="325" height="2"/>
+                                <rect key="frame" x="25" y="341.5" width="325" height="2"/>
                                 <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="2" id="Xef-Ge-fom"/>
@@ -837,20 +836,20 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fotos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9V-Lh-sNo">
-                                <rect key="frame" x="60" y="370" width="48.5" height="21"/>
+                                <rect key="frame" x="60" y="370.5" width="46" height="21"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="18"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photosIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yE0-Ly-oXD">
-                                <rect key="frame" x="25" y="368" width="25" height="25"/>
+                                <rect key="frame" x="25" y="368.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="rXS-05-w2B"/>
                                     <constraint firstAttribute="width" constant="25" id="yT1-OF-xom"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QX2-Mu-fcu" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="87.5" y="487" width="200" height="40"/>
+                                <rect key="frame" x="87.5" y="489" width="200" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="k1c-kI-JzY"/>
                                     <constraint firstAttribute="height" constant="40" id="mW1-Ai-j2Q"/>
@@ -886,13 +885,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total de Fotos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7NI-eo-vHA">
-                                <rect key="frame" x="25" y="408" width="109" height="18"/>
+                                <rect key="frame" x="25" y="408.5" width="101.5" height="19"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
                                 <color key="textColor" red="0.4823529411764706" green="0.47843137254901957" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgQ-6c-LwS">
-                                <rect key="frame" x="320" y="408" width="30" height="18"/>
+                                <rect key="frame" x="320" y="408.5" width="30" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="GO3-Py-dhz"/>
                                 </constraints>
@@ -901,7 +900,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Borrar todas las fotos de los articulos de las listas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="utq-Rz-Z8d">
-                                <rect key="frame" x="25" y="441" width="325" height="16"/>
+                                <rect key="frame" x="25" y="442.5" width="325" height="16.5"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -923,13 +922,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="y crea listas de compras ilimitadas, compara los precios anteriores de tus compras, agrega fotografias a los articulos y mas!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAw-P4-4Dz">
-                                        <rect key="frame" x="0.0" y="78.5" width="325" height="44"/>
+                                        <rect key="frame" x="0.0" y="78.5" width="325" height="45.5"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="13"/>
                                         <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgZ-2V-RWd" customClass="PMSuperButton" customModule="PMSuperButton">
-                                        <rect key="frame" x="62.5" y="137.5" width="200" height="40"/>
+                                        <rect key="frame" x="62.5" y="139" width="200" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Px2-ib-nAn"/>
                                             <constraint firstAttribute="width" constant="200" id="tmK-Ec-Q8F"/>
@@ -1386,7 +1385,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ya eres Premium!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOg-uD-c8E">
-                                        <rect key="frame" x="71.5" y="346" width="232" height="34"/>
+                                        <rect key="frame" x="71" y="346" width="233.5" height="35"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1460,7 +1459,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Zj-Wf-qhI" customClass="DynamicButton" customModule="DynamicButton">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="HC1-Ux-2Se"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="zTr-1d-kP2"/>
@@ -1479,7 +1478,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suscripción" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gB5-f5-bRN">
-                                        <rect key="frame" x="111" y="33.5" width="153" height="31.5"/>
+                                        <rect key="frame" x="113.5" y="32" width="148" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1546,13 +1545,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear Lista" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfR-JB-EoM">
-                                        <rect key="frame" x="115" y="33.5" width="145" height="31.5"/>
+                                        <rect key="frame" x="119.5" y="32" width="136" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ta0-lP-OxX">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="MPq-YS-SMP"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="hEF-rs-vW7"/>
@@ -1583,7 +1582,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de la lista: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBT-cQ-KxI" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="148.5" height="19.5"/>
+                                        <rect key="frame" x="25" y="24" width="147.5" height="20"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1843,19 +1842,19 @@
                                 <color key="highlightedColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW0-4m-rEo">
-                                <rect key="frame" x="289.5" y="589.5" width="33.5" height="15"/>
+                                <rect key="frame" x="291.5" y="589.5" width="31.5" height="15"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articulos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIj-rL-PD2">
-                                <rect key="frame" x="25" y="589.5" width="56" height="15"/>
+                                <rect key="frame" x="25" y="589.5" width="54.5" height="15"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wi-sN-eeW">
-                                <rect key="frame" x="89" y="588.5" width="9" height="17"/>
+                                <rect key="frame" x="87.5" y="588.5" width="9" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="RVu-R3-CSn"/>
                                 </constraints>
@@ -1978,7 +1977,7 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8e-ek-pIk" customClass="DynamicButton" customModule="DynamicButton">
-                                        <rect key="frame" x="25" y="34.5" width="46" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="I8f-GC-JMB"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="sFg-MN-PLa"/>
@@ -1997,13 +1996,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tienda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrz-nw-DET">
-                                        <rect key="frame" x="142" y="33.5" width="91" height="31.5"/>
+                                        <rect key="frame" x="145" y="32" width="85" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feZ-lJ-59h">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="TyO-US-TEY"/>
                                             <constraint firstAttribute="height" constant="30" id="YlH-z1-zNl"/>
@@ -2060,7 +2059,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUSCA Y AGREGA UNA TIENDA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baa-gx-hXu">
-                                        <rect key="frame" x="0.0" y="203" width="220" height="13.5"/>
+                                        <rect key="frame" x="0.0" y="203" width="220" height="14"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="12"/>
                                         <color key="textColor" red="0.66274509803921566" green="0.65490196078431373" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2152,13 +2151,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buscar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucN-nd-Ruz">
-                                        <rect key="frame" x="143" y="33.5" width="89.5" height="31.5"/>
+                                        <rect key="frame" x="143.5" y="32" width="88.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOC-DE-Nah">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="o5f-vt-rjt"/>
                                             <constraint firstAttribute="height" constant="30" id="oU2-GG-MkD"/>
@@ -2169,7 +2168,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeS-4r-8w8">
-                                        <rect key="frame" x="320" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="320" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="QQt-br-jHK"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="spL-kI-Wbc"/>
@@ -2250,7 +2249,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parece que no esta la tienda que buscas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gih-ji-Pyy">
-                                        <rect key="frame" x="23" y="185" width="264" height="16"/>
+                                        <rect key="frame" x="27.5" y="185" width="255" height="16"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2379,13 +2378,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crear Tienda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Il0-wr-dpW">
-                                        <rect key="frame" x="102" y="33.5" width="171" height="31.5"/>
+                                        <rect key="frame" x="107" y="32" width="161" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PGc-cD-A3p">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="8Bj-9P-LG1"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="Hl8-ut-Qc6"/>
@@ -2421,7 +2420,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre de la tienda: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgX-zh-ZQB" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="139.5" height="16"/>
+                                        <rect key="frame" x="25" y="24" width="135" height="16"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                         <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2612,7 +2611,6 @@
                             <constraint firstItem="nrW-wq-u2M" firstAttribute="leading" secondItem="9hf-8X-58a" secondAttribute="leading" constant="25" id="NtU-Zd-9ee"/>
                             <constraint firstItem="S7o-ed-xdq" firstAttribute="top" secondItem="Yl8-QU-ZIf" secondAttribute="bottom" id="VG3-op-aGH"/>
                             <constraint firstItem="S7o-ed-xdq" firstAttribute="leading" secondItem="iaC-wx-xXx" secondAttribute="leading" constant="25" id="atF-SB-TmQ"/>
-                            <constraint firstItem="nrW-wq-u2M" firstAttribute="centerX" secondItem="iaC-wx-xXx" secondAttribute="centerX" id="eMw-oJ-gPb"/>
                             <constraint firstItem="Uh4-L9-RQe" firstAttribute="leading" secondItem="9hf-8X-58a" secondAttribute="leading" id="fhF-6V-VaW"/>
                             <constraint firstItem="Yl8-QU-ZIf" firstAttribute="top" secondItem="Uh4-L9-RQe" secondAttribute="bottom" constant="20" id="fle-Cr-vIj"/>
                             <constraint firstItem="Uh4-L9-RQe" firstAttribute="top" secondItem="f1t-gE-qS6" secondAttribute="bottom" constant="10" id="g7a-AH-Kxs"/>
@@ -2664,18 +2662,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codigo de Barras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8F-8w-tC8">
-                                        <rect key="frame" x="74" y="33" width="227" height="32"/>
+                                        <rect key="frame" x="77.5" y="32" width="220.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTq-Kr-Poo">
-                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="lnY-xc-zTK"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="qnj-Ea-psN"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backArrowWhite"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="HdV-Gt-Vyk" eventType="touchUpInside" id="EhO-pw-gEC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2697,64 +2698,58 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodeCaptureBorderBig" translatesAutoresizingMaskIntoConstraints="NO" id="N7s-RN-i4j">
                                         <rect key="frame" x="8" y="8" width="299" height="284"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodeLineScanerWhite" translatesAutoresizingMaskIntoConstraints="NO" id="dfL-Ch-Rb2" customClass="BarcodeLine" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="18" y="20" width="279" height="2"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="2" id="tu7-mN-Nh0"/>
-                                        </constraints>
-                                        <connections>
-                                            <outlet property="topConstraint" destination="xyL-Dk-rCh" id="Hf0-bj-9W7"/>
-                                        </connections>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="N7s-RN-i4j" secondAttribute="bottom" constant="8" id="AQa-w4-ARc"/>
-                                    <constraint firstAttribute="trailing" secondItem="dfL-Ch-Rb2" secondAttribute="trailing" constant="18" id="Gbs-A2-SNf"/>
                                     <constraint firstItem="N7s-RN-i4j" firstAttribute="leading" secondItem="3ix-B5-fDk" secondAttribute="leading" constant="8" id="Icg-mN-yka"/>
                                     <constraint firstItem="FzR-qY-FkI" firstAttribute="top" secondItem="3ix-B5-fDk" secondAttribute="top" id="Ke5-Q0-Ho7"/>
                                     <constraint firstAttribute="height" constant="300" id="ORH-pm-QyP"/>
                                     <constraint firstAttribute="bottom" secondItem="FzR-qY-FkI" secondAttribute="bottom" id="TmR-Ri-fwp"/>
                                     <constraint firstItem="N7s-RN-i4j" firstAttribute="top" secondItem="3ix-B5-fDk" secondAttribute="top" constant="8" id="fvG-cD-POi"/>
-                                    <constraint firstItem="dfL-Ch-Rb2" firstAttribute="leading" secondItem="3ix-B5-fDk" secondAttribute="leading" constant="18" id="gpo-yR-E4L"/>
                                     <constraint firstItem="FzR-qY-FkI" firstAttribute="leading" secondItem="3ix-B5-fDk" secondAttribute="leading" id="l0n-kR-oUT"/>
-                                    <constraint firstItem="dfL-Ch-Rb2" firstAttribute="top" secondItem="3ix-B5-fDk" secondAttribute="top" constant="20" id="xyL-Dk-rCh"/>
                                     <constraint firstAttribute="trailing" secondItem="FzR-qY-FkI" secondAttribute="trailing" id="zKy-t0-9Tm"/>
                                     <constraint firstAttribute="trailing" secondItem="N7s-RN-i4j" secondAttribute="trailing" constant="8" id="zhY-06-69Z"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="kYh-WN-Fgs">
+                                <rect key="frame" x="169" y="498" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="kYh-WN-Fgs" firstAttribute="centerX" secondItem="Tk3-I8-vkF" secondAttribute="centerX" id="3pH-bd-Xye"/>
                             <constraint firstItem="2eD-a7-h3a" firstAttribute="leading" secondItem="Apd-N1-dlH" secondAttribute="leading" id="6U1-0h-uAJ"/>
                             <constraint firstItem="2eD-a7-h3a" firstAttribute="top" secondItem="Tk3-I8-vkF" secondAttribute="top" id="729-Xv-WVS"/>
+                            <constraint firstItem="kYh-WN-Fgs" firstAttribute="top" secondItem="3ix-B5-fDk" secondAttribute="bottom" constant="28" id="8c8-7c-GUv"/>
                             <constraint firstItem="0bg-Db-87n" firstAttribute="top" secondItem="4SK-Ec-wkG" secondAttribute="bottom" constant="15" id="8hi-jJ-Dvs"/>
                             <constraint firstItem="2eD-a7-h3a" firstAttribute="bottom" secondItem="Apd-N1-dlH" secondAttribute="bottom" id="KMo-yK-lm8"/>
                             <constraint firstItem="2eD-a7-h3a" firstAttribute="trailing" secondItem="Apd-N1-dlH" secondAttribute="trailing" id="P2Q-NO-QX4"/>
                             <constraint firstItem="0bg-Db-87n" firstAttribute="leading" secondItem="Apd-N1-dlH" secondAttribute="leading" constant="30" id="Uhh-Js-Hfv"/>
-                            <constraint firstItem="Apd-N1-dlH" firstAttribute="trailing" secondItem="3ix-B5-fDk" secondAttribute="trailing" constant="30" id="YlO-VL-NFG"/>
+                            <constraint firstAttribute="trailing" secondItem="3ix-B5-fDk" secondAttribute="trailing" constant="30" id="YlO-VL-NFG"/>
                             <constraint firstItem="4SK-Ec-wkG" firstAttribute="top" secondItem="Tk3-I8-vkF" secondAttribute="top" id="aF5-jf-IOe"/>
                             <constraint firstAttribute="trailing" secondItem="0bg-Db-87n" secondAttribute="trailing" constant="30" id="bPc-hz-dCg"/>
                             <constraint firstItem="3ix-B5-fDk" firstAttribute="top" secondItem="0bg-Db-87n" secondAttribute="bottom" constant="38" id="g9E-VJ-Xlb"/>
                             <constraint firstItem="4SK-Ec-wkG" firstAttribute="leading" secondItem="Apd-N1-dlH" secondAttribute="leading" id="lNx-il-ucO"/>
-                            <constraint firstItem="3ix-B5-fDk" firstAttribute="leading" secondItem="Apd-N1-dlH" secondAttribute="leading" constant="30" id="qJu-lC-EOk"/>
+                            <constraint firstItem="3ix-B5-fDk" firstAttribute="leading" secondItem="Tk3-I8-vkF" secondAttribute="leading" constant="30" id="qJu-lC-EOk"/>
                             <constraint firstItem="4SK-Ec-wkG" firstAttribute="trailing" secondItem="Apd-N1-dlH" secondAttribute="trailing" id="xAZ-OL-cIN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Apd-N1-dlH"/>
                     </view>
                     <connections>
-                        <outlet property="barcodeLineScanner" destination="dfL-Ch-Rb2" id="oyC-6d-k2g"/>
+                        <outlet property="activityIndicator" destination="kYh-WN-Fgs" id="TdX-IE-peG"/>
                         <outlet property="barcodeReader" destination="FzR-qY-FkI" id="q8d-ZJ-6pE"/>
+                        <segue destination="Rs3-Yh-3A3" kind="show" identifier="toArticleDetailFromBarcodeReader" id="d7Z-Vf-zjx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hTg-pM-IvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1752.8" y="-1369.5652173913045"/>
         </scene>
-        <!--View Controller-->
+        <!--Article Found Detail View Controller-->
         <scene sceneID="esO-Tv-2ek">
             <objects>
-                <viewController id="Rs3-Yh-3A3" sceneMemberID="viewController">
+                <viewController id="Rs3-Yh-3A3" customClass="ArticleFoundDetailViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GVa-cG-tFB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2769,18 +2764,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articulo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcm-9e-tgy">
-                                        <rect key="frame" x="133" y="33" width="109" height="32"/>
+                                        <rect key="frame" x="140" y="32" width="95.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bT-Zq-ckx">
-                                        <rect key="frame" x="25" y="34" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="LXn-Il-uSl"/>
                                             <constraint firstAttribute="height" constant="30" id="Zpr-g3-axN"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="backArrowWhite"/>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="Rs3-Yh-3A3" eventType="touchUpInside" id="Wk1-Do-K2V"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2792,22 +2790,173 @@
                                     <constraint firstItem="0bT-Zq-ckx" firstAttribute="leading" secondItem="oDc-1M-jRs" secondAttribute="leading" constant="25" id="uvC-Hr-bpS"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oCc-GM-sX6">
+                                <rect key="frame" x="127.5" y="83" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="mGg-YV-pQW"/>
+                                    <constraint firstAttribute="width" constant="120" id="zrd-Dk-52W"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOz-QT-4Pp">
+                                <rect key="frame" x="30" y="216" width="315" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="XSF-dg-9jg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="16"/>
+                                <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codigo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFG-gH-bci">
+                                <rect key="frame" x="165" y="271" width="45" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="sn7-RP-wm9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e51-VQ-L6G">
+                                <rect key="frame" x="0.0" y="295" width="375" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="B2S-ch-eTI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
+                                <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJh-0O-hSH">
+                                <rect key="frame" x="87.5" y="336" width="200" height="39"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgU-Dt-j3e">
+                                        <rect key="frame" x="88" y="35" width="104" height="2"/>
+                                        <color key="backgroundColor" red="0.82745098039215681" green="0.85490196078431369" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="rdd-kG-1Mg"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Precio" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5W6-94-Ma2">
+                                        <rect key="frame" x="88" y="2" width="104" height="35"/>
+                                        <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MX $" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGI-f9-P7R">
+                                        <rect key="frame" x="8" y="2" width="72" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="72" id="GS2-mO-mll"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="30"/>
+                                        <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="5W6-94-Ma2" firstAttribute="leading" secondItem="rGI-f9-P7R" secondAttribute="trailing" constant="8" id="9Io-Lf-yC3"/>
+                                    <constraint firstItem="xgU-Dt-j3e" firstAttribute="leading" secondItem="5W6-94-Ma2" secondAttribute="leading" id="BeM-LU-fe0"/>
+                                    <constraint firstItem="rGI-f9-P7R" firstAttribute="top" secondItem="eJh-0O-hSH" secondAttribute="top" constant="2" id="NTs-dY-DBG"/>
+                                    <constraint firstItem="rGI-f9-P7R" firstAttribute="centerY" secondItem="eJh-0O-hSH" secondAttribute="centerY" id="VPC-O7-7ee"/>
+                                    <constraint firstAttribute="trailing" secondItem="5W6-94-Ma2" secondAttribute="trailing" constant="8" id="Zqa-1R-6CY"/>
+                                    <constraint firstItem="rGI-f9-P7R" firstAttribute="leading" secondItem="eJh-0O-hSH" secondAttribute="leading" constant="8" id="aZl-nA-4Ti"/>
+                                    <constraint firstAttribute="bottom" secondItem="xgU-Dt-j3e" secondAttribute="bottom" constant="2" id="hAv-sw-783"/>
+                                    <constraint firstItem="xgU-Dt-j3e" firstAttribute="trailing" secondItem="5W6-94-Ma2" secondAttribute="trailing" id="hFg-Xk-60C"/>
+                                    <constraint firstItem="5W6-94-Ma2" firstAttribute="centerY" secondItem="rGI-f9-P7R" secondAttribute="centerY" id="iLB-Uh-Dxx"/>
+                                    <constraint firstAttribute="width" constant="200" id="vib-MI-eAH"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edt-dh-5NZ" customClass="GMStepper" customModule="GMStepper">
+                                <rect key="frame" x="75" y="395" width="225" height="35"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="e3c-D4-F24"/>
+                                    <constraint firstAttribute="height" constant="35" id="fZr-Uw-xXh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="labelBackgroundColor">
+                                        <color key="value" red="0.58823529411764708" green="0.66666666666666663" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="buttonsBackgroundColor">
+                                        <color key="value" red="0.52941176470588236" green="0.62352941176470589" blue="0.29803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: MX $104.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2Y-sI-GMv">
+                                <rect key="frame" x="87.5" y="450" width="200" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Agc-mr-Nsk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="20"/>
+                                <color key="textColor" red="0.34509803921568627" green="0.37254901960784315" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRQ-fr-2cr" customClass="RoundedButton" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="25" y="615" width="325" height="40"/>
+                                <color key="backgroundColor" red="0.70980392160000005" green="0.73333333329999995" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="K8b-ih-RZo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="17"/>
+                                <state key="normal" title="GUARDAR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="corner">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="Ccu-bP-Iec" eventType="touchUpInside" id="JOY-ng-nYY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Bav-nE-J5S" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="0vu-JF-I0f"/>
+                            <constraint firstItem="pOi-M6-lbD" firstAttribute="trailing" secondItem="e51-VQ-L6G" secondAttribute="trailing" id="3Yk-tK-5r7"/>
+                            <constraint firstItem="eOz-QT-4Pp" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" constant="30" id="6tw-1R-Shd"/>
+                            <constraint firstItem="oCc-GM-sX6" firstAttribute="top" secondItem="Bav-nE-J5S" secondAttribute="bottom" constant="8" id="7nT-5S-V7V"/>
                             <constraint firstItem="oDc-1M-jRs" firstAttribute="top" secondItem="GVa-cG-tFB" secondAttribute="top" id="IFw-eE-sRY"/>
+                            <constraint firstItem="e51-VQ-L6G" firstAttribute="top" secondItem="jFG-gH-bci" secondAttribute="bottom" constant="8" id="JKc-y2-JMm"/>
+                            <constraint firstItem="Edt-dh-5NZ" firstAttribute="top" secondItem="eJh-0O-hSH" secondAttribute="bottom" constant="20" id="MLF-Mv-wFf"/>
+                            <constraint firstItem="P2Y-sI-GMv" firstAttribute="top" secondItem="Edt-dh-5NZ" secondAttribute="bottom" constant="20" id="QMT-vF-Glv"/>
+                            <constraint firstItem="jFG-gH-bci" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="Vbw-GQ-cZ3"/>
+                            <constraint firstItem="pOi-M6-lbD" firstAttribute="trailing" secondItem="cRQ-fr-2cr" secondAttribute="trailing" constant="25" id="Z79-uo-udU"/>
+                            <constraint firstItem="eJh-0O-hSH" firstAttribute="top" secondItem="e51-VQ-L6G" secondAttribute="bottom" constant="25" id="d5i-7p-8Q8"/>
+                            <constraint firstItem="cRQ-fr-2cr" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" constant="25" id="d5s-Kh-Ifu"/>
+                            <constraint firstItem="oCc-GM-sX6" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="fgh-BB-IIC"/>
+                            <constraint firstItem="e51-VQ-L6G" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="ha6-wI-ecb"/>
+                            <constraint firstItem="eOz-QT-4Pp" firstAttribute="top" secondItem="oCc-GM-sX6" secondAttribute="bottom" constant="13" id="jiW-bH-lkT"/>
+                            <constraint firstItem="Edt-dh-5NZ" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="kfz-m3-74b"/>
                             <constraint firstItem="Bav-nE-J5S" firstAttribute="trailing" secondItem="pOi-M6-lbD" secondAttribute="trailing" id="laf-WY-QWn"/>
                             <constraint firstItem="oDc-1M-jRs" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="m4g-j1-3A1"/>
+                            <constraint firstItem="eJh-0O-hSH" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="nu8-rl-ZtY"/>
+                            <constraint firstItem="jFG-gH-bci" firstAttribute="top" secondItem="eOz-QT-4Pp" secondAttribute="bottom" constant="10" id="pQn-cx-LWt"/>
+                            <constraint firstItem="pOi-M6-lbD" firstAttribute="trailing" secondItem="eOz-QT-4Pp" secondAttribute="trailing" constant="30" id="qWv-xX-6fZ"/>
                             <constraint firstItem="oDc-1M-jRs" firstAttribute="trailing" secondItem="pOi-M6-lbD" secondAttribute="trailing" id="qrA-YW-MKH"/>
+                            <constraint firstItem="P2Y-sI-GMv" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="r0V-NB-mz8"/>
                             <constraint firstItem="Bav-nE-J5S" firstAttribute="top" secondItem="GVa-cG-tFB" secondAttribute="top" id="wHy-Kj-gU0"/>
+                            <constraint firstItem="pOi-M6-lbD" firstAttribute="bottom" secondItem="cRQ-fr-2cr" secondAttribute="bottom" constant="12" id="xFa-2E-luD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pOi-M6-lbD"/>
                     </view>
+                    <connections>
+                        <outlet property="articleImageView" destination="oCc-GM-sX6" id="3K3-Ip-XET"/>
+                        <outlet property="barcodeLabel" destination="e51-VQ-L6G" id="HT4-ln-Mby"/>
+                        <outlet property="nameLabel" destination="eOz-QT-4Pp" id="cm8-EG-EEY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPs-pI-TSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2697" y="-1368"/>
+            <point key="canvasLocation" x="2696.8000000000002" y="-1368.6656671664168"/>
         </scene>
         <!--Add Article View Controller-->
         <scene sceneID="Ypj-dX-vZi">
@@ -2824,13 +2973,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artículo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij0-gN-lok">
-                                        <rect key="frame" x="133" y="33.5" width="109" height="31.5"/>
+                                        <rect key="frame" x="140" y="32" width="95.5" height="33"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbV-Vc-i3M">
-                                        <rect key="frame" x="25" y="34.5" width="30" height="30"/>
+                                        <rect key="frame" x="25" y="33.5" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="BXS-Zm-b1v"/>
                                             <constraint firstAttribute="height" constant="30" id="gDn-59-afb"/>
@@ -2841,7 +2990,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYp-z5-VuP">
-                                        <rect key="frame" x="320" y="38" width="30" height="23"/>
+                                        <rect key="frame" x="320" y="37" width="30" height="23"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="23" id="MHa-4h-isT"/>
                                             <constraint firstAttribute="width" constant="30" id="mr3-0F-D41"/>
@@ -2852,7 +3001,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWI-j1-VXt" customClass="BadgeSwift" customModule="BadgeSwift">
-                                        <rect key="frame" x="340" y="30" width="18" height="18"/>
+                                        <rect key="frame" x="340" y="29" width="18" height="18"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="18" id="9Pz-VV-Duk"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="18" id="zal-A8-ssT"/>
@@ -2884,7 +3033,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codigo de Barras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KL0-N0-LJV">
-                                <rect key="frame" x="25" y="80" width="113.5" height="16"/>
+                                <rect key="frame" x="25" y="80" width="110.5" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3053,7 +3202,7 @@ introduce el codigo del articulo</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqL-z6-aPQ" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="57" height="16"/>
+                                        <rect key="frame" x="25" y="24" width="54.5" height="16"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                         <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3098,7 +3247,7 @@ introduce el codigo del articulo</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85m-Ei-0aU" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="24" width="45" height="16"/>
+                                        <rect key="frame" x="25" y="24" width="44" height="16"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                         <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3158,7 +3307,7 @@ introduce el codigo del articulo</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF0-W3-cD6" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="25" y="527.5" width="62.5" height="16"/>
+                                <rect key="frame" x="25" y="527.5" width="61" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3472,7 +3621,6 @@ introduce el codigo del articulo</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="u64-X5-JKW" firstAttribute="centerX" secondItem="Uto-n2-JFN" secondAttribute="centerX" id="4Ye-yK-R8I"/>
                             <constraint firstItem="u64-X5-JKW" firstAttribute="leading" secondItem="1NK-ac-b2Y" secondAttribute="leading" constant="25" id="DOJ-st-xrZ"/>
                             <constraint firstItem="YfW-Gv-1nN" firstAttribute="centerX" secondItem="Uto-n2-JFN" secondAttribute="centerX" id="Eg2-1E-vih"/>
                             <constraint firstItem="OV6-Jw-aR5" firstAttribute="trailing" secondItem="1NK-ac-b2Y" secondAttribute="trailing" id="IZb-6H-f8C"/>
@@ -3546,7 +3694,7 @@ introduce el codigo del articulo</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correo Electronico" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIs-1C-dYO" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="24" width="122" height="16"/>
+                                                <rect key="frame" x="25" y="24" width="117" height="16"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                                 <color key="textColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -3594,7 +3742,7 @@ introduce el codigo del articulo</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contraseña" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5A-Vu-byL" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                                <rect key="frame" x="25" y="24" width="74.5" height="16"/>
+                                                <rect key="frame" x="25" y="24" width="72.5" height="16"/>
                                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                                 <color key="textColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -3632,7 +3780,7 @@ introduce el codigo del articulo</string>
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MeY-Hi-9gP">
-                                        <rect key="frame" x="97.5" y="235" width="180" height="28"/>
+                                        <rect key="frame" x="97.5" y="235" width="180" height="29"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                         <state key="normal" title="Olvidaste tu contraseña?">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3643,7 +3791,7 @@ introduce el codigo del articulo</string>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L3H-L0-E2D">
-                                        <rect key="frame" x="97.5" y="273" width="180" height="28"/>
+                                        <rect key="frame" x="97.5" y="274" width="180" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="mPK-mS-fBP"/>
                                         </constraints>
@@ -4106,7 +4254,7 @@ introduce el codigo del articulo</string>
         </scene>
     </scenes>
     <resources>
-        <image name="CameraFullBackground" width="1242" height="2203"/>
+        <image name="CameraFullBackground" width="621" height="1101.5"/>
         <image name="HeaderSmall" width="414" height="118.5"/>
         <image name="PrecioScanLogo" width="199" height="199"/>
         <image name="PrecioScanLogoSimple" width="199" height="199"/>
@@ -4114,7 +4262,7 @@ introduce el codigo del articulo</string>
         <image name="articlesEmptyState" width="197" height="197"/>
         <image name="backArrowWhite" width="132" height="132"/>
         <image name="barcode" width="188" height="116"/>
-        <image name="barcodeCaptureBorderBig" width="1122" height="1122"/>
+        <image name="barcodeCaptureBorderBig" width="561" height="561"/>
         <image name="barcodeCaptureBorderWhite" width="374" height="117"/>
         <image name="barcodeLineScanerWhite" width="354.5" height="3"/>
         <image name="cameraIconGrey" width="174" height="131.5"/>
@@ -4128,14 +4276,14 @@ introduce el codigo del articulo</string>
         <image name="photosIcon" width="190" height="190"/>
         <image name="plusSign" width="128" height="128"/>
         <image name="plusSignWhite" width="128" height="128"/>
-        <image name="premiumIcon" width="186" height="65.095893859863281"/>
+        <image name="premiumIcon" width="93" height="33"/>
         <image name="profilePlaceholder" width="233.5" height="233.5"/>
         <image name="shopingCartIcon" width="190" height="185"/>
         <image name="shoppingCartEmptyState" width="205.5" height="205.5"/>
         <image name="soundIcon" width="183" height="183"/>
         <image name="storeEmptyState" width="176" height="176"/>
         <image name="storesNoResults" width="176" height="176"/>
-        <image name="tableSeparator" width="762" height="4.6753244400024414"/>
+        <image name="tableSeparator" width="381" height="2.5"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gS5-uK-gD8"/>

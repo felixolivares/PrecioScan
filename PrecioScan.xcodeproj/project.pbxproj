@@ -83,6 +83,7 @@
 		30AC9A011F9FE5440029F6E6 /* NavigationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC9A001F9FE5440029F6E6 /* NavigationListViewController.swift */; };
 		30AC9AC61FABE6590086E319 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AC9AC41FABE6590086E319 /* ArticleTableViewCell.swift */; };
 		30AC9AC71FABE6590086E319 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30AC9AC51FABE6590086E319 /* ArticleTableViewCell.xib */; };
+		30AE8D32224C3CFD00844EC1 /* ArticleFoundDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AE8D31224C3CFD00844EC1 /* ArticleFoundDetailViewController.swift */; };
 		30AF238C1F8C496E00523870 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AF238B1F8C496E00523870 /* Button.swift */; };
 		30AF238E1F8C501100523870 /* AddArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AF238D1F8C501100523870 /* AddArticleViewController.swift */; };
 		30B2A23720072E67005A0A41 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2A23620072E67005A0A41 /* ProfileViewController.swift */; };
@@ -211,6 +212,7 @@
 		30AC9A001F9FE5440029F6E6 /* NavigationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationListViewController.swift; sourceTree = "<group>"; };
 		30AC9AC41FABE6590086E319 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		30AC9AC51FABE6590086E319 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		30AE8D31224C3CFD00844EC1 /* ArticleFoundDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleFoundDetailViewController.swift; sourceTree = "<group>"; };
 		30AF238B1F8C496E00523870 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		30AF238D1F8C501100523870 /* AddArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddArticleViewController.swift; sourceTree = "<group>"; };
 		30B2A23620072E67005A0A41 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 				30AF238D1F8C501100523870 /* AddArticleViewController.swift */,
 				306AC7851FA17F4A0096814C /* CompareViewController.swift */,
 				3057557D224B0D3C00FC9EC3 /* BarcodeReaderViewController.swift */,
+				30AE8D31224C3CFD00844EC1 /* ArticleFoundDetailViewController.swift */,
 			);
 			path = Lists;
 			sourceTree = "<group>";
@@ -954,6 +957,7 @@
 				306AC77C1FA05A120096814C /* PopSwitch.swift in Sources */,
 				30B76BDD2011AAF1003A28B7 /* PageFour.swift in Sources */,
 				3021562C20116B8C002B9500 /* CustomOverlay.swift in Sources */,
+				30AE8D32224C3CFD00844EC1 /* ArticleFoundDetailViewController.swift in Sources */,
 				302B0C5C1F998EFD001DE5C7 /* ItemListTableViewCell.swift in Sources */,
 				304487261F8DDD4300C5297D /* CoreDataManager.swift in Sources */,
 				30BD65A01F8FDB17002DCD90 /* Errors.swift in Sources */,

@@ -17,8 +17,10 @@ class BarcodeReader: UIView, AVCaptureMetadataOutputObjectsDelegate {
     
     var codeAnimatedControl: AnimatedInputControl!
     
-    func setupReader(codeAnimatedControl: AnimatedInputControl){
-        self.codeAnimatedControl = codeAnimatedControl
+    func setupReader(codeAnimatedControl: AnimatedInputControl? = nil ){
+        if let _ = codeAnimatedControl {
+            self.codeAnimatedControl = codeAnimatedControl
+        }
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
         let captureDevice = AVCaptureDevice.default(for: .video)
         

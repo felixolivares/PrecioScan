@@ -175,7 +175,8 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         if list != nil{
             print("List already created")
             list.debug()
-            self.performSegue(withIdentifier: Segues.toArticleFromList, sender: nil)
+//            self.performSegue(withIdentifier: Segues.toArticleFromList, sender: nil)
+            performSegue(withIdentifier: Segues.toBarcodeFromCreateList, sender: nil)
         }else{
             CoreDataManager.shared.saveList(name: nameListAnimatedControl.valueTextField.text!, date: DateOperations().getCurrentLocalDate(), store: selectedStore){ listSaved, error in
                 self.list = listSaved
@@ -281,8 +282,7 @@ extension CreateListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: Segues.toArticleFromList, sender: itemLists[indexPath.row])
-        performSegue(withIdentifier: Segues.toBarcodeFromCreateList, sender: itemLists[indexPath.row])
+        performSegue(withIdentifier: Segues.toArticleFromList, sender: itemLists[indexPath.row])
     }
 }
 

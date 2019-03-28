@@ -379,7 +379,11 @@ public protocol Session: class {
     func setCategory(_ category: String) throws
 }
 
-extension AVAudioSession: Session {}
+extension AVAudioSession: Session {
+    public func setCategory(_ category: String) throws {
+        print("Set category")
+    }
+}
 #endif
 
 // Helper function inserted by Swift 4.2 migrator.

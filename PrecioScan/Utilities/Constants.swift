@@ -286,6 +286,7 @@ struct Segues{
     public static let toSubscriptionFromAddArticle = "toSubscriptionFromAddArticle"
     public static let toSubscriptionFromConfiguration = "toSubscriptionFromConfiguration"
     public static let toBarcodeFromCreateList = "toBarcodeFromCreateList"
+    public static let toArticleDetailFromBarcodeReader = "toArticleDetailFromBarcodeReader"
 }
 
 //Images
@@ -384,5 +385,5 @@ struct FRAttribute {
 }
 
 struct NetworkKeys {
-    public static let skuDisplayText = "skuDisplayText"
+    public static let skuDisplayText = "skuDisplayNameText"
 }
