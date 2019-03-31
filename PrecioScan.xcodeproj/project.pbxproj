@@ -70,6 +70,7 @@
 		306AC7DA1FAAB4B70096814C /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7D91FAAB4B70096814C /* ArticlesViewController.swift */; };
 		306AC7E01FAAB5BB0096814C /* NavigationArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7DF1FAAB5BB0096814C /* NavigationArticlesViewController.swift */; };
 		306B7B1F20001D8E0054F1CE /* SuscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */; };
+		307D087E224CB04800FADD96 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307D087D224CB04800FADD96 /* CurrencyTextField.swift */; };
 		308571F01FB6889F0026BB14 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571EF1FB6889F0026BB14 /* Fonts.swift */; };
 		308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */; };
 		308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F51FB6BD540026BB14 /* FirebaseOperations.swift */; };
@@ -199,6 +200,7 @@
 		306AC7DF1FAAB5BB0096814C /* NavigationArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationArticlesViewController.swift; sourceTree = "<group>"; };
 		306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_8.xcdatamodel; sourceTree = "<group>"; };
 		306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuscriptionManager.swift; sourceTree = "<group>"; };
+		307D087D224CB04800FADD96 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		308571EF1FB6889F0026BB14 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
 		308571F51FB6BD540026BB14 /* FirebaseOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseOperations.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 				306AC77D1FA05A5A0096814C /* PopSwitchDelegate.swift */,
 				308571EF1FB6889F0026BB14 /* Fonts.swift */,
 				3010B7461F88360300F5C1D9 /* Fonts */,
+				307D087D224CB04800FADD96 /* CurrencyTextField.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -983,6 +986,7 @@
 				30083B741F88A744006274C9 /* DefineColors.swift in Sources */,
 				3021562420116A0A002B9500 /* PageOne.swift in Sources */,
 				30C321FA1FBFB7F700C8F7F2 /* FilesManager.swift in Sources */,
+				307D087E224CB04800FADD96 /* CurrencyTextField.swift in Sources */,
 				303C4376202A4E2200C8D58F /* Model8-9.xcmappingmodel in Sources */,
 				308571F61FB6BD540026BB14 /* FirebaseOperations.swift in Sources */,
 				30FF9B4A1FE246DF00E4C49A /* NavigationStoreViewController.swift in Sources */,

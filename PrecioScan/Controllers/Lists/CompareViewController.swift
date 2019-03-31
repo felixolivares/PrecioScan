@@ -67,8 +67,8 @@ class CompareViewController: UIViewController {
             storeNameLabel.text = ""
         }
         
-        if todayPrice != nil{
-            priceLabel.text = "$" + todayPrice
+        if todayPrice != "" {
+            priceLabel.text = todayPrice
         } else {
             priceLabel.text = ""
             todayTitleLabel.text = Constants.Compare.historyTitle
@@ -80,6 +80,7 @@ class CompareViewController: UIViewController {
     }
 }
 
+//MARK: - Table View Extension
 extension CompareViewController: UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return headerKeys.count
@@ -92,7 +93,7 @@ extension CompareViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifiers.compareCell) as! CompareTableViewCell
         cell.dateLabel.text = DateOperations().dateToString(date: items[indexPath.section][indexPath.row].date as Date)
-        cell.priceLabel.text = "$" + String(describing: items[indexPath.section][indexPath.row].unitaryPrice)
+        cell.priceLabel.text = "$" + String(format: "%.2f", Double(items[indexPath.section][indexPath.row].unitaryPrice))
         return cell
     }
     

@@ -56,4 +56,9 @@ class CompareOperations: NSObject {
             }
         }
     }
+    public func formatPrice(withDecimalNumber price:NSDecimalNumber) -> String{
+        let decimal = String(format:"%.2f", Double(truncating: price)).decimal /
+            pow(10, Formatter.currency.maximumFractionDigits)
+        return Formatter.currency.string(for: decimal)!
+    }
 }

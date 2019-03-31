@@ -66,7 +66,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         self.view.endEditing(true)
     }
     
-    //MARK: - Prepare for Segue
+    //MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.toBarcodeFromCreateList{
             let vc = segue.destination as! BarcodeReaderViewController
@@ -79,9 +79,17 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
             let vc = segue.destination as! CreateStoreViewController
             vc.delegate = self
             vc.isComingFromList = true
+        } else if segue.identifier == Segues.toArticleFoundFromCreateList {
+            let vc = segue.destination as! ArticleFoundDetailViewController
+            if let itemList = sender as? ItemList {
+                vc.itemListFound = itemList
+                vc.store = selectedStore
+            }
         }
         
     }
+    
+    @IBAction func unwindToCreateList(segue:UIStoryboardSegue) { }
     
     func configure(){
         configureMenu()
@@ -147,7 +155,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
                 for eachItem in itemLists!{
                     grandTotal += eachItem.totalPrice as! Double
                 }
-                self.totalLabel.text = "$ " + String(grandTotal)
+                self.totalLabel.text = "$ " + String(format:"%.2f", grandTotal)
                 self.totalArticlesLabel.text = "\(String(describing: (itemLists?.count)!))"
                 if itemLists?.count == 0{
                     self.articlesEmptyStateContainerView.isHidden = false
@@ -271,8 +279,8 @@ extension CreateListViewController: UITableViewDelegate, UITableViewDataSource{
         let itemList = itemLists[indexPath.row]
         cell.quantityLabel.text = String(describing: itemList.quantity)
         cell.nameLabel.text = itemList.article.name
-        cell.unitaryPriceLabel.text = "$" + String(describing: itemList.unitaryPrice)
-        cell.totalPrice.text = "$" + String(describing: itemList.totalPrice)
+        cell.unitaryPriceLabel.text = "$" + String(format:"%.2f", Double(truncating: itemList.unitaryPrice))
+        cell.totalPrice.text = "$" + String(format:"%.2f", Double(truncating: itemList.totalPrice))
         cell.delegate = self
         return cell
     }
@@ -282,7 +290,7 @@ extension CreateListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Segues.toArticleFromList, sender: itemLists[indexPath.row])
+        performSegue(withIdentifier: Segues.toArticleFoundFromCreateList, sender: itemLists[indexPath.row])
     }
 }
 

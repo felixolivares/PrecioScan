@@ -128,6 +128,8 @@ class BarcodeReaderViewController: UIViewController {
         if segue.identifier == Segues.toArticleDetailFromBarcodeReader {
             let vc = segue.destination as! ArticleFoundDetailViewController
             vc.articleSaved = sender as? Article
+            vc.list = list
+            vc.store = store
             print("Article sent: \(sender as? Article)")
         }
     }

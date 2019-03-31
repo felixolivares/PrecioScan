@@ -39,6 +39,7 @@ struct Warning {
     struct AddArticle{
         public static let completeAllFieldsText = "Completa los campos para continuar"
         public static let completeFieldsBeforeCompare = "Debes de completar todos los campos antes de comparar"
+        public static let completePriceField = "Introduce el precio del artículo"
     }
     
     struct ArticleDetail{
@@ -287,6 +288,10 @@ struct Segues{
     public static let toSubscriptionFromConfiguration = "toSubscriptionFromConfiguration"
     public static let toBarcodeFromCreateList = "toBarcodeFromCreateList"
     public static let toArticleDetailFromBarcodeReader = "toArticleDetailFromBarcodeReader"
+    public static let unwindToCreateListFromArticleFound = "unwindToCreateListFromArticleFound"
+    public static let toArticleFoundFromCreateList = "toArticleFoundFromCreateList"
+    public static let toCompareFromArticleFound = "toCompareFromArticleFound"
+    public static let toSubscriptionFromArticleFound = "toSubscriptionFromArticleFound"
 }
 
 //Images
