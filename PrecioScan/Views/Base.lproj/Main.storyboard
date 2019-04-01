@@ -2907,7 +2907,7 @@
                                     <action selector="saveButtonPressed:" destination="Rs3-Yh-3A3" eventType="touchUpInside" id="CEU-rr-mFL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: MX$00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2Y-sI-GMv">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: MX$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2Y-sI-GMv">
                                 <rect key="frame" x="107" y="488" width="200" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="e3W-1R-t09"/>
@@ -2954,6 +2954,54 @@
                                     <action selector="compareButtonPressed:" destination="Ccu-bP-Iec" eventType="touchUpInside" id="ULx-ig-GhW"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyO-Xt-zcx" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="228.66666666666666" width="414" height="49.999999999999972"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dT0-HJ-2zb" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="25" y="45.000000000000028" width="364" height="2"/>
+                                        <color key="backgroundColor" red="0.82745098039999998" green="0.85490196080000003" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="2" id="dPv-5D-L3p"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Introduce el nombre del artículo:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q78-Vk-baU" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
+                                        <rect key="frame" x="24.999999999999986" y="24" width="213.66666666666663" height="16"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
+                                        <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yvv-yr-kV8">
+                                        <rect key="frame" x="25" y="15" width="364" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Ctt-Gv-wf4"/>
+                                        </constraints>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Rs3-Yh-3A3" id="M62-wH-KDo"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="dT0-HJ-2zb" firstAttribute="trailing" secondItem="yvv-yr-kV8" secondAttribute="trailing" id="56E-MV-Pr6"/>
+                                    <constraint firstItem="dT0-HJ-2zb" firstAttribute="leading" secondItem="oyO-Xt-zcx" secondAttribute="leading" constant="25" id="Cow-ZR-SS1"/>
+                                    <constraint firstItem="dT0-HJ-2zb" firstAttribute="leading" secondItem="yvv-yr-kV8" secondAttribute="leading" id="RW9-CN-QyY"/>
+                                    <constraint firstAttribute="trailing" secondItem="dT0-HJ-2zb" secondAttribute="trailing" constant="25" id="SLn-t9-FBM"/>
+                                    <constraint firstItem="dT0-HJ-2zb" firstAttribute="leading" secondItem="q78-Vk-baU" secondAttribute="leading" id="TgW-qJ-p5t"/>
+                                    <constraint firstItem="q78-Vk-baU" firstAttribute="top" secondItem="oyO-Xt-zcx" secondAttribute="top" constant="24" id="Uxd-gx-sPG"/>
+                                    <constraint firstAttribute="bottom" secondItem="dT0-HJ-2zb" secondAttribute="bottom" constant="3" id="Yr4-bD-cjp"/>
+                                    <constraint firstAttribute="height" constant="50" id="k3c-5v-8iZ"/>
+                                    <constraint firstItem="dT0-HJ-2zb" firstAttribute="top" secondItem="yvv-yr-kV8" secondAttribute="bottom" id="vl7-Ym-GqI"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="nameLabel" destination="q78-Vk-baU" id="CEf-AM-NUU"/>
+                                    <outlet property="nameLabelTopConstraint" destination="Uxd-gx-sPG" id="0pl-Da-PYg"/>
+                                    <outlet property="underline" destination="dT0-HJ-2zb" id="eKY-DS-O2Y"/>
+                                    <outlet property="valueTextField" destination="yvv-yr-kV8" id="7bO-0p-XrQ"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -2962,6 +3010,7 @@
                             <constraint firstItem="pOi-M6-lbD" firstAttribute="trailing" secondItem="e51-VQ-L6G" secondAttribute="trailing" id="3Yk-tK-5r7"/>
                             <constraint firstItem="eOz-QT-4Pp" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" constant="30" id="6tw-1R-Shd"/>
                             <constraint firstItem="oCc-GM-sX6" firstAttribute="top" secondItem="Bav-nE-J5S" secondAttribute="bottom" constant="13" id="7nT-5S-V7V"/>
+                            <constraint firstItem="oyO-Xt-zcx" firstAttribute="trailing" secondItem="pOi-M6-lbD" secondAttribute="trailing" id="EC8-QP-w9b"/>
                             <constraint firstItem="oDc-1M-jRs" firstAttribute="top" secondItem="GVa-cG-tFB" secondAttribute="top" id="IFw-eE-sRY"/>
                             <constraint firstItem="e51-VQ-L6G" firstAttribute="top" secondItem="jFG-gH-bci" secondAttribute="bottom" constant="3" id="JKc-y2-JMm"/>
                             <constraint firstItem="Edt-dh-5NZ" firstAttribute="top" secondItem="eJh-0O-hSH" secondAttribute="bottom" constant="20" id="MLF-Mv-wFf"/>
@@ -2973,6 +3022,7 @@
                             <constraint firstItem="cRQ-fr-2cr" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" constant="25" id="d5s-Kh-Ifu"/>
                             <constraint firstItem="oCc-GM-sX6" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="fgh-BB-IIC"/>
                             <constraint firstItem="fWe-Db-w0C" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="g8R-ea-99Y"/>
+                            <constraint firstItem="oyO-Xt-zcx" firstAttribute="top" secondItem="oCc-GM-sX6" secondAttribute="bottom" constant="10.67" id="ghG-Gk-GdV"/>
                             <constraint firstItem="e51-VQ-L6G" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="ha6-wI-ecb"/>
                             <constraint firstItem="eOz-QT-4Pp" firstAttribute="top" secondItem="oCc-GM-sX6" secondAttribute="bottom" constant="13" id="jiW-bH-lkT"/>
                             <constraint firstItem="Edt-dh-5NZ" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="kfz-m3-74b"/>
@@ -2984,6 +3034,7 @@
                             <constraint firstItem="jFG-gH-bci" firstAttribute="top" secondItem="eOz-QT-4Pp" secondAttribute="bottom" constant="20" id="pQn-cx-LWt"/>
                             <constraint firstItem="pOi-M6-lbD" firstAttribute="trailing" secondItem="eOz-QT-4Pp" secondAttribute="trailing" constant="30" id="qWv-xX-6fZ"/>
                             <constraint firstItem="oDc-1M-jRs" firstAttribute="trailing" secondItem="pOi-M6-lbD" secondAttribute="trailing" id="qrA-YW-MKH"/>
+                            <constraint firstItem="oyO-Xt-zcx" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="ssU-dP-DHL"/>
                             <constraint firstItem="Bav-nE-J5S" firstAttribute="top" secondItem="GVa-cG-tFB" secondAttribute="top" id="wHy-Kj-gU0"/>
                             <constraint firstItem="pOi-M6-lbD" firstAttribute="bottom" secondItem="cRQ-fr-2cr" secondAttribute="bottom" constant="12" id="xFa-2E-luD"/>
                         </constraints>
@@ -2993,6 +3044,7 @@
                         <outlet property="articleImageView" destination="oCc-GM-sX6" id="3K3-Ip-XET"/>
                         <outlet property="barcodeLabel" destination="e51-VQ-L6G" id="HT4-ln-Mby"/>
                         <outlet property="compareButton" destination="fWe-Db-w0C" id="Lq6-xS-0iL"/>
+                        <outlet property="nameAnimatedControl" destination="oyO-Xt-zcx" id="gBO-y3-kRW"/>
                         <outlet property="nameLabel" destination="eOz-QT-4Pp" id="cm8-EG-EEY"/>
                         <outlet property="priceCurrencyTextField" destination="5W6-94-Ma2" id="ECD-Rp-sYV"/>
                         <outlet property="saveButton" destination="cRQ-fr-2cr" id="JtW-m2-pQm"/>
@@ -3441,7 +3493,7 @@ introduce el codigo del articulo</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKd-bI-w9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1753" y="-675"/>
+            <point key="canvasLocation" x="1752.1739130434785" y="-675"/>
         </scene>
         <!--Compare View Controller-->
         <scene sceneID="Xnh-dQ-jwn">
@@ -4338,7 +4390,7 @@ introduce el codigo del articulo</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Hyj-t6-W4T"/>
-        <segue reference="PFC-wA-KMV"/>
+        <segue reference="d7Z-Vf-zjx"/>
         <segue reference="pnP-xg-XW3"/>
         <segue reference="tyf-o9-d1V"/>
         <segue reference="hDX-Qp-dMp"/>

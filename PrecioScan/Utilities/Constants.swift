@@ -104,6 +104,7 @@ struct Constants {
             public static let photoAlreadySavedMessage = "Ya hay una foto guardada para este articulo. Te gustaria verla o tomar una nueva?"
             public static let subscriptionRestriction = "Para poder comparar los precios anteriores de este articulo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la sección de compra?"
             public static let photoSubscriptionRestriction = "Para poder tomar una foto de este articulo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la seccion de compra?"
+            public static let itemListUpdatedMessage = "Artículo actualizado"
         }
     }
     

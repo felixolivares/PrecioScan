@@ -19,8 +19,9 @@ class BarcodeReaderViewController: UIViewController {
     var articleFound: Article!
     var store: Store!
     var list: List!
+    var barcodeRead: String!
     private var barcodeIsRead: Bool = false
-    var articleIsFound: Bool = false
+    var articleIsFound: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,7 @@ class BarcodeReaderViewController: UIViewController {
         activityIndicator.startAnimating()
         guard barcodeIsRead == false else {return}
         self.barcodeIsRead = true
+        self.barcodeRead = code
         if ConfigurationManager.soundEnabled! {
             self.playBarcodeSound()
         }
@@ -61,6 +63,7 @@ class BarcodeReaderViewController: UIViewController {
                 if articles.count > 0{
                     print("[BarcodeReader] - Local article found, peform segue")
                     self.activityIndicator.stopAnimating()
+                    self.articleFound = articles.first
                     self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: articles.first)
                 }else{
                     print("[BarcodeReader] - No local article found with code: \(String(describing: code))")
@@ -81,8 +84,10 @@ class BarcodeReaderViewController: UIViewController {
                             print("[BarcodeReader] - Barcode prepared \(barcode)")
                             ClientManager.shared.getPath(sku: barcode){ response, error in
                                 guard let articleName = response!.object(forKey: NetworkKeys.skuDisplayText) else {
+                                    print("[BarcodReader] - No article found on exterlan sources")
                                     self.articleIsFound = false
                                     self.articleFound = nil
+                                    self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: nil)
                                     return
                                 }
                                 print("[BarcodeReader] - Article name: \(articleName)")
@@ -125,12 +130,17 @@ class BarcodeReaderViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        activityIndicator.stopAnimating()
         if segue.identifier == Segues.toArticleDetailFromBarcodeReader {
             let vc = segue.destination as! ArticleFoundDetailViewController
-            vc.articleSaved = sender as? Article
+            vc.articleSaved = articleFound != nil ? sender as? Article : nil
             vc.list = list
             vc.store = store
-            print("Article sent: \(sender as? Article)")
+            if !articleIsFound {
+                vc.articleFound = false
+                vc.barcodeNotFound = self.barcodeRead
+            }
+            print("Article sent: \(String(describing: sender as? Article))")
         }
     }
 }

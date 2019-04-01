@@ -20,12 +20,16 @@ class ArticleFoundDetailViewController: UIViewController {
     @IBOutlet weak var stepper: GMStepper!
     @IBOutlet weak var saveButton: RoundedButton!
     @IBOutlet weak var compareButton: PMSuperButton!
+    @IBOutlet weak var nameAnimatedControl: AnimatedInputControl!
+    
     
     var articleSaved: Article!
     var itemListFound: ItemList!
     var store: Store!
     var list: List!
     var photoUid: String!
+    var articleFound: Bool! = true
+    var barcodeNotFound: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +39,6 @@ class ArticleFoundDetailViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -45,22 +48,30 @@ class ArticleFoundDetailViewController: UIViewController {
     func configure() {
         stepper.addTarget(self, action: #selector(ArticleFoundDetailViewController.stepperValueChanged), for: .valueChanged)
         priceCurrencyTextField.addTarget(self, action: #selector(ArticleFoundDetailViewController.priceCurrencyChanged), for: .editingDidEnd)
+        populateAnimatedControls()
     }
     
     func popuplateFields() {
-        nameLabel.text = itemListFound != nil ? itemListFound.article.name : articleSaved.name
-        barcodeLabel.text = itemListFound != nil ? itemListFound.article.code : articleSaved.code
+        guard articleFound else {
+            barcodeLabel.text = barcodeNotFound
+            self.articleImageView.image = #imageLiteral(resourceName: "PrecioScanLogo")
+            return
+        }
+        if articleFound {
+            nameLabel.text = itemListFound != nil ? itemListFound.article.name : articleSaved.name
+            barcodeLabel.text = itemListFound != nil ? itemListFound.article.code : articleSaved.code
+        } else {
+            
+        }
         
-        //View only
+        //View/Update only
         if itemListFound != nil {
             priceCurrencyTextField.text = CompareOperations().formatPrice(withDecimalNumber: itemListFound.unitaryPrice)
             populateTotalPriceText(value: Double(truncating: itemListFound!.unitaryPrice), quantity: Double(itemListFound.quantity))
             stepper.value = Double(itemListFound.quantity)
             
             //Disable editables
-            priceCurrencyTextField.isEnabled = false
-            stepper.isEnabled = false
-            saveButton.isHidden = true
+            saveButton.setTitle("Actualizar", for: .normal)
         }
         
         //Image load
@@ -79,10 +90,37 @@ class ArticleFoundDetailViewController: UIViewController {
             }
         }
     }
+    
+    func populateAnimatedControls(){
+        if !articleFound {
+            nameLabel.isHidden = true
+            nameAnimatedControl.isHidden = false
+        } else {
+            nameLabel.isHidden = false
+            nameAnimatedControl.isHidden = true
+        }
+    }
 
     func saveItemList(){
         let quantity = Int32(stepper.value)
         let unitaryPrice = priceCurrencyTextField.doubleValue
+        guard itemListFound == nil else {
+            CoreDataManager.shared.updateItemList(object: self.itemListFound, date: DateOperations().getCurrentLocalDate(),
+                                                  photoName: photoUid,
+                                                  quantity: quantity,
+                                                  unitariPrice: Decimal(unitaryPrice),
+                                                  article: articleSaved,
+                                                  list: list,
+                                                  store: store,
+                                                  user: UserManager.currentUser){ isSaved, itemListUpdated, error in
+                                                    if isSaved {
+                                                        self.showUpdateMessage()
+                                                        self.itemListFound = itemListUpdated
+                                                        print("Updated")
+                                                    }
+            }
+            return
+        }
         CoreDataManager.shared.saveItemList(date: DateOperations().getCurrentLocalDate(),
                                             photoName: photoUid,
                                             quantity: quantity,
@@ -119,8 +157,19 @@ class ArticleFoundDetailViewController: UIViewController {
     
     //MARK: - Buttons
     @IBAction func saveButtonPressed(_ sender: Any) {
-        if priceCurrencyTextField.doubleValue > 0.0 {
-            saveItemList()
+        if priceCurrencyTextField.doubleValue > 0.0, nameAnimatedControl.valueTextField.text != "" {
+            if articleFound {
+                saveItemList()
+            } else {
+                CoreDataManager.shared.saveArticle(code: barcodeNotFound, name: nameAnimatedControl.valueTextField.text!){ article, error in
+                    if article != nil {
+                        self.articleSaved = article
+                        self.saveItemList()
+                    }else{
+                        print("An error ocurred: \(String(describing: error?.localizedDescription))")
+                    }
+                }
+            }
         } else {
             Popup.show(withOK: Warning.AddArticle.completePriceField, title: Constants.Popup.Titles.attention, vc: self)
         }
@@ -158,6 +207,10 @@ class ArticleFoundDetailViewController: UIViewController {
         }
     }
     
+    func showUpdateMessage() {
+        Popup.show(message: Constants.AddArticle.Popup.itemListUpdatedMessage, vc: self)
+    }
+    
     //MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.toCompareFromArticleFound {
@@ -169,3 +222,18 @@ class ArticleFoundDetailViewController: UIViewController {
     }
 }
 
+//MARK: - Textfield delegate methods
+extension ArticleFoundDetailViewController: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        (textField.superview as! AnimatedInputControl).animateFocus()
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.text?.count == 0{
+            (textField.superview as! AnimatedInputControl).animateFocusOut()
+        }else{
+            print("End editing textfield")
+            guard textField.text != nil else {return}
+        }
+    }
+}
