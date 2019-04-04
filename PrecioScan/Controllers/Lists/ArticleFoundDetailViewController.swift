@@ -399,7 +399,7 @@ class ArticleFoundDetailViewController: UIViewController {
             vc.articleCode = itemListFound != nil ? itemListFound.article.code : articleSaved.code
             vc.store = store
             vc.todayPrice = itemListFound != nil ? CompareOperations().formatPrice(withDecimalNumber: itemListFound!.unitaryPrice) : self.priceCurrencyTextField.text
-        } else {
+        } else if segue.identifier == Segues.toSubscriptionFromArticleFound{
             let vc = segue.destination as! SubscriptionViewController
             vc.openedWithModal = true
         }
