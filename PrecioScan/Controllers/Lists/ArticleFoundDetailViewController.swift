@@ -9,6 +9,10 @@
 import UIKit
 import GMStepper
 import PMSuperButton
+import GoogleMobileAds
+import ALCameraViewController
+import AXPhotoViewer
+import BadgeSwift
 
 class ArticleFoundDetailViewController: UIViewController {
     
@@ -21,6 +25,7 @@ class ArticleFoundDetailViewController: UIViewController {
     @IBOutlet weak var saveButton: RoundedButton!
     @IBOutlet weak var compareButton: PMSuperButton!
     @IBOutlet weak var nameAnimatedControl: AnimatedInputControl!
+    @IBOutlet weak var photoBadge: BadgeSwift!
     
     
     var articleSaved: Article!
@@ -30,6 +35,10 @@ class ArticleFoundDetailViewController: UIViewController {
     var photoUid: String!
     var articleFound: Bool! = true
     var barcodeNotFound: String!
+    var photoExists: Bool = false
+    var photosDataSource: [AXPhoto] = []
+    var photosViewController: AXPhotosViewController!
+    var rewardedCompare: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,15 +49,16 @@ class ArticleFoundDetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
     }
-
-    @IBAction func backButtonPressed(_ sender: Any) {
-        _ = navigationController?.popViewController(animated: true)
-    }
     
+    //MARK: - Configure
     func configure() {
         stepper.addTarget(self, action: #selector(ArticleFoundDetailViewController.stepperValueChanged), for: .valueChanged)
         priceCurrencyTextField.addTarget(self, action: #selector(ArticleFoundDetailViewController.priceCurrencyChanged), for: .editingDidEnd)
         populateAnimatedControls()
+        setupRewardedAd()
+        photoBadge.alpha = 0
+        createPhotoDataSource()
+        self.setBadge()
     }
     
     func popuplateFields() {
@@ -78,6 +88,8 @@ class ArticleFoundDetailViewController: UIViewController {
         ClientManager.shared.getImage(sku: prepareBarcode(code: itemListFound != nil ? itemListFound.article.code : articleSaved.code)) { image, error in
             if let image = image {
                 self.articleImageView.image = image
+            } else {
+                self.articleImageView.image = #imageLiteral(resourceName: "PrecioScanLogo")
             }
         }
         
@@ -155,12 +167,32 @@ class ArticleFoundDetailViewController: UIViewController {
         totalPriceLabel.text = "Total: \(String(describing: Formatter.currency.string(for: totalPrice)!))"
     }
     
+    //MARK: - Ads
+    func showRewarded() {
+        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        }
+    }
+    
+    func setupRewardedAd() {
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedArticleFound)
+    }
+    
     //MARK: - Buttons
+    @IBAction func backButtonPressed(_ sender: Any) {
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func saveButtonPressed(_ sender: Any) {
-        if priceCurrencyTextField.doubleValue > 0.0, nameAnimatedControl.valueTextField.text != "" {
-            if articleFound {
+        if articleFound {
+            if priceCurrencyTextField.doubleValue > 0.0 {
                 saveItemList()
             } else {
+                Popup.show(withOK: Warning.AddArticle.completePriceField, title: Constants.Popup.Titles.attention, vc: self)
+            }
+        } else {
+            if nameAnimatedControl.valueTextField.text != "" {
                 CoreDataManager.shared.saveArticle(code: barcodeNotFound, name: nameAnimatedControl.valueTextField.text!){ article, error in
                     if article != nil {
                         self.articleSaved = article
@@ -169,14 +201,20 @@ class ArticleFoundDetailViewController: UIViewController {
                         print("An error ocurred: \(String(describing: error?.localizedDescription))")
                     }
                 }
+            } else {
+                Popup.show(withOK: Warning.AddArticle.completeAllFieldsText, title: Constants.Popup.Titles.attention, vc: self)
             }
+        }
+        if nameAnimatedControl.valueTextField.text != "" {
+            
         } else {
             Popup.show(withOK: Warning.AddArticle.completePriceField, title: Constants.Popup.Titles.attention, vc: self)
         }
     }
     
     @IBAction func compareButtonPressed(_ sender: Any) {
-        SuscriptionManager.shared.promptToSubscribe(vc: self, message: Constants.AddArticle.Popup.subscriptionRestriction, completionHandler: { popupDecision, suscription in
+        rewardedCompare = true
+        SuscriptionManager.shared.promptToSubscribeWithRewarded(vc: self, message: Constants.AddArticle.Popup.subscriptionRestriction, completionHandler: { popupDecision, suscription in
             if suscription == SuscriptionManager.SubscriptionStatus.Subscribed{
                 if self.priceCurrencyTextField.doubleValue > 0.0 {
                     self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
@@ -184,8 +222,35 @@ class ArticleFoundDetailViewController: UIViewController {
                     Popup.show(withOK: Warning.AddArticle.completeFieldsBeforeCompare, title: Constants.Popup.Titles.attention, vc: self)
                 }
             } else {
-                if popupDecision {
+                switch (popupDecision){
+                case PopupResponse.Buy:
                     self.performSegue(withIdentifier: Segues.toSubscriptionFromArticleFound, sender: nil)
+                case PopupResponse.ViewAd:
+                    self.showRewarded()
+                default:
+                    print("User is ok")
+                }
+            }
+        })
+    }
+    
+    @IBAction func photoButtonPressed(_ sender: Any) {
+        rewardedCompare = false
+        SuscriptionManager.shared.promptToSubscribeWithRewarded(vc: self, message: Constants.AddArticle.Popup.photoSubscriptionRestriction, completionHandler: { popupDecision, suscription in
+            if suscription == SuscriptionManager.SubscriptionStatus.Subscribed{
+                if self.photoExists{
+                    self.displayShowPhotoPopup()
+                } else {
+                    self.takePhoto()
+                }
+            } else {
+                switch (popupDecision){
+                case PopupResponse.Buy:
+                    self.performSegue(withIdentifier: Segues.toSubscriptionFromArticleFound, sender: nil)
+                case PopupResponse.ViewAd:
+                    self.showRewarded()
+                default:
+                    print("User is ok")
                 }
             }
         })
@@ -207,8 +272,124 @@ class ArticleFoundDetailViewController: UIViewController {
         }
     }
     
+    func displayShowPhotoPopup(){
+        Popup.showPhoto(title: Constants.AddArticle.Popup.photoAlreadySavedTitle,
+                        message: Constants.AddArticle.Popup.photoAlreadySavedMessage,
+                        vc: self){ response in
+                            switch(response){
+                            case PopupResponse.Show:
+                                self.showPhoto()
+                            case PopupResponse.Take:
+                                self.takePhoto()
+                            default:
+                                print("Nothing")
+                            }
+        }
+    }
+    
     func showUpdateMessage() {
         Popup.show(message: Constants.AddArticle.Popup.itemListUpdatedMessage, vc: self)
+    }
+    
+    //MARK: - Photo
+    func showPhoto(){
+        let dataSource = AXPhotosDataSource(photos: self.photosDataSource)
+        photosViewController = AXPhotosViewController(dataSource: dataSource)
+        
+        let flex = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let bottomView = UIToolbar(frame: CGRect(origin: .zero, size: CGSize(width: 320, height: 44)))
+        let customView = UILabel(frame: CGRect(origin: .zero, size: CGSize(width: 80, height: 20)))
+        customView.text = "\(photosViewController.currentPhotoIndex + 1)"
+        customView.textColor = .white
+        customView.sizeToFit()
+        bottomView.items = [
+            flex,
+            UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(AddArticleViewController.deletePhoto)),
+        ]
+        bottomView.backgroundColor = .clear
+        bottomView.setBackgroundImage(UIImage(), forToolbarPosition: .any, barMetrics: .default)
+        //photosViewController.overlayView.bottomStackContainer.insertSubview(bottomView, at: 0)
+        self.present(photosViewController, animated: true)
+    }
+    
+    @objc func deletePhoto(){
+        if FilesManager.shared.deleteImage(imageName: itemListFound.photoName!){
+            print("Photo deleted")
+            photosViewController.dismiss(animated: true)
+            
+        } else {
+            print("Photo not deleted")
+        }
+    }
+    
+    func createPhotoDataSource(){
+        guard itemListFound != nil else {return}
+        if let photoName = itemListFound.photoName{
+            if let image = FilesManager.shared.verifyPhotoExists(name: photoName){
+                print("Photo exists: \(String(describing: itemListFound.photoName!)).png")
+                self.photoExists = true
+                photosDataSource.append(AXPhoto(attributedTitle: NSAttributedString(string: itemListFound.article.name),
+                                                attributedDescription: NSAttributedString(string: "$ " + String(describing: itemListFound.unitaryPrice)),
+                                                attributedCredit: NSAttributedString(string: itemListFound.store.name),
+                                                image: image))
+            } else {
+                print("Photo does not exist")
+                self.photoExists = false
+                CoreDataManager.shared.updateItemList(object: (self.itemListFound)!, date: nil,
+                                                      photoName: "",
+                                                      quantity: nil,
+                                                      unitariPrice: nil,
+                                                      article: nil,
+                                                      list: nil,
+                                                      store: nil,
+                                                      user: nil){ isSaved, itemListUpdated, error in
+                }
+            }
+        }
+    }
+    
+    func takePhoto(){
+        let cropParameters = CroppingParameters.init(isEnabled: true, allowResizing: true, allowMoving: true, minimumSize: CGSize(width: 60, height: 60))
+        let cameraViewController = CameraViewController(croppingParameters: cropParameters, allowsLibraryAccess: true, allowsSwapCameraOrientation: true, allowVolumeButtonCapture: true) { [weak self] image, asset in
+            guard image != nil else{self?.dismiss(animated: true, completion: nil); return}
+            let uuid = UUID().uuidString
+            print("Photo uuid generated: \(uuid)")
+            if FilesManager.shared.saveImage(image: image!, photoName: uuid){
+                print("Image saved")
+                if self?.itemListFound != nil{
+                    CoreDataManager.shared.updateItemList(object: (self?.itemListFound)!, date: nil,
+                                                          photoName: uuid,
+                                                          quantity: nil,
+                                                          unitariPrice: nil,
+                                                          article: nil,
+                                                          list: nil,
+                                                          store: nil,
+                                                          user: nil){ isSaved, itemListUpdated, error in
+                                                            if isSaved {
+                                                                self?.itemListFound = itemListUpdated
+                                                                print("Updated")
+                                                                self?.photoExists = true
+                                                                self?.setBadge()
+                                                                self?.createPhotoDataSource()
+                                                            }
+                    }
+                } else {
+                    self?.photoUid = uuid
+                }
+            } else {
+                print("Image not saved")
+            }
+            self?.dismiss(animated: true, completion: nil)
+        }
+        present(cameraViewController, animated: true, completion: nil)
+    }
+    
+    func setBadge(){
+        if photoExists{
+            UIView.animate(withDuration: 0.5, animations: {
+                self.photoBadge.alpha = 1
+            })
+        }
     }
     
     //MARK: - Segue
@@ -218,6 +399,9 @@ class ArticleFoundDetailViewController: UIViewController {
             vc.articleCode = itemListFound != nil ? itemListFound.article.code : articleSaved.code
             vc.store = store
             vc.todayPrice = itemListFound != nil ? CompareOperations().formatPrice(withDecimalNumber: itemListFound!.unitaryPrice) : self.priceCurrencyTextField.text
+        } else {
+            let vc = segue.destination as! SubscriptionViewController
+            vc.openedWithModal = true
         }
     }
 }
@@ -235,5 +419,59 @@ extension ArticleFoundDetailViewController: UITextFieldDelegate{
             print("End editing textfield")
             guard textField.text != nil else {return}
         }
+    }
+}
+
+extension ArticleFoundDetailViewController: GADRewardBasedVideoAdDelegate {
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        print("Reward received: \(reward.type), how many? \(reward.amount).")
+        #if DEBUG
+        if (reward.type == Constants.Admob.RewardItem.test && Int(truncating: reward.amount) >= 1) {
+            if rewardedCompare {
+                self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
+            }
+        }
+        #else
+        if (reward.type == Constants.Admob.RewardItem.article && Int(truncating: reward.amount) >= 1) {
+            if rewardedCompare {
+                self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
+            }
+        }
+        #endif
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+        print("Reward based video ad is received.")
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Opened reward based video ad.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad started playing.")
+    }
+    
+    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad has completed.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is closed.")
+        self.setupRewardedAd()
+        if !rewardedCompare {
+            self.takePhoto()
+        }
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad will leave application.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        print("Reward based video ad failed to load.")
     }
 }

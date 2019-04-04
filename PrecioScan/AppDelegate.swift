@@ -14,7 +14,7 @@ import GoogleMobileAds
 import FBSDKCoreKit
 
 let persistentContainer = CoreDataManager.shared
-let testingAds:Bool = false
+var testingAds:Bool = false
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -37,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        GADMobileAds.configure(withApplicationID: Constants.Admob.appID)
         GADMobileAds.sharedInstance().start(completionHandler: nil)
 
+        #if DEBUG
+            testingAds = true
+        #else
+            testingAds = false
+        #endif
         
         return true
     }

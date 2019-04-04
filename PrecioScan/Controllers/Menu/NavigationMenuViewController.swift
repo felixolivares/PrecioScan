@@ -27,10 +27,13 @@ class NavigationMenuViewController: MenuViewController, FBSDKAppInviteDialogDele
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var heightPremiumIconConstraint: NSLayoutConstraint!
+    @IBOutlet weak var versionLabel: UILabel!
+    
     
     var currentUser: User!
     
     var debugIsSubscribed: Bool = false
+    let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
     
     let menuItems = [Constants.NavigationMenu.listItem, Constants.NavigationMenu.storeItem, Constants.NavigationMenu.articleItem, Constants.NavigationMenu.subscritpionIten, Constants.NavigationMenu.contactUsItem, Constants.NavigationMenu.configurationItem, Constants.NavigationMenu.logoutItem]
     let menuIcons = [ImageNames.listIcon, ImageNames.storeIcon, ImageNames.articleIcon, ImageNames.crwonIconWhite, ImageNames.contact1Icon, ImageNames.configurationIcon, ImageNames.logoutIcon]
@@ -67,6 +70,7 @@ class NavigationMenuViewController: MenuViewController, FBSDKAppInviteDialogDele
         profileImageView.clipsToBounds = true
         profileImageView.layer.borderWidth = 3.0
         profileImageView.layer.borderColor = UIColor.white.cgColor
+        versionLabel.text = "Versión \(String(describing: appVersion!))"
     }
     
     //MARK: - Setup TableView

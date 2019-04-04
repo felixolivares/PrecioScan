@@ -190,7 +190,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
                 self.list = listSaved
                 print("New list created")
                 listSaved?.debug()
-                self.performSegue(withIdentifier: Segues.toArticleFromList, sender: nil)
+                self.performSegue(withIdentifier: Segues.toBarcodeFromCreateList, sender: nil)
             }
         }
     }

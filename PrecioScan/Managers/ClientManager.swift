@@ -43,10 +43,15 @@ class ClientManager: NSObject {
             completionHandler(cachedImage, nil)
         } else {
             Alamofire.request(url).responseImage { response in
-                if let image = response.result.value {
-                    print("[Image Download] - Image downloaded remotely")
-                    self.imageCache.add(image, withIdentifier: imageName)
-                    completionHandler(image, nil)
+                switch response.result {
+                case .success:
+                    if let image = response.result.value {
+                        print("[Image Download] - Image downloaded remotely")
+                        self.imageCache.add(image, withIdentifier: imageName)
+                        completionHandler(image, nil)
+                    }
+                case .failure(let error):
+                    completionHandler(nil, error as NSError)
                 }
             }
         }

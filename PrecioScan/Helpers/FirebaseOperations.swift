@@ -243,7 +243,9 @@ class FirebaseOperations: NSObject {
                                             isSubscribed: userDic[FRAttribute.isSubscribed] as? Bool ?? false,
                                             uid: uid,
                                             subscriptionDate: userDic[FRAttribute.subscriptionDate] as? Double ?? nil,
-                                            username: userDic[FRAttribute.username] as! String)
+                                            username: userDic[FRAttribute.username] as! String,
+                                            state: userDic[FRAttribute.state] as! String,
+                                            city: userDic[FRAttribute.city] as! String)
                 print("Temp User: \(tmpUser)")
                 completionHandler(tmpUser)
             } else {

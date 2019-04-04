@@ -28,9 +28,7 @@ class ListsViewController: CustomTransitionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        CoreDataManager.shared.updateProducts()
-        setupAds()
+        configure()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +66,13 @@ class ListsViewController: CustomTransitionViewController {
         }
     }
     
+    func configure() {
+        setupTableView()
+        CoreDataManager.shared.updateProducts()
+        setupAds()
+        setupRewardedAd()
+    }
+    
     //MARK: - Setup TableView
     func setupTableView(){
         let listCell = UINib(nibName: Identifiers.listTableViewCell, bundle: nil)
@@ -90,6 +95,11 @@ class ListsViewController: CustomTransitionViewController {
         mainListBannerView.rootViewController = self
         mainListBannerView.delegate = self
         mainListBannerView.load(AdsManager.shared.getRequest())
+    }
+    
+    func setupRewardedAd() {
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedListsId)
     }
     
     func adsViewabilty(){
@@ -124,6 +134,12 @@ class ListsViewController: CustomTransitionViewController {
         }
     }
     
+    func showRewardedAd() {
+        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        }
+    }
+    
     //MARK: - Buttons
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
         hamburgerButton.setStyle(.close, animated: true)
@@ -132,14 +148,19 @@ class ListsViewController: CustomTransitionViewController {
     
     @IBAction func createNewListButtonPressed(_ sender: Any) {
         if lists.count >= 2 {
-            SuscriptionManager.shared.promptToSubscribe(vc: self,
+            SuscriptionManager.shared.promptToSubscribeWithRewarded(vc: self,
                                                         message: Constants.Lists.Popup.listRestriction,
                                                         completionHandler: { popupDecision, suscription in
                 if suscription == SuscriptionManager.SubscriptionStatus.Subscribed{
                     self.performSegue(withIdentifier: Segues.toNewListFromLists, sender: nil)
                 } else {
-                    if popupDecision {
+                    switch (popupDecision){
+                    case PopupResponse.Buy:
                         self.performSegue(withIdentifier: Segues.toSuscribeFromLists, sender: nil)
+                    case PopupResponse.ViewAd:
+                        self.showRewardedAd()
+                    default:
+                        print("User is ok")
                     }
                 }
             })
@@ -224,5 +245,45 @@ extension ListsViewController: GADBannerViewDelegate{
         UIView.animate(withDuration: 0.3, animations: {
             bannerView.alpha = 1
         })
+    }
+}
+
+extension ListsViewController: GADRewardBasedVideoAdDelegate {
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didRewardUserWith reward: GADAdReward) {
+        print("Hellooo!! Reward received with currency: \(reward.type), amount \(reward.amount).")
+        if (reward.type == Constants.Admob.RewardItem.list && reward.amount == 1) {
+            self.performSegue(withIdentifier: Segues.toNewListFromLists, sender: nil)
+        }
+    }
+    
+    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+        print("Reward based video ad is received.")
+    }
+    
+    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Opened reward based video ad.")
+    }
+    
+    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad started playing.")
+    }
+    
+    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad has completed.")
+    }
+    
+    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad is closed.")
+        self.setupRewardedAd()
+    }
+    
+    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+        print("Reward based video ad will leave application.")
+    }
+    
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+                            didFailToLoadWithError error: Error) {
+        print("Reward based video ad failed to load.")
     }
 }

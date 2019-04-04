@@ -34,6 +34,7 @@ class BarcodeReaderViewController: UIViewController {
     
     func configure() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotificationBarcodeFound(notification:)), name: Notification.Name(Identifiers.Notifications.idArticleFound), object: nil)
+        self.articleIsFound = true
         barcodeReader.setupReader()
     }
     
@@ -72,6 +73,7 @@ class BarcodeReaderViewController: UIViewController {
                             CoreDataManager.shared.saveArticle(code: (article?.code)!, name: (article?.name)!, uid: (article?.uid)!, needsToSaveOnFirebase: false){ article, error in
                                 if article != nil {
                                     print("[BarcodeReader] - Article found in Firebase, perform segue")
+                                    self.articleFound = article
                                     self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: article)
                                     self.activityIndicator.stopAnimating()
                                 }else{
@@ -95,6 +97,7 @@ class BarcodeReaderViewController: UIViewController {
                                 CoreDataManager.shared.saveArticle(code: code!, name: articleName as! String){ article, error in
                                     if article != nil {
                                         print("[BarcodeReader] - Article saved localy, perform segue")
+                                        self.articleFound = article
                                         self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: article)
                                         self.activityIndicator.stopAnimating()
                                     }else{

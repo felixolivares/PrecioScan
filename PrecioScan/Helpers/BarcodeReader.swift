@@ -14,15 +14,36 @@ class BarcodeReader: UIView, AVCaptureMetadataOutputObjectsDelegate {
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
-    
+    let captureDevice = AVCaptureDevice.default(for: .video)
     var codeAnimatedControl: AnimatedInputControl!
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touchPoint = touches.first
+        let screenSize = self.bounds.size
+        let focusPoint = CGPoint(x: (touchPoint?.location(in: self).y)! / screenSize.height, y: 1.0 - ((touchPoint?.location(in: self).x)!/screenSize.width))
+        if let device = captureDevice {
+            do {
+                try device.lockForConfiguration()
+                if device.isFocusPointOfInterestSupported {
+                    device.focusPointOfInterest = focusPoint
+                    device.focusMode = .autoFocus
+                }
+                if device.isExposurePointOfInterestSupported {
+                    device.exposurePointOfInterest = focusPoint
+                    device.exposureMode = .autoExpose
+                }
+                device.unlockForConfiguration()
+            } catch {
+                
+            }
+        }
+    }
     func setupReader(codeAnimatedControl: AnimatedInputControl? = nil ){
         if let _ = codeAnimatedControl {
             self.codeAnimatedControl = codeAnimatedControl
         }
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
-        let captureDevice = AVCaptureDevice.default(for: .video)
+//        let captureDevice = AVCaptureDevice.default(for: .video)
         
         do {
             guard captureDevice != nil else {return}
