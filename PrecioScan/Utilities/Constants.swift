@@ -95,11 +95,11 @@ struct Constants {
     
     struct AddArticle {
         public static let scanArticleCodeText = "Escabea el código de barras o introduce el código del artículo"
-        public static let articleFoundText = "artículo encontrado!"
-        public static let articleNotFoundText = "artículo no encontrado.\nSe creará un artículo nuevo."
+        public static let articleFoundText = "Artículo encontrado!"
+        public static let articleNotFoundText = "Artículo no encontrado.\nSe creará un artículo nuevo."
         struct Popup {
             public static let addMoreArticlesMessage = "Deseas seguir agregando mas artículos?"
-            public static let articleSavedTitle = "artículo Guardado!"
+            public static let articleSavedTitle = "Artículo Guardado!"
             public static let photoAlreadySavedTitle = "Foto Guardada"
             public static let photoAlreadySavedMessage = "Ya hay una foto guardada para este artículo. Te gustaria verla o tomar una nueva?"
             public static let subscriptionRestriction = "Para comparar los precios anteriores de este artículo debes convertirte en usuario Premium comprando tu suscripción con un pago único de $productPrice, o bien ve el siguiente video."
@@ -135,7 +135,7 @@ struct Constants {
     
     struct ArticleDetail {
         struct Poppup {
-            public static let articleUpdated = "artículo actualizado"
+            public static let articleUpdated = "Artículo actualizado"
             public static let subscriptionRestriction = "Para poder comparar los precios anteriores de este artículo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la sección de compra?"
         }
     }
@@ -182,7 +182,7 @@ struct Constants {
     struct NavigationMenu{
         public static let listItem = "Inicio"
         public static let storeItem = "Tiendas"
-        public static let articleItem = "artículos"
+        public static let articleItem = "Artículos"
         public static let configurationItem = "Configuracion"
         public static let subscritpionIten = "Suscripción"
         public static let inviteFriendsItem = "Invitar Amigos"
