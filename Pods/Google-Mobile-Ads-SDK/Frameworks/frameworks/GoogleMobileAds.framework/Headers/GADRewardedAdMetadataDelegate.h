@@ -12,6 +12,7 @@
 
 @class GADRewardedAd;
 
+/// Delegate for receiving metadata change messages from a GADRewardedAd.
 @protocol GADRewardedAdMetadataDelegate <NSObject>
 
 @optional

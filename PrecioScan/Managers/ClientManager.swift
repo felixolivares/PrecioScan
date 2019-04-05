@@ -8,12 +8,18 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 class ClientManager: NSObject {
     
     static let shared = ClientManager()
     let url = "https://super.walmart.com.mx/api/rest/model/atg/commerce/catalog/ProductCatalogActor/getSkuSummaryDetails?skuId=$skuId&storeId=0000009999&upc=00075677402211&fbclid=IwAR1j2i38X30mQphDt7LD75JkkRFx61IojSwVOL2HVoQHSKLkE9LEPouILFY"
+    let imageUrl = "https://super.walmart.com.mx/images/product-images/img_large/"
     var counterSuccess:Int = 0
+    let imageCache = AutoPurgingImageCache(
+        memoryCapacity: 100_000_000,
+        preferredMemoryUsageAfterPurge: 80_000_000
+    )
     
     private override init(){
         super.init()
@@ -27,6 +33,28 @@ class ClientManager: NSObject {
     public func getPath(sku: String, params: Parameters? = nil, completionHandler: @escaping (NSDictionary?, NSError?) -> ()){
         let formedUrl = url.replacingOccurrences(of: "$skuId", with: sku)
         self.performRequest(url: formedUrl, headers: nil, params: params, method: HTTPMethod.get, completionHandler: completionHandler)
+    }
+    
+    public func getImage(sku: String, completionHandler: @escaping (UIImage?, NSError?) -> ()){
+        let imageName = "\(sku)L.jpg"
+        let url = "\(imageUrl)\(imageName)"
+        if let cachedImage = imageCache.image(withIdentifier: imageName) {
+            print("[Image Download] - Image cached locally")
+            completionHandler(cachedImage, nil)
+        } else {
+            Alamofire.request(url).responseImage { response in
+                switch response.result {
+                case .success:
+                    if let image = response.result.value {
+                        print("[Image Download] - Image downloaded remotely")
+                        self.imageCache.add(image, withIdentifier: imageName)
+                        completionHandler(image, nil)
+                    }
+                case .failure(let error):
+                    completionHandler(nil, error as NSError)
+                }
+            }
+        }
     }
     
     public func performRequest(url: String, headers: HTTPHeaders? = nil, params: Parameters? = nil, method: HTTPMethod, completionHandler: @escaping (NSDictionary?, NSError?) -> ()) {

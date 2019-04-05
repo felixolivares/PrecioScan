@@ -146,4 +146,24 @@ class Popup{
         popup.addButtons([buttonCancel, buttonOK])
         vc.present(popup, animated: true, completion: nil)
     }
+    
+    public static func showPurchaseRewarded(title: String?, message: String?, vc: UIViewController, completionHandler: @escaping(String) -> Void){
+        let subscribeBannerImage = UIImage(named: ImageNames.subscribeBannerGreen)
+        //        let popup = PopupDialog(title: title, message: message, image: subscribeBannerImage , buttonAlignment: .horizontal, transitionStyle: .zoomIn, gestureDismissal: true) {}
+        let popup = PopupDialog(title: title, message: message, image: subscribeBannerImage, buttonAlignment: .vertical, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
+        let buttonOK = DestructiveButton(title: Constants.Popup.Buttons.goToPremium) {
+            completionHandler(PopupResponse.Buy)
+        }
+        
+        let buttonCancel = CancelButton(title: Constants.Popup.Buttons.noAnswer) {
+            completionHandler(PopupResponse.Decline)
+        }
+        
+        let buttonView = CancelButton(title: Constants.Popup.Buttons.watchVideo) {
+            completionHandler(PopupResponse.ViewAd)
+        }
+        
+        popup.addButtons([buttonOK, buttonView, buttonCancel])
+        vc.present(popup, animated: true, completion: nil)
+    }
 }

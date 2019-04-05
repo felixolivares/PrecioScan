@@ -35,6 +35,8 @@ class UserManager: NSObject {
         FirebaseOperations().searchCurrentUser(withId: user.uid!, completionHandler: { tmpUser in
             if let user = tmpUser{
                 self.currentUser.isSuscribed = user.isSubscribed
+                self.currentUser.state = user.state
+                self.currentUser.city = user.city
                 persistentContainer.save(completionHandler: { finished, error in
                     if finished && error == nil{
                         print("User updated and saved")

@@ -81,7 +81,7 @@ class AddArticleViewController: UIViewController {
             guard articleFound != nil else {return}
             vc.articleCode = articleFound.code
             vc.store = store
-            vc.todayPrice = self.priceAnimatedControl.valueTextField.text
+//            vc.todayPrice = self.priceAnimatedControl.double
         } else if segue.identifier == Segues.toSubscriptionFromAddArticle{
             let vc = segue.destination as! SubscriptionViewController
             vc.openedWithModal = true

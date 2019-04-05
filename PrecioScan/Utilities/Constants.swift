@@ -39,10 +39,11 @@ struct Warning {
     struct AddArticle{
         public static let completeAllFieldsText = "Completa los campos para continuar"
         public static let completeFieldsBeforeCompare = "Debes de completar todos los campos antes de comparar"
+        public static let completePriceField = "Introduce el precio del artículo"
     }
     
     struct ArticleDetail{
-        public static let addName = "Debes ingresar un nombre para el articulo"
+        public static let addName = "Debes ingresar un nombre para el artículo"
     }
     
     struct Login {
@@ -88,21 +89,22 @@ struct Constants {
     
     struct Lists {
         struct Popup {
-            public static let listRestriction = "Para poder agregar mas listas debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la seccion de compra?"
+            public static let listRestriction = "Para agregar mas listas debes convertirte en usuario Premium comprando tu suscripción con un pago único de $productPrice, o bien ve el siguiente video."
         }
     }
     
     struct AddArticle {
         public static let scanArticleCodeText = "Escabea el código de barras o introduce el código del artículo"
-        public static let articleFoundText = "Articulo encontrado!"
-        public static let articleNotFoundText = "Articulo no encontrado.\nSe creará un articulo nuevo."
+        public static let articleFoundText = "Artículo encontrado!"
+        public static let articleNotFoundText = "Artículo no encontrado.\nSe creará un artículo nuevo."
         struct Popup {
-            public static let addMoreArticlesMessage = "Deseas seguir agregando mas articulos?"
-            public static let articleSavedTitle = "Articulo Guardado!"
+            public static let addMoreArticlesMessage = "Deseas seguir agregando mas artículos?"
+            public static let articleSavedTitle = "Artículo Guardado!"
             public static let photoAlreadySavedTitle = "Foto Guardada"
-            public static let photoAlreadySavedMessage = "Ya hay una foto guardada para este articulo. Te gustaria verla o tomar una nueva?"
-            public static let subscriptionRestriction = "Para poder comparar los precios anteriores de este articulo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la sección de compra?"
-            public static let photoSubscriptionRestriction = "Para poder tomar una foto de este articulo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la seccion de compra?"
+            public static let photoAlreadySavedMessage = "Ya hay una foto guardada para este artículo. Te gustaria verla o tomar una nueva?"
+            public static let subscriptionRestriction = "Para comparar los precios anteriores de este artículo debes convertirte en usuario Premium comprando tu suscripción con un pago único de $productPrice, o bien ve el siguiente video."
+            public static let photoSubscriptionRestriction = "Para tomar una foto de este artículo debes convertirte en usuario Premium comprando tu suscripción con un pago único de $productPrice, o bien ve el siguiente video."
+            public static let itemListUpdatedMessage = "Artículo actualizado"
         }
     }
     
@@ -128,13 +130,13 @@ struct Constants {
     }
     
     struct Articles {
-        public static let searchBarPlaceholder = "Buscar Articulo"
+        public static let searchBarPlaceholder = "Buscar artículo"
     }
     
     struct ArticleDetail {
         struct Poppup {
-            public static let articleUpdated = "Articulo actualizado"
-            public static let subscriptionRestriction = "Para poder comparar los precios anteriores de este articulo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la sección de compra?"
+            public static let articleUpdated = "Artículo actualizado"
+            public static let subscriptionRestriction = "Para poder comparar los precios anteriores de este artículo debes convertirte en usuario Premium comprando tu suscripción. Quieres ir a la sección de compra?"
         }
     }
     
@@ -149,12 +151,13 @@ struct Constants {
     struct Popup {
         struct Buttons {
             public static let yesAnswer = "Si"
-            public static let noAnswer = "No"
+            public static let noAnswer = "No, gracias"
             public static let continueAnswer = "Continue"
             public static let showPhoto = "Ver"
             public static let takePhoto = "Tomar"
             public static let goToPremium = "Comprar!"
             public static let retry = "Reintentar"
+            public static let watchVideo = "Ver Video"
         }
         struct Titles {
             public static let ready = "Listo!"
@@ -179,7 +182,7 @@ struct Constants {
     struct NavigationMenu{
         public static let listItem = "Inicio"
         public static let storeItem = "Tiendas"
-        public static let articleItem = "Articulos"
+        public static let articleItem = "Artículos"
         public static let configurationItem = "Configuracion"
         public static let subscritpionIten = "Suscripción"
         public static let inviteFriendsItem = "Invitar Amigos"
@@ -231,6 +234,14 @@ struct Constants {
         public static let bannerSeachStoresIABMediumId = "ca-app-pub-3913769475917328/2014148819"
         public static let interstitialListDetailId = "ca-app-pub-3913769475917328/6722554161"
         public static let bannerArticlesListId = "ca-app-pub-3913769475917328/8559299880"
+        public static let rewardedListsId = "ca-app-pub-3913769475917328/2348143504"
+        public static let rewardedTestId = "ca-app-pub-3940256099942544/1712485313"
+        public static let rewardedArticleFound = "ca-app-pub-3913769475917328/1384338201"
+        struct RewardItem {
+            public static let article = "Article"
+            public static let list = "List"
+            public static let test = "coins"
+        }
     }
     
     struct Email{
@@ -247,6 +258,8 @@ struct PopupResponse {
     public static let Continue = "PopupContinue"
     public static let Show = "ShowPhoto"
     public static let Take = "TakePhoto"
+    public static let ViewAd = "ViewAd"
+    public static let Buy = "Buy"
 }
 
 //Identifiers
@@ -285,6 +298,12 @@ struct Segues{
     public static let toSubscribeFromArticleDetail = "toSubscribeFromArticleDetail"
     public static let toSubscriptionFromAddArticle = "toSubscriptionFromAddArticle"
     public static let toSubscriptionFromConfiguration = "toSubscriptionFromConfiguration"
+    public static let toBarcodeFromCreateList = "toBarcodeFromCreateList"
+    public static let toArticleDetailFromBarcodeReader = "toArticleDetailFromBarcodeReader"
+    public static let unwindToCreateListFromArticleFound = "unwindToCreateListFromArticleFound"
+    public static let toArticleFoundFromCreateList = "toArticleFoundFromCreateList"
+    public static let toCompareFromArticleFound = "toCompareFromArticleFound"
+    public static let toSubscriptionFromArticleFound = "toSubscriptionFromArticleFound"
 }
 
 //Images
@@ -383,5 +402,5 @@ struct FRAttribute {
 }
 
 struct NetworkKeys {
-    public static let skuDisplayText = "skuDisplayText"
+    public static let skuDisplayText = "skuDisplayNameText"
 }
