@@ -14,13 +14,17 @@ class TempUser: NSObject {
     public var isSubscribed: Bool
     public var subscriptionDate: Double?
     public var username: String
+    public var state: String
+    public var city: String
     
-    public init(email: String, isSubscribed: Bool, uid: String, subscriptionDate: Double?, username: String){
+    public init(email: String, isSubscribed: Bool, uid: String, subscriptionDate: Double?, username: String, state: String, city: String){
         self.email = email
         self.isSubscribed = isSubscribed
         self.uid = uid
         self.username = username
         self.subscriptionDate = subscriptionDate
+        self.state = state
+        self.city = city
         super.init()
     }
 }

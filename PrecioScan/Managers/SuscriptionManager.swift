@@ -27,7 +27,8 @@ class SuscriptionManager: NSObject {
     
     func promptToSubscribe(vc: UIViewController, message: String, completionHandler: @escaping(Bool, SubscriptionStatus) -> Void){
         if !UserManager.shared.userIsSuscribed(){
-            Popup.showPurchase(title: Constants.Popup.Titles.premium, message: message, vc: vc, completionHandler: { response in
+            let finalMessage = message.replacingOccurrences(of: "$productPrice", with: InAppPurchasesManager.shared.productPriceString)
+            Popup.showPurchase(title: Constants.Popup.Titles.premium, message: finalMessage, vc: vc, completionHandler: { response in
                 if response == PopupResponse.Accept{
                     completionHandler(true, SubscriptionStatus.NotSubscribed)
                 } else {
@@ -36,6 +37,17 @@ class SuscriptionManager: NSObject {
             })
         } else {
             completionHandler(true, SubscriptionStatus.Subscribed)
+        }
+    }
+    
+    func promptToSubscribeWithRewarded(vc: UIViewController, message: String, completionHandler: @escaping(String, SubscriptionStatus) -> Void){
+        if !UserManager.shared.userIsSuscribed(){
+            let finalMessage = message.replacingOccurrences(of: "$productPrice", with: InAppPurchasesManager.shared.productPriceString)
+            Popup.showPurchaseRewarded(title: Constants.Popup.Titles.premium, message: finalMessage, vc: vc, completionHandler: { response in
+                completionHandler(response, SubscriptionStatus.NotSubscribed)
+            })
+        } else {
+            completionHandler(PopupResponse.Accept, SubscriptionStatus.Subscribed)
         }
     }
 }

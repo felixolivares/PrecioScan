@@ -119,7 +119,7 @@ public class CameraView: UIView {
         focusView.alpha = 0
         focusView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         
-        bringSubview(toFront: focusView)
+        bringSubviewToFront(focusView)
         
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: UIView.KeyframeAnimationOptions(), animations: {
             

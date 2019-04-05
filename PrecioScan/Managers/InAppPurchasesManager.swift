@@ -102,6 +102,12 @@ class InAppPurchasesManager: NSObject {
                 case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
                 case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
                 case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
+                case .privacyAcknowledgementRequired: print("Privacy Acnkwoledgement required")
+                case .unauthorizedRequestData: print("Unauthorized request data")
+                case .invalidOfferIdentifier: print("Invalid Offer Identifier")
+                case .invalidSignature: print("Invalid signature")
+                case .missingOfferParams: print("Missing Offer Params")
+                case .invalidOfferPrice: print("Invalid Offer price")
                 }
             }
         }
