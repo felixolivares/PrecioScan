@@ -70,6 +70,14 @@
 		306AC7DA1FAAB4B70096814C /* ArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7D91FAAB4B70096814C /* ArticlesViewController.swift */; };
 		306AC7E01FAAB5BB0096814C /* NavigationArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306AC7DF1FAAB5BB0096814C /* NavigationArticlesViewController.swift */; };
 		306B7B1F20001D8E0054F1CE /* SuscriptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */; };
+		307423BB22B0270E00A78AD5 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 307423B922B0270E00A78AD5 /* Interface.storyboard */; };
+		307423BD22B0271000A78AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 307423BC22B0271000A78AD5 /* Assets.xcassets */; };
+		307423C422B0271000A78AD5 /* WatchPrecioScan Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 307423C322B0271000A78AD5 /* WatchPrecioScan Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		307423C922B0271000A78AD5 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307423C822B0271000A78AD5 /* InterfaceController.swift */; };
+		307423CB22B0271000A78AD5 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307423CA22B0271000A78AD5 /* ExtensionDelegate.swift */; };
+		307423CD22B0271000A78AD5 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307423CC22B0271000A78AD5 /* NotificationController.swift */; };
+		307423CF22B0271100A78AD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 307423CE22B0271100A78AD5 /* Assets.xcassets */; };
+		307423D422B0271100A78AD5 /* WatchPrecioScan.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 307423B722B0270E00A78AD5 /* WatchPrecioScan.app */; };
 		307D087E224CB04800FADD96 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307D087D224CB04800FADD96 /* CurrencyTextField.swift */; };
 		308571F01FB6889F0026BB14 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571EF1FB6889F0026BB14 /* Fonts.swift */; };
 		308571F21FB693940026BB14 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */; };
@@ -115,6 +123,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		307423C522B0271000A78AD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30FFE6161F85977E001CE3B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 307423C222B0271000A78AD5;
+			remoteInfo = "WatchPrecioScan Extension";
+		};
+		307423D222B0271100A78AD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 30FFE6161F85977E001CE3B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 307423B622B0270D00A78AD5;
+			remoteInfo = WatchPrecioScan;
+		};
 		30FFE6331F85977E001CE3B8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 30FFE6161F85977E001CE3B8 /* Project object */;
@@ -130,6 +152,31 @@
 			remoteInfo = PrecioScan;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		307423DA22B0271100A78AD5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				307423C422B0271000A78AD5 /* WatchPrecioScan Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		307423DC22B0271100A78AD5 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				307423D422B0271100A78AD5 /* WatchPrecioScan.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1DF3F025C91EB7794508F0A8 /* Pods_PrecioScanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +247,17 @@
 		306AC7DF1FAAB5BB0096814C /* NavigationArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationArticlesViewController.swift; sourceTree = "<group>"; };
 		306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_8.xcdatamodel; sourceTree = "<group>"; };
 		306B7B1E20001D8E0054F1CE /* SuscriptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuscriptionManager.swift; sourceTree = "<group>"; };
+		307423B722B0270E00A78AD5 /* WatchPrecioScan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchPrecioScan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		307423BA22B0270E00A78AD5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		307423BC22B0271000A78AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		307423BE22B0271000A78AD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		307423C322B0271000A78AD5 /* WatchPrecioScan Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchPrecioScan Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		307423C822B0271000A78AD5 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		307423CA22B0271000A78AD5 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		307423CC22B0271000A78AD5 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		307423CE22B0271100A78AD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		307423D022B0271100A78AD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		307423D122B0271100A78AD5 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		307D087D224CB04800FADD96 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		308571EF1FB6889F0026BB14 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		308571F11FB693940026BB14 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +318,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		307423C022B0271000A78AD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30FFE61B1F85977E001CE3B8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -494,6 +559,29 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		307423B822B0270E00A78AD5 /* WatchPrecioScan */ = {
+			isa = PBXGroup;
+			children = (
+				307423B922B0270E00A78AD5 /* Interface.storyboard */,
+				307423BC22B0271000A78AD5 /* Assets.xcassets */,
+				307423BE22B0271000A78AD5 /* Info.plist */,
+			);
+			path = WatchPrecioScan;
+			sourceTree = "<group>";
+		};
+		307423C722B0271000A78AD5 /* WatchPrecioScan Extension */ = {
+			isa = PBXGroup;
+			children = (
+				307423C822B0271000A78AD5 /* InterfaceController.swift */,
+				307423CA22B0271000A78AD5 /* ExtensionDelegate.swift */,
+				307423CC22B0271000A78AD5 /* NotificationController.swift */,
+				307423CE22B0271100A78AD5 /* Assets.xcassets */,
+				307423D022B0271100A78AD5 /* Info.plist */,
+				307423D122B0271100A78AD5 /* PushNotificationPayload.apns */,
+			);
+			path = "WatchPrecioScan Extension";
+			sourceTree = "<group>";
+		};
 		30B2A23520072E3B005A0A41 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +605,8 @@
 				30FFE6201F85977E001CE3B8 /* PrecioScan */,
 				30FFE6351F85977E001CE3B8 /* PrecioScanTests */,
 				30FFE6401F85977E001CE3B8 /* PrecioScanUITests */,
+				307423B822B0270E00A78AD5 /* WatchPrecioScan */,
+				307423C722B0271000A78AD5 /* WatchPrecioScan Extension */,
 				30FFE61F1F85977E001CE3B8 /* Products */,
 				496F0A496D982255710296A1 /* Pods */,
 				FE3C16BAD3DBC8BC0ADFE841 /* Frameworks */,
@@ -529,6 +619,8 @@
 				30FFE61E1F85977E001CE3B8 /* PrecioScan.app */,
 				30FFE6321F85977E001CE3B8 /* PrecioScanTests.xctest */,
 				30FFE63D1F85977E001CE3B8 /* PrecioScanUITests.xctest */,
+				307423B722B0270E00A78AD5 /* WatchPrecioScan.app */,
+				307423C322B0271000A78AD5 /* WatchPrecioScan Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -614,6 +706,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		307423B622B0270D00A78AD5 /* WatchPrecioScan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 307423DB22B0271100A78AD5 /* Build configuration list for PBXNativeTarget "WatchPrecioScan" */;
+			buildPhases = (
+				307423B522B0270D00A78AD5 /* Resources */,
+				307423DA22B0271100A78AD5 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				307423C622B0271000A78AD5 /* PBXTargetDependency */,
+			);
+			name = WatchPrecioScan;
+			productName = WatchPrecioScan;
+			productReference = 307423B722B0270E00A78AD5 /* WatchPrecioScan.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		307423C222B0271000A78AD5 /* WatchPrecioScan Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 307423D922B0271100A78AD5 /* Build configuration list for PBXNativeTarget "WatchPrecioScan Extension" */;
+			buildPhases = (
+				307423BF22B0271000A78AD5 /* Sources */,
+				307423C022B0271000A78AD5 /* Frameworks */,
+				307423C122B0271000A78AD5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchPrecioScan Extension";
+			productName = "WatchPrecioScan Extension";
+			productReference = 307423C322B0271000A78AD5 /* WatchPrecioScan Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		30FFE61D1F85977E001CE3B8 /* PrecioScan */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30FFE6461F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScan" */;
@@ -623,10 +749,12 @@
 				30FFE61B1F85977E001CE3B8 /* Frameworks */,
 				30FFE61C1F85977E001CE3B8 /* Resources */,
 				38E62F6FBD2D26ACDACEE5EB /* [CP] Embed Pods Frameworks */,
+				307423DC22B0271100A78AD5 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				307423D322B0271100A78AD5 /* PBXTargetDependency */,
 			);
 			name = PrecioScan;
 			productName = PrecioScan;
@@ -677,10 +805,18 @@
 		30FFE6161F85977E001CE3B8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Felix Olivares";
 				TargetAttributes = {
+					307423B622B0270D00A78AD5 = {
+						CreatedOnToolsVersion = 10.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					307423C222B0271000A78AD5 = {
+						CreatedOnToolsVersion = 10.2.1;
+						ProvisioningStyle = Automatic;
+					};
 					30FFE61D1F85977E001CE3B8 = {
 						CreatedOnToolsVersion = 9.0;
 						LastSwiftMigration = 1020;
@@ -721,11 +857,30 @@
 				30FFE61D1F85977E001CE3B8 /* PrecioScan */,
 				30FFE6311F85977E001CE3B8 /* PrecioScanTests */,
 				30FFE63C1F85977E001CE3B8 /* PrecioScanUITests */,
+				307423B622B0270D00A78AD5 /* WatchPrecioScan */,
+				307423C222B0271000A78AD5 /* WatchPrecioScan Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		307423B522B0270D00A78AD5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				307423BD22B0271000A78AD5 /* Assets.xcassets in Resources */,
+				307423BB22B0270E00A78AD5 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		307423C122B0271000A78AD5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				307423CF22B0271100A78AD5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30FFE61C1F85977E001CE3B8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -919,6 +1074,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		307423BF22B0271000A78AD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				307423CD22B0271000A78AD5 /* NotificationController.swift in Sources */,
+				307423CB22B0271000A78AD5 /* ExtensionDelegate.swift in Sources */,
+				307423C922B0271000A78AD5 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		30FFE61A1F85977E001CE3B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1020,6 +1185,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		307423C622B0271000A78AD5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 307423C222B0271000A78AD5 /* WatchPrecioScan Extension */;
+			targetProxy = 307423C522B0271000A78AD5 /* PBXContainerItemProxy */;
+		};
+		307423D322B0271100A78AD5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 307423B622B0270D00A78AD5 /* WatchPrecioScan */;
+			targetProxy = 307423D222B0271100A78AD5 /* PBXContainerItemProxy */;
+		};
 		30FFE6341F85977E001CE3B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 30FFE61D1F85977E001CE3B8 /* PrecioScan */;
@@ -1033,6 +1208,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		307423B922B0270E00A78AD5 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				307423BA22B0270E00A78AD5 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		30FFE6251F85977E001CE3B8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1052,6 +1235,94 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		307423D522B0271100A78AD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				IBSC_MODULE = WatchPrecioScan_Extension;
+				INFOPLIST_FILE = WatchPrecioScan/Info.plist;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		307423D622B0271100A78AD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				IBSC_MODULE = WatchPrecioScan_Extension;
+				INFOPLIST_FILE = WatchPrecioScan/Info.plist;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
+		307423D722B0271100A78AD5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = "WatchPrecioScan Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Debug;
+		};
+		307423D822B0271100A78AD5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NNWZVWTFJB;
+				INFOPLIST_FILE = "WatchPrecioScan Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.2;
+			};
+			name = Release;
+		};
 		30FFE6441F85977E001CE3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1280,6 +1551,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		307423D922B0271100A78AD5 /* Build configuration list for PBXNativeTarget "WatchPrecioScan Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				307423D722B0271100A78AD5 /* Debug */,
+				307423D822B0271100A78AD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		307423DB22B0271100A78AD5 /* Build configuration list for PBXNativeTarget "WatchPrecioScan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				307423D522B0271100A78AD5 /* Debug */,
+				307423D622B0271100A78AD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		30FFE6191F85977E001CE3B8 /* Build configuration list for PBXProject "PrecioScan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
