@@ -16,6 +16,10 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import <UIKit/UIKit.h>
 
 /**
@@ -33,11 +37,14 @@ typedef NS_ENUM(NSUInteger, FBSDKLikeBoxCaretPosition)
   FBSDKLikeBoxCaretPositionBottom,
   /** The caret is on the right of the box. */
   FBSDKLikeBoxCaretPositionRight,
-};
+} NS_SWIFT_NAME(LikeBoxCaretPosition);
 
+NS_SWIFT_NAME(FBLikeBoxView)
 @interface FBSDKLikeBoxView : UIView
 
 @property (nonatomic, assign) FBSDKLikeBoxCaretPosition caretPosition;
 @property (nonatomic, copy) NSString *text;
 
 @end
+
+#endif

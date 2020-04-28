@@ -175,7 +175,13 @@ open class PWSwitch: UIControl {
     }
     fileprivate var _shadowStrength: CGFloat = 1
     
-    let thumbDelta:CGFloat = 6
+    @IBInspectable open dynamic var thumbDelta: CGFloat { // UI_APPEARANCE_SELECTOR
+        get { return self._thumbDelta }
+        set {
+            self._thumbDelta = newValue
+        }
+    }
+    fileprivate var _thumbDelta:CGFloat = 6
     
     let scale = UIScreen.main.scale
     
@@ -261,7 +267,7 @@ open class PWSwitch: UIControl {
     }
     
     fileprivate func getThumbOffPushPos() -> CGPoint {
-        return CGPoint(x: frame.height/2.0 + thumbDelta - 3, y: frame.height/2.0)
+        return CGPoint(x: frame.height/2.0 + thumbDelta/2.0, y: frame.height/2.0)
     }
     
     fileprivate func getThumbOnPos() -> CGPoint {
@@ -269,7 +275,7 @@ open class PWSwitch: UIControl {
     }
     
     fileprivate func getThumbOnPushPos() -> CGPoint {
-        return CGPoint(x: (frame.width - frame.height/2.0) - thumbDelta + 3, y: frame.height/2.0)
+        return CGPoint(x: (frame.width - frame.height/2.0) - thumbDelta/2.0, y: frame.height/2.0)
     }
     
     override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -280,7 +286,7 @@ open class PWSwitch: UIControl {
             thumbBoundsAnimation.timingFunction = CAMediaTimingFunction(controlPoints: 0.175, 0.885, 0.32, 1.275)
             thumbBoundsAnimation.fromValue = NSValue(cgRect: getThumbOffRect())
             thumbBoundsAnimation.toValue = NSValue(cgRect: getThumbOffPushRect())
-//            thumbBoundsAnimation.fillMode = kCAFillModeForwards
+            thumbBoundsAnimation.fillMode = CAMediaTimingFillMode.forwards
             thumbBoundsAnimation.duration = 0.25
             thumbBoundsAnimation.isRemovedOnCompletion = false
             
@@ -372,7 +378,7 @@ open class PWSwitch: UIControl {
             
             let animThumbGroup = CAAnimationGroup()
             animThumbGroup.duration = 0.25
-//            animThumbGroup.fillMode = kCAFillModeForwards
+            animThumbGroup.fillMode = CAMediaTimingFillMode.forwards
             animThumbGroup.isRemovedOnCompletion = false
             animThumbGroup.animations = [thumbBoundsAnimation, thumbPosAnimation, thumbBorderColorAnimation]
             
@@ -563,7 +569,7 @@ open class PWSwitch: UIControl {
         thumbBorderColorAnimation.timingFunction = CAMediaTimingFunction(controlPoints: 0.165, 0.84, 0.44, 1)
         thumbBorderColorAnimation.fromValue = thumbOnBorderColor.cgColor
         thumbBorderColorAnimation.toValue = thumbOffBorderColor.cgColor
-//        thumbBorderColorAnimation.fillMode = kCAFillModeForwards
+        thumbBorderColorAnimation.fillMode = CAMediaTimingFillMode.forwards
         thumbBorderColorAnimation.duration = 0.25
         thumbBorderColorAnimation.isRemovedOnCompletion = false
         
@@ -655,47 +661,58 @@ open class PWSwitch: UIControl {
     }
     
     open func setOn(_ on: Bool, animated :Bool) {
-        self.on = on
-        
-        if (animated) {
-            if (on) {
-                let bgBorderAnimation = CABasicAnimation(keyPath: "borderWidth")
-                bgBorderAnimation.timingFunction = CAMediaTimingFunction(controlPoints: 0.55, 0.055, 0.675, 0.19)
-                bgBorderAnimation.fromValue = 1
-                bgBorderAnimation.toValue = frame.height / 2
-                bgBorderAnimation.fillMode = CAMediaTimingFillMode.forwards
-                bgBorderAnimation.duration = 0.25
-                bgBorderAnimation.isRemovedOnCompletion = false
-                
-                backLayer.add(bgBorderAnimation, forKey: "bgAnimation")
-                
-                offToOnAnim()
+        if (self.on != on) {
+            self.on = on
+            
+            if (animated) {
+                if (on) {
+                    let bgBorderAnimation = CABasicAnimation(keyPath: "borderWidth")
+                    bgBorderAnimation.timingFunction = CAMediaTimingFunction(controlPoints: 0.55, 0.055, 0.675, 0.19)
+                    bgBorderAnimation.fromValue = 1
+                    bgBorderAnimation.toValue = frame.height / 2
+                    bgBorderAnimation.fillMode = CAMediaTimingFillMode.forwards
+                    bgBorderAnimation.duration = 0.25
+                    bgBorderAnimation.isRemovedOnCompletion = false
+
+                    backLayer.add(bgBorderAnimation, forKey: "bgAnimation")
+
+                    offToOnAnim()
+                } else {
+                    onToOffAnim()
+                }
             } else {
-                onToOffAnim()
-            }
-        } else {
-            if (on) {
-                if (shouldFillOnPush) {
-                    backLayer.borderWidth = frame.height / 2
+                CATransaction.begin()
+                CATransaction.setValue(true, forKey: kCATransactionDisableActions)
+                
+                if (on) {
+                    if (shouldFillOnPush) {
+                        backLayer.borderWidth = frame.height / 2
+                    }
+                    
+                    backLayer.removeAllAnimations()
+                    backLayer.borderColor = trackOnBorderColor.cgColor
+                    backLayer.backgroundColor = trackOnFillColor.cgColor
+                    
+                    thumbLayer.removeAllAnimations()
+                    thumbLayer.position = getThumbOnPos()
+                    thumbLayer.borderColor = thumbOnBorderColor.cgColor
+                    thumbLayer.backgroundColor = thumbOnFillColor.cgColor
+                } else {
+                    if (shouldFillOnPush) {
+                        backLayer.borderWidth = 1
+                    }
+                    
+                    backLayer.removeAllAnimations()
+                    backLayer.borderColor = trackOffBorderColor.cgColor
+                    backLayer.backgroundColor = trackOffFillColor.cgColor
+                    
+                    thumbLayer.removeAllAnimations()
+                    thumbLayer.position = getThumbOffPos()
+                    thumbLayer.borderColor = thumbOffBorderColor.cgColor
+                    thumbLayer.backgroundColor = thumbOffFillColor.cgColor
                 }
                 
-                backLayer.borderColor = trackOnBorderColor.cgColor
-                backLayer.backgroundColor = trackOnFillColor.cgColor
-                
-                thumbLayer.position = getThumbOnPos()
-                thumbLayer.borderColor = thumbOnBorderColor.cgColor
-                thumbLayer.backgroundColor = thumbOnFillColor.cgColor
-            } else {
-                if (shouldFillOnPush) {
-                    backLayer.borderWidth = 1
-                }
-                
-                backLayer.borderColor = trackOffBorderColor.cgColor
-                backLayer.backgroundColor = trackOffFillColor.cgColor
-                
-                thumbLayer.position = getThumbOffPos()
-                thumbLayer.borderColor = thumbOffBorderColor.cgColor
-                thumbLayer.backgroundColor = thumbOffFillColor.cgColor
+                CATransaction.commit()
             }
         }
     }

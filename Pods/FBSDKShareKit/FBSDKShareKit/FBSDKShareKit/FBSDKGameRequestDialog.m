@@ -16,9 +16,17 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import "FBSDKGameRequestDialog.h"
 
+#ifdef FBSDKCOCOAPODS
+#import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+#else
 #import "FBSDKCoreKit+Internal.h"
+#endif
 #import "FBSDKGameRequestFrictionlessRecipientCache.h"
 #import "FBSDKShareConstants.h"
 #import "FBSDKShareUtility.h"
@@ -45,11 +53,17 @@ static FBSDKGameRequestFrictionlessRecipientCache *_recipientCache = nil;
   }
 }
 
-+ (instancetype)showWithContent:(FBSDKGameRequestContent *)content delegate:(id<FBSDKGameRequestDialogDelegate>)delegate
++ (instancetype)dialogWithContent:(FBSDKGameRequestContent *)content delegate:(id<FBSDKGameRequestDialogDelegate>)delegate
 {
   FBSDKGameRequestDialog *dialog = [[self alloc] init];
   dialog.content = content;
   dialog.delegate = delegate;
+  return dialog;
+}
+
++ (instancetype)showWithContent:(FBSDKGameRequestContent *)content delegate:(id<FBSDKGameRequestDialogDelegate>)delegate
+{
+  FBSDKGameRequestDialog *dialog = [self dialogWithContent:content delegate:delegate];
   [dialog show];
   return dialog;
 }
@@ -82,9 +96,9 @@ static FBSDKGameRequestFrictionlessRecipientCache *_recipientCache = nil;
 {
   NSError *error;
   if (!self.canShow) {
-    error = [NSError fbErrorWithDomain:FBSDKShareErrorDomain
-                                  code:FBSDKShareErrorDialogNotAvailable
-                               message:@"Game request dialog is not available."];
+    error = [FBSDKError errorWithDomain:FBSDKShareErrorDomain
+                                   code:FBSDKShareErrorDialogNotAvailable
+                                message:@"Game request dialog is not available."];
     [_delegate gameRequestDialog:self didFailWithError:error];
     return NO;
   }
@@ -100,14 +114,14 @@ static FBSDKGameRequestFrictionlessRecipientCache *_recipientCache = nil;
   }
 
   NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
-  [FBSDKInternalUtility dictionary:parameters setObject:[content.recipients componentsJoinedByString:@","] forKey:@"to"];
-  [FBSDKInternalUtility dictionary:parameters setObject:content.message forKey:@"message"];
-  [FBSDKInternalUtility dictionary:parameters setObject:[self _actionTypeNameForActionType:content.actionType] forKey:@"action_type"];
-  [FBSDKInternalUtility dictionary:parameters setObject:content.objectID forKey:@"object_id"];
-  [FBSDKInternalUtility dictionary:parameters setObject:[self _filtersNameForFilters:content.filters] forKey:@"filters"];
-  [FBSDKInternalUtility dictionary:parameters setObject:[content.recipientSuggestions componentsJoinedByString:@","] forKey:@"suggestions"];
-  [FBSDKInternalUtility dictionary:parameters setObject:content.data forKey:@"data"];
-  [FBSDKInternalUtility dictionary:parameters setObject:content.title forKey:@"title"];
+  [FBSDKBasicUtility dictionary:parameters setObject:[content.recipients componentsJoinedByString:@","] forKey:@"to"];
+  [FBSDKBasicUtility dictionary:parameters setObject:content.message forKey:@"message"];
+  [FBSDKBasicUtility dictionary:parameters setObject:[self _actionTypeNameForActionType:content.actionType] forKey:@"action_type"];
+  [FBSDKBasicUtility dictionary:parameters setObject:content.objectID forKey:@"object_id"];
+  [FBSDKBasicUtility dictionary:parameters setObject:[self _filtersNameForFilters:content.filters] forKey:@"filters"];
+  [FBSDKBasicUtility dictionary:parameters setObject:[content.recipientSuggestions componentsJoinedByString:@","] forKey:@"suggestions"];
+  [FBSDKBasicUtility dictionary:parameters setObject:content.data forKey:@"data"];
+  [FBSDKBasicUtility dictionary:parameters setObject:content.title forKey:@"title"];
 
   // check if we are sending to a specific set of recipients.  if we are and they are all frictionless recipients, we
   // can perform this action without displaying the web dialog
@@ -124,8 +138,13 @@ static FBSDKGameRequestFrictionlessRecipientCache *_recipientCache = nil;
     }
   }
 
-  _webDialog.parameters = parameters;
-  [_webDialog show];
+  if (@available(iOS 9, *)) {
+    [self _launchDialogViaBridgeAPIWithParameters:parameters];
+  } else {
+    _webDialog.parameters = parameters;
+    [_webDialog show];
+  }
+
   [FBSDKInternalUtility registerTransientObject:self];
   return YES;
 }
@@ -139,10 +158,10 @@ static FBSDKGameRequestFrictionlessRecipientCache *_recipientCache = nil;
     return [self.content validateWithOptions:FBSDKShareBridgeOptionsDefault error:errorRef];
   }
   if (errorRef != NULL) {
-    *errorRef = [NSError fbInvalidArgumentErrorWithDomain:FBSDKShareErrorDomain
-                                                     name:@"content"
-                                                    value:self.content
-                                                  message:nil];
+    *errorRef = [FBSDKError invalidArgumentErrorWithDomain:FBSDKShareErrorDomain
+                                                      name:@"content"
+                                                     value:self.content
+                                                   message:nil];
   }
   return NO;
 }
@@ -154,12 +173,88 @@ static FBSDKGameRequestFrictionlessRecipientCache *_recipientCache = nil;
   if (_webDialog != webDialog) {
     return;
   }
+
+  [self _didCompleteWithResults:results];
+}
+
+- (void)webDialog:(FBSDKWebDialog *)webDialog didFailWithError:(NSError *)error
+{
+  if (_webDialog != webDialog) {
+    return;
+  }
+
+  [self _didFailWithError:error];
+}
+
+- (void)webDialogDidCancel:(FBSDKWebDialog *)webDialog
+{
+  if (_webDialog != webDialog) {
+    return;
+  }
+
+  [self _didCancel];
+}
+
+#pragma mark - FBSDKBridgeAPI
+
+- (BOOL)_launchDialogViaBridgeAPIWithParameters:(NSDictionary *)parameters
+{
+  UIViewController *topMostViewController = [FBSDKInternalUtility topMostViewController];
+  if (!topMostViewController) {
+    [FBSDKLogger singleShotLogEntry:FBSDKLoggingBehaviorDeveloperErrors
+                       formatString:@"There are no valid ViewController to present FBSDKWebDialog", nil];
+    [self _handleCompletionWithDialogResults:nil error:nil];
+    return NO;
+  }
+
+  FBSDKBridgeAPIRequest *request =
+  [FBSDKBridgeAPIRequest
+   bridgeAPIRequestWithProtocolType:FBSDKBridgeAPIProtocolTypeWeb
+   scheme:@"https"
+   methodName:FBSDK_APP_REQUEST_METHOD_NAME
+   methodVersion:nil
+   parameters:parameters
+   userInfo:nil];
+
+  [FBSDKInternalUtility registerTransientObject:self];
+
+  __weak typeof(self) weakSelf = self;
+  [[FBSDKBridgeAPI sharedInstance]
+   openBridgeAPIRequest:request
+   useSafariViewController:false
+   fromViewController:topMostViewController
+   completionBlock:^(FBSDKBridgeAPIResponse *response) {
+    [weakSelf _handleBridgeAPIResponse:response];
+  }];
+
+  return YES;
+}
+
+- (void)_handleBridgeAPIResponse:(FBSDKBridgeAPIResponse *)response
+{
+  if (response.cancelled) {
+    [self _didCancel];
+    return;
+  }
+
+  if (response.error) {
+    [self _didFailWithError:response.error];
+    return;
+  }
+
+  [self _didCompleteWithResults:response.responseParameters];
+}
+
+#pragma mark - Response Handling
+
+- (void)_didCompleteWithResults:(NSDictionary *)results
+{
   if (_dialogIsFrictionless && results) {
     [_recipientCache updateWithResults:results];
   }
   [self _cleanUp];
 
-  NSError *error = [NSError fbErrorWithCode:[FBSDKTypeUtility unsignedIntegerValue:results[@"error_code"]]
+  NSError *error = [FBSDKError errorWithCode:[FBSDKTypeUtility unsignedIntegerValue:results[@"error_code"]]
                                     message:[FBSDKTypeUtility stringValue:results[@"error_message"]]];
   if (!error.code) {
     // reformat "to[x]" keys into an array.
@@ -183,21 +278,15 @@ static FBSDKGameRequestFrictionlessRecipientCache *_recipientCache = nil;
   [FBSDKInternalUtility unregisterTransientObject:self];
 }
 
-- (void)webDialog:(FBSDKWebDialog *)webDialog didFailWithError:(NSError *)error
+- (void)_didFailWithError:(NSError *)error
 {
-  if (_webDialog != webDialog) {
-    return;
-  }
   [self _cleanUp];
   [self _handleCompletionWithDialogResults:nil error:error];
   [FBSDKInternalUtility unregisterTransientObject:self];
 }
 
-- (void)webDialogDidCancel:(FBSDKWebDialog *)webDialog
+- (void)_didCancel
 {
-  if (_webDialog != webDialog) {
-    return;
-  }
   [self _cleanUp];
   [_delegate gameRequestDialogDidCancel:self];
   [FBSDKInternalUtility unregisterTransientObject:self];
@@ -275,3 +364,5 @@ static FBSDKGameRequestFrictionlessRecipientCache *_recipientCache = nil;
 }
 
 @end
+
+#endif

@@ -16,11 +16,19 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import "FBSDKShareCameraEffectContent.h"
 
 #import "FBSDKCameraEffectArguments+Internal.h"
 #import "FBSDKCameraEffectTextures+Internal.h"
+#ifdef FBSDKCOCOAPODS
+#import <FBSDKCoreKit/FBSDKCoreKit+Internal.h>
+#else
 #import "FBSDKCoreKit+Internal.h"
+#endif
 #import "FBSDKHashtag.h"
 #import "FBSDKShareUtility.h"
 
@@ -63,29 +71,23 @@ static NSString *const kFBSDKShareCameraEffectContentUUIDKey = @"uuid";
 
 #pragma mark - FBSDKSharingContent
 
-- (void)addToParameters:(NSMutableDictionary<NSString *, id> *)parameters
-          bridgeOptions:(FBSDKShareBridgeOptions)bridgeOptions
-{
-  [parameters addEntriesFromDictionary:[self addParameters:parameters bridgeOptions:bridgeOptions]];
-}
-
 - (NSDictionary<NSString *, id> *)addParameters:(NSDictionary<NSString *, id> *)existingParameters
                                   bridgeOptions:(FBSDKShareBridgeOptions)bridgeOptions
 {
   NSMutableDictionary<NSString *, id> *updatedParameters = [NSMutableDictionary dictionaryWithDictionary:existingParameters];
-  [FBSDKInternalUtility dictionary:updatedParameters
-                         setObject:_effectID
-                            forKey:@"effect_id"];
+  [FBSDKBasicUtility dictionary:updatedParameters
+                      setObject:_effectID
+                         forKey:@"effect_id"];
 
   NSString *effectArgumentsJSON;
   if (_effectArguments) {
-    effectArgumentsJSON = [FBSDKInternalUtility JSONStringForObject:[_effectArguments allArguments]
-                                                              error:NULL
-                                               invalidObjectHandler:NULL];
+    effectArgumentsJSON = [FBSDKBasicUtility JSONStringForObject:[_effectArguments allArguments]
+                                                           error:NULL
+                                            invalidObjectHandler:NULL];
   }
-  [FBSDKInternalUtility dictionary:updatedParameters
-                         setObject:effectArgumentsJSON
-                            forKey:@"effect_arguments"];
+  [FBSDKBasicUtility dictionary:updatedParameters
+                      setObject:effectArgumentsJSON
+                         forKey:@"effect_arguments"];
 
   NSData *effectTexturesData;
   if (_effectTextures) {
@@ -100,11 +102,15 @@ static NSString *const kFBSDKShareCameraEffectContentUUIDKey = @"uuid";
         texturesDataDict[key] = imageData;
       }
     }];
-    effectTexturesData = [NSKeyedArchiver archivedDataWithRootObject:texturesDataDict];
+    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_11_0
+      effectTexturesData = [NSKeyedArchiver archivedDataWithRootObject:texturesDataDict requiringSecureCoding:YES error:NULL];
+    #else
+      effectTexturesData = [NSKeyedArchiver archivedDataWithRootObject:texturesDataDict];
+    #endif
   }
-  [FBSDKInternalUtility dictionary:updatedParameters
-                         setObject:effectTexturesData
-                            forKey:@"effect_textures"];
+  [FBSDKBasicUtility dictionary:updatedParameters
+                      setObject:effectTexturesData
+                         forKey:@"effect_textures"];
 
   return updatedParameters;
 }
@@ -130,9 +136,9 @@ static NSString *const kFBSDKShareCameraEffectContentUUIDKey = @"uuid";
     NSCharacterSet* nonDigitCharacters = [NSCharacterSet decimalDigitCharacterSet].invertedSet;
     if ([_effectID rangeOfCharacterFromSet:nonDigitCharacters].location != NSNotFound) {
       if (errorRef != NULL) {
-        *errorRef = [NSError fbInvalidArgumentErrorWithName:@"effectID"
-                                                      value:_effectID
-                                                    message:@"Invalid value for effectID, effectID can contain only numerical characters."];
+        *errorRef = [FBSDKError invalidArgumentErrorWithName:@"effectID"
+                                                       value:_effectID
+                                                     message:@"Invalid value for effectID, effectID can contain only numerical characters."];
       }
       return NO;
     }
@@ -243,3 +249,5 @@ static NSString *const kFBSDKShareCameraEffectContentUUIDKey = @"uuid";
 }
 
 @end
+
+#endif

@@ -16,6 +16,11 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
+NS_SWIFT_NAME(URLOpening)
 @protocol FBSDKURLOpening <NSObject>
 
 // Implementations should make sure they can handle nil parameters
@@ -38,4 +43,9 @@
 
 - (BOOL)isAuthenticationURL:(NSURL *)url;
 
+@optional
+- (BOOL)shouldStopPropagationOfURL:(NSURL *)url;
+
 @end
+
+#endif

@@ -25,6 +25,7 @@ A swipeable `UITableViewCell` or `UICollectionViewCell` with support for:
 * Customizable expansion animations
 * Support for both `UITableView` and `UICollectionView`
 * Accessibility
+* Dark Mode
 
 ## Background
 
@@ -75,7 +76,7 @@ The expansion style describes the behavior when the cell is swiped past a define
 ## Requirements
 
 * Swift 5.0
-* Xcode 10.2+
+* Xcode 10.3+
 * iOS 9.0+
 
 ## Installation
@@ -91,8 +92,11 @@ pod 'SwipeCellKit'
 # Get the latest on develop
 pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'develop'
 
+# If you have NOT upgraded to Xcode 11, use the last Swift Xcode 10.X compatible release
+pod 'SwipeCellKit', '2.6.0'
+
 # If you have NOT upgraded to Swift 5.0, use the last Swift 4.2/Xcode 10.2 compatible release
-pod 'SwipeCellKit', '2.5.2'
+pod 'SwipeCellKit', '2.5.4'
 
 # If you have NOT upgraded to Swift 4.2, use the last non-swift 4.2 compatible release
 pod 'SwipeCellKit', '2.4.3'
@@ -103,6 +107,14 @@ pod 'SwipeCellKit', '2.4.3'
 ````bash
 github "SwipeCellKit/SwipeCellKit"
 ````
+
+#### [Swift Package Manager](https://swift.org/package-manager/)
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/SwipeCellKit/SwipeCellKit", from: "2.7.1")
+]
+```
 
 ## Documentation
 

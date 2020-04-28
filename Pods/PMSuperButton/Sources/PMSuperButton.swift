@@ -75,11 +75,12 @@ open class PMSuperButton: UIButton {
     var gradient: CAGradientLayer?
     
     func setupGradient(){
+        gradient?.removeFromSuperlayer()
+        
         guard gradientEnabled != false else{
             return
         }
         
-        gradient?.removeFromSuperlayer()
         gradient = CAGradientLayer()
         guard let gradient = gradient else { return }
         
@@ -95,7 +96,7 @@ open class PMSuperButton: UIButton {
     
     //MARK: - Animations
     @IBInspectable open var animatedScaleWhenHighlighted: CGFloat = 1.0
-    @IBInspectable open var animatedScaleDurationWhenHightlighted: Double = 0.2
+    @IBInspectable open var animatedScaleDurationWhenHighlighted: Double = 0.2
     
     override open var isHighlighted: Bool {
         didSet {
@@ -104,12 +105,12 @@ open class PMSuperButton: UIButton {
             }
             
             if isHighlighted{
-                UIView.animate(withDuration: animatedScaleDurationWhenHightlighted, animations: {
+                UIView.animate(withDuration: animatedScaleDurationWhenHighlighted, animations: {
                     self.transform = CGAffineTransform(scaleX: self.animatedScaleWhenHighlighted, y: self.animatedScaleWhenHighlighted)
                 })
             }
             else{
-                UIView.animate(withDuration: animatedScaleDurationWhenHightlighted, animations: {
+                UIView.animate(withDuration: animatedScaleDurationWhenHighlighted, animations: {
                     self.transform = CGAffineTransform.identity
                 })
             }

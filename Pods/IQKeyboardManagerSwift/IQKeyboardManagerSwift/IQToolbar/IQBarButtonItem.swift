@@ -21,14 +21,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
 import UIKit
 import Foundation
 
 open class IQBarButtonItem: UIBarButtonItem {
 
     private static var _classInitialize: Void = classInitialize()
-    
+
     @objc public override init() {
         _ = IQBarButtonItem._classInitialize
           super.init()
@@ -39,18 +38,17 @@ open class IQBarButtonItem: UIBarButtonItem {
            super.init(coder: aDecoder)
        }
 
-   
     private class func classInitialize() {
 
         let  appearanceProxy = self.appearance()
 
         #if swift(>=4.2)
-        let states : [UIControl.State]
+        let states: [UIControl.State]
         #else
-        let states : [UIControl.State]
+        let states: [UIControlState]
         #endif
 
-        states = [.normal,.highlighted,.disabled,.selected,.application,.reserved]
+        states = [.normal, .highlighted, .disabled, .selected, .application, .reserved]
 
         for state in states {
 
@@ -69,13 +67,13 @@ open class IQBarButtonItem: UIBarButtonItem {
         didSet {
 
             #if swift(>=4.2)
-            var textAttributes = [NSAttributedString.Key : Any]()
+            var textAttributes = [NSAttributedString.Key: Any]()
             let foregroundColorKey = NSAttributedString.Key.foregroundColor
             #elseif swift(>=4)
-            var textAttributes = [NSAttributedString.Key : Any]()
-            let foregroundColorKey = NSAttributedString.Key.foregroundColor
+            var textAttributes = [NSAttributedStringKey: Any]()
+            let foregroundColorKey = NSAttributedStringKey.foregroundColor
             #else
-            var textAttributes = [String:Any]()
+            var textAttributes = [String: Any]()
             let foregroundColorKey = NSForegroundColorAttributeName
             #endif
 
@@ -83,13 +81,13 @@ open class IQBarButtonItem: UIBarButtonItem {
 
             #if swift(>=4)
 
-                if let attributes = convertFromOptionalNSAttributedStringKeyDictionary(titleTextAttributes(for: .normal)) {
+                if let attributes = titleTextAttributes(for: .normal) {
                     
                     for (key, value) in attributes {
                         #if swift(>=4.2)
-                        textAttributes[NSAttributedString.Key.init(key)] = value
+                        textAttributes[key] = value
                         #else
-                        textAttributes[NSAttributedString.Key.init(key)] = value
+                        textAttributes[NSAttributedStringKey.init(key)] = value
                         #endif
                     }
                 }
@@ -127,16 +125,10 @@ open class IQBarButtonItem: UIBarButtonItem {
     /**
      Customized Invocation to be called when button is pressed. invocation is internally created using setTarget:action: method.
      */
-    @objc open var invocation : IQInvocation?
+    @objc open var invocation: IQInvocation?
     
     deinit {
         target = nil
         invocation = nil
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromOptionalNSAttributedStringKeyDictionary(_ input: [NSAttributedString.Key: Any]?) -> [String: Any]? {
-	guard let input = input else { return nil }
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }

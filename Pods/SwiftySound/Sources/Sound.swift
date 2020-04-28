@@ -31,30 +31,30 @@ import AVFoundation
 /// SoundCategory is a convenient wrapper for AVAudioSessions category constants.
     public enum SoundCategory {
 
-        /// Equivalent of AVAudioSessionCategoryAmbient.
+        /// Equivalent of AVAudioSession.Category.ambient.
         case ambient
-        /// Equivalent of AVAudioSessionCategorySoloAmbient.
+        /// Equivalent of AVAudioSession.Category.soloAmbient.
         case soloAmbient
-        /// Equivalent of AVAudioSessionCategoryPlayback.
+        /// Equivalent of AVAudioSession.Category.playback.
         case playback
-        /// Equivalent of AVAudioSessionCategoryRecord.
+        /// Equivalent of AVAudioSession.Category.record.
         case record
-        /// Equivalent of AVAudioSessionCategoryPlayAndRecord.
+        /// Equivalent of AVAudioSession.Category.playAndRecord.
         case playAndRecord
 
-        fileprivate var avFoundationCategory: String {
+        fileprivate var avFoundationCategory: AVAudioSession.Category {
             get {
                 switch self {
                 case .ambient:
-                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.ambient)
+                    return .ambient
                 case .soloAmbient:
-                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.soloAmbient)
+                    return .soloAmbient
                 case .playback:
-                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.playback)
+                    return .playback
                 case .record:
-                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.record)
+                    return .record
                 case .playAndRecord:
-                    return convertFromAVAudioSessionCategory(AVAudioSession.Category.playAndRecord)
+                    return .playAndRecord
                 }
             }
         }
@@ -112,7 +112,7 @@ open class Sound {
 
     /// The class that is used to create `Player` instances. Defaults to `AVAudioPlayer`.
     public static var playerClass: Player.Type = AVAudioPlayer.self
-    
+
     /// The bundle used to load sounds from filenames. The default value of this property is Bunde.main. It can be changed to load sounds from another bundle.
     public static var soundsBundle: Bundle = .main
 
@@ -372,21 +372,12 @@ extension AVAudioPlayer: Player, AVAudioPlayerDelegate {
 
 #if os(iOS) || os(tvOS)
 /// Session protocol. It duplicates `setCategory` method of `AVAudioSession` class.
-public protocol Session: class {
+public protocol Session: AnyObject {
     /// Set category for session.
     ///
     /// - Parameter category: category.
-    func setCategory(_ category: String) throws
+    func setCategory(_ category: AVAudioSession.Category) throws
 }
 
-extension AVAudioSession: Session {
-    public func setCategory(_ category: String) throws {
-        print("Set category")
-    }
-}
+extension AVAudioSession: Session {}
 #endif
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromAVAudioSessionCategory(_ input: AVAudioSession.Category) -> String {
-	return input.rawValue
-}

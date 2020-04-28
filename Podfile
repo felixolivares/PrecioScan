@@ -7,18 +7,17 @@ target 'PrecioScan' do
 
   # Pods for PrecioScan
   pod 'IQKeyboardManagerSwift'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon', :branch => 'swift5'
   pod 'Alamofire', '~> 4.5'
-  pod 'AlamofireImage', '~> 3.3'
   pod 'JSQCoreDataKit'
   pod 'MKDropdownMenu'
   pod 'PopupDialog', '~> 0.6'
   pod 'PMSuperButton'
-  pod "PromiseKit", "~> 4.4"
+  pod "PromiseKit", "~> 6.8"
   pod "GMStepper", :git => 'https://github.com/gmertk/GMStepper.git', :branch => 'swift4'
   pod 'IQKeyboardManagerSwift'
   pod 'InteractiveSideMenu'
-  pod 'DynamicButton', '~> 5.0.0'
+  pod 'DynamicButton', '~> 6.2.1'
   pod "PWSwitch"
   pod 'TableViewReloadAnimation', '~> 0.0.5'
   pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'develop'
@@ -28,13 +27,13 @@ target 'PrecioScan' do
   pod 'TransitionButton'
   pod 'ALCameraViewController'
   pod 'AXPhotoViewer'
-  pod 'BadgeSwift', '~> 5.0'
+  pod 'BadgeSwift', '~> 8.0'
   pod 'SwiftyStoreKit'
   pod 'SwiftyOnboard'
   pod 'Google-Mobile-Ads-SDK'
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
-  pod 'FacebookShare'
+  pod 'FBSDKCoreKit/Swift'
+  pod 'FBSDKLoginKit/Swift'
+  pod 'FBSDKShareKit/Swift'
   pod 'SwiftySound'
   pod 'AlamofireImage', '~> 3.5'
   

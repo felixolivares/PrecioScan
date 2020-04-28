@@ -2,7 +2,7 @@
   <img src="https://github.com/pmusolino/PMSuperButton/blob/master/docs/logo.png?raw=true" alt="Icon"/>
 </p>
 
-[![Language](https://img.shields.io/badge/Swift-4-orange.svg)]()
+[![Language](https://img.shields.io/badge/Swift-4%20%26%205-orange.svg)]()
 [![GitHub license](https://img.shields.io/cocoapods/l/PMSuperButton.svg)](https://github.com/pmusolino/PMSuperButton/blob/master/LICENSE)
 [![Pod version](https://img.shields.io/cocoapods/v/PMSuperButton.svg?style=flat)](https://cocoapods.org/pods/PMSuperButton)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-yellow.svg)](https://github.com/Carthage/Carthage)
@@ -33,7 +33,7 @@ PMSuperButton is a powerful UIButton coming from the countryside, but with super
 - [x] Image View content mode and alpha
 - [x] Touch up inside closure 🤠
 - [x] Loader 🤜🤛
-- [x] Swift 3 & Swift 4 support
+- [x] Swift 3, 4 and Swift 5 support
 - [x] **and much more**
 
 ## How it works
@@ -73,7 +73,7 @@ myButton.hideLoader()
 ## Requirements
 
 - iOS 8.0+
-- Xcode 9+
+- Xcode 10+
 
 ## CocoaPods
 
@@ -125,7 +125,9 @@ Run `carthage update` to build the framework and drag the built `PMSuperButton.f
 2. Congratulations!  
 
 ## Swift compatibility
-- If you use Swift 4 or higher, you can use the [latest release](https://github.com/pmusolino/PMSuperButton/releases).
+- If you use Swift 5 or higher, you can use the [latest release](https://github.com/pmusolino/PMSuperButton/releases).
+
+- If you use Swift 4, you can use the [release 2.2.0](https://github.com/pmusolino/PMSuperButton/releases/tag/2.2.0).
 
 - If you use Swift 3, you can use the [release 1.0.0](https://github.com/pmusolino/PMSuperButton/releases/tag/1.0.0).
 
@@ -136,6 +138,18 @@ Run `carthage update` to build the framework and drag the built `PMSuperButton.f
 - If you **have a feature request**, open an issue.
 - If you **want to contribute**, submit a pull request.
 
+## Acknowledgements
+
+**Made with ❤️ by [Paolo Musolino](https://github.com/pmusolino).**
+
+***Follow me on:***
+#### 💼 [Linkedin](https://www.linkedin.com/in/paolomusolino/)
+
+#### 🤖 [Twitter](https://twitter.com/pmusolino)
+
+#### 🌇 [Instagram](https://www.instagram.com/pmusolino/)
+
+#### 👨🏼‍🎤 [Facebook](https://www.facebook.com/paolomusolino)
 
 ## MIT License
 
