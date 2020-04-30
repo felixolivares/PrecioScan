@@ -14,7 +14,7 @@ import GoogleMobileAds
 import FBSDKCoreKit
 
 let persistentContainer = CoreDataManager.shared
-var testingAds:Bool = false
+var testingAds:Bool = true
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

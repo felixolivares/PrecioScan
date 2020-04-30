@@ -18,7 +18,11 @@
 
 #import <Foundation/Foundation.h>
 
-#import "FBSDKCoreKitImport.h"
+#if defined BUCK || defined FBSDKCOCOAPODS || defined __cplusplus
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#else
+@import FBSDKCoreKit;
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
