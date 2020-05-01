@@ -146,8 +146,10 @@ class FirebaseOperations: NSObject {
         self.ref.child(FRTable.user).child((user?.uid)!).setValue(values)
     }
     
-    public func addArticle(barcode: String, name: String) -> String{
-        let values: [String: String?] = [FRAttribute.code: barcode, FRAttribute.name: name]
+    public func addArticle(barcode: String, name: String, suggestedPrice: Decimal? = nil) -> String{
+        let values: [String: String?] = [FRAttribute.code: barcode,
+                                         FRAttribute.name: name,
+                                         FRAttribute.suggestedPrice: String(describing: suggestedPrice!)]
         let articleRef = self.ref.child(FRTable.article).child(barcode)
         articleRef.setValue(values)
         return barcode
@@ -261,7 +263,7 @@ class FirebaseOperations: NSObject {
                 if snapshot.childrenCount > 0{
                     print("[FirebaseOperations - searchArticles:byCode] Article found on Firebase")
                     let article = (snapshot.value! as! [String: Any])
-                    let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: snapshot.key)
+                    let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: snapshot.key, suggestedPrice: (article[FRAttribute.suggestedPrice] != nil) ? article[FRAttribute.suggestedPrice] as? Decimal : 0.0)
                     completionHandler(newArticle)
 //                    for eachChild in snapshot.children{
 //                        

@@ -167,11 +167,11 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func saveArticle(code: String, name: String, uid: String? = nil, needsToSaveOnFirebase: Bool? = true, completionHandler: @escaping(Article?, Error?) -> Void){
+    public func saveArticle(code: String, name: String, uid: String? = nil, suggestedPrice: Decimal? = 0, needsToSaveOnFirebase: Bool? = true, completionHandler: @escaping(Article?, Error?) -> Void){
         let articleID: String!
-        articleID = needsToSaveOnFirebase! ? FirebaseOperations().addArticle(barcode: code, name: name) : uid
+        articleID = needsToSaveOnFirebase! ? FirebaseOperations().addArticle(barcode: code, name: name, suggestedPrice: suggestedPrice!) : uid
         stack.mainContext.performAndWait {
-            let article = Article.create(stack.mainContext, name: name, code: code, uid: articleID)
+            let article = Article.create(stack.mainContext, name: name, code: code, uid: articleID, suggestedPrice: suggestedPrice)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
@@ -184,9 +184,9 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         }
     }
     
-    public func updateArticle(object: Article, name: String? = nil, uid: String? = nil, completionHandler: @escaping(Bool, Error?) -> Void) {
+    public func updateArticle(object: Article, name: String? = nil, uid: String? = nil, suggestedPrice: Decimal? = nil, completionHandler: @escaping(Bool, Error?) -> Void) {
         stack.mainContext.performAndWait {
-            let _ = object.update(name: name, uid: uid)
+            let _ = object.update(name: name, uid: uid, suggestedPrice: suggestedPrice)
             saveContext(stack.mainContext){ result in
                 switch result{
                 case .success:
@@ -497,7 +497,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
                         if tempArticle?.uid != nil{
                             uid = (tempArticle?.uid)!
                         } else {
-                            uid = FirebaseOperations().addArticle(barcode: eachArticle.code, name: eachArticle.name)
+                            uid = FirebaseOperations().addArticle(barcode: eachArticle.code, name: eachArticle.name, suggestedPrice: eachArticle.suggestedPrice as Decimal)
                         }
                         let articleUpdated = eachArticle.update(name: nil, uid: uid)
                         saveContext((stack?.mainContext)!){ result in
