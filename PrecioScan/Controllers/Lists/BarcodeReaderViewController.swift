@@ -56,6 +56,15 @@ class BarcodeReaderViewController: UIViewController {
         guard barcodeIsRead == false else {return}
         self.barcodeIsRead = true
         self.barcodeRead = code
+
+
+
+
+
+
+
+
+
         if ConfigurationManager.soundEnabled! {
             self.playBarcodeSound()
         }
@@ -70,7 +79,7 @@ class BarcodeReaderViewController: UIViewController {
                     print("[BarcodeReader] - No local article found with code: \(String(describing: code))")
                     FirebaseOperations().searchArticles(byCode: code!){article in
                         if article != nil{
-                            CoreDataManager.shared.saveArticle(code: (article?.code)!, name: (article?.name)!, uid: (article?.uid)!, needsToSaveOnFirebase: false){ article, error in
+                            CoreDataManager.shared.saveArticle(code: (article?.code)!, name: (article?.name)!, uid: (article?.uid)!, suggestedPrice: (article?.suggestedPrice), needsToSaveOnFirebase: false){ article, error in
                                 if article != nil {
                                     print("[BarcodeReader] - Article found in Firebase, perform segue")
                                     self.articleFound = article
@@ -92,9 +101,10 @@ class BarcodeReaderViewController: UIViewController {
                                     self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: nil)
                                     return
                                 }
+                                guard let suggestedPrice = response!.object(forKey: NetworkKeys.specialPrice) else {return}
                                 print("[BarcodeReader] - Article name: \(articleName)")
                                 print("[BarcodeReader] - Remote response: \(String(describing: response))")
-                                CoreDataManager.shared.saveArticle(code: code!, name: articleName as! String){ article, error in
+                                CoreDataManager.shared.saveArticle(code: code!, name: articleName as! String, suggestedPrice: Decimal(string: (suggestedPrice as! String))){ article, error in
                                     if article != nil {
                                         print("[BarcodeReader] - Article saved localy, perform segue")
                                         self.articleFound = article

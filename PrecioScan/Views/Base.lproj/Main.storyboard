@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PUz-Yh-NdL">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -27,11 +27,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ListsViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KB2-dh-kYh">
-                                <rect key="frame" x="0.0" y="114" width="414" height="698"/>
+                                <rect key="frame" x="0.0" y="114" width="414" height="572"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="h8d-i6-T1U"/>
@@ -149,7 +149,7 @@
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9cw-PR-TJZ" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="fhE-LF-q4l"/>
@@ -205,7 +205,7 @@
             <objects>
                 <viewController id="PUz-Yh-NdL" customClass="HostViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fjl-kV-WRb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ae6-n0-deX"/>
@@ -220,11 +220,11 @@
             <objects>
                 <viewController storyboardIdentifier="NavigationMenu" id="hDH-eo-Xea" customClass="NavigationMenuViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uOT-0q-rdj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBackgroundGreen" translatesAutoresizingMaskIntoConstraints="NO" id="fmw-dr-uVw">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5UY-Bm-kAI">
                                 <rect key="frame" x="136.33333333333334" y="128" width="53.333333333333343" height="22.666666666666657"/>
@@ -233,7 +233,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="U0w-hB-bu1">
-                                <rect key="frame" x="25" y="213.66666666666669" width="276" height="598.33333333333326"/>
+                                <rect key="frame" x="25" y="213.66666666666666" width="276" height="472.33333333333337"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hDH-eo-Xea" id="BTC-XW-K2C"/>
@@ -277,7 +277,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Versión: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTZ-Hm-S8L">
-                                <rect key="frame" x="35" y="812" width="50.666666666666657" height="14.666666666666629"/>
+                                <rect key="frame" x="35" y="686" width="50.666666666666657" height="14.666666666666629"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -345,7 +345,7 @@
             <objects>
                 <viewController id="fGl-LW-vXA" customClass="ArticlesViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PkE-ak-FHh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="llt-HC-gyN">
@@ -395,7 +395,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mgU-hx-W65">
-                                <rect key="frame" x="0.0" y="194.66666666666669" width="414" height="667.33333333333326"/>
+                                <rect key="frame" x="0.0" y="194.66666666666669" width="414" height="541.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="fGl-LW-vXA" id="NNA-iL-dcX"/>
@@ -483,7 +483,7 @@
             <objects>
                 <viewController id="Xo6-d6-ev1" customClass="ArticleDetailViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oDu-gp-bI5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerStripes" translatesAutoresizingMaskIntoConstraints="NO" id="lsU-ME-zQa">
@@ -633,7 +633,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMg-CJ-vSQ" customClass="RoundedButton" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="25" y="810" width="364" height="40"/>
+                                <rect key="frame" x="25" y="684" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.70980392156862748" green="0.73333333333333328" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="zTd-LU-LU8"/>
@@ -731,7 +731,7 @@
             <objects>
                 <viewController storyboardIdentifier="Configuration" id="boZ-cq-XGa" customClass="ConfigurationViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g9V-ju-M5V">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7fY-Jg-sVp">
@@ -1059,7 +1059,7 @@
             <objects>
                 <viewController storyboardIdentifier="Profile" id="BZM-p7-oaT" customClass="ProfileViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eLU-Lj-3Ud">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dV6-vH-Nuz">
@@ -1292,7 +1292,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PON-49-efv" customClass="RoundedButton" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="25" y="802" width="364" height="40"/>
+                                <rect key="frame" x="25" y="676" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.70980392156862748" green="0.73333333333333328" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eUW-Ap-D88"/>
@@ -1373,30 +1373,30 @@
             <objects>
                 <viewController id="pJt-Uk-MUQ" customClass="SubscriptionViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CdG-oy-bUU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KHw-3Z-Gqk" customClass="SwiftyOnboard" customModule="SwiftyOnboard">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mix-Tu-nvU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PrecioScanLogoSimple" translatesAutoresizingMaskIntoConstraints="NO" id="qgh-le-3av">
-                                        <rect key="frame" x="98" y="100.00000000000001" width="198" height="238.33333333333337"/>
+                                        <rect key="frame" x="98" y="100.00000000000001" width="198" height="211.33333333333337"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="198" id="Xgp-R5-Yj0"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ya eres Premium!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOg-uD-c8E">
-                                        <rect key="frame" x="91.333333333333329" y="393.33333333333331" width="231.66666666666669" height="33.666666666666686"/>
+                                        <rect key="frame" x="91.333333333333329" y="366.33333333333331" width="231.66666666666669" height="33.666666666666686"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Light" family="Ubuntu" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPj-Om-5dN" customClass="RoundedButton" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="16.666666666666657" y="763" width="380.66666666666674" height="45"/>
+                                        <rect key="frame" x="16.666666666666657" y="671" width="380.66666666666674" height="45"/>
                                         <color key="backgroundColor" red="0.70980392160000005" green="0.73333333329999995" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="jI9-kL-b9z"/>
@@ -1412,10 +1412,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crownIcon" translatesAutoresizingMaskIntoConstraints="NO" id="PcT-rd-AKy">
-                                        <rect key="frame" x="171.33333333333334" y="109" width="71.333333333333343" height="71.666666666666686"/>
+                                        <rect key="frame" x="175.33333333333334" y="108.99999999999999" width="63.333333333333343" height="63.333333333333329"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B5l-xd-wsB" customClass="RoundedButton" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25" y="733" width="364" height="45"/>
+                                        <rect key="frame" x="25" y="641" width="364" height="45"/>
                                         <color key="backgroundColor" red="0.70980392160000005" green="0.73333333329999995" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="b5C-2V-b3S"/>
@@ -1537,7 +1537,7 @@
             <objects>
                 <viewController id="dB9-Ud-wGz" customClass="CreateListViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vv1-HO-o4t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerStripes" translatesAutoresizingMaskIntoConstraints="NO" id="XMt-En-lge">
@@ -1756,7 +1756,7 @@
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qhZ-sZ-Juj">
-                                <rect key="frame" x="0.0" y="305" width="414" height="468"/>
+                                <rect key="frame" x="0.0" y="305" width="414" height="342"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="dB9-Ud-wGz" id="0o5-3p-GuE"/>
@@ -1764,7 +1764,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PxU-cH-RVH">
-                                <rect key="frame" x="102" y="454" width="210" height="170"/>
+                                <rect key="frame" x="102" y="391" width="210" height="170"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="articlesEmptyState" translatesAutoresizingMaskIntoConstraints="NO" id="ONq-jz-rpQ">
                                         <rect key="frame" x="51.666666666666657" y="0.0" width="107" height="107"/>
@@ -1816,7 +1816,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uTJ-Rt-tre" customClass="RoundedButton" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="25" y="810" width="364" height="40"/>
+                                <rect key="frame" x="25" y="684" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.70980392156862748" green="0.73333333333333328" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4mq-o9-NFM"/>
@@ -1835,31 +1835,31 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tableSeparator" translatesAutoresizingMaskIntoConstraints="NO" id="k3O-Ld-kF4">
-                                <rect key="frame" x="10" y="773" width="394" height="1.6666666666666288"/>
+                                <rect key="frame" x="10" y="647" width="394" height="1.6666666666666288"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1.5" id="fRb-eR-5tO"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ecu-JQ-ahz">
-                                <rect key="frame" x="372" y="783.66666666666663" width="17" height="17"/>
+                                <rect key="frame" x="372" y="657.66666666666663" width="17" height="17"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mW0-4m-rEo">
-                                <rect key="frame" x="328.66666666666669" y="784.66666666666663" width="33.333333333333314" height="15"/>
+                                <rect key="frame" x="328.66666666666669" y="658.66666666666663" width="33.333333333333314" height="15"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Articulos:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIj-rL-PD2">
-                                <rect key="frame" x="25" y="784.66666666666663" width="56" height="15"/>
+                                <rect key="frame" x="25" y="658.66666666666663" width="56" height="15"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Regular" family="Ubuntu" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wi-sN-eeW">
-                                <rect key="frame" x="89" y="783.66666666666663" width="9" height="17"/>
+                                <rect key="frame" x="89" y="657.66666666666663" width="9" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="30" id="RVu-R3-CSn"/>
                                 </constraints>
@@ -1969,7 +1969,7 @@
             <objects>
                 <viewController storyboardIdentifier="Stores" id="tob-7n-sdA" customClass="CreateStoreViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M8W-Ka-b1n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04h-51-hFi">
@@ -2001,7 +2001,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tienda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrz-nw-DET">
-                                        <rect key="frame" x="164.66666666666666" y="37.333333333333343" width="84.666666666666657" height="32.666666666666657"/>
+                                        <rect key="frame" x="161.66666666666666" y="37.333333333333343" width="90.666666666666657" height="32.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2034,7 +2034,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FkW-eX-Z4p">
-                                <rect key="frame" x="0.0" y="195" width="414" height="617"/>
+                                <rect key="frame" x="0.0" y="195" width="414" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="tob-7n-sdA" id="zIa-oc-TnZ"/>
@@ -2064,7 +2064,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BUSCA Y AGREGA UNA TIENDA" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baa-gx-hXu">
-                                        <rect key="frame" x="0.0" y="203" width="220" height="14"/>
+                                        <rect key="frame" x="0.0" y="203" width="220" height="13.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="12"/>
                                         <color key="textColor" red="0.66274509803921566" green="0.65490196078431373" blue="0.31764705882352939" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2092,7 +2092,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4TJ-i9-v4V" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="MfU-Yp-tp2"/>
@@ -2143,7 +2143,7 @@
             <objects>
                 <viewController id="Mve-sz-ZnF" customClass="SearchStoreViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="M4w-Fi-Clh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yh9-bc-Ia4">
@@ -2232,7 +2232,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zeo-ye-Paq">
-                                <rect key="frame" x="0.0" y="188" width="414" height="624"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="498"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Mve-sz-ZnF" id="7ft-XO-APg"/>
@@ -2240,7 +2240,7 @@
                                 </connections>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cSv-rQ-dUl">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <rect key="frame" x="197" y="358" width="20" height="20"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R92-va-L0B">
                                 <rect key="frame" x="52" y="230" width="310" height="260"/>
@@ -2309,7 +2309,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2B1-nD-fcO" customClass="GADBannerView">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="686" width="414" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wB4-GQ-lNl"/>
@@ -2369,7 +2369,7 @@
             <objects>
                 <viewController id="Tjg-3g-eg5" customClass="SaveNewStoreViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iaC-wx-xXx">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BxW-O8-wGo">
@@ -2567,7 +2567,7 @@
                                 </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrW-wq-u2M" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="25" y="810" width="364" height="40"/>
+                                <rect key="frame" x="25" y="684" width="364" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="yvr-em-Oog"/>
                                 </constraints>
@@ -2647,11 +2647,11 @@
             <objects>
                 <viewController id="HdV-Gt-Vyk" customClass="BarcodeReaderViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tk3-I8-vkF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CameraFullBackground" translatesAutoresizingMaskIntoConstraints="NO" id="2eD-a7-h3a">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encuentra el codigo de barras del articulo y escanealo aquí." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bg-Db-87n">
                                 <rect key="frame" x="30" y="95" width="354" height="42"/>
@@ -2666,7 +2666,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codigo de Barras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8F-8w-tC8">
-                                        <rect key="frame" x="96.666666666666671" y="37.333333333333343" width="220.66666666666663" height="32.666666666666657"/>
+                                        <rect key="frame" x="93.666666666666686" y="37.333333333333343" width="227" height="32.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.26274509800000001" green="0.25882352939999997" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -2755,7 +2755,7 @@
             <objects>
                 <viewController id="Rs3-Yh-3A3" customClass="ArticleFoundDetailViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GVa-cG-tFB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HeaderSmall" translatesAutoresizingMaskIntoConstraints="NO" id="Bav-nE-J5S">
@@ -2900,7 +2900,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Edt-dh-5NZ" customClass="GMStepper" customModule="GMStepper">
-                                <rect key="frame" x="94.666666666666686" y="434.33333333333331" width="225" height="35"/>
+                                <rect key="frame" x="94.666666666666686" y="516.33333333333337" width="225" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="225" id="e3c-D4-F24"/>
@@ -2925,7 +2925,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRQ-fr-2cr" customClass="RoundedButton" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="25" y="810" width="364" height="40"/>
+                                <rect key="frame" x="25" y="684" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.70980392160000005" green="0.73333333329999995" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="K8b-ih-RZo"/>
@@ -2944,7 +2944,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: MX$0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2Y-sI-GMv">
-                                <rect key="frame" x="107" y="494.33333333333331" width="200" height="22.999999999999943"/>
+                                <rect key="frame" x="107" y="576.33333333333337" width="200" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="e3W-1R-t09"/>
                                     <constraint firstAttribute="width" constant="200" id="mQ1-eu-kgo"/>
@@ -2954,7 +2954,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWe-Db-w0C" customClass="PMSuperButton" customModule="PMSuperButton">
-                                <rect key="frame" x="117" y="525.33333333333337" width="180" height="40"/>
+                                <rect key="frame" x="117" y="607.33333333333337" width="180" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="180" id="EiY-nR-gRI"/>
                                     <constraint firstAttribute="height" constant="40" id="swH-OR-oni"/>
@@ -3038,9 +3038,17 @@
                                     <outlet property="valueTextField" destination="yvv-yr-kV8" id="7bO-0p-XrQ"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adY-qQ-6iF">
+                                <rect key="frame" x="89.666666666666686" y="424.33333333333331" width="235" height="77"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="Bw0-4t-fEo"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="adY-qQ-6iF" firstAttribute="trailing" secondItem="eJh-0O-hSH" secondAttribute="trailing" id="08T-Ff-YEl"/>
                             <constraint firstItem="Bav-nE-J5S" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="0vu-JF-I0f"/>
                             <constraint firstItem="eJh-0O-hSH" firstAttribute="top" secondItem="q0U-xK-IFQ" secondAttribute="bottom" constant="5" id="1vj-u2-2wn"/>
                             <constraint firstItem="pOi-M6-lbD" firstAttribute="trailing" secondItem="e51-VQ-L6G" secondAttribute="trailing" id="3Yk-tK-5r7"/>
@@ -3048,14 +3056,15 @@
                             <constraint firstItem="oCc-GM-sX6" firstAttribute="top" secondItem="Bav-nE-J5S" secondAttribute="bottom" constant="13" id="7nT-5S-V7V"/>
                             <constraint firstItem="oyO-Xt-zcx" firstAttribute="trailing" secondItem="pOi-M6-lbD" secondAttribute="trailing" id="EC8-QP-w9b"/>
                             <constraint firstItem="oDc-1M-jRs" firstAttribute="top" secondItem="GVa-cG-tFB" secondAttribute="top" id="IFw-eE-sRY"/>
+                            <constraint firstItem="adY-qQ-6iF" firstAttribute="top" secondItem="eJh-0O-hSH" secondAttribute="bottom" constant="10" id="IxH-KA-3Ct"/>
                             <constraint firstItem="e51-VQ-L6G" firstAttribute="top" secondItem="jFG-gH-bci" secondAttribute="bottom" constant="3" id="JKc-y2-JMm"/>
-                            <constraint firstItem="Edt-dh-5NZ" firstAttribute="top" secondItem="eJh-0O-hSH" secondAttribute="bottom" constant="20" id="MLF-Mv-wFf"/>
                             <constraint firstItem="P2Y-sI-GMv" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="QHv-4R-JDn"/>
                             <constraint firstItem="jFG-gH-bci" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="Vbw-GQ-cZ3"/>
                             <constraint firstItem="pOi-M6-lbD" firstAttribute="trailing" secondItem="cRQ-fr-2cr" secondAttribute="trailing" constant="25" id="Z79-uo-udU"/>
                             <constraint firstItem="fWe-Db-w0C" firstAttribute="top" secondItem="P2Y-sI-GMv" secondAttribute="bottom" constant="8" id="aVI-gO-pRC"/>
                             <constraint firstItem="q0U-xK-IFQ" firstAttribute="top" secondItem="e51-VQ-L6G" secondAttribute="bottom" constant="18" id="b4B-KB-Fyt"/>
                             <constraint firstItem="cRQ-fr-2cr" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" constant="25" id="d5s-Kh-Ifu"/>
+                            <constraint firstItem="adY-qQ-6iF" firstAttribute="leading" secondItem="eJh-0O-hSH" secondAttribute="leading" id="d7t-KS-rMF"/>
                             <constraint firstItem="oCc-GM-sX6" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="fgh-BB-IIC"/>
                             <constraint firstItem="fWe-Db-w0C" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="g8R-ea-99Y"/>
                             <constraint firstItem="oyO-Xt-zcx" firstAttribute="top" secondItem="oCc-GM-sX6" secondAttribute="bottom" constant="10.67" id="ghG-Gk-GdV"/>
@@ -3064,6 +3073,7 @@
                             <constraint firstItem="Edt-dh-5NZ" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="kfz-m3-74b"/>
                             <constraint firstItem="Bav-nE-J5S" firstAttribute="trailing" secondItem="pOi-M6-lbD" secondAttribute="trailing" id="laf-WY-QWn"/>
                             <constraint firstItem="oDc-1M-jRs" firstAttribute="leading" secondItem="pOi-M6-lbD" secondAttribute="leading" id="m4g-j1-3A1"/>
+                            <constraint firstItem="Edt-dh-5NZ" firstAttribute="top" secondItem="adY-qQ-6iF" secondAttribute="bottom" constant="15" id="mwR-MR-Y4R"/>
                             <constraint firstItem="eJh-0O-hSH" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="nu8-rl-ZtY"/>
                             <constraint firstItem="P2Y-sI-GMv" firstAttribute="top" secondItem="Edt-dh-5NZ" secondAttribute="bottom" constant="25" id="o2e-Hn-2i0"/>
                             <constraint firstItem="q0U-xK-IFQ" firstAttribute="centerX" secondItem="GVa-cG-tFB" secondAttribute="centerX" id="ovf-K1-IFD"/>
@@ -3095,24 +3105,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wPs-pI-TSe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="PG4-sN-nX5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2697" y="-1484"/>
+            <point key="canvasLocation" x="2695.6521739130435" y="-1484.5108695652175"/>
         </scene>
         <!--Add Article View Controller-->
         <scene sceneID="Ypj-dX-vZi">
             <objects>
                 <viewController id="Ccu-bP-Iec" customClass="AddArticleViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LNh-dt-vEN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerStripes" translatesAutoresizingMaskIntoConstraints="NO" id="884-Hv-MPu">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="313.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="257.66666666666669"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCw-Gh-PG2">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artículo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ij0-gN-lok">
-                                        <rect key="frame" x="159.33333333333334" y="37.333333333333343" width="95.666666666666657" height="32.666666666666657"/>
+                                        <rect key="frame" x="152.66666666666666" y="37.333333333333343" width="108.99999999999997" height="32.666666666666657"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="28"/>
                                         <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3172,20 +3182,20 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Codigo de Barras" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KL0-N0-LJV">
-                                <rect key="frame" x="24.999999999999993" y="85" width="110.33333333333331" height="16"/>
+                                <rect key="frame" x="25.000000000000007" y="85" width="113.66666666666669" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Bold" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FS6-XB-mQ8">
-                                <rect key="frame" x="25" y="109" width="364" height="141"/>
+                                <rect key="frame" x="25" y="109" width="364" height="116"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVL-ZD-74u" customClass="BarcodeReader" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="364" height="141"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="116"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodeCaptureBorderWhite" translatesAutoresizingMaskIntoConstraints="NO" id="4oe-ep-L0s">
-                                        <rect key="frame" x="8" y="8" width="348" height="125"/>
+                                        <rect key="frame" x="8" y="8" width="348" height="100"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="barcodeLineScanerWhite" translatesAutoresizingMaskIntoConstraints="NO" id="D3l-2r-tx8" customClass="BarcodeLine" customModule="PrecioScan" customModuleProvider="target">
                                         <rect key="frame" x="18" y="20" width="328" height="2"/>
@@ -3213,7 +3223,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gTu-nF-dw7">
-                                <rect key="frame" x="0.0" y="313.66666666666669" width="414" height="91"/>
+                                <rect key="frame" x="0.0" y="257.66666666666669" width="414" height="91"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coinsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rGd-ai-Dhx">
                                         <rect key="frame" x="127" y="51" width="20" height="20"/>
@@ -3283,7 +3293,7 @@ introduce el codigo del articulo</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uy5-AT-R7s" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="404.66666666666669" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="348.66666666666669" width="414" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1A-Tp-x5E" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
                                         <rect key="frame" x="25" y="45" width="364" height="2"/>
@@ -3331,7 +3341,7 @@ introduce el codigo del articulo</string>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czJ-em-a6U" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="459.66666666666669" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="403.66666666666669" width="414" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MAa-Mr-jJb" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
                                         <rect key="frame" x="25" y="45" width="364" height="2"/>
@@ -3341,7 +3351,7 @@ introduce el codigo del articulo</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqL-z6-aPQ" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="25.000000000000004" y="24" width="54.333333333333343" height="16"/>
+                                        <rect key="frame" x="24.999999999999996" y="24" width="56.666666666666657" height="16"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                         <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3376,7 +3386,7 @@ introduce el codigo del articulo</string>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z89-CA-2Vp" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="517.66666666666663" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="461.66666666666669" width="414" height="50"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g43-6l-1ez" customClass="InputFormUndeline" customModule="PrecioScan" customModuleProvider="target">
                                         <rect key="frame" x="25" y="45" width="364" height="2"/>
@@ -3386,7 +3396,7 @@ introduce el codigo del articulo</string>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precio:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="85m-Ei-0aU" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                        <rect key="frame" x="24.999999999999996" y="24" width="43.666666666666657" height="16"/>
+                                        <rect key="frame" x="25" y="24" width="45" height="16"/>
                                         <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                         <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3421,7 +3431,7 @@ introduce el codigo del articulo</string>
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPJ-Fr-gOM" customClass="GMStepper" customModule="GMStepper">
-                                <rect key="frame" x="239" y="598" width="150" height="35"/>
+                                <rect key="frame" x="239" y="542" width="150" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="R1t-ak-O6e"/>
@@ -3446,13 +3456,13 @@ introduce el codigo del articulo</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cantidad:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gF0-W3-cD6" customClass="InputFormLabel" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="25" y="607.66666666666663" width="61" height="16"/>
+                                <rect key="frame" x="25.000000000000004" y="551.66666666666663" width="62.333333333333343" height="16"/>
                                 <fontDescription key="fontDescription" name="Ubuntu-Medium" family="Ubuntu" pointSize="14"/>
                                 <color key="textColor" red="0.34509803919999998" green="0.37254901959999998" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbZ-Bd-pvh" customClass="RoundedButton" customModule="PrecioScan" customModuleProvider="target">
-                                <rect key="frame" x="25" y="810" width="364" height="40"/>
+                                <rect key="frame" x="25" y="684" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.70980392156862748" green="0.73333333333333328" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ue1-vd-WmM"/>
@@ -3537,7 +3547,7 @@ introduce el codigo del articulo</string>
             <objects>
                 <viewController id="4LM-kO-kgp" customClass="CompareViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u14-8A-MF2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="headerStripes" translatesAutoresizingMaskIntoConstraints="NO" id="hOJ-ua-Ah9">
@@ -3609,7 +3619,7 @@ introduce el codigo del articulo</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aHn-Th-pb0">
-                                <rect key="frame" x="0.0" y="198" width="414" height="664"/>
+                                <rect key="frame" x="0.0" y="198" width="414" height="538"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="4LM-kO-kgp" id="kSl-hv-dST"/>
@@ -3661,11 +3671,11 @@ introduce el codigo del articulo</string>
             <objects>
                 <viewController id="XcS-UG-oNr" customClass="RecoverPasswordViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uto-n2-JFN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBackgroundGreen" translatesAutoresizingMaskIntoConstraints="NO" id="OV6-Jw-aR5">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zvn-0b-qqx" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="124" width="414" height="50"/>
@@ -3739,7 +3749,7 @@ introduce el codigo del articulo</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u64-X5-JKW" customClass="TransitionButton" customModule="TransitionButton">
-                                <rect key="frame" x="25" y="756" width="364" height="40"/>
+                                <rect key="frame" x="25" y="664" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.66274509800000003" green="0.65490196079999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Cpr-PS-Xow"/>
@@ -3794,11 +3804,11 @@ introduce el codigo del articulo</string>
             <objects>
                 <viewController storyboardIdentifier="Login" id="KQJ-uo-6wS" customClass="LoginViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A5k-Py-EDs">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBackgroundGreen" translatesAutoresizingMaskIntoConstraints="NO" id="XZk-z1-S2b">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fbV-ja-mHC">
                                 <rect key="frame" x="0.0" y="251" width="414" height="310"/>
@@ -4013,11 +4023,11 @@ introduce el codigo del articulo</string>
             <objects>
                 <viewController id="buf-We-PXd" customClass="CreateAccountViewController" customModule="PrecioScan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y52-0V-QXh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuBackgroundGreen" translatesAutoresizingMaskIntoConstraints="NO" id="IC6-PO-JEf">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BYe-fB-ard" customClass="AnimatedInputControl" customModule="PrecioScan" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="124" width="414" height="50"/>
@@ -4283,7 +4293,7 @@ introduce el codigo del articulo</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IPN-Ud-K8a" customClass="TransitionButton" customModule="TransitionButton">
-                                <rect key="frame" x="25" y="756" width="364" height="40"/>
+                                <rect key="frame" x="25" y="664" width="364" height="40"/>
                                 <color key="backgroundColor" red="0.66274509800000003" green="0.65490196079999996" blue="0.31764705879999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="tsY-Rl-t1h"/>
@@ -4399,7 +4409,7 @@ introduce el codigo del articulo</string>
         <segue reference="pnP-xg-XW3"/>
         <segue reference="tyf-o9-d1V"/>
         <segue reference="hDX-Qp-dMp"/>
-        <segue reference="Rxa-RG-oSS"/>
+        <segue reference="RaM-rj-TxQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.66666666666666663" green="0.74509803921568629" blue="0.45882352941176469" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>

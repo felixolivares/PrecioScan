@@ -168,6 +168,7 @@
 		3032616E1FB252B60083FBA0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_2.xcdatamodel; sourceTree = "<group>"; };
 		303261711FB25CE20083FBA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		30399566245B3D1600FF06EB /* PrecioScanModel_ 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PrecioScanModel_ 10.xcdatamodel"; sourceTree = "<group>"; };
 		303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_9.xcdatamodel; sourceTree = "<group>"; };
 		303C4375202A4E2200C8D58F /* Model8-9.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model8-9.xcmappingmodel"; sourceTree = "<group>"; };
 		3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoreViewController.swift; sourceTree = "<group>"; };
@@ -1316,6 +1317,7 @@
 		30FFE6561F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				30399566245B3D1600FF06EB /* PrecioScanModel_ 10.xcdatamodel */,
 				303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */,
 				306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */,
 				30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */,
@@ -1326,7 +1328,7 @@
 				303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */,
 				30FFE6571F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodel */,
 			);
-			currentVersion = 303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */;
+			currentVersion = 30399566245B3D1600FF06EB /* PrecioScanModel_ 10.xcdatamodel */;
 			path = PrecioScanModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -18,30 +18,35 @@ public final class Article: NSManagedObject, CoreDataEntityProtocol{
     @NSManaged public var name: String
     @NSManaged public var uid: String
     @NSManaged public var itemList: NSSet
+    @NSManaged public var suggestedPrice: NSDecimalNumber
     
-    public init (context: NSManagedObjectContext, code: String, name: String, uid: String){
+    public init (context: NSManagedObjectContext, code: String, name: String, uid: String, suggestedPrice: NSDecimalNumber){
         super.init(entity: Article.entity(context: context), insertInto: context)
         self.name = name
         self.code = code
         self.uid = uid
+        self.suggestedPrice = suggestedPrice
     }
     
-    public class func create(_ context: NSManagedObjectContext, name: String, code: String, uid: String) -> Article {
-        return Article(context: context, code: code, name: name, uid: uid)
+    public class func create(_ context: NSManagedObjectContext, name: String, code: String, uid: String, suggestedPrice: Decimal? = 0.0) -> Article {
+        return Article(context: context, code: code, name: name, uid: uid, suggestedPrice: suggestedPrice! as NSDecimalNumber)
     }
     
-    func update(name: String? = nil, uid: String? = nil) -> Article {
+    func update(name: String? = nil, uid: String? = nil, suggestedPrice: Decimal? = nil) -> Article {
         if name != nil{
             self.name = name!
         }
         if uid != nil{
             self.uid = uid!
         }
+        if suggestedPrice != nil{
+            self.suggestedPrice = suggestedPrice! as NSDecimalNumber
+        }
         return self
     }
     
     public func debug(){
-        let debugString = "------ Article ------\nName: \(self.name)\nUid: \(self.uid)\nCode: \(self.code))"
+        let debugString = "------ Article ------\nName: \(self.name)\nUid: \(self.uid)\nCode: \(self.code))\nSuggesteedPrice: \(self.suggestedPrice))"
         print(debugString)
     }
     

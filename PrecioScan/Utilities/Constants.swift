@@ -399,8 +399,10 @@ struct FRAttribute {
     public static let itemLists = "itemLists"
     public static let isSubscribed = "isSubscribed"
     public static let subscriptionDate = "subscriptionDate"
+    public static let suggestedPrice = "suggestedPrice"
 }
 
 struct NetworkKeys {
     public static let skuDisplayText = "skuDisplayNameText"
+    public static let specialPrice = "specialPrice"
 }
