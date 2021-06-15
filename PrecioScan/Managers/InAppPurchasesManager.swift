@@ -108,6 +108,7 @@ class InAppPurchasesManager: NSObject {
                 case .invalidSignature: print("Invalid signature")
                 case .missingOfferParams: print("Missing Offer Params")
                 case .invalidOfferPrice: print("Invalid Offer price")
+                default: break
                 }
             }
         }

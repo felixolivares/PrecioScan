@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DynamicButton
+
 import InteractiveSideMenu
 import ALCameraViewController
 import GoogleMobileAds
@@ -15,7 +15,8 @@ import MKDropdownMenu
 
 class ProfileViewController: UIViewController, SideMenuItemContent {
 
-    @IBOutlet weak var hamburgerButton: DynamicButton!
+    @IBOutlet weak var hamburgerButton: UIButton!
+    //    @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameAnimatedControl: AnimatedInputControl!
     @IBOutlet weak var emailAnimatedControl: AnimatedInputControl!
@@ -26,7 +27,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     @IBOutlet weak var stateDisplayName: UILabel!
     
     var currentUser: User!
-    var interstitialAd: GADInterstitial!
+//    var interstitialAd: GADInterstitial!
     var stateSelected: String!
     var dropDownIsOpen: Bool = false
     let componentTitles = States().allStates()
@@ -36,7 +37,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        interstitialAd = createAndLoadInterstitial()
+//        interstitialAd = createAndLoadInterstitial()
         configureMenu()
     }
 
@@ -54,7 +55,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        hamburgerButton.setStyle(.hamburger, animated: true)
+//        hamburgerButton.setStyle(.hamburger, animated: true)
         loadUserInformation()
     }
     
@@ -63,7 +64,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     }
     
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
-        hamburgerButton.setStyle(.close, animated: true)
+//        hamburgerButton.setStyle(.close, animated: true)
         self.showSideMenu()
     }
     
@@ -85,7 +86,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     func configureComponents(){
         self.currentUser = UserManager.shared.getCurrentUser()
         UserManager.shared.verifyUserIsLogged(vc: self)
-        hamburgerButton.setStyle(.hamburger, animated: false)
+//        hamburgerButton.setStyle(.hamburger, animated: false)
         nameAnimatedControl.setDelegate()
         emailAnimatedControl.setDelegate()
         cityAnimatedControl.setDelegate()
@@ -103,21 +104,21 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
         statesMenu.componentTextAlignment = .left
     }
     
-    func createAndLoadInterstitial() -> GADInterstitial{
-        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId)
-        interstitial.delegate = self
-        interstitial.load(AdsManager.shared.getRequest())
-        return interstitial
-    }
+//    func createAndLoadInterstitial() -> GADInterstitial{
+//        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId)
+//        interstitial.delegate = self
+//        interstitial.load(AdsManager.shared.getRequest())
+//        return interstitial
+//    }
     
     func showInterstitial(){
         guard !UserManager.shared.userIsSuscribed() else {_ = self.navigationController?.popViewController(animated: true);return}
-        if interstitialAd.isReady {
-            interstitialAd.present(fromRootViewController: self)
-        } else {
-            print("Ad wasn't ready")
-            _ = self.navigationController?.popViewController(animated: true)
-        }
+//        if interstitialAd.isReady {
+//            interstitialAd.present(fromRootViewController: self)
+//        } else {
+//            print("Ad wasn't ready")
+//            _ = self.navigationController?.popViewController(animated: true)
+//        }
     }
     
     func loadProfilePhoto(){
@@ -171,17 +172,17 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     }
 }
 
-extension ProfileViewController: GADInterstitialDelegate{
-    
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        _ = self.navigationController?.popViewController(animated: true)
-        interstitialAd = createAndLoadInterstitial()
-    }
-    
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        print("Ad received")
-    }
-}
+//extension ProfileViewController: GADInterstitialDelegate{
+//
+//    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+//        _ = self.navigationController?.popViewController(animated: true)
+//        interstitialAd = createAndLoadInterstitial()
+//    }
+//
+//    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+//        print("Ad received")
+//    }
+//}
 
 //MARK: - MKDropdown Data Source
 extension ProfileViewController: MKDropdownMenuDataSource{

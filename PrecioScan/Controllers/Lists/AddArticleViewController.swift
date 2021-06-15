@@ -12,7 +12,7 @@ import AVFoundation
 import PMSuperButton
 import ALCameraViewController
 import AXPhotoViewer
-import BadgeSwift
+
 import FirebaseDatabase
 import SwiftySound
 
@@ -31,7 +31,7 @@ class AddArticleViewController: UIViewController {
     @IBOutlet weak var compareButton: PMSuperButton!
     @IBOutlet weak var messageAndButtonContainerView: UIView!
     @IBOutlet weak var coinsIcon: UIImageView!
-    @IBOutlet weak var photoBadge: BadgeSwift!
+//    @IBOutlet weak var photoBadge: BadgeSwift!
     
     var articles: [Article] = []
     var articleFound: Article!
@@ -152,7 +152,7 @@ class AddArticleViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(self.receivedNotificationBarcodeFound(notification:)), name: Notification.Name(Identifiers.Notifications.idArticleFound), object: nil)
         compareButton.alpha = 0
         coinsIcon.alpha = 0
-        photoBadge.alpha = 0
+//        photoBadge.alpha = 0
         createPhotoDataSource()
         UserManager.shared.verifyConnection(){ connected in
             self.isConnected = connected ? true : false
@@ -468,7 +468,7 @@ class AddArticleViewController: UIViewController {
     func setBadge(){
         if photoExists{
             UIView.animate(withDuration: 0.5, animations: {
-                self.photoBadge.alpha = 1
+//                self.photoBadge.alpha = 1
             })
         }
     }

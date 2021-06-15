@@ -13,8 +13,9 @@ import AlamofireImage
 class ClientManager: NSObject {
     
     static let shared = ClientManager()
-    let url = "https://super.walmart.com.mx/api/rest/model/atg/commerce/catalog/ProductCatalogActor/getSkuSummaryDetails?skuId=$skuId&storeId=0000009999&upc=00075677402211&fbclid=IwAR1j2i38X30mQphDt7LD75JkkRFx61IojSwVOL2HVoQHSKLkE9LEPouILFY"
-    let imageUrl = "https://super.walmart.com.mx/images/product-images/img_large/"
+    let url = "https://super.walmart.com.mx/api/rest/model/atg/commerce/catalog/ProductCatalogActor/getSkuSummaryDetails?skuId=$skuId&storeId=0000003895&upc=$skuId"
+    let imageUrl_legacy = "https://super.walmart.com.mx/images/product-images/img_large/"
+    let imageUrl = "https://res.cloudinary.com/walmart-labs/image/upload/w_960,dpr_auto,f_auto,q_auto:good/gr/images/product-images/img_large/"
     var counterSuccess:Int = 0
     let imageCache = AutoPurgingImageCache(
         memoryCapacity: 100_000_000,
@@ -38,6 +39,7 @@ class ClientManager: NSObject {
     public func getImage(sku: String, completionHandler: @escaping (UIImage?, NSError?) -> ()){
         let imageName = "\(sku)L.jpg"
         let url = "\(imageUrl)\(imageName)"
+        print("[Image Download] - Image URL: \(url)")
         if let cachedImage = imageCache.image(withIdentifier: imageName) {
             print("[Image Download] - Image cached locally")
             completionHandler(cachedImage, nil)

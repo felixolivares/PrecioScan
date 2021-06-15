@@ -11,7 +11,7 @@ import PMSuperButton
 import CoreData
 import JSQCoreDataKit
 import InteractiveSideMenu
-import DynamicButton
+
 import MKDropdownMenu
 import GoogleMobileAds
 
@@ -21,8 +21,9 @@ protocol CreateStoreViewControllerDelegate{
 
 class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDelegate, UISearchBarDelegate {
 
+    @IBOutlet weak var hamburgerButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var hamburgerButton: DynamicButton!
+//    @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var searchBarContainer: UIView!
     @IBOutlet weak var emptyStateContainerView: UIView!
@@ -53,7 +54,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        hamburgerButton.setStyle(.hamburger, animated: true)
+//        hamburgerButton.setStyle(.hamburger, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,7 +62,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     }
 
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
-        hamburgerButton.setStyle(.close, animated: true)
+//        hamburgerButton.setStyle(.close, animated: true)
         (self.navigationController as! NavigationStoreViewController).showSideMenu()
     }
     
@@ -93,7 +94,7 @@ class CreateStoreViewController: UIViewController, NSFetchedResultsControllerDel
     
     func configureComponents(){
         UserManager.shared.verifyUserIsLogged(vc: self)
-        hamburgerButton.setStyle(.hamburger, animated: false)
+//        hamburgerButton.setStyle(.hamburger, animated: false)
         emptyStateContainerView.isHidden = true
         adsViewabilty()
     }

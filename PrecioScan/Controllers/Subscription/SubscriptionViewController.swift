@@ -7,13 +7,15 @@
 //
 
 import UIKit
-import DynamicButton
+
 import SwiftyOnboard
 
 class SubscriptionViewController: UIViewController {
 
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var hamburgerButton: UIButton!
     @IBOutlet weak var swiftyOnboard: SwiftyOnboard!
-    @IBOutlet weak var hamburgerButton: DynamicButton!
+//    @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var premiumView: UIView!
     
     var openedWithModal: Bool = false
@@ -39,13 +41,16 @@ class SubscriptionViewController: UIViewController {
     
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
         if !openedWithModal{
-            hamburgerButton.setStyle(.close, animated: true)
+//            hamburgerButton.setStyle(.close, animated: true)
             (self.navigationController as! NavigationSubscriptionViewController).showSideMenu()
         } else {
             self.dismiss(animated: true, completion: nil)
         }
     }
     
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func configure(){
         swiftyOnboard.style = .light
@@ -59,15 +64,19 @@ class SubscriptionViewController: UIViewController {
         premiumView.isHidden = !UserManager.shared.userIsSuscribed()
         UserManager.shared.verifyUserIsLogged(vc: self)
         if openedWithModal{
-            hamburgerButton.setStyle(.close, animated: false)
+            hamburgerButton.isHidden = true
+            closeButton.isHidden = false
+//            hamburgerButton.setStyle(.close, animated: false)
         } else {
-            hamburgerButton.setStyle(.hamburger, animated: true)
+            hamburgerButton.isHidden = false
+            closeButton.isHidden = true
+//            hamburgerButton.setStyle(.hamburger, animated: true)
         }
     }
     
     @objc func continueButtonPressed(){
         if !openedWithModal{
-            hamburgerButton.setStyle(.close, animated: true)
+//            hamburgerButton.setStyle(.close, animated: true)
             (self.navigationController as! NavigationSubscriptionViewController).showSideMenu()
         } else {
             self.dismiss(animated: true, completion: nil)
