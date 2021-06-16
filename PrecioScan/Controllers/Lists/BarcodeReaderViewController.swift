@@ -71,42 +71,25 @@ class BarcodeReaderViewController: UIViewController {
         CoreDataManager.shared.articles(findWithCode: code){ stack, articles, error in
             if let articles = articles{
                 if articles.count > 0{
-                    print("[BarcodeReader] - Local article found, peform segue")
-                    self.activityIndicator.stopAnimating()
-                    self.articleFound = articles.first
-                    self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: articles.first)
+                    print("[BarcodeReader] - Article count > 0, article suggested price: \(String(describing: articles.first?.suggestedPrice))")
+                    if articles.first?.suggestedPrice == nil {
+                        self.fetchArticleRemote(code: articles.first?.code, articleToUpdate: articles.first)
+                    } else {
+                        print("[BarcodeReader] - Local article found, peform segue")
+                        self.activityIndicator.stopAnimating()
+                        self.articleFound = articles.first
+                        self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: articles.first)
+                    }
                 }else{
                     print("[BarcodeReader] - No local article found with code: \(String(describing: code))")
-                    FirebaseOperations().searchArticles(byCode: code!){article in
-                        if article != nil{
-                            CoreDataManager.shared.saveArticle(code: (article?.code)!, name: (article?.name)!, uid: (article?.uid)!, suggestedPrice: (article?.suggestedPrice), needsToSaveOnFirebase: false){ article, error in
-                                if article != nil {
-                                    print("[BarcodeReader] - Article found in Firebase, perform segue")
-                                    self.articleFound = article
-                                    self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: article)
-                                    self.activityIndicator.stopAnimating()
-                                }else{
-                                    print("[BarcodeReader] - An error ocurred: \(String(describing: error?.localizedDescription))")
-                                }
-                            }
-                        } else {
-                            print("[BarcodeReader] - No articles on Firebase, will check external sources")
-                            let barcode = self.prepareBarcode(code: code!)
-                            print("[BarcodeReader] - Barcode prepared \(barcode)")
-                            ClientManager.shared.getPath(sku: barcode){ response, error in
-                                guard let articleName = response!.object(forKey: NetworkKeys.skuDisplayText) else {
-                                    print("[BarcodReader] - No article found on exterlan sources")
-                                    self.articleIsFound = false
-                                    self.articleFound = nil
-                                    self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: nil)
-                                    return
-                                }
-                                guard let suggestedPrice = response!.object(forKey: NetworkKeys.specialPrice) else {return}
-                                print("[BarcodeReader] - Article name: \(articleName)")
-                                print("[BarcodeReader] - Remote response: \(String(describing: response))")
-                                CoreDataManager.shared.saveArticle(code: code!, name: articleName as! String, suggestedPrice: Decimal(string: (suggestedPrice as! String))){ article, error in
+                    FirebaseOperations().searchArticles(byCode: code!){articleFound in
+                        if let article = articleFound {
+                            print("[BarcodeReader] - Article found in searchArticles, suggestedPrice: \(String(describing: article.suggestedPrice))")
+                            if article.suggestedPrice != nil {
+                                print("[BarcodeReader] - Suggested price: \(String(describing: article.suggestedPrice))")
+                                CoreDataManager.shared.saveArticle(code: (article.code), name: (article.name), uid: (article.uid), suggestedPrice: (article.suggestedPrice), needsToSaveOnFirebase: false){ article, error in
                                     if article != nil {
-                                        print("[BarcodeReader] - Article saved localy, perform segue")
+                                        print("[BarcodeReader] - Article found in Firebase, perform segue")
                                         self.articleFound = article
                                         self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: article)
                                         self.activityIndicator.stopAnimating()
@@ -114,7 +97,12 @@ class BarcodeReaderViewController: UIViewController {
                                         print("[BarcodeReader] - An error ocurred: \(String(describing: error?.localizedDescription))")
                                     }
                                 }
+                            } else {
+                                self.fetchArticleRemote(code: code)
                             }
+                        } else {
+                            print("[BarcodeReader] - No articles on Firebase, will check external sources")
+                            self.fetchArticleRemote(code: code)
                         }
                     }
                 }
@@ -123,7 +111,46 @@ class BarcodeReaderViewController: UIViewController {
         }
     }
     
-    
+    func fetchArticleRemote(code: String?, articleToUpdate: Article? = nil) {
+        print("[BarcodeReader] - Fetch article remote")
+        let barcode = self.prepareBarcode(code: code!)
+        print("[BarcodeReader] - Barcode prepared \(barcode)")
+        ClientManager.shared.getPath(sku: barcode){ response, error in
+            guard let articleName = response!.object(forKey: NetworkKeys.skuDisplayText) else {
+                print("[BarcodReader] - No article found on exterlan sources")
+                self.articleIsFound = false
+                self.articleFound = nil
+                self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: nil)
+                return
+            }
+            guard let suggestedPrice = response!.object(forKey: NetworkKeys.specialPrice) else {return}
+            print("[BarcodeReader] - Article name: \(articleName)")
+            print("[BarcodeReader] - Remote response: \(String(describing: response))")
+            if let article = articleToUpdate {
+                CoreDataManager.shared.updateArticle(object: article, name: article.name, uid: article.uid, suggestedPrice: Decimal(string: (suggestedPrice as! String))) { success, error in
+                    if success {
+                        print("[BarcodeReader] - Article updated localy, perform segue")
+                        self.articleFound = article
+                        self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: article)
+                        self.activityIndicator.stopAnimating()
+                    }else{
+                        print("[BarcodeReader] - An error ocurred: \(String(describing: error?.localizedDescription))")
+                    }
+                }
+            } else {
+                CoreDataManager.shared.saveArticle(code: code!, name: articleName as! String, suggestedPrice: Decimal(string: (suggestedPrice as! String))){ article, error in
+                    if article != nil {
+                        print("[BarcodeReader] - Article saved localy, perform segue")
+                        self.articleFound = article
+                        self.performSegue(withIdentifier: Segues.toArticleDetailFromBarcodeReader, sender: article)
+                        self.activityIndicator.stopAnimating()
+                    }else{
+                        print("[BarcodeReader] - An error ocurred: \(String(describing: error?.localizedDescription))")
+                    }
+                }
+            }
+        }
+    }
     //MARK: Button Actions
     
     @IBAction func backButtonPressed(_ sender: Any) {

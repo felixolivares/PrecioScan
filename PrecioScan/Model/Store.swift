@@ -39,14 +39,23 @@ public final class Store: NSManagedObject, CoreDataEntityProtocol, NSFetchedResu
     
     public func delete(_ context: NSManagedObjectContext, completionHandler: @escaping(Bool, Error?) -> Void){
         context.delete(self)
-        saveContext(context){ result in
-            switch result{
-            case .success:
-                completionHandler(true, nil)
-            case .failure:
-                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
-            }
+        do {
+            try context.save()
+            completionHandler(true, nil)
+        } catch {
+            completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
         }
+        
+//        context.save{ result in
+//            switch result{
+//            case .success:
+//                completionHandler(true, nil)
+//            case .failure:
+//                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+//            }
+//        }
     }
     
     public func update(name: String? = nil, location: String? = nil, information: String? = nil, uid: String? = nil, state: String? = nil, city: String? = nil) -> Store{

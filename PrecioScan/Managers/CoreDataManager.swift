@@ -35,8 +35,8 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     }
     
     //MARK: - Initializers
-    public func getFactory() -> CoreDataStackFactory{
-        return CoreDataStackFactory(model: model)
+    public func getFactory() -> CoreDataStackProvider{
+        return CoreDataStackProvider(model: model)
     }
     
     public func getStack() -> CoreDataStack?{
@@ -46,7 +46,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     func createStack(){
         print("Will create stack")
         guard self.stack == nil else {return}
-        getFactory().createStack(onQueue: nil){ (result: StackResult) -> Void in
+        getFactory().createStack(onQueue: nil){ (result) -> Void in
             switch result {
             case .success(let s):
                 self.stack = s
@@ -59,7 +59,7 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     
     func createStack(withCompletion completionHandler: @escaping(Bool) -> Void){
         guard self.stack == nil else {return}
-        getFactory().createStack(onQueue: DispatchQueue.main){ (result: StackResult) -> Void in
+        getFactory().createStack(onQueue: DispatchQueue.main){ (result: Result) -> Void in
             switch result {
             case .success(let s):
                 self.stack = s
@@ -95,14 +95,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         stack.mainContext.performAndWait {
             let storeID = needSaveFirbase! ? FirebaseOperations().addStore(name: name, location: location, information: information, state: state, city: city) : uid!
             let storeSaved = Store.create(stack.mainContext, name: name, location: location, information: information, uid: storeID, state: state, city: city)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(storeSaved, nil)
-                case .failure:
-                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(storeSaved, nil)
+            } catch {
+                completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(storeSaved, nil)
+//                case .failure:
+//                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
@@ -131,14 +137,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     
     public func updateStore(object: Store, name: String? = nil, location: String? = nil, information: String? = nil, uid: String? = nil, state: String? = nil, city: String? = nil, completionHandler: @escaping(Bool, Error?) -> Void){
         let _ = object.update(name: name, location: location, information: information, uid: uid, state: state, city: city)
-        saveContext(stack.mainContext){ result in
-            switch result{
-            case .success:
-                completionHandler(true, nil)
-            case .failure:
-                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
-            }
+        do {
+            try stack.mainContext.save()
+            completionHandler(true, nil)
+        } catch {
+            completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
         }
+//        saveContext(stack.mainContext){ result in
+//            switch result{
+//            case .success:
+//                completionHandler(true, nil)
+//            case .failure:
+//                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+//            }
+//        }
     }
     
     //MARK: - Articles
@@ -172,29 +184,44 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         articleID = needsToSaveOnFirebase! ? FirebaseOperations().addArticle(barcode: code, name: name, suggestedPrice: suggestedPrice!) : uid
         stack.mainContext.performAndWait {
             let article = Article.create(stack.mainContext, name: name, code: code, uid: articleID, suggestedPrice: suggestedPrice)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    print("[CodeData Manager - saveArticle] - Article saved with code: \(code)")
-                    completionHandler(article, nil)
-                case .failure:
-                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                print("[CodeData Manager - saveArticle] - Article saved with code: \(code)")
+                completionHandler(article, nil)
+            } catch {
+                completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+            
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    print("[CodeData Manager - saveArticle] - Article saved with code: \(code)")
+//                    completionHandler(article, nil)
+//                case .failure:
+//                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
     public func updateArticle(object: Article, name: String? = nil, uid: String? = nil, suggestedPrice: Decimal? = nil, completionHandler: @escaping(Bool, Error?) -> Void) {
+        let _ = FirebaseOperations().addArticle(barcode: object.code, name: object.name, suggestedPrice: suggestedPrice!)
         stack.mainContext.performAndWait {
             let _ = object.update(name: name, uid: uid, suggestedPrice: suggestedPrice)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(true, nil)
-                case .failure:
-                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(true, nil)
+            } catch {
+                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(true, nil)
+//                case .failure:
+//                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
@@ -203,14 +230,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         let itemListID = FirebaseOperations().addItemList(date: date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, articleUid: article.uid, listUid: list.uid, storeUid: store.uid, userUid: (UserManager.currentUser.uid)!)
         stack.mainContext.performAndWait {
             let itemList = ItemList.create(stack.mainContext, uid: itemListID, date: date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store, user: UserManager.currentUser)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(itemList, nil)
-                case .failure:
-                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(itemList, nil)
+            } catch {
+                completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(itemList, nil)
+//                case .failure:
+//                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
@@ -218,14 +251,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         stack.mainContext.performAndWait {
             FirebaseOperations().addPhotoToItemList(itemListUid: object.uid, photoName: photoName)
             let itemListUpdated = object.update(date, photoName: photoName, quantity: quantity, unitaryPrice: unitariPrice, article: article, list: list, store: store, user: user)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(true, itemListUpdated, nil)
-                case .failure:
-                    completionHandler(false, nil, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(true, itemListUpdated, nil)
+            } catch {
+                completionHandler(false, nil, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(true, itemListUpdated, nil)
+//                case .failure:
+//                    completionHandler(false, nil, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
@@ -280,28 +319,40 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
         let listUid = FirebaseOperations().addList(name: name, date: date, storeId: (store?.uid)!, userUid: (UserManager.currentUser.uid)!)
         stack.mainContext.performAndWait {
             let list = List(context: stack.mainContext, date: date as NSDate, name: name, uid: listUid, store: store)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(list, nil)
-                case .failure:
-                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(list, nil)
+            } catch {
+                completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(list, nil)
+//                case .failure:
+//                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
     public func updateList(object: List, name: String?, date: Date?, store: Store?, completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
             let _ = object.update(name, date: date, store: store)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(true, nil)
-                case .failure:
-                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(true, nil)
+            } catch {
+                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(true, nil)
+//                case .failure:
+//                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
@@ -348,14 +399,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     public func saveUser(email: String, password: String?, name: String, photoName: String?, state: String?, city: String?, isLogged: Bool, uid: String?, completionHandler: @escaping(User?, Error?) -> Void){
         stack.mainContext.performAndWait {
             let user = User(context: stack.mainContext, email: email, password: password, name: name, photoName: photoName, isLogged: isLogged, uid: uid, state: state, city: city )
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(user, nil)
-                case .failure:
-                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(user, nil)
+            } catch {
+                completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(user, nil)
+//                case .failure:
+//                    completionHandler(nil, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
@@ -388,41 +445,59 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
     public func updateUser(object: User, name: String?, photoName: String?, isLogged: Bool?, state: String?, city: String?, completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
             let _ = object.update(name, photoName: photoName, isLogged: isLogged, isSuscribed: nil, state: state, city: city)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(true, nil)
-                case .failure:
-                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(true, nil)
+            } catch {
+                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(true, nil)
+//                case .failure:
+//                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
     public func updateUserSubscription(object: User, isSubscribed: Bool?, completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
             let _ = object.update(nil, photoName: nil, isLogged: nil, isSuscribed: isSubscribed)
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(true, nil)
-                case .failure:
-                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(true, nil)
+            } catch {
+                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(true, nil)
+//                case .failure:
+//                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
     public func save(completionHandler: @escaping(Bool, Error?) -> Void){
         stack.mainContext.performAndWait {
-            saveContext(stack.mainContext){ result in
-                switch result{
-                case .success:
-                    completionHandler(true, nil)
-                case .failure:
-                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
-                }
+            do {
+                try stack.mainContext.save()
+                completionHandler(true, nil)
+            } catch {
+                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
             }
+//            saveContext(stack.mainContext){ result in
+//                switch result{
+//                case .success:
+//                    completionHandler(true, nil)
+//                case .failure:
+//                    completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+//                }
+//            }
         }
     }
     
@@ -478,14 +553,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
             print("Default")
         }
         self.stack!.mainContext.delete(object)
-        saveContext(self.stack!.mainContext){ result in
-            switch result{
-            case .success:
-                completionHandler(true, nil)
-            case .failure:
-                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
-            }
+        do {
+            try self.stack!.mainContext.save()
+            completionHandler(true, nil)
+        } catch {
+            completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
         }
+//        saveContext(self.stack!.mainContext){ result in
+//            switch result{
+//            case .success:
+//                completionHandler(true, nil)
+//            case .failure:
+//                completionHandler(false, NSError(type: ErrorType.cannotSaveInCoreData))
+//            }
+//        }
     }
     
     public func updateProducts(){
@@ -500,14 +581,20 @@ class CoreDataManager: NSObject, NSFetchedResultsControllerDelegate {
                             uid = FirebaseOperations().addArticle(barcode: eachArticle.code, name: eachArticle.name, suggestedPrice: eachArticle.suggestedPrice as Decimal)
                         }
                         let articleUpdated = eachArticle.update(name: nil, uid: uid)
-                        saveContext((stack?.mainContext)!){ result in
-                            switch result{
-                            case .success:
-                                articleUpdated.debug()
-                            case .failure:
-                                print("Error saving")
-                            }
+                        do {
+                            try (stack?.mainContext)!.save()
+                            articleUpdated.debug()
+                        } catch {
+                            print("Error saving")
                         }
+//                        saveContext((stack?.mainContext)!){ result in
+//                            switch result{
+//                            case .success:
+//                                articleUpdated.debug()
+//                            case .failure:
+//                                print("Error saving")
+//                            }
+//                        }
                     }
                 }
             }

@@ -41,7 +41,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     var stores: [Store] = []
     var titleText = String()
     
-    var interstitialAd: GADInterstitial!
+//    var interstitialAd: GADInterstitial!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +96,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         configureComponents()
         configureTable()
         nameListAnimatedControl.setDelegate()
-        interstitialAd = createAndLoadInterstitial()
+//        interstitialAd = createAndLoadInterstitial()
     }
     
     func configureMenu(){
@@ -195,21 +195,21 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         }
     }
     
-    func createAndLoadInterstitial() -> GADInterstitial{
-        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId)
-        interstitial.delegate = self
-        interstitial.load(AdsManager.shared.getRequest())
-        return interstitial
-    }
+//    func createAndLoadInterstitial() -> GADInterstitial{
+//        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId)
+//        interstitial.delegate = self
+//        interstitial.load(AdsManager.shared.getRequest())
+//        return interstitial
+//    }
     
     func showInterstitial(){
         guard !UserManager.shared.userIsSuscribed() else {_ = self.navigationController?.popViewController(animated: true);return}
-        if interstitialAd.isReady {
-            interstitialAd.present(fromRootViewController: self)
-        } else {
-            print("Ad wasn't ready")
-            _ = self.navigationController?.popViewController(animated: true)
-        }
+//        if interstitialAd.isReady {
+//            interstitialAd.present(fromRootViewController: self)
+//        } else {
+//            print("Ad wasn't ready")
+//            _ = self.navigationController?.popViewController(animated: true)
+//        }
     }
     
     //MARK: - Buttons pressed
@@ -391,14 +391,14 @@ extension CreateListViewController: MKDropdownMenuDelegate{
     }
 }
 
-extension CreateListViewController: GADInterstitialDelegate{
-    
-    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
-        _ = self.navigationController?.popViewController(animated: true)
-        interstitialAd = createAndLoadInterstitial()
-    }
-    
-    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
-        print("Ad received")
-    }
-}
+//extension CreateListViewController: GADInterstitialDelegate{
+//
+//    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+//        _ = self.navigationController?.popViewController(animated: true)
+////        interstitialAd = createAndLoadInterstitial()
+//    }
+//
+//    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+//        print("Ad received")
+//    }
+//}

@@ -1,33 +1,37 @@
-![](https://github.com/bizz84/SwiftyStoreKit/raw/master/SwiftyStoreKit-logo.png)
+<img src="https://github.com/bizz84/SwiftyStoreKit/raw/master/SwiftyStoreKit-logo.png" width=100%>
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://mit-license.org)
-[![Platform](http://img.shields.io/badge/platform-ios%20%7C%20macos%20%7C%20tvos-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
-[![Language](https://img.shields.io/badge/swift-3.0-orange.svg)](https://developer.apple.com/swift)
+[![Platform](http://img.shields.io/badge/platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg?style=flat)](https://developer.apple.com/resources/)
+[![Language](https://img.shields.io/badge/swift-5.0-orange.svg)](https://developer.apple.com/swift)
 [![Build](https://img.shields.io/travis/bizz84/SwiftyStoreKit.svg?style=flat)](https://travis-ci.org/bizz84/SwiftyStoreKit)
 [![Issues](https://img.shields.io/github/issues/bizz84/SwiftyStoreKit.svg?style=flat)](https://github.com/bizz84/SwiftyStoreKit/issues)
-[![Cocoapod](http://img.shields.io/cocoapods/v/SwiftyStoreKit.svg?style=flat)](http://cocoadocs.org/docsets/SwiftyStoreKit/)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio)
-[![Downloads](https://img.shields.io/cocoapods/dm/SwiftyStoreKit.svg)](https://cocoapods.org/pods/SwiftyStoreKit)
-[![Twitter](https://img.shields.io/badge/twitter-@biz84-blue.svg?maxAge=2592000)](http://twitter.com/biz84)
+[![Slack](https://img.shields.io/badge/Slack-Join-green.svg?style=flat)](https://join.slack.com/t/swiftystorekit/shared_invite/enQtODY3OTYxOTExMzE5LWVkNGY4MzcwY2VjNGM4MGU4NDFhMGE5YmUxMGM3ZTQ4NjVjNTRkNTJhNDAyMWZmY2M5OWE5MDE0ODc3OGJjMmM)
 
-SwiftyStoreKit is a lightweight In App Purchases framework for iOS 8.0+, tvOS 9.0+ and macOS 10.10+.
+SwiftyStoreKit is a lightweight In App Purchases framework for iOS, tvOS, watchOS, macOS, and Mac Catalyst.
 
-### Preview
+## Contributions Wanted
+SwiftyStoreKit makes it easy for an incredible number of developers to seemlessly integrate in-App Purchases. This project, however, is now **community-led**. We need help building out features and writing tests (see [issue #550](https://github.com/bizz84/SwiftyStoreKit/issues/550)).
 
-<img src="https://github.com/bizz84/SwiftyStoreKit/raw/master/Screenshots/Preview.jpg" width="320">
+### Maintainers Wanted
 
-### Note from the Author
+- The author is no longer maintaining this project actively. If you'd like to become a maintainer, [join the Slack workspace](https://join.slack.com/t/swiftystorekit/shared_invite/enQtODY3OTYxOTExMzE5LWVkNGY4MzcwY2VjNGM4MGU4NDFhMGE5YmUxMGM3ZTQ4NjVjNTRkNTJhNDAyMWZmY2M5OWE5MDE0ODc3OGJjMmM) and enter the [#maintainers](https://app.slack.com/client/TL2JYQ458/CLG62K26A/details/) channel.
+- Going forward, SwiftyStoreKit should be made for the community, by the community. 
 
-I started [**Coding with Flutter**](https://www.youtube.com/playlist?list=PLNnAcB93JKV9iZ2cwk9MEx3_JG8BRikMP), a YouTube video series on building apps with Flutter. Interested? [**Subscribe here**](https://mailchi.mp/908b29bd9311/coding-with-flutter).
+More info here:
 
-### Like SwiftyStoreKit? Please consider [becoming a Patron](https://www.patreon.com/biz84).
+- [The Future of SwiftyStoreKit: Maintainers Wanted](https://medium.com/@biz84/the-future-of-swiftystorekit-maintainers-needed-f60d01572c91)
+
+### Join on Slack 
+
+SwiftyStoreKit is on Slack. [Join here](https://join.slack.com/t/swiftystorekit/shared_invite/enQtODY3OTYxOTExMzE5LWVkNGY4MzcwY2VjNGM4MGU4NDFhMGE5YmUxMGM3ZTQ4NjVjNTRkNTJhNDAyMWZmY2M5OWE5MDE0ODc3OGJjMmM).
 
 ## Content
 
+- [Requirements](#requirements)
 - [Installation](#installation)
-	- [CocoaPods](#cocoapods)
+	- [Swift Package Manager](#swift-package-manager)
 	- [Carthage](#carthage)
+	- [CocoaPods](#cocoapods)
 - [Features](#features)
 - [Contributing](#contributing)
 - [App startup](#app-startup)
@@ -47,6 +51,7 @@ I started [**Coding with Flutter**](https://www.youtube.com/playlist?list=PLNnAc
 	- [Verify Purchase](#verify-purchase)
 	- [Verify Subscription](#verify-subscription)
 	- [Subscription Groups](#subscription-groups)
+        - [Get distinct purchase identifiers](#get-distinct-purchase-identifiers)
 - [Notes](#notes)
 - [Change Log](#change-log)
 - [Sample Code](#sample-code)
@@ -58,18 +63,35 @@ I started [**Coding with Flutter**](https://www.youtube.com/playlist?list=PLNnAc
 - [Apps using SwiftyStoreKit](#apps-using-swiftystorekit)
 - [License](#license)
 	
+## Requirements
+If you've shipped an app in the last five years, you're probably good to go. Some features (like discounts) are only available on new OS versions, but most features are available as far back as:
+
+| iOS | watchOS | tvOS | macOS | Mac Catalyst |
+|-----|---------|------|-------|--------------|
+| 8.0 | 6.2     | 9.0  | 10.10 | 13.0         |
+
 ## Installation
+There are a number of ways to install SwiftyStoreKit for your project. Swift Package Manager and Carthage integrations are the preferred and recommended approaches. Unfortunately, CocoaPods is currently not supported / outdated (see below for details).
 
-### CocoaPods
+Regardless, make sure to import the project wherever you may use it:
 
-SwiftyStoreKit can be installed as a [CocoaPod](https://cocoapods.org/) and builds as a Swift framework. To install, include this in your Podfile.
-
-```ruby
-use_frameworks!
-
-pod 'SwiftyStoreKit'
+```swift
+import SwiftyStoreKit
 ```
-Once installed, just ```import SwiftyStoreKit``` in your classes and you're good to go.
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into Xcode and the Swift compiler. **This is the recommended installation method.** Updates to SwiftyStoreKit will always be available immediately to projects with SPM. SPM is also integrated directly with Xcode.
+
+If you are using Xcode 11 or later:
+ 1. Click `File`
+ 2. `Swift Packages`
+ 3. `Add Package Dependency...`
+ 4. Specify the git URL for SwiftyStoreKit.
+
+```swift
+https://github.com/bizz84/SwiftyStoreKit.git
+```
 
 ### Carthage
 
@@ -81,16 +103,26 @@ github "bizz84/SwiftyStoreKit"
 
 **NOTE**: Please ensure that you have the [latest](https://github.com/Carthage/Carthage/releases) Carthage installed.
 
+### CocoaPods
+SwiftyStoreKit can be installed as a [CocoaPod](https://cocoapods.org/) and builds as a Swift framework. To install, include this in your Podfile.
+
+```ruby
+use_frameworks!
+
+pod 'SwiftyStoreKit'
+```
+
 ## Features
 
-- Super easy to use block based API
-- Support for consumable, non-consumable in-app purchases
+- Super easy-to-use block-based API
+- Support for consumable and non-consumable in-app purchases
 - Support for free, auto-renewable and non-renewing subscriptions
 - Support for in-app purchases started in the App Store (iOS 11)
+- Support for subscription discounts and offers
 - Remote receipt verification
 - Verify purchases, subscriptions, subscription groups
 - Downloading content hosted with Apple
-- iOS, tvOS and macOS compatible
+- iOS, tvOS, watchOS, macOS, and Catalyst compatible
 
 ## Contributing
 
@@ -623,14 +655,40 @@ SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
     }
 }
 ```
+#### Get distinct purchase identifiers 
+
+You can retrieve all product identifiers with the `getDistinctPurchaseIds` method:
+
+```swift
+let appleValidator = AppleReceiptValidator(service: .production, sharedSecret: "your-shared-secret")
+SwiftyStoreKit.verifyReceipt(using: appleValidator) { result in
+    switch result {
+    case .success(let receipt):
+        let productIds = SwiftyStoreKit.getDistinctPurchaseIds(inReceipt receipt: ReceiptInfo)
+        let purchaseResult = SwiftyStoreKit.verifySubscriptions(productIds: productIds, inReceipt: receipt)
+        switch purchaseResult {
+        case .purchased(let expiryDate, let items):
+            print("\(productIds) are valid until \(expiryDate)\n\(items)\n")
+        case .expired(let expiryDate, let items):
+            print("\(productIds) are expired since \(expiryDate)\n\(items)\n")
+        case .notPurchased:
+            print("The user has never purchased \(productIds)")
+        }
+    case .error(let error):
+        print("Receipt verification failed: \(error)")
+    }
+}
+```
+
 
 ## Notes
 The framework provides a simple block based API with robust error handling on top of the existing StoreKit framework. It does **NOT** persist in app purchases data locally. It is up to clients to do this with a storage solution of choice (i.e. NSUserDefaults, CoreData, Keychain).
 
-#### Swift 2.x / 3.x / 4.x
+#### Swift 2.x / 3.x / 4.x / 5.x
 
 | Language  | Branch | Pod version | Xcode version |
 | --------- | ------ | ----------- | ------------- |
+| Swift 5.x | [master](https://github.com/bizz84/SwiftyStoreKit/tree/master) | >= 0.15.0 | Xcode 10.2 or greater|
 | Swift 4.x | [master](https://github.com/bizz84/SwiftyStoreKit/tree/master) | >= 0.10.4 | Xcode 9 or greater|
 | Swift 3.x | [master](https://github.com/bizz84/SwiftyStoreKit/tree/master) | >= 0.5.x | Xcode 8.x |
 | Swift 2.3 | [swift-2.3](https://github.com/bizz84/SwiftyStoreKit/tree/swift-2.3) | 0.4.x | Xcode 8, Xcode 7.3.x |
@@ -680,7 +738,7 @@ I have also written about building SwiftyStoreKit on Medium:
 
 #### [@rebeloper](https://github.com/rebeloper): Ultimate In-app Purchases Guide
 
-<a href="https://www.youtube.com/watch?v=bIyj6BZ1-Qw&list=PL_csAAO9PQ8b9kqrltk2_SpYslTwyrwjb"><img src="https://raw.githubusercontent.com/bizz84/SwiftyStoreKit/master/Screenshots/VideoTutorial-Rebeloper.jpg" width="854" /></a>
+<a href="https://www.youtube.com/watch?v=MP-U5gQylHc"><img src="https://user-images.githubusercontent.com/2488011/65576278-55cccc80-df7a-11e9-8db5-244e2afa3e46.png" width="100%" /></a>
 
 ## Payment flows: implementation details
 In order to make a purchase, two operations are needed:
@@ -723,6 +781,7 @@ Many thanks to [phimage](https://github.com/phimage) for adding macOS support an
 
 It would be great to showcase apps using SwiftyStoreKit here. Pull requests welcome :)
 
+* [Every Plant, Ever](https://itunes.apple.com/us/app/every-plant-ever/id1433967019) - The sticker pack of every plant, ever.
 * [Countdown](https://countdowns.download/ssk) - Countdown the days until your next vacation, deadline, or event
 * [MDacne](https://itunes.apple.com/app/id1044050208) - Acne analysis and treatment
 * [Pixel Picker](https://itunes.apple.com/app/id930804327) - Image Color Picker
@@ -737,6 +796,8 @@ It would be great to showcase apps using SwiftyStoreKit here. Pull requests welc
 * [Zmeu Grand Canyon](http://grandcanyon.zmeu.guide/) - Interactive hiking map & planner
 * [OB Monitor](https://itunes.apple.com/app/id1073398446) - The app for Texas Longhorns athletics fans
 * [Talk Dim Sum](https://itunes.apple.com/us/app/talk-dim-sum/id953929066) - Your dim sum companion
+* [Sluggard](https://itunes.apple.com/app/id1160131071) - Perform simple exercises to reduce the risks of sedentary lifestyle
+* [Debts iOS](https://debts.ivanvorobei.by/ios) & [Debts macOS](https://debts.ivanvorobei.by/macos) - Track amounts owed
 
 A full list of apps is published [on AppSight](https://www.appsight.io/sdk/574154).
 
