@@ -10,6 +10,7 @@ PODS:
     - FLAnimatedImage (>= 1.0.0)
     - FLAnimatedImage-tvOS (>= 1.0.16)
   - AXStateButton (1.1.4)
+  - BadgeHub (1.0.0)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
@@ -148,6 +149,7 @@ PODS:
   - PMSuperButton (3.0.2)
   - PopupDialog (0.9.2):
     - DynamicBlurView (~> 3.0.1)
+  - ProgressHUD (2.70)
   - PromiseKit (6.15.3):
     - PromiseKit/CorePromise (= 6.15.3)
     - PromiseKit/Foundation (= 6.15.3)
@@ -171,6 +173,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 3.5)
   - ALCameraViewController
   - AXPhotoViewer
+  - BadgeHub
   - ChameleonFramework/Swift (from `https://github.com/wowansm/Chameleon`, branch `swift5`)
   - FBSDKCoreKit/Swift
   - FBSDKLoginKit/Swift
@@ -186,6 +189,7 @@ DEPENDENCIES:
   - MKDropdownMenu
   - PMSuperButton
   - PopupDialog (~> 0.6)
+  - ProgressHUD
   - PromiseKit (~> 6.8)
   - PWSwitch
   - SwiftyOnboard
@@ -202,6 +206,7 @@ SPEC REPOS:
     - ALCameraViewController
     - AXPhotoViewer
     - AXStateButton
+    - BadgeHub
     - DynamicBlurView
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -228,6 +233,7 @@ SPEC REPOS:
     - nanopb
     - PMSuperButton
     - PopupDialog
+    - ProgressHUD
     - PromiseKit
     - PromisesObjC
     - PWSwitch
@@ -265,6 +271,7 @@ SPEC CHECKSUMS:
   ALCameraViewController: 144dea45fd749a623aafd8cb7b10cea88499fcc3
   AXPhotoViewer: f4b021c6e43b0b9dbc7b30cf8b9a4f577d0c1f51
   AXStateButton: 6c515a433e37551505046429b5be04c12daa8c07
+  BadgeHub: b227771329f78c37a2dae7502607ec6d00a50bd4
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   DynamicBlurView: b1df5415f9bd31897549e5d7077e5ec120a4d636
   FBSDKCoreKit: ada5c8a05188daefc9addb985c52b8a1b26da519
@@ -293,6 +300,7 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PMSuperButton: 72105fef415890c8792a9e5a784f75c461066f8b
   PopupDialog: f4bb461bf70ff422be0b56656566424ee9273080
+  ProgressHUD: e603e8b8622c47d8818b9fb38b3cfe9d3e7ca421
   PromiseKit: 3b2b6995e51a954c46dbc550ce3da44fbfb563c5
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   PWSwitch: e20b0dcda15349bb61270a8c5cb6b2196dc440fa
@@ -303,6 +311,6 @@ SPEC CHECKSUMS:
   TableViewReloadAnimation: f3a4c4048efbc56331be98075f26a2e533a14c16
   TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
 
-PODFILE CHECKSUM: 2aa20b77273062f4c5f40131855e3fa29d74fa95
+PODFILE CHECKSUM: da81c63a6fa41855164ff6d4daf345f54b4ba771
 
 COCOAPODS: 1.10.1

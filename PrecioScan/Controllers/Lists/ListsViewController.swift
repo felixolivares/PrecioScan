@@ -16,7 +16,7 @@ import SwipeCellKit
 import GoogleMobileAds
 
 
-class ListsViewController: CustomTransitionViewController {
+class ListsViewController: CustomTransitionViewController, GADFullScreenContentDelegate {
     
 
     
@@ -99,6 +99,17 @@ class ListsViewController: CustomTransitionViewController {
     }
     
     func setupRewardedAd() {
+        let request = GADRequest()
+        GADRewardedAd.load(withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedListsId,
+                                  request: request, completionHandler: { (ad, error) in
+                                    if let error = error {
+                                      print("Rewarded ad failed to load with error: \(error.localizedDescription)")
+                                      return
+                                    }
+                                    self.rewardedAd = ad
+                                    self.rewardedAd?.fullScreenContentDelegate = self
+                                  }
+          )
 //        rewardedAd = GADRewardedAd(adUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedListsId)
 //        GADRewardedAd.load
 
@@ -137,6 +148,19 @@ class ListsViewController: CustomTransitionViewController {
     }
     
     func showRewardedAd() {
+        if let ad = rewardedAd {
+              ad.present(fromRootViewController: self,
+                       userDidEarnRewardHandler: {
+                         let reward = ad.adReward
+                         print("Hellooo!! Reward received with currency: \(reward.type), amount \(reward.amount).")
+                         if (reward.type == Constants.Admob.RewardItem.list && reward.amount == 1) {
+                             self.performSegue(withIdentifier: Segues.toNewListFromLists, sender: nil)
+                         }
+                       }
+              )
+          } else {
+            print("Ad wasn't ready")
+          }
 //        if rewardedAd?.isReady == true {
 //           rewardedAd?.present(fromRootViewController: self, delegate:self)
 //        }
@@ -170,6 +194,24 @@ class ListsViewController: CustomTransitionViewController {
             self.performSegue(withIdentifier: Segues.toNewListFromLists, sender: nil)
         }
     }
+    
+    //MARK: - Ads delegate methods
+    /// Tells the delegate that the rewarded ad was presented.
+    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Rewarded ad presented.")
+    }
+    /// Tells the delegate that the rewarded ad was dismissed.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Reward based video ad is closed.")
+        self.setupRewardedAd()
+        
+    }
+    /// Tells the delegate that the rewarded ad failed to present.
+    func ad(_ ad: GADFullScreenPresentingAd,
+        didFailToPresentFullScreenContentWithError error: Error) {
+      print("Rewarded ad failed to present with error: \(error.localizedDescription).")
+    }
+    
 }
 
 extension ListsViewController: UITableViewDataSource, UITableViewDelegate{

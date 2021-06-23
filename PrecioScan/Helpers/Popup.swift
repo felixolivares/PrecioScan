@@ -81,9 +81,10 @@ class Popup{
         let popup = PopupDialog(title: "", message: message, image: nil, buttonAlignment: .horizontal, transitionStyle: .zoomIn, preferredWidth: 50, tapGestureDismissal: true, panGestureDismissal: true, hideStatusBar: false){}
         vc.present(popup, animated: true, completion: nil)
         let when = DispatchTime.now() + 2
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            popup.dismiss()
-            completionHandler(Constants.Popup.Buttons.continueAnswer)
+        DispatchQueue.main.asyncAfter(deadline: when, qos: .userInitiated, flags: []) {
+            popup.dismiss({
+                completionHandler(Constants.Popup.Buttons.continueAnswer)
+            })
         }
     }
     

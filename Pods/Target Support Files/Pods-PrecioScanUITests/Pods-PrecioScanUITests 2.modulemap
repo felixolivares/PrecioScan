@@ -1,0 +1,6 @@
+framework module Pods_PrecioScanUITests {
+  umbrella header "Pods-PrecioScanUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

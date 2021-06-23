@@ -48,7 +48,11 @@ class InAppPurchasesManager: NSObject {
         SwiftyStoreKit.retrieveProductsInfo([Constants.InAppPurchasesManager.product]) { result in
             if let product = result.retrievedProducts.first {
                 self.product = product
-                let priceString = product.localizedPrice!
+                let numberFormatter = NumberFormatter()
+                numberFormatter.locale = product.priceLocale
+                numberFormatter.numberStyle = .currency
+                let priceString = numberFormatter.string(from: product.price )!
+//                let priceString = product.localizedPrice!
                 self.productPriceString = priceString
                 print("[InAppPurchasesManager] - retrieveProducts: Product: \(product.localizedDescription), price: \(priceString)")
             }
@@ -92,22 +96,23 @@ class InAppPurchasesManager: NSObject {
                 completionHandler(true, nil)
             case .error(let error):
                 completionHandler(false, error)
+                print("[InAppPurchasesManager] - \(error)")
                 switch error.code {
-                case .unknown: print("Unknown error. Please contact support")
-                case .clientInvalid: print("Not allowed to make the payment")
+                case .unknown: print("[InAppPurchasesManager] - Unknown error. Please contact support")
+                case .clientInvalid: print("[InAppPurchasesManager] - Not allowed to make the payment")
                 case .paymentCancelled: break
-                case .paymentInvalid: print("The purchase identifier was invalid")
-                case .paymentNotAllowed: print("The device is not allowed to make the payment")
-                case .storeProductNotAvailable: print("The product is not available in the current storefront")
-                case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
-                case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
-                case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
-                case .privacyAcknowledgementRequired: print("Privacy Acnkwoledgement required")
-                case .unauthorizedRequestData: print("Unauthorized request data")
-                case .invalidOfferIdentifier: print("Invalid Offer Identifier")
-                case .invalidSignature: print("Invalid signature")
-                case .missingOfferParams: print("Missing Offer Params")
-                case .invalidOfferPrice: print("Invalid Offer price")
+                case .paymentInvalid: print("[InAppPurchasesManager] - The purchase identifier was invalid")
+                case .paymentNotAllowed: print("[InAppPurchasesManager] - The device is not allowed to make the payment")
+                case .storeProductNotAvailable: print("[InAppPurchasesManager] - The product is not available in the current storefront")
+                case .cloudServicePermissionDenied: print("[InAppPurchasesManager] - Access to cloud service information is not allowed")
+                case .cloudServiceNetworkConnectionFailed: print("[InAppPurchasesManager] - Could not connect to the network")
+                case .cloudServiceRevoked: print("[InAppPurchasesManager] - User has revoked permission to use this cloud service")
+                case .privacyAcknowledgementRequired: print("[InAppPurchasesManager] - Privacy Acnkwoledgement required")
+                case .unauthorizedRequestData: print("[InAppPurchasesManager] - Unauthorized request data")
+                case .invalidOfferIdentifier: print("[InAppPurchasesManager] - Invalid Offer Identifier")
+                case .invalidSignature: print("[InAppPurchasesManager] - Invalid signature")
+                case .missingOfferParams: print("[InAppPurchasesManager] - Missing Offer Params")
+                case .invalidOfferPrice: print("[InAppPurchasesManager] - Invalid Offer price")
                 default: break
                 }
             }
@@ -127,7 +132,7 @@ class InAppPurchasesManager: NSObject {
             }
             else {
                 print("Nothing to Restore")
-                completionHandler(nil, nil)
+                completionHandler(false, (NSError(domain: SKErrorDomain, code: SKError.unknown.rawValue, userInfo: [ NSLocalizedDescriptionKey: Constants.InAppPurchasesManager.noPurchasesRestore ]) as! SKError))
             }
         }
     }

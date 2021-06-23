@@ -22,8 +22,9 @@ class FirebaseOperations: NSObject {
             if error != nil{
                 print("Sign in - Error code: \((error! as NSError).code) ")
                 let customError = self.parseError(error: error! as NSError)
-                Popup.show(withError: customError, vc: vc)
-                button.stopAnimation()
+                button.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: {
+                    Popup.show(withError: customError, vc: vc)
+                })
             } else {
                 button.stopAnimation(animationStyle: .expand, completion: {
                     UserManager.shared.logIn(email: email)
@@ -240,15 +241,15 @@ class FirebaseOperations: NSObject {
     public func searchCurrentUser(withId uid: String, completionHandler: @escaping(TempUser?) -> Void){
         self.ref.child(FRTable.user).child(uid).observe(.value, with:{ snapshot in
             if snapshot.exists(){
-                var userDic = snapshot.value as! [String:Any]
+                let userDic = snapshot.value as! [String:Any]
                 print("User dict: \(userDic)")
                 let tmpUser = TempUser.init(email: userDic[FRAttribute.email] as! String,
                                             isSubscribed: userDic[FRAttribute.isSubscribed] as? Bool ?? false,
                                             uid: uid,
                                             subscriptionDate: userDic[FRAttribute.subscriptionDate] as? Double ?? nil,
                                             username: userDic[FRAttribute.username] as! String,
-                                            state: userDic[FRAttribute.state] as! String,
-                                            city: userDic[FRAttribute.city] as! String)
+                                            state: userDic[FRAttribute.state] as? String ?? "",
+                                            city: userDic[FRAttribute.city] as? String ?? "")
                 print("Temp User: \(tmpUser)")
                 completionHandler(tmpUser)
             } else {

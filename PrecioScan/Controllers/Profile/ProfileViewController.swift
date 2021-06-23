@@ -13,7 +13,7 @@ import ALCameraViewController
 import GoogleMobileAds
 import MKDropdownMenu
 
-class ProfileViewController: UIViewController, SideMenuItemContent {
+class ProfileViewController: UIViewController, SideMenuItemContent, GADFullScreenContentDelegate {
 
     @IBOutlet weak var hamburgerButton: UIButton!
     //    @IBOutlet weak var hamburgerButton: DynamicButton!
@@ -28,6 +28,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     
     var currentUser: User!
 //    var interstitialAd: GADInterstitial!
+    private var interstitialAd: GAMInterstitialAd?
     var stateSelected: String!
     var dropDownIsOpen: Bool = false
     let componentTitles = States().allStates()
@@ -37,7 +38,7 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        interstitialAd = createAndLoadInterstitial()
+        createAndLoadInterstitial()
         configureMenu()
     }
 
@@ -104,15 +105,36 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
         statesMenu.componentTextAlignment = .left
     }
     
-//    func createAndLoadInterstitial() -> GADInterstitial{
+    func createAndLoadInterstitial(){
+        let request = GAMRequest()
+        GAMInterstitialAd.load(withAdManagerAdUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId,
+                               request: request,
+                               completionHandler: { [self] ad, error in
+                                if let error = error {
+                                  print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                                  return
+                                } else {
+                                    print("Ad loaded succesfully: \(String(describing: ad))")
+                                }
+                                self.interstitialAd = ad
+                                self.interstitialAd?.fullScreenContentDelegate = self
+                              }
+        )
 //        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId)
 //        interstitial.delegate = self
 //        interstitial.load(AdsManager.shared.getRequest())
 //        return interstitial
-//    }
+    }
     
     func showInterstitial(){
         guard !UserManager.shared.userIsSuscribed() else {_ = self.navigationController?.popViewController(animated: true);return}
+        print("Interstitial add show")
+        if interstitialAd != nil {
+            interstitialAd!.present(fromRootViewController: self)
+          } else {
+            print("Ad wasn't ready")
+            _ = self.navigationController?.popViewController(animated: true)
+          }
 //        if interstitialAd.isReady {
 //            interstitialAd.present(fromRootViewController: self)
 //        } else {
@@ -165,11 +187,30 @@ class ProfileViewController: UIViewController, SideMenuItemContent {
             } else {
                 print("Image not saved")
             }
-            self?.dismiss(animated: true, completion: nil)
-            self?.showInterstitial()
+            self?.dismiss(animated: true, completion: {
+                self?.showInterstitial()
+            })
         }
         present(cameraViewController, animated: true, completion: nil)
     }
+    
+    //MARK: - Ads delegate methods
+    /// Tells the delegate that the ad failed to present full screen content.
+      func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content. \(error.localizedDescription)")
+      }
+
+      /// Tells the delegate that the ad presented full screen content.
+      func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did present full screen content.")
+      }
+
+      /// Tells the delegate that the ad dismissed full screen content.
+      func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did dismiss full screen content.")
+        _ = self.navigationController?.popViewController(animated: true)
+        self.createAndLoadInterstitial()
+      }
 }
 
 //extension ProfileViewController: GADInterstitialDelegate{

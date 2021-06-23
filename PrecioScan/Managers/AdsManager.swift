@@ -17,7 +17,7 @@ class AdsManager: NSObject {
     public func getRequest() -> GADRequest {
         
         #if DEBUG
-        adRequest.testDevices = ["83e00fd76a3f30b0f778eff61eb2718a", kGADSimulatorID]
+        GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = ["83e00fd76a3f30b0f778eff61eb2718a", kGADSimulatorID]
         #endif
         
         return adRequest
