@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import DynamicButton
+
 import TableViewReloadAnimation
 import GoogleMobileAds
 
 class ArticlesViewController: UIViewController {
 
-    @IBOutlet weak var hamburgerButton: DynamicButton!
+    @IBOutlet weak var hamburgerButton: UIButton!
+    //    @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBarContainer: UIView!
     @IBOutlet weak var articlesCountLabel: UILabel!
@@ -32,7 +33,7 @@ class ArticlesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        hamburgerButton.setStyle(.hamburger, animated: true)
+//        hamburgerButton.setStyle(.hamburger, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -68,7 +69,7 @@ class ArticlesViewController: UIViewController {
     }
     
     @IBAction func hamburguerMenuButtonPressed(_ sender: Any) {
-        hamburgerButton.setStyle(.close, animated: true)
+//        hamburgerButton.setStyle(.close, animated: true)
         (self.navigationController as! NavigationArticlesViewController).showSideMenu()
     }
     func configure(){
@@ -80,7 +81,7 @@ class ArticlesViewController: UIViewController {
     
     func configureComponents(){
         UserManager.shared.verifyUserIsLogged(vc: self)
-        hamburgerButton.setStyle(.hamburger, animated: false)
+//        hamburgerButton.setStyle(.hamburger, animated: false)
         adsViewabilty()
     }
     

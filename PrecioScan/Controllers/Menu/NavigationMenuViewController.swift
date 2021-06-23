@@ -12,15 +12,7 @@ import MessageUI
 import FBSDKShareKit
 import FBSDKCoreKit
 
-class NavigationMenuViewController: MenuViewController, FBSDKAppInviteDialogDelegate {
-    func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [AnyHashable : Any]!) {
-        print("")
-    }
-    
-    func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: Error!) {
-        print("")
-    }
-    
+class NavigationMenuViewController: MenuViewController {    
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileImageView: UIImageView!

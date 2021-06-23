@@ -32,6 +32,11 @@ class LoginViewController: UIViewController {
     }
     
     func configure(){
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = true
+        } else {
+            // Fallback on earlier versions
+        }
         passwordAnimatedControl.setDelegate()
         emailAnimatedControl.setDelegate()
 //        loginButton.setLoading()
@@ -46,7 +51,9 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ button: TransitionButton) {
         button.startAnimation()
         guard emailAnimatedControl.valueTextField.text != "", passwordAnimatedControl.valueTextField.text != "" else {
-            Popup.show(withOK: Warning.Login.completeFields, title: Constants.Popup.Titles.attention, vc: self); button.stopAnimation()
+            button.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: {
+                Popup.show(withOK: Warning.Login.completeFields, title: Constants.Popup.Titles.attention, vc: self);
+            })
             return
         }
         FirebaseOperations().signIn(email: emailAnimatedControl.valueTextField.text!, password: passwordAnimatedControl.valueTextField.text!, button: button, vc: self)
@@ -57,4 +64,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func createAccountButtonPressed(_ sender: Any) {
     }
+}
+
+func presentationControllerShouldDismiss(_ presentationController: UIPresentationController) -> Bool {
+    return false
 }

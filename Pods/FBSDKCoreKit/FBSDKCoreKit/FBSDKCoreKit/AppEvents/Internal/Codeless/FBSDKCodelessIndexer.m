@@ -16,6 +16,10 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import "FBSDKCodelessIndexer.h"
 
 #import <objc/runtime.h>
@@ -24,16 +28,16 @@
 
 #import <UIKit/UIKit.h>
 
-#import <FBSDKCoreKit/FBSDKGraphRequest.h>
-#import <FBSDKCoreKit/FBSDKSettings.h>
-
 #import "FBSDKCoreKit+Internal.h"
+#import "FBSDKGraphRequest.h"
+#import "FBSDKSettings.h"
 
 @implementation FBSDKCodelessIndexer
 
 static BOOL _isCodelessIndexing;
 static BOOL _isCheckingSession;
 static BOOL _isCodelessIndexingEnabled;
+static BOOL _isGestureSet;
 
 static NSMutableDictionary<NSString *, id> *_codelessSetting;
 static const NSTimeInterval kTimeout = 4.0;
@@ -42,8 +46,11 @@ static NSString *_deviceSessionID;
 static NSTimer *_appIndexingTimer;
 static NSString *_lastTreeHash;
 
-+ (void)load
++ (void)enable
 {
+  if (_isGestureSet) {
+    return;
+  }
 #if TARGET_OS_SIMULATOR
   [self setupGesture];
 #else
@@ -138,6 +145,7 @@ static NSString *_lastTreeHash;
 
 + (void)setupGesture
 {
+  _isGestureSet = YES;
   [UIApplication sharedApplication].applicationSupportsShakeToEdit = YES;
   Class class = [UIApplication class];
 
@@ -160,8 +168,8 @@ static NSString *_lastTreeHash;
   FBSDKGraphRequest *request = [[FBSDKGraphRequest alloc]
                                 initWithGraphPath:[NSString stringWithFormat:@"%@/%@",
                                                    [FBSDKSettings appID], CODELESS_INDEXING_SESSION_ENDPOINT]
-                                parameters: parameters
-                                HTTPMethod:@"POST"];
+                                parameters:parameters
+                                HTTPMethod:FBSDKHTTPMethodPOST];
   [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
     _isCheckingSession = NO;
     if ([result isKindOfClass:[NSDictionary class]]) {
@@ -213,13 +221,13 @@ static NSString *_lastTreeHash;
     localeString = [NSString stringWithFormat:@"%@_%@", languageCode, countryCode];
   }
 
-  NSString *extinfo = [FBSDKInternalUtility JSONStringForObject:@[machine,
-                                                                  advertiserID,
-                                                                  debugStatus,
-                                                                  isSimulator,
-                                                                  localeString]
-                                                          error:NULL
-                                           invalidObjectHandler:NULL];
+  NSString *extinfo = [FBSDKBasicUtility JSONStringForObject:@[machine,
+                                                               advertiserID,
+                                                               debugStatus,
+                                                               isSimulator,
+                                                               localeString]
+                                                       error:NULL
+                                        invalidObjectHandler:NULL];
 
   return extinfo ?: @"";
 }
@@ -289,7 +297,7 @@ static NSString *_lastTreeHash;
                                                CODELESS_INDEXING_PLATFORM_KEY: @"iOS",
                                                CODELESS_INDEXING_SESSION_ID_KEY: [self currentSessionDeviceID]
                                                }
-                                  HTTPMethod:@"POST"];
+                                  HTTPMethod:FBSDKHTTPMethodPOST];
     _isCodelessIndexing = YES;
     [request startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
         _isCodelessIndexing = NO;
@@ -308,7 +316,10 @@ static NSString *_lastTreeHash;
 
   NSArray *windows = [UIApplication sharedApplication].windows;
   for (UIWindow *window in windows) {
-    NSDictionary *tree = [FBSDKCodelessIndexer recursiveCaptureTree:window];
+    NSDictionary *tree = [FBSDKViewHierarchy recursiveCaptureTreeWithCurrentNode:window
+                                                                      targetNode:nil
+                                                                   objAddressSet:nil
+                                                                            hash:YES];
     if (tree) {
       if (window.isKeyWindow) {
         [trees insertObject:tree atIndex:0];
@@ -339,28 +350,6 @@ static NSString *_lastTreeHash;
   }
 
   return tree;
-}
-
-+ (NSDictionary<NSString *, id> *)recursiveCaptureTree:(NSObject *)obj
-{
-  if (!obj) {
-    return nil;
-  }
-
-  NSMutableDictionary *result = [FBSDKViewHierarchy getDetailAttributesOf:obj];
-
-  NSArray *children = [FBSDKViewHierarchy getChildren:obj];
-  NSMutableArray *childrenTrees = [NSMutableArray array];
-  for (NSObject *child in children) {
-    NSDictionary *objTree = [self recursiveCaptureTree:child];
-    [childrenTrees addObject:objTree];
-  }
-
-  if (childrenTrees.count > 0) {
-    [result setValue:[childrenTrees copy] forKey:CODELESS_VIEW_TREE_CHILDREN_KEY];
-  }
-
-  return [result copy];
 }
 
 + (UIImage *)screenshot {
@@ -402,3 +391,5 @@ static NSString *_lastTreeHash;
 }
 
 @end
+
+#endif

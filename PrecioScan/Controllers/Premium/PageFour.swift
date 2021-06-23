@@ -46,7 +46,7 @@ class PageFour: SwiftyOnboardPage, InAppPurchasesDelegate {
                             self.activityIndicatore.startAnimating()
                             self.purchaseFade()
                         } else {
-                            Popup.show(withError: error! as NSError, vc: (self.next as? UIViewController)!)
+                            Popup.show(withError: error! as NSError, vc: (self.next as! UIScrollView).parentContainerViewController()!)
                             self.activityIndicatorPurchasing.stopAnimating()
                         }
                     }
@@ -70,7 +70,7 @@ class PageFour: SwiftyOnboardPage, InAppPurchasesDelegate {
                         self.activityIndicatore.startAnimating()
                         self.purchaseFade()
                     }else if let success = finished, !success, let purchaseError = error {
-                        Popup.show(withError: purchaseError as NSError, vc: (self.next as? UIViewController)!)
+                        Popup.show(withError: purchaseError as NSError, vc: (self.next as! UIScrollView).parentContainerViewController()!)
                         self.activityIndicatorPurchasing.stopAnimating()
                     }
                 })
@@ -81,7 +81,7 @@ class PageFour: SwiftyOnboardPage, InAppPurchasesDelegate {
     }
     
     @IBAction func continueButtonPressed(_ sender: Any) {
-        ((self.next as? UIViewController)! as! SubscriptionViewController).continueButtonPressed()
+        ((self.next as! UIScrollView).parentContainerViewController()! as! SubscriptionViewController).continueButtonPressed()
     }
     
     @objc func connectionChanged(notification: Notification){
@@ -98,7 +98,7 @@ class PageFour: SwiftyOnboardPage, InAppPurchasesDelegate {
     func showRetryConnection(){
         activityIndicatorPurchasing.stopAnimating()
         activityIndicatorPurchasing.alpha = 0
-        Popup.showRetryConnection(title: Constants.Popup.Titles.attention, message: Warning.Generic.networkError, vc: (self.next as? UIViewController)!, completionHandler: { response in
+        Popup.showRetryConnection(title: Constants.Popup.Titles.attention, message: Warning.Generic.networkError, vc: (self.next as! UIScrollView).parentContainerViewController()!, completionHandler: { response in
             if response == PopupResponse.Accept {
                 InAppPurchasesManager.shared.verifyConnectionAndRetrieveProduct()
             }

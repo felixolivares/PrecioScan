@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B159F67D41007BF3754AEEE /* Pods_PrecioScanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D2C314FE1C0109C4C8A395B /* Pods_PrecioScanTests.framework */; };
+		1E97AC4FFDA5F74FC1FF9459 /* Pods_PrecioScanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2BB820FC599C204584FA3E8 /* Pods_PrecioScanUITests.framework */; };
 		30083B631F8839F8006274C9 /* Ubuntu-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30083B621F8839F8006274C9 /* Ubuntu-Regular.otf */; };
 		30083B651F883A77006274C9 /* Ubuntu-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30083B641F883A76006274C9 /* Ubuntu-MediumItalic.otf */; };
 		30083B681F883B40006274C9 /* Ubuntu-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 30083B661F883B3F006274C9 /* Ubuntu-Bold.otf */; };
@@ -19,6 +21,7 @@
 		301682CC1FCE9BE700559A3B /* TempStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301682CB1FCE9BE700559A3B /* TempStore.swift */; };
 		301682CF1FCF168600559A3B /* RemoteStoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301682CD1FCF168600559A3B /* RemoteStoreTableViewCell.swift */; };
 		301682D01FCF168600559A3B /* RemoteStoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 301682CE1FCF168600559A3B /* RemoteStoreTableViewCell.xib */; };
+		3016B40A26790825007DDBB6 /* BadgeHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3016B40926790825007DDBB6 /* BadgeHub.swift */; };
 		301C9FE51F956FFB00BC43FE /* BarcodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */; };
 		301CA55F1FAC28E100F2009A /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301CA55E1FAC28E100F2009A /* ArticleDetailViewController.swift */; };
 		3021562420116A0A002B9500 /* PageOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3021562320116A0A002B9500 /* PageOne.swift */; };
@@ -109,9 +112,7 @@
 		30FFE6371F85977E001CE3B8 /* PrecioScanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6361F85977E001CE3B8 /* PrecioScanTests.swift */; };
 		30FFE6421F85977E001CE3B8 /* PrecioScanUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6411F85977E001CE3B8 /* PrecioScanUITests.swift */; };
 		30FFE6581F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30FFE6561F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld */; };
-		6610B62D7757D02476BC90B6 /* Pods_PrecioScanUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF3F025C91EB7794508F0A8 /* Pods_PrecioScanUITests.framework */; };
-		BAC07B1A4722D2511618268B /* Pods_PrecioScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F920A08F9F5CDD0BFE6F24 /* Pods_PrecioScan.framework */; };
-		FE742038C5AB03137778C586 /* Pods_PrecioScanTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706F3779779F902CB4876CAC /* Pods_PrecioScanTests.framework */; };
+		AA0C3D9518110AC9AF511CF9 /* Pods_PrecioScan.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577B2E596D99F1F00F560526 /* Pods_PrecioScan.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +133,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1DF3F025C91EB7794508F0A8 /* Pods_PrecioScanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		268F1CA2D313554AD6198709 /* Pods-PrecioScan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScan.debug.xcconfig"; path = "Target Support Files/Pods-PrecioScan/Pods-PrecioScan.debug.xcconfig"; sourceTree = "<group>"; };
 		30083B621F8839F8006274C9 /* Ubuntu-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.otf"; sourceTree = "<group>"; };
 		30083B641F883A76006274C9 /* Ubuntu-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.otf"; sourceTree = "<group>"; };
 		30083B661F883B3F006274C9 /* Ubuntu-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.otf"; sourceTree = "<group>"; };
@@ -145,6 +146,7 @@
 		301682CB1FCE9BE700559A3B /* TempStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempStore.swift; sourceTree = "<group>"; };
 		301682CD1FCF168600559A3B /* RemoteStoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteStoreTableViewCell.swift; sourceTree = "<group>"; };
 		301682CE1FCF168600559A3B /* RemoteStoreTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RemoteStoreTableViewCell.xib; sourceTree = "<group>"; };
+		3016B40926790825007DDBB6 /* BadgeHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeHub.swift; sourceTree = "<group>"; };
 		301C9FE41F956FFB00BC43FE /* BarcodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeReader.swift; sourceTree = "<group>"; };
 		301CA55E1FAC28E100F2009A /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		3021562320116A0A002B9500 /* PageOne.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOne.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		3032616E1FB252B60083FBA0 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_2.xcdatamodel; sourceTree = "<group>"; };
 		303261711FB25CE20083FBA0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		30399566245B3D1600FF06EB /* PrecioScanModel_ 10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PrecioScanModel_ 10.xcdatamodel"; sourceTree = "<group>"; };
 		303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel_9.xcdatamodel; sourceTree = "<group>"; };
 		303C4375202A4E2200C8D58F /* Model8-9.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = "Model8-9.xcmappingmodel"; sourceTree = "<group>"; };
 		3044871F1F8D8EF400C5297D /* CreateStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateStoreViewController.swift; sourceTree = "<group>"; };
@@ -249,14 +252,14 @@
 		30FFE6411F85977E001CE3B8 /* PrecioScanUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecioScanUITests.swift; sourceTree = "<group>"; };
 		30FFE6431F85977E001CE3B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30FFE6571F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PrecioScanModel.xcdatamodel; sourceTree = "<group>"; };
-		50F7ACDCD7E3559EECE3E1BD /* Pods-PrecioScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScan.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScan/Pods-PrecioScan.release.xcconfig"; sourceTree = "<group>"; };
-		516C364AF82B1D3E5ABC8B00 /* Pods-PrecioScan.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScan.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScan/Pods-PrecioScan.debug.xcconfig"; sourceTree = "<group>"; };
-		63F920A08F9F5CDD0BFE6F24 /* Pods_PrecioScan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A00744C8AC116A1C3B2D4A0 /* Pods-PrecioScanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScanTests/Pods-PrecioScanTests.debug.xcconfig"; sourceTree = "<group>"; };
-		706F3779779F902CB4876CAC /* Pods_PrecioScanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82198563EB3FB1537C1CB992 /* Pods-PrecioScanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScanTests/Pods-PrecioScanTests.release.xcconfig"; sourceTree = "<group>"; };
-		B02365F27B49BFCAA92FA2FA /* Pods-PrecioScanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScanUITests/Pods-PrecioScanUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B6B00E79D50C754A032598F3 /* Pods-PrecioScanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PrecioScanUITests/Pods-PrecioScanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4BED65CFA91B06CFF6915584 /* Pods-PrecioScanUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanUITests.debug.xcconfig"; path = "Target Support Files/Pods-PrecioScanUITests/Pods-PrecioScanUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		577B2E596D99F1F00F560526 /* Pods_PrecioScan.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScan.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D2C314FE1C0109C4C8A395B /* Pods_PrecioScanTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8CC969FFF21AA2F500F3193C /* Pods-PrecioScanTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanTests.debug.xcconfig"; path = "Target Support Files/Pods-PrecioScanTests/Pods-PrecioScanTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F2B77465A849476384B2372 /* Pods-PrecioScanUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanUITests.release.xcconfig"; path = "Target Support Files/Pods-PrecioScanUITests/Pods-PrecioScanUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AFA3EF58598AB0F861E84AE1 /* Pods-PrecioScanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScanTests.release.xcconfig"; path = "Target Support Files/Pods-PrecioScanTests/Pods-PrecioScanTests.release.xcconfig"; sourceTree = "<group>"; };
+		B2BB820FC599C204584FA3E8 /* Pods_PrecioScanUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PrecioScanUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E33E489E1439B6903EABB3A6 /* Pods-PrecioScan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrecioScan.release.xcconfig"; path = "Target Support Files/Pods-PrecioScan/Pods-PrecioScan.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,8 +267,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC07B1A4722D2511618268B /* Pods_PrecioScan.framework in Frameworks */,
 				30D800601FDFA3D7003BD2FF /* StoreKit.framework in Frameworks */,
+				AA0C3D9518110AC9AF511CF9 /* Pods_PrecioScan.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +276,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE742038C5AB03137778C586 /* Pods_PrecioScanTests.framework in Frameworks */,
+				0B159F67D41007BF3754AEEE /* Pods_PrecioScanTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6610B62D7757D02476BC90B6 /* Pods_PrecioScanUITests.framework in Frameworks */,
+				1E97AC4FFDA5F74FC1FF9459 /* Pods_PrecioScanUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +426,7 @@
 				308571EF1FB6889F0026BB14 /* Fonts.swift */,
 				3010B7461F88360300F5C1D9 /* Fonts */,
 				307D087D224CB04800FADD96 /* CurrencyTextField.swift */,
+				3016B40926790825007DDBB6 /* BadgeHub.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -518,8 +522,8 @@
 				30FFE6351F85977E001CE3B8 /* PrecioScanTests */,
 				30FFE6401F85977E001CE3B8 /* PrecioScanUITests */,
 				30FFE61F1F85977E001CE3B8 /* Products */,
-				496F0A496D982255710296A1 /* Pods */,
 				FE3C16BAD3DBC8BC0ADFE841 /* Frameworks */,
+				BA3A32037DAEE00E6DE9914C /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -587,26 +591,26 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		496F0A496D982255710296A1 /* Pods */ = {
+		BA3A32037DAEE00E6DE9914C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				516C364AF82B1D3E5ABC8B00 /* Pods-PrecioScan.debug.xcconfig */,
-				50F7ACDCD7E3559EECE3E1BD /* Pods-PrecioScan.release.xcconfig */,
-				6A00744C8AC116A1C3B2D4A0 /* Pods-PrecioScanTests.debug.xcconfig */,
-				82198563EB3FB1537C1CB992 /* Pods-PrecioScanTests.release.xcconfig */,
-				B02365F27B49BFCAA92FA2FA /* Pods-PrecioScanUITests.debug.xcconfig */,
-				B6B00E79D50C754A032598F3 /* Pods-PrecioScanUITests.release.xcconfig */,
+				268F1CA2D313554AD6198709 /* Pods-PrecioScan.debug.xcconfig */,
+				E33E489E1439B6903EABB3A6 /* Pods-PrecioScan.release.xcconfig */,
+				8CC969FFF21AA2F500F3193C /* Pods-PrecioScanTests.debug.xcconfig */,
+				AFA3EF58598AB0F861E84AE1 /* Pods-PrecioScanTests.release.xcconfig */,
+				4BED65CFA91B06CFF6915584 /* Pods-PrecioScanUITests.debug.xcconfig */,
+				8F2B77465A849476384B2372 /* Pods-PrecioScanUITests.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		FE3C16BAD3DBC8BC0ADFE841 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				30D8005F1FDFA3D7003BD2FF /* StoreKit.framework */,
-				63F920A08F9F5CDD0BFE6F24 /* Pods_PrecioScan.framework */,
-				706F3779779F902CB4876CAC /* Pods_PrecioScanTests.framework */,
-				1DF3F025C91EB7794508F0A8 /* Pods_PrecioScanUITests.framework */,
+				577B2E596D99F1F00F560526 /* Pods_PrecioScan.framework */,
+				7D2C314FE1C0109C4C8A395B /* Pods_PrecioScanTests.framework */,
+				B2BB820FC599C204584FA3E8 /* Pods_PrecioScanUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -618,11 +622,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30FFE6461F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScan" */;
 			buildPhases = (
-				074F3C44540C1CAE922851FC /* [CP] Check Pods Manifest.lock */,
+				C0DA0CE7EC784541313E3255 /* [CP] Check Pods Manifest.lock */,
 				30FFE61A1F85977E001CE3B8 /* Sources */,
 				30FFE61B1F85977E001CE3B8 /* Frameworks */,
 				30FFE61C1F85977E001CE3B8 /* Resources */,
-				38E62F6FBD2D26ACDACEE5EB /* [CP] Embed Pods Frameworks */,
+				602598F203FD78FF860C6CF2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -637,7 +641,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30FFE6491F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScanTests" */;
 			buildPhases = (
-				D31970323FD5FF0D24551AE4 /* [CP] Check Pods Manifest.lock */,
+				A370DD301C54DF07AAC04825 /* [CP] Check Pods Manifest.lock */,
 				30FFE62E1F85977E001CE3B8 /* Sources */,
 				30FFE62F1F85977E001CE3B8 /* Frameworks */,
 				30FFE6301F85977E001CE3B8 /* Resources */,
@@ -656,7 +660,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30FFE64C1F85977E001CE3B8 /* Build configuration list for PBXNativeTarget "PrecioScanUITests" */;
 			buildPhases = (
-				5665CD288F8BB7DD70353757 /* [CP] Check Pods Manifest.lock */,
+				A6462EFFD1C7BB11733B7222 /* [CP] Check Pods Manifest.lock */,
 				30FFE6391F85977E001CE3B8 /* Sources */,
 				30FFE63A1F85977E001CE3B8 /* Frameworks */,
 				30FFE63B1F85977E001CE3B8 /* Resources */,
@@ -678,7 +682,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Felix Olivares";
 				TargetAttributes = {
 					30FFE61D1F85977E001CE3B8 = {
@@ -774,25 +778,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		074F3C44540C1CAE922851FC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PrecioScan-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		38E62F6FBD2D26ACDACEE5EB /* [CP] Embed Pods Frameworks */ = {
+		602598F203FD78FF860C6CF2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -804,20 +790,21 @@
 				"${BUILT_PRODUCTS_DIR}/AXStateButton/AXStateButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
-				"${BUILT_PRODUCTS_DIR}/BadgeSwift/BadgeSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BadgeHub/BadgeHub.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
-				"${BUILT_PRODUCTS_DIR}/DynamicButton/DynamicButton.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseDatabase/FirebaseDatabase.framework",
+				"${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework",
 				"${BUILT_PRODUCTS_DIR}/GMStepper/GMStepper.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/InteractiveSideMenu/InteractiveSideMenu.framework",
@@ -826,7 +813,9 @@
 				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
 				"${BUILT_PRODUCTS_DIR}/PWSwitch/PWSwitch.framework",
 				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyOnboard/SwiftyOnboard.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
@@ -843,20 +832,21 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AXStateButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BadgeHub.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseAuth.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseCoreDiagnostics.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseDatabase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FirebaseInstallations.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GMStepper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleDataTransport.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InteractiveSideMenu.framework",
@@ -865,7 +855,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PWSwitch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyOnboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
@@ -880,16 +872,42 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PrecioScan/Pods-PrecioScan-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5665CD288F8BB7DD70353757 /* [CP] Check Pods Manifest.lock */ = {
+		A370DD301C54DF07AAC04825 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PrecioScanTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6462EFFD1C7BB11733B7222 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-PrecioScanUITests-checkManifestLockResult.txt",
 			);
@@ -898,18 +916,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D31970323FD5FF0D24551AE4 /* [CP] Check Pods Manifest.lock */ = {
+		C0DA0CE7EC784541313E3255 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PrecioScanTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PrecioScan-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -974,6 +996,7 @@
 				3050A4B41F8713C300AD60D7 /* CreateListViewController.swift in Sources */,
 				306AC7861FA17F4A0096814C /* CompareViewController.swift in Sources */,
 				301CA55F1FAC28E100F2009A /* ArticleDetailViewController.swift in Sources */,
+				3016B40A26790825007DDBB6 /* BadgeHub.swift in Sources */,
 				309228501F86ED6100D6AA6A /* List.swift in Sources */,
 				306AC7DA1FAAB4B70096814C /* ArticlesViewController.swift in Sources */,
 				303261681FB169B10083FBA0 /* LoginViewController.swift in Sources */,
@@ -1077,6 +1100,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1102,12 +1126,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -1136,6 +1161,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1155,31 +1181,35 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		30FFE6471F85977E001CE3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 516C364AF82B1D3E5ABC8B00 /* Pods-PrecioScan.debug.xcconfig */;
+			baseConfigurationReference = 268F1CA2D313554AD6198709 /* Pods-PrecioScan.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1187,21 +1217,25 @@
 		};
 		30FFE6481F85977E001CE3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 50F7ACDCD7E3559EECE3E1BD /* Pods-PrecioScan.release.xcconfig */;
+			baseConfigurationReference = E33E489E1439B6903EABB3A6 /* Pods-PrecioScan.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = NNWZVWTFJB;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = PrecioScan/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.felixolivares.PrecioScan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1209,7 +1243,7 @@
 		};
 		30FFE64A1F85977E001CE3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A00744C8AC116A1C3B2D4A0 /* Pods-PrecioScanTests.debug.xcconfig */;
+			baseConfigurationReference = 8CC969FFF21AA2F500F3193C /* Pods-PrecioScanTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1227,7 +1261,7 @@
 		};
 		30FFE64B1F85977E001CE3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82198563EB3FB1537C1CB992 /* Pods-PrecioScanTests.release.xcconfig */;
+			baseConfigurationReference = AFA3EF58598AB0F861E84AE1 /* Pods-PrecioScanTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1245,7 +1279,7 @@
 		};
 		30FFE64D1F85977E001CE3B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B02365F27B49BFCAA92FA2FA /* Pods-PrecioScanUITests.debug.xcconfig */;
+			baseConfigurationReference = 4BED65CFA91B06CFF6915584 /* Pods-PrecioScanUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1262,7 +1296,7 @@
 		};
 		30FFE64E1F85977E001CE3B8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B6B00E79D50C754A032598F3 /* Pods-PrecioScanUITests.release.xcconfig */;
+			baseConfigurationReference = 8F2B77465A849476384B2372 /* Pods-PrecioScanUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1322,6 +1356,7 @@
 		30FFE6561F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				30399566245B3D1600FF06EB /* PrecioScanModel_ 10.xcdatamodel */,
 				303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */,
 				306B7B1B1FFEB74F0054F1CE /* PrecioScanModel_8.xcdatamodel */,
 				30FD3A1E1FD38ED500FCB9AE /* PrecioScanModel_7.xcdatamodel */,
@@ -1332,7 +1367,7 @@
 				303261701FB25C0B0083FBA0 /* PrecioScanModel_2.xcdatamodel */,
 				30FFE6571F85B2AF001CE3B8 /* PrecioScanModel.xcdatamodel */,
 			);
-			currentVersion = 303C4374202A4D2700C8D58F /* PrecioScanModel_9.xcdatamodel */;
+			currentVersion = 30399566245B3D1600FF06EB /* PrecioScanModel_ 10.xcdatamodel */;
 			path = PrecioScanModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

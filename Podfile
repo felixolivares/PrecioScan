@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
- platform :ios, '10.0'
+ platform :ios, '12.0'
 
 target 'PrecioScan' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
@@ -7,18 +7,16 @@ target 'PrecioScan' do
 
   # Pods for PrecioScan
   pod 'IQKeyboardManagerSwift'
-  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/wowansm/Chameleon', :branch => 'swift5'
   pod 'Alamofire', '~> 4.5'
-  pod 'AlamofireImage', '~> 3.3'
-  pod 'JSQCoreDataKit'
+  pod 'JSQCoreDataKit', '~> 9.0.0'
   pod 'MKDropdownMenu'
   pod 'PopupDialog', '~> 0.6'
   pod 'PMSuperButton'
-  pod "PromiseKit", "~> 4.4"
+  pod "PromiseKit", "~> 6.8"
   pod "GMStepper", :git => 'https://github.com/gmertk/GMStepper.git', :branch => 'swift4'
   pod 'IQKeyboardManagerSwift'
   pod 'InteractiveSideMenu'
-  pod 'DynamicButton', '~> 5.0.0'
   pod "PWSwitch"
   pod 'TableViewReloadAnimation', '~> 0.0.5'
   pod 'SwipeCellKit', :git => 'https://github.com/SwipeCellKit/SwipeCellKit.git', :branch => 'develop'
@@ -28,15 +26,16 @@ target 'PrecioScan' do
   pod 'TransitionButton'
   pod 'ALCameraViewController'
   pod 'AXPhotoViewer'
-  pod 'BadgeSwift', '~> 5.0'
   pod 'SwiftyStoreKit'
   pod 'SwiftyOnboard'
   pod 'Google-Mobile-Ads-SDK'
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
-  pod 'FacebookShare'
+  pod 'FBSDKCoreKit/Swift'
+  pod 'FBSDKLoginKit/Swift'
+  pod 'FBSDKShareKit/Swift'
   pod 'SwiftySound'
   pod 'AlamofireImage', '~> 3.5'
+  pod 'ProgressHUD'
+  pod 'BadgeHub'
   
   target 'PrecioScanTests' do
     inherit! :search_paths
@@ -48,4 +47,19 @@ target 'PrecioScan' do
     # Pods for testing
   end
 
+end
+
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+	   config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+            config.build_settings.delete('CODE_SIGNING_ALLOWED')
+            config.build_settings.delete('CODE_SIGNING_REQUIRED')
+        end
+    end
+    installer.pods_project.build_configurations.each do |config|
+        config.build_settings.delete('CODE_SIGNING_ALLOWED')
+        config.build_settings.delete('CODE_SIGNING_REQUIRED')
+    end
 end

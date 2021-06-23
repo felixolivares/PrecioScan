@@ -50,7 +50,7 @@ open class MenuContainerViewController: UIViewController {
                 fatalError("Invalid `menuViewController` value. It should not be nil")
             }
             menuViewController.menuContainerViewController = self
-            menuViewController.transitioningDelegate = navigationMenuTransitionDelegate as? UIViewControllerTransitioningDelegate
+            menuViewController.transitioningDelegate = navigationMenuTransitionDelegate
             menuViewController.navigationMenuTransitionDelegate = navigationMenuTransitionDelegate
         }
     }

@@ -22,8 +22,9 @@ class FirebaseOperations: NSObject {
             if error != nil{
                 print("Sign in - Error code: \((error! as NSError).code) ")
                 let customError = self.parseError(error: error! as NSError)
-                Popup.show(withError: customError, vc: vc)
-                button.stopAnimation()
+                button.stopAnimation(animationStyle: .shake, revertAfterDelay: 0.0, completion: {
+                    Popup.show(withError: customError, vc: vc)
+                })
             } else {
                 button.stopAnimation(animationStyle: .expand, completion: {
                     UserManager.shared.logIn(email: email)
@@ -146,10 +147,13 @@ class FirebaseOperations: NSObject {
         self.ref.child(FRTable.user).child((user?.uid)!).setValue(values)
     }
     
-    public func addArticle(barcode: String, name: String) -> String{
-        let values: [String: String?] = [FRAttribute.code: barcode, FRAttribute.name: name]
+    public func addArticle(barcode: String, name: String, suggestedPrice: Decimal? = nil) -> String{
+        let values: [String: String?] = [FRAttribute.code: barcode,
+                                         FRAttribute.name: name,
+                                         FRAttribute.suggestedPrice: String(describing: suggestedPrice!)]
         let articleRef = self.ref.child(FRTable.article).child(barcode)
         articleRef.setValue(values)
+        print("[FirebaseOperations] - Article saved remotely")
         return barcode
     }
     
@@ -237,15 +241,15 @@ class FirebaseOperations: NSObject {
     public func searchCurrentUser(withId uid: String, completionHandler: @escaping(TempUser?) -> Void){
         self.ref.child(FRTable.user).child(uid).observe(.value, with:{ snapshot in
             if snapshot.exists(){
-                var userDic = snapshot.value as! [String:Any]
+                let userDic = snapshot.value as! [String:Any]
                 print("User dict: \(userDic)")
                 let tmpUser = TempUser.init(email: userDic[FRAttribute.email] as! String,
                                             isSubscribed: userDic[FRAttribute.isSubscribed] as? Bool ?? false,
                                             uid: uid,
                                             subscriptionDate: userDic[FRAttribute.subscriptionDate] as? Double ?? nil,
                                             username: userDic[FRAttribute.username] as! String,
-                                            state: userDic[FRAttribute.state] as! String,
-                                            city: userDic[FRAttribute.city] as! String)
+                                            state: userDic[FRAttribute.state] as? String ?? "",
+                                            city: userDic[FRAttribute.city] as? String ?? "")
                 print("Temp User: \(tmpUser)")
                 completionHandler(tmpUser)
             } else {
@@ -261,7 +265,11 @@ class FirebaseOperations: NSObject {
                 if snapshot.childrenCount > 0{
                     print("[FirebaseOperations - searchArticles:byCode] Article found on Firebase")
                     let article = (snapshot.value! as! [String: Any])
-                    let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: snapshot.key)
+                    var suggestedPrice: Decimal? = nil
+                    if let suggestedPriceFetched = article[FRAttribute.suggestedPrice]{
+                        suggestedPrice = Decimal(string: ((suggestedPriceFetched as? String)!))
+                    }
+                    let newArticle = TempArticle.init(code: article[FRAttribute.code] as! String, name: article[FRAttribute.name] as! String, uid: snapshot.key, suggestedPrice: suggestedPrice)
                     completionHandler(newArticle)
 //                    for eachChild in snapshot.children{
 //                        

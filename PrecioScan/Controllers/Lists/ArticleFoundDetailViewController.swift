@@ -12,9 +12,9 @@ import PMSuperButton
 import GoogleMobileAds
 import ALCameraViewController
 import AXPhotoViewer
-import BadgeSwift
 
-class ArticleFoundDetailViewController: UIViewController {
+
+class ArticleFoundDetailViewController: UIViewController, GADFullScreenContentDelegate {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var barcodeLabel: UILabel!
@@ -25,7 +25,15 @@ class ArticleFoundDetailViewController: UIViewController {
     @IBOutlet weak var saveButton: RoundedButton!
     @IBOutlet weak var compareButton: PMSuperButton!
     @IBOutlet weak var nameAnimatedControl: AnimatedInputControl!
-    @IBOutlet weak var photoBadge: BadgeSwift!
+//    @IBOutlet weak var photoBadge: BadgeSwift!
+    @IBOutlet weak var suggestedPriceContainer: UIView!
+    @IBOutlet weak var suggestedPriceContainerConstraint: NSLayoutConstraint!
+    @IBOutlet weak var crossImageView: UIImageView!
+    @IBOutlet weak var checkImageView: UIImageView!
+    @IBOutlet weak var stepperTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var suggestedPriceTextField: CurrencyTextField!
+    @IBOutlet weak var photoButton: UIButton!
+    
     
     
     var articleSaved: Article!
@@ -39,6 +47,8 @@ class ArticleFoundDetailViewController: UIViewController {
     var photosDataSource: [AXPhoto] = []
     var photosViewController: AXPhotosViewController!
     var rewardedCompare: Bool = true
+    var rewardedAd: GADRewardedAd?
+    var badgeHub: BadgeHub?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +64,16 @@ class ArticleFoundDetailViewController: UIViewController {
     func configure() {
         stepper.addTarget(self, action: #selector(ArticleFoundDetailViewController.stepperValueChanged), for: .valueChanged)
         priceCurrencyTextField.addTarget(self, action: #selector(ArticleFoundDetailViewController.priceCurrencyChanged), for: .editingDidEnd)
+        suggestedPriceContainer.layer.cornerRadius = 14.0
+        suggestedPriceContainer.layer.borderWidth = 1.0
+        suggestedPriceContainer.layer.borderColor = UIColor(softGray)?.cgColor
         populateAnimatedControls()
         setupRewardedAd()
-        photoBadge.alpha = 0
+        //photoBadge.alpha = 0
         createPhotoDataSource()
+        badgeHub = BadgeHub(view: photoButton)
+        badgeHub?.scaleCircleSize(by: 0.5)
+        badgeHub?.moveCircleBy(x: 2.0, y: -5.0)
         self.setBadge()
     }
     
@@ -70,6 +86,15 @@ class ArticleFoundDetailViewController: UIViewController {
         if articleFound {
             nameLabel.text = itemListFound != nil ? itemListFound.article.name : articleSaved.name
             barcodeLabel.text = itemListFound != nil ? itemListFound.article.code : articleSaved.code
+            let suggestedPriceFound = itemListFound != nil ? itemListFound.article.suggestedPrice : articleSaved.suggestedPrice
+            if (Double(truncating: suggestedPriceFound) > 0.0) {
+                suggestedPriceTextField.text = CompareOperations().formatPrice(withDecimalNumber: suggestedPriceFound)
+            } else {
+                //Hide Suggested Price
+                self.suggestedPriceContainerConstraint.constant = -90.0
+                self.stepperTopConstraint.constant = 30.0
+                self.view.layoutIfNeeded()
+            }
         } else {
             
         }
@@ -82,6 +107,10 @@ class ArticleFoundDetailViewController: UIViewController {
             
             //Disable editables
             saveButton.setTitle("Actualizar", for: .normal)
+            
+            //Hide Suggested Price
+            self.suggestedPriceContainerConstraint.constant = 90.0
+            self.view.layoutIfNeeded()
         }
         
         //Image load
@@ -167,16 +196,53 @@ class ArticleFoundDetailViewController: UIViewController {
         totalPriceLabel.text = "Total: \(String(describing: Formatter.currency.string(for: totalPrice)!))"
     }
     
-    //MARK: - Ads
-    func showRewarded() {
-        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
-            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+    func animateSuggestedPriceContainer(){
+        UIView.animate(withDuration: 0.1, delay: 0.0, options: .curveEaseOut, animations: {
+            self.suggestedPriceContainerConstraint.constant = 18.0
+            self.view.layoutIfNeeded()
+        }) { (completed) in
+            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseOut , animations: {
+                self.suggestedPriceContainerConstraint.constant = -90.0
+                self.suggestedPriceContainer.alpha = 0.0
+                self.stepperTopConstraint.constant = 30.0
+                self.crossImageView.isHidden = true
+                self.checkImageView.isHidden = true
+                self.view.layoutIfNeeded()
+            }, completion: nil)
         }
     }
     
+    //MARK: - Ads
+    func showRewarded() {
+        if let ad = rewardedAd {
+              ad.present(fromRootViewController: self,
+                       userDidEarnRewardHandler: {
+                         let _ = ad.adReward
+                         // TODO: Reward the user.
+                       }
+              )
+          } else {
+            print("Ad wasn't ready")
+          }
+//        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+//            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+//        }
+    }
+    
     func setupRewardedAd() {
-        GADRewardBasedVideoAd.sharedInstance().delegate = self
-        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedArticleFound)
+        let request = GADRequest()
+        GADRewardedAd.load(withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedArticleFound,
+                                  request: request, completionHandler: { (ad, error) in
+                                    if let error = error {
+                                      print("Rewarded ad failed to load with error: \(error.localizedDescription)")
+                                      return
+                                    }
+                                    self.rewardedAd = ad
+                                    self.rewardedAd?.fullScreenContentDelegate = self
+                                  }
+          )
+//        GADRewardBasedVideoAd.sharedInstance().delegate = self
+//        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedArticleFound)
     }
     
     //MARK: - Buttons
@@ -254,6 +320,14 @@ class ArticleFoundDetailViewController: UIViewController {
                 }
             }
         })
+    }
+    @IBAction func cancelSuggestedPriceButtonPressed(_ sender: Any) {
+        animateSuggestedPriceContainer()
+    }
+    @IBAction func acceptSuggestedPriceButtonPressed(_ sender: Any) {
+        animateSuggestedPriceContainer()
+        priceCurrencyTextField.text = suggestedPriceTextField.text
+        
     }
     
     //MARK: - Popup
@@ -386,9 +460,7 @@ class ArticleFoundDetailViewController: UIViewController {
     
     func setBadge(){
         if photoExists{
-            UIView.animate(withDuration: 0.5, animations: {
-                self.photoBadge.alpha = 1
-            })
+            badgeHub?.increment()
         }
     }
     
@@ -404,6 +476,33 @@ class ArticleFoundDetailViewController: UIViewController {
             vc.openedWithModal = true
         }
     }
+    
+    //MARK: - Ads delegate methods
+    /// Tells the delegate that the rewarded ad was presented.
+    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Rewarded ad presented.")
+    }
+    /// Tells the delegate that the rewarded ad was dismissed.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Reward based video ad is closed.")
+        self.setupRewardedAd()
+        if !rewardedCompare {
+            if self.photoExists{
+                self.displayShowPhotoPopup()
+            } else {
+                self.takePhoto()
+            }
+        } else {
+            self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
+        }
+    }
+    /// Tells the delegate that the rewarded ad failed to present.
+    func ad(_ ad: GADFullScreenPresentingAd,
+        didFailToPresentFullScreenContentWithError error: Error) {
+      print("Rewarded ad failed to present with error: \(error.localizedDescription).")
+    }
+    
+
 }
 
 //MARK: - Textfield delegate methods
@@ -422,56 +521,56 @@ extension ArticleFoundDetailViewController: UITextFieldDelegate{
     }
 }
 
-extension ArticleFoundDetailViewController: GADRewardBasedVideoAdDelegate {
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-                            didRewardUserWith reward: GADAdReward) {
-        print("Reward received: \(reward.type), how many? \(reward.amount).")
-        #if DEBUG
-        if (reward.type == Constants.Admob.RewardItem.test && Int(truncating: reward.amount) >= 1) {
-            if rewardedCompare {
-                self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
-            }
-        }
-        #else
-        if (reward.type == Constants.Admob.RewardItem.article && Int(truncating: reward.amount) >= 1) {
-            if rewardedCompare {
-                self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
-            }
-        }
-        #endif
-    }
-    
-    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
-        print("Reward based video ad is received.")
-    }
-    
-    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Opened reward based video ad.")
-    }
-    
-    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad started playing.")
-    }
-    
-    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad has completed.")
-    }
-    
-    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad is closed.")
-        self.setupRewardedAd()
-        if !rewardedCompare {
-            self.takePhoto()
-        }
-    }
-    
-    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
-        print("Reward based video ad will leave application.")
-    }
-    
-    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
-                            didFailToLoadWithError error: Error) {
-        print("Reward based video ad failed to load.")
-    }
-}
+//extension ArticleFoundDetailViewController: GADRewardBasedVideoAdDelegate {
+//
+//    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+//                            didRewardUserWith reward: GADAdReward) {
+//        print("Reward received: \(reward.type), how many? \(reward.amount).")
+//        #if DEBUG
+//        if (reward.type == Constants.Admob.RewardItem.test && Int(truncating: reward.amount) >= 1) {
+//            if rewardedCompare {
+//                self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
+//            }
+//        }
+//        #else
+//        if (reward.type == Constants.Admob.RewardItem.article && Int(truncating: reward.amount) >= 1) {
+//            if rewardedCompare {
+//                self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
+//            }
+//        }
+//        #endif
+//    }
+//
+//    func rewardBasedVideoAdDidReceive(_ rewardBasedVideoAd:GADRewardBasedVideoAd) {
+//        print("Reward based video ad is received.")
+//    }
+//
+//    func rewardBasedVideoAdDidOpen(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+//        print("Opened reward based video ad.")
+//    }
+//
+//    func rewardBasedVideoAdDidStartPlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+//        print("Reward based video ad started playing.")
+//    }
+//
+//    func rewardBasedVideoAdDidCompletePlaying(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+//        print("Reward based video ad has completed.")
+//    }
+//
+//    func rewardBasedVideoAdDidClose(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+//        print("Reward based video ad is closed.")
+//        self.setupRewardedAd()
+//        if !rewardedCompare {
+//            self.takePhoto()
+//        }
+//    }
+//
+//    func rewardBasedVideoAdWillLeaveApplication(_ rewardBasedVideoAd: GADRewardBasedVideoAd) {
+//        print("Reward based video ad will leave application.")
+//    }
+//
+//    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd,
+//                            didFailToLoadWithError error: Error) {
+//        print("Reward based video ad failed to load.")
+//    }
+//}

@@ -7,13 +7,14 @@
 //
 
 import UIKit
-import DynamicButton
+
 import InteractiveSideMenu
 import PWSwitch
 
 class ConfigurationViewController: UIViewController, SideMenuItemContent {
 
-    @IBOutlet weak var hamburgerButton: DynamicButton!
+    @IBOutlet weak var hamburgerButton: UIButton!
+    //    @IBOutlet weak var hamburgerButton: DynamicButton!
     @IBOutlet weak var soundSwitch: PWSwitch!
     @IBOutlet weak var photosNumberLabel: UILabel!
     @IBOutlet weak var heightHeaderConstraint: NSLayoutConstraint!
@@ -30,7 +31,7 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        hamburgerButton.setStyle(.hamburger, animated: true)
+//        hamburgerButton.setStyle(.hamburger, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -47,7 +48,7 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
     
     //Buttons
     @IBAction func hamburgerButtonPressed(_ sender: Any) {
-        hamburgerButton.setStyle(.close, animated: true)
+//        hamburgerButton.setStyle(.close, animated: true)
         self.showSideMenu()
     }
     
@@ -78,7 +79,7 @@ class ConfigurationViewController: UIViewController, SideMenuItemContent {
     
     func configureComponents(){
         UserManager.shared.verifyUserIsLogged(vc: self)
-        hamburgerButton.setStyle(.hamburger, animated: false)
+//        hamburgerButton.setStyle(.hamburger, animated: false)
         updatePhotosCountLabel()
         
         if !UserManager.shared.userIsSuscribed(){
