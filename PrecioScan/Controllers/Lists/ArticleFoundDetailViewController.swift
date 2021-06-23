@@ -14,7 +14,7 @@ import ALCameraViewController
 import AXPhotoViewer
 
 
-class ArticleFoundDetailViewController: UIViewController {
+class ArticleFoundDetailViewController: UIViewController, GADFullScreenContentDelegate {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var barcodeLabel: UILabel!
@@ -32,6 +32,7 @@ class ArticleFoundDetailViewController: UIViewController {
     @IBOutlet weak var checkImageView: UIImageView!
     @IBOutlet weak var stepperTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var suggestedPriceTextField: CurrencyTextField!
+    @IBOutlet weak var photoButton: UIButton!
     
     
     
@@ -46,6 +47,8 @@ class ArticleFoundDetailViewController: UIViewController {
     var photosDataSource: [AXPhoto] = []
     var photosViewController: AXPhotosViewController!
     var rewardedCompare: Bool = true
+    var rewardedAd: GADRewardedAd?
+    var badgeHub: BadgeHub?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +71,9 @@ class ArticleFoundDetailViewController: UIViewController {
         setupRewardedAd()
         //photoBadge.alpha = 0
         createPhotoDataSource()
+        badgeHub = BadgeHub(view: photoButton)
+        badgeHub?.scaleCircleSize(by: 0.5)
+        badgeHub?.moveCircleBy(x: 2.0, y: -5.0)
         self.setBadge()
     }
     
@@ -80,8 +86,9 @@ class ArticleFoundDetailViewController: UIViewController {
         if articleFound {
             nameLabel.text = itemListFound != nil ? itemListFound.article.name : articleSaved.name
             barcodeLabel.text = itemListFound != nil ? itemListFound.article.code : articleSaved.code
-            if (Double(truncating: itemListFound.article.suggestedPrice) > 0.0) {
-                suggestedPriceTextField.text = CompareOperations().formatPrice(withDecimalNumber: itemListFound.article.suggestedPrice)
+            let suggestedPriceFound = itemListFound != nil ? itemListFound.article.suggestedPrice : articleSaved.suggestedPrice
+            if (Double(truncating: suggestedPriceFound) > 0.0) {
+                suggestedPriceTextField.text = CompareOperations().formatPrice(withDecimalNumber: suggestedPriceFound)
             } else {
                 //Hide Suggested Price
                 self.suggestedPriceContainerConstraint.constant = -90.0
@@ -207,12 +214,33 @@ class ArticleFoundDetailViewController: UIViewController {
     
     //MARK: - Ads
     func showRewarded() {
+        if let ad = rewardedAd {
+              ad.present(fromRootViewController: self,
+                       userDidEarnRewardHandler: {
+                         let _ = ad.adReward
+                         // TODO: Reward the user.
+                       }
+              )
+          } else {
+            print("Ad wasn't ready")
+          }
 //        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
 //            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
 //        }
     }
     
     func setupRewardedAd() {
+        let request = GADRequest()
+        GADRewardedAd.load(withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedArticleFound,
+                                  request: request, completionHandler: { (ad, error) in
+                                    if let error = error {
+                                      print("Rewarded ad failed to load with error: \(error.localizedDescription)")
+                                      return
+                                    }
+                                    self.rewardedAd = ad
+                                    self.rewardedAd?.fullScreenContentDelegate = self
+                                  }
+          )
 //        GADRewardBasedVideoAd.sharedInstance().delegate = self
 //        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: testingAds ? Constants.Admob.rewardedTestId : Constants.Admob.rewardedArticleFound)
     }
@@ -432,9 +460,7 @@ class ArticleFoundDetailViewController: UIViewController {
     
     func setBadge(){
         if photoExists{
-            UIView.animate(withDuration: 0.5, animations: {
-                //self.photoBadge.alpha = 1
-            })
+            badgeHub?.increment()
         }
     }
     
@@ -450,6 +476,33 @@ class ArticleFoundDetailViewController: UIViewController {
             vc.openedWithModal = true
         }
     }
+    
+    //MARK: - Ads delegate methods
+    /// Tells the delegate that the rewarded ad was presented.
+    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Rewarded ad presented.")
+    }
+    /// Tells the delegate that the rewarded ad was dismissed.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Reward based video ad is closed.")
+        self.setupRewardedAd()
+        if !rewardedCompare {
+            if self.photoExists{
+                self.displayShowPhotoPopup()
+            } else {
+                self.takePhoto()
+            }
+        } else {
+            self.performSegue(withIdentifier: Segues.toCompareFromArticleFound, sender: nil)
+        }
+    }
+    /// Tells the delegate that the rewarded ad failed to present.
+    func ad(_ ad: GADFullScreenPresentingAd,
+        didFailToPresentFullScreenContentWithError error: Error) {
+      print("Rewarded ad failed to present with error: \(error.localizedDescription).")
+    }
+    
+
 }
 
 //MARK: - Textfield delegate methods

@@ -57,6 +57,7 @@ class UserManager: NSObject {
                 }
                 if !(topController is LoginViewController){
                     let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Login")
+                    viewController.modalPresentationStyle = .fullScreen
                     vc.present(viewController, animated: true, completion: nil)
                 }
             }

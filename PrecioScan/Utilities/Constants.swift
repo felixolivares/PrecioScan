@@ -103,7 +103,7 @@ struct Constants {
             public static let photoAlreadySavedTitle = "Foto Guardada"
             public static let photoAlreadySavedMessage = "Ya hay una foto guardada para este artículo. Te gustaria verla o tomar una nueva?"
             public static let subscriptionRestriction = "Para comparar los precios anteriores de este artículo debes convertirte en usuario Premium comprando tu suscripción con un pago único de $productPrice, o bien ve el siguiente video."
-            public static let photoSubscriptionRestriction = "Para tomar una foto de este artículo debes convertirte en usuario Premium comprando tu suscripción con un pago único de $productPrice, o bien ve el siguiente video."
+            public static let photoSubscriptionRestriction = "Para ver o tomar una foto de este artículo debes convertirte en usuario Premium comprando tu suscripción con un pago único de $productPrice, o bien ve el siguiente video."
             public static let itemListUpdatedMessage = "Artículo actualizado"
         }
     }
@@ -221,13 +221,14 @@ struct Constants {
     
     struct InAppPurchasesManager{
         public static let product = "com.felixolivares.PrecioScan.PremiumSubscription"
+        public static let noPurchasesRestore = "No hay compras que restaurar"
     }
     
     //Admob
     struct Admob{
         public static let appID = "ca-app-pub-3913769475917328~5547690405"
         public static let bannerTestId = "ca-app-pub-3940256099942544/2934735716"
-        public static let interstitialTestId = "ca-app-pub-3940256099942544/4411468910"
+        public static let interstitialTestId = "/6499/example/interstitial"
         public static let bannerMainListId = "ca-app-pub-3913769475917328/6205687021"
         public static let bannerStoresListId = "ca-app-pub-3913769475917328/9766492234"
         public static let bannerSearchStoresSmallId = "ca-app-pub-3913769475917328/1720960184"

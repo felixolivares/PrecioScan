@@ -14,7 +14,7 @@ import PMSuperButton
 import SwipeCellKit
 import GoogleMobileAds
 
-class CreateListViewController: UIViewController, CreateStoreViewControllerDelegate {
+class CreateListViewController: UIViewController, CreateStoreViewControllerDelegate, GADFullScreenContentDelegate {
 
     @IBOutlet weak var addStoreMenu: MKDropdownMenu!
     @IBOutlet weak var nameListAnimatedControl: AnimatedInputControl!
@@ -42,6 +42,8 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
     var titleText = String()
     
 //    var interstitialAd: GADInterstitial!
+    private var interstitialAd: GAMInterstitialAd?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +98,7 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         configureComponents()
         configureTable()
         nameListAnimatedControl.setDelegate()
-//        interstitialAd = createAndLoadInterstitial()
+        createAndLoadInterstitial()
     }
     
     func configureMenu(){
@@ -195,15 +197,36 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
         }
     }
     
-//    func createAndLoadInterstitial() -> GADInterstitial{
+    func createAndLoadInterstitial(){
+        let request = GAMRequest()
+        GAMInterstitialAd.load(withAdManagerAdUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId,
+                               request: request,
+                               completionHandler: { [self] ad, error in
+                                if let error = error {
+                                  print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                                  return
+                                } else {
+                                    print("Ad loaded succesfully: \(String(describing: ad))")
+                                }
+                                self.interstitialAd = ad
+                                self.interstitialAd?.fullScreenContentDelegate = self
+                              }
+        )
 //        let interstitial = GADInterstitial(adUnitID: testingAds ? Constants.Admob.interstitialTestId : Constants.Admob.interstitialListDetailId)
 //        interstitial.delegate = self
 //        interstitial.load(AdsManager.shared.getRequest())
 //        return interstitial
-//    }
+    }
     
     func showInterstitial(){
+        print("Interstitial add show")
+        self.dismiss(animated: false, completion: nil)
         guard !UserManager.shared.userIsSuscribed() else {_ = self.navigationController?.popViewController(animated: true);return}
+        if self.interstitialAd != nil {
+            self.interstitialAd!.present(fromRootViewController: self)
+          } else {
+            print("Ad wasn't ready")
+          }
 //        if interstitialAd.isReady {
 //            interstitialAd.present(fromRootViewController: self)
 //        } else {
@@ -212,9 +235,28 @@ class CreateListViewController: UIViewController, CreateStoreViewControllerDeleg
 //        }
     }
     
+    //MARK: - Ads delegate methods
+    /// Tells the delegate that the ad failed to present full screen content.
+      func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content. \(error.localizedDescription)")
+      }
+
+      /// Tells the delegate that the ad presented full screen content.
+      func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did present full screen content.")
+      }
+
+      /// Tells the delegate that the ad dismissed full screen content.
+      func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did dismiss full screen content.")
+        _ = self.navigationController?.popViewController(animated: true)
+        self.createAndLoadInterstitial()
+      }
+    
     //MARK: - Buttons pressed
     @IBAction func backButtonPressed(_ sender: Any) {
-        _ = navigationController?.popViewController(animated: true)
+//        _ = navigationController?.popViewController(animated: true)
+        self.showInterstitial()
     }
     
     @IBAction func addArticleButtonPressed(_ sender: Any) {

@@ -34,6 +34,8 @@ target 'PrecioScan' do
   pod 'FBSDKShareKit/Swift'
   pod 'SwiftySound'
   pod 'AlamofireImage', '~> 3.5'
+  pod 'ProgressHUD'
+  pod 'BadgeHub'
   
   target 'PrecioScanTests' do
     inherit! :search_paths
